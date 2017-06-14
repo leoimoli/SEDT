@@ -32,30 +32,30 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-xs-4">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
                                                 Nombre: <span class="required">*</span>
                                             </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" id="txNombre" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-4">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
                                                 Apellido: <span class="required">*</span>
                                             </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" id="txDni" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-4">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
                                                 Apodo: <span class="required">*</span>
                                             </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" id="txDni" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
