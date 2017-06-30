@@ -30,7 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.4.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Leo(Codigo)\Windows Form\Sico(Contable)\Fuentes\SICO\SICO\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,20 +45,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ConsultarDAO.cs" />
+    <Compile Include="DAO\GuardarDAO.cs" />
+    <Compile Include="Entidades\Entrenamiento.cs" />
     <Compile Include="Entidades\EstadisticaJugadorTotal.cs" />
     <Compile Include="Entidades\EstadisticaJugadorPorPartido.cs" />
+    <Compile Include="Entidades\EstadisticaPartido.cs" />
+    <Compile Include="Entidades\EtapasEntrenamiento.cs" />
     <Compile Include="Entidades\FichaTecnicaJugador.cs" />
+    <Compile Include="Entidades\HistorialEtapa.cs" />
+    <Compile Include="Entidades\Partido.cs" />
     <Compile Include="Entidades\PersonaFisicaJugador.cs" />
     <Compile Include="Entidades\EquipoRival.cs" />
     <Compile Include="Entidades\HistorialDePago.cs" />
     <Compile Include="Entidades\EquipoUsuario.cs" />
     <Compile Include="Entidades\PlanDePago.cs" />
+    <Compile Include="Entidades\Torneo.cs" />
+    <Compile Include="Entidades\TurnoEntrenamiento.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
