@@ -28,5 +28,24 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaPersonaFisicaJugador(Modelo.Entidades.PersonaFisicaJugador jugador)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaPersonaFisicaJugador(jugador);
+                if (respuesta.Exito == true)
+                {
+                    //respuesta.Id = GuardarDAO.AltaPersonaFisicaJugador(jugador);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
     }
 }

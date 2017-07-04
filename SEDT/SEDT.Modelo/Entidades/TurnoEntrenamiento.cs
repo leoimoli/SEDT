@@ -15,4 +15,4 @@ namespace SEDT.Modelo.Entidades
         public int CantidadEtapas { get; set; }
     }
 }
-}
+

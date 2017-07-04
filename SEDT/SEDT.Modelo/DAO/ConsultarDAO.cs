@@ -41,5 +41,10 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return ValidarExistencia;
         }
+
+        public static bool AltaPersonaFisicaJugadorExistente(PersonaFisicaJugador jugador)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -28,5 +28,33 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaPersonaFisicaJugador(PersonaFisicaJugador jugador)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            if (String.IsNullOrEmpty(jugador.Apellido))
+            {
+                respuesta.Errores.Add("El campo Apellido es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            if (String.IsNullOrEmpty(jugador.Nombre))
+            {
+                respuesta.Errores.Add("El campo Nombre es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            if (String.IsNullOrEmpty(jugador.Apodo))
+            {
+                respuesta.Errores.Add("El campo Apodo es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+
+            bool AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador);
+            if (AltaPersonaFisicaJugadorExistente == true)
+            {
+                respuesta.Errores.Add("Ya existe una persona fisica con los mismos datos para el usuario logueado.");
+                respuesta.Exito = false;
+            }
+            return respuesta;
+        }
     }
 }
