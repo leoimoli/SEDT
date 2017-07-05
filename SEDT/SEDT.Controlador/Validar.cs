@@ -47,12 +47,20 @@ namespace SEDT.Controlador
                 respuesta.Errores.Add("El campo Apodo es un dato obligatorio.");
                 respuesta.Exito = false;
             }
-
-            bool AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador);
-            if (AltaPersonaFisicaJugadorExistente == true)
+            ///// Si se ingreso un dni se valida por dni.
+            if (!String.IsNullOrEmpty(jugador.Dni))
             {
-                respuesta.Errores.Add("Ya existe una persona fisica con los mismos datos para el usuario logueado.");
-                respuesta.Exito = false;
+                bool AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistentePorDni(jugador.Dni, jugador.idUsuario);
+            }
+            ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
+            else
+            {
+                bool AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.idUsuario);
+                if (AltaPersonaFisicaJugadorExistente == true)
+                {
+                    respuesta.Errores.Add("Ya existe una persona fisica con los mismos datos para el usuario logueado.");
+                    respuesta.Exito = false;
+                }
             }
             return respuesta;
         }

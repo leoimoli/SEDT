@@ -17,5 +17,7 @@ namespace SEDT.Modelo.Entidades
         public string Altura { get; set; }
         public string Peso { get; set; }
         public string Imagen { get; set; }
+
+        public int idUsuario { get;  set;}
     }
 }

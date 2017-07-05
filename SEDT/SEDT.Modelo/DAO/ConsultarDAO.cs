@@ -41,10 +41,53 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return ValidarExistencia;
         }
-
-        public static bool AltaPersonaFisicaJugadorExistente(PersonaFisicaJugador jugador)
+        public static bool AltaPersonaFisicaJugadorExistentePorDni(string dni, int idUsuario)
         {
-            throw new NotImplementedException();
+            bool ValidarExistencia;
+            connection.Open();
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("txDni_in", dni), new MySqlParameter("idUsuario_in", idUsuario) };
+            string proceso = "AltaPersonaFisicaJugadorExistentePorDni";
+            MySqlDataAdapter da = new MySqlDataAdapter(proceso, connection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddRange(oParam);
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                ValidarExistencia = true;
+            }
+            else
+            {
+                ValidarExistencia = false;
+            }
+            connection.Close();
+            return ValidarExistencia;
+        }
+        public static bool AltaPersonaFisicaJugadorExistente(string apellido, string nombre, string apodo, int idUsuario)
+        {
+            bool ValidarExistencia;
+            connection.Open();
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("txApellido_in", apellido),  new MySqlParameter("txNombre_in", nombre),  new MySqlParameter("txApodo_in", apodo), new MySqlParameter("idUsuario_in", idUsuario) };
+            string proceso = "AltaPersonaFisicaJugadorExistente";
+            MySqlDataAdapter da = new MySqlDataAdapter(proceso, connection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddRange(oParam);
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                ValidarExistencia = true;
+            }
+            else
+            {
+                ValidarExistencia = false;
+            }
+            connection.Close();
+            return ValidarExistencia;
         }
     }
 }

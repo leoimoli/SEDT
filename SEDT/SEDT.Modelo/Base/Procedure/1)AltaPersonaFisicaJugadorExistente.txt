@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaPersonaFisicaJugadorExistente`(IN txApellido_in varchar(150), txNombre_in varchar(150), txApodo_in varchar(150), idUsuario_in int)
+BEGIN
+Select * From tPersonaFisicaJugador where(txApellido_in = txApellido and txNombre_in = txNombre and txApodo_in = txApodo and idUsuario_in = idUsuario);
+end
