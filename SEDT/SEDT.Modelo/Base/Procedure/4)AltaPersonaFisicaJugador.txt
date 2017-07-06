@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaPersonaFisicaJugador`(IN Dni_in varchar(10), Apellido_in varchar(150), Nombre_in varchar(150), Apodo_in varchar(150), FechaNacimiento_in datetime,
+ Altura_in varchar(100), Peso_in varchar(100), imagen_in Blob, idUsuario_in int)
+BEGIN insert into tPersonaFisicaJugador
+(txDNI,txApellido,txNombre,txApodo,dtFechaNacimiento,txAltura,txPeso, ImagenJugador, idUsuario)  values (Dni_in, Apellido_in, Nombre_in, Apodo_in, FechaNacimiento_in, Altura_in, Peso_in, Apodo_in);
+END

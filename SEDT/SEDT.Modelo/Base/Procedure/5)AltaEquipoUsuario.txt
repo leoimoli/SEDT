@@ -1,0 +1,7 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaEquipoUsuario`(IN Nombre_in varchar (150), ImagenEscudo_in Blob, IdUsuario_in int)
+
+BEGIN
+ insert into
+tEquipoUsuario (txNombre, ImagenEscudo, idUsuario) 
+values (Nombre_in, ImagenEscudo_in, idUsuario_in);
+END
