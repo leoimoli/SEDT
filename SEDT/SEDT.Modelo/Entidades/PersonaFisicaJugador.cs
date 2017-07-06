@@ -16,7 +16,7 @@ namespace SEDT.Modelo.Entidades
         public DateTime FechaNacimiento { get; set; }
         public string Altura { get; set; }
         public string Peso { get; set; }
-        public string Imagen { get; set; }
+        public byte[] Imagen { get; set; }
 
         public int idUsuario { get;  set;}
     }

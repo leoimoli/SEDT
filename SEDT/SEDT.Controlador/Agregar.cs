@@ -37,7 +37,7 @@ namespace SEDT.Controlador
                 respuesta = Validar.AltaPersonaFisicaJugador(jugador);
                 if (respuesta.Exito == true)
                 {
-                    //respuesta.Id = GuardarDAO.AltaPersonaFisicaJugador(jugador);
+                    respuesta.Id = GuardarDAO.AltaPersonaFisicaJugador(jugador);
                 }
             }
             catch (Exception ex)

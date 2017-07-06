@@ -51,6 +51,11 @@ namespace SEDT.Controlador
             if (!String.IsNullOrEmpty(jugador.Dni))
             {
                 bool AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistentePorDni(jugador.Dni, jugador.idUsuario);
+                if (AltaPersonaFisicaJugadorExistente == true)
+                {
+                    respuesta.Errores.Add("Ya existe una persona fisica con los mismos datos para el usuario logueado.");
+                    respuesta.Exito = false;
+                }
             }
             ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
             else
