@@ -73,5 +73,19 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
+        public static int AltaEquipoRival(EquipoRival equipoRival)
+        {
+            int id = 1;
+            connection.Open();
+            string proceso = "AltaEquipoRival";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("NombreEquipo_in", equipoRival.NombreEquipo);
+            cmd.Parameters.AddWithValue("ImagenEscudo_in", equipoRival.ImagenEscudo);
+            cmd.Parameters.AddWithValue("IdEquipoUsuario_in", equipoRival.IdEquipoUsuario);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            return id;
+        }
     }
 }
