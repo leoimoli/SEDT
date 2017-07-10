@@ -1,0 +1,11 @@
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaFichaTecnicaJugador`(IN PosicionDeCampo_in varchar(20), PiernaHabil_in varchar(20), NivelPiernaHabil_in varchar(20), PiernaInhabil_in varchar(20), NivelPiernaInhabil_in varchar(20), JuegoAereo_in varchar(20), NivelDefensivo_in varchar(20), NivelOfensivo_in varchar(20), Velocidad_in varchar(20), PredisposiciónEntrenamiento_in varchar(20), TecnicaIndividual_in varchar(20)
+, DisciplinaTactica_in varchar(20)
+, IdPersonaFisicaJugador_in int (8))
+
+BEGIN
+ insert into tFichaTecnicaJugador
+(txPosicion,txPiernaHabil, txNivelPiernaHabil, txPiernaInhabil, txNivelPiernaInhabil, txJuegoAereo, txNivelDefensivo,txNivelOfensivo, txVelocidad,   txPredisposicionEntrenamiento,txTecnicaIndividual, txDisciplinaTactica, IdPersonaFisicaJugador)
+values (PosicionDeCampo_in , PiernaHabil_in, NivelPiernaHabil_in , PiernaInhabil_in, NivelPiernaInhabil_in, JuegoAereo_in, NivelDefensivo_in, NivelOfensivo_in, Velocidad_in, PredisposiciónEntrenamiento_in, TecnicaIndividual_in, DisciplinaTactica_in, IdPersonaFisicaJugador_in);
+END

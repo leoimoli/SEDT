@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarNombreEquipoRivalExistente`(IN NombreEquipo_in varchar(150), IdEquipoUsuario_in int)
+BEGIN
+Select * From tEquipoRival where(NombreEquipo_in is null or txNombreEquipo = NombreEquipo_in and idEquipoUsuario_in is null or idEquipoUsuario = 
+idEquipoUsuario_in);
+END

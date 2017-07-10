@@ -71,6 +71,8 @@
     <Content Include="Base\Procedure\3%29BuscarNombreEquipoExistente.txt" />
     <Content Include="Base\Procedure\4%29AltaPersonaFisicaJugador.txt" />
     <Content Include="Base\Procedure\5%29AltaEquipoUsuario.txt" />
+    <Content Include="Base\Procedure\6%29AltaFichaTecnicaJugador.txt" />
+    <Content Include="Base\Procedure\7%29BuscarNombreEquipoRivalExistente.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -69,5 +69,30 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaEquipoRival(EquipoRival equipoRival)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            if (String.IsNullOrEmpty(equipoRival.NombreEquipo))
+            {
+                respuesta.Errores.Add("El nombre del equipo es dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            bool ValidarAltaEquipoRival = ConsultarDAO.ValidarAltaEquipoRival(equipoRival);
+            if (ValidarAltaEquipoRival == true)
+            {
+                respuesta.Errores.Add("Ya existe un equipo rival con el mismo nombre ingresado.");
+                respuesta.Exito = false;
+            }
+            return respuesta;
+        }
+
+        public static Respuesta AltaFichaTecnicaJugador(FichaTecnicaJugador ficha)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+
+            return respuesta;
+        }
     }
 }

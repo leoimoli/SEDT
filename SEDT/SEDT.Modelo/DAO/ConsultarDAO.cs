@@ -89,5 +89,30 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return ValidarExistencia;
         }
+
+        public static bool ValidarAltaEquipoRival(EquipoRival equipoRival)
+        {
+            bool ValidarExistencia;
+            connection.Open();
+            DataTable dt = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("NombreEquipo_in", equipoRival.NombreEquipo),
+                                      new MySqlParameter("IdEquipoUsuario_in", equipoRival.IdEquipoUsuario)};
+            string proceso = "BuscarNombreEquipoRivalExistente";
+            MySqlDataAdapter da = new MySqlDataAdapter(proceso, connection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddRange(oParam);
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                ValidarExistencia = true;
+            }
+            else
+            {
+                ValidarExistencia = false;
+            }
+            connection.Close();
+            return ValidarExistencia;
+        }
     }
 }

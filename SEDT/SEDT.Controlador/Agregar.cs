@@ -47,5 +47,43 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaFichaTecnicaJugador(Modelo.Entidades.FichaTecnicaJugador ficha)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaFichaTecnicaJugador(ficha);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaFichaTecnicaJugador(ficha);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
+        public static Respuesta AltaEquipoRival(Modelo.Entidades.EquipoRival equipoRival)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaEquipoRival(equipoRival);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaEquipoRival(equipoRival);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
     }
 }
