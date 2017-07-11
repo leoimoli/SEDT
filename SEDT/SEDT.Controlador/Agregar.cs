@@ -85,5 +85,24 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaTorneo(Modelo.Entidades.Torneo torneo)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaTorneo(torneo);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaTorneo(torneo);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
     }
 }

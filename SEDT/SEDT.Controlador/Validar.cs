@@ -87,6 +87,24 @@ namespace SEDT.Controlador
             return respuesta;
         }
 
+        public static Respuesta AltaTorneo(Torneo torneo)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            if (String.IsNullOrEmpty(torneo.NombreTorneo))
+            {
+                respuesta.Errores.Add("El nombre del torneo es dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            bool ValidarAltaTorneoExistente = ConsultarDAO.BuscarTorneoExistente(torneo);
+            if (ValidarAltaTorneoExistente == true)
+            {
+                respuesta.Errores.Add("Ya existe un torneo con el mismo nombre ingresado.");
+                respuesta.Exito = false;
+            }
+            return respuesta;
+        }
+
         public static Respuesta AltaFichaTecnicaJugador(FichaTecnicaJugador ficha)
         {
             Respuesta respuesta = new Respuesta();

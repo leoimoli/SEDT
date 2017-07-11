@@ -1,0 +1,8 @@
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaEquipoRival`(IN NombreEquipo_in varchar(150), ImagenEscudo_in Blob, IdEquipoUsuario_in int)
+
+
+BEGIN
+ insert into tEquipoRival(txNombre, txEscudo, IdEquipoUsuario)  values (NombreEquipo_in, ImagenEscudo_in, IdEquipoUsuario_in );
+END

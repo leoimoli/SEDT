@@ -114,5 +114,29 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return ValidarExistencia;
         }
+        public static bool BuscarTorneoExistente(Torneo torneo)
+        {
+            bool ValidarExistencia;
+            connection.Open();
+            DataTable dt = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("NombreTorneo_in", torneo.NombreTorneo),
+                                      new MySqlParameter("IdEquipoUsuario_in", torneo.IdEquipoUsuario)};
+            string proceso = "BuscarTorneoExistente";
+            MySqlDataAdapter da = new MySqlDataAdapter(proceso, connection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddRange(oParam);
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                ValidarExistencia = true;
+            }
+            else
+            {
+                ValidarExistencia = false;
+            }
+            connection.Close();
+            return ValidarExistencia;
+        }
     }
 }
