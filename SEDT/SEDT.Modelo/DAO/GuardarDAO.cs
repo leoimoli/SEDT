@@ -24,6 +24,9 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("Nombre_in", equipo.NombreEquipo);
             cmd.Parameters.AddWithValue("ImagenEscudo_in", equipo.ImagenEscudo);
             cmd.Parameters.AddWithValue("IdUsuario_in", equipo.IdUsuario);
+            cmd.Parameters.AddWithValue("Siglas_in", equipo.Siglas);
+            cmd.Parameters.AddWithValue("SitioWeb_in", equipo.SitioWeb);
+            cmd.Parameters.AddWithValue("TelefonoDeContacto_in", equipo.TelefonoDeContacto);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;
