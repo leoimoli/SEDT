@@ -73,7 +73,6 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
-
         public static int AltaTorneo(Torneo torneo)
         {
             int id = 1;
@@ -88,7 +87,6 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
-
         public static int AltaEquipoRival(EquipoRival equipoRival)
         {
             int id = 1;
