@@ -244,6 +244,73 @@
     <Content Include="Template\documentation\js\jquery.min.js" />
     <Content Include="Template\documentation\js\shBrushXml.js" />
     <Content Include="Template\documentation\js\shCore.js" />
+    <Content Include="Template\fileInput\.gitignore" />
+    <Content Include="Template\fileInput\css\fileinput-rtl.css" />
+    <Content Include="Template\fileInput\css\fileinput-rtl.min.css" />
+    <Content Include="Template\fileInput\css\fileinput.css" />
+    <Content Include="Template\fileInput\css\fileinput.min.css" />
+    <Content Include="Template\fileInput\examples\index.html" />
+    <Content Include="Template\fileInput\img\Escudo.png" />
+    <Content Include="Template\fileInput\img\loading-sm.gif" />
+    <Content Include="Template\fileInput\img\loading.gif" />
+    <Content Include="Template\fileInput\js\fileinput.js" />
+    <Content Include="Template\fileInput\js\fileinput.min.js" />
+    <Content Include="Template\fileInput\js\locales\ar.js" />
+    <Content Include="Template\fileInput\js\locales\az.js" />
+    <Content Include="Template\fileInput\js\locales\bg.js" />
+    <Content Include="Template\fileInput\js\locales\ca.js" />
+    <Content Include="Template\fileInput\js\locales\cr.js" />
+    <Content Include="Template\fileInput\js\locales\cz.js" />
+    <Content Include="Template\fileInput\js\locales\da.js" />
+    <Content Include="Template\fileInput\js\locales\de.js" />
+    <Content Include="Template\fileInput\js\locales\el.js" />
+    <Content Include="Template\fileInput\js\locales\es.js" />
+    <Content Include="Template\fileInput\js\locales\et.js" />
+    <Content Include="Template\fileInput\js\locales\fa.js" />
+    <Content Include="Template\fileInput\js\locales\fi.js" />
+    <Content Include="Template\fileInput\js\locales\fr.js" />
+    <Content Include="Template\fileInput\js\locales\gl.js" />
+    <Content Include="Template\fileInput\js\locales\hu.js" />
+    <Content Include="Template\fileInput\js\locales\id.js" />
+    <Content Include="Template\fileInput\js\locales\it.js" />
+    <Content Include="Template\fileInput\js\locales\ja.js" />
+    <Content Include="Template\fileInput\js\locales\kr.js" />
+    <Content Include="Template\fileInput\js\locales\kz.js" />
+    <Content Include="Template\fileInput\js\locales\LANG.js" />
+    <Content Include="Template\fileInput\js\locales\nl.js" />
+    <Content Include="Template\fileInput\js\locales\no.js" />
+    <Content Include="Template\fileInput\js\locales\pl.js" />
+    <Content Include="Template\fileInput\js\locales\pt-BR.js" />
+    <Content Include="Template\fileInput\js\locales\pt.js" />
+    <Content Include="Template\fileInput\js\locales\ro.js" />
+    <Content Include="Template\fileInput\js\locales\ru.js" />
+    <Content Include="Template\fileInput\js\locales\sk.js" />
+    <Content Include="Template\fileInput\js\locales\sl.js" />
+    <Content Include="Template\fileInput\js\locales\sv.js" />
+    <Content Include="Template\fileInput\js\locales\th.js" />
+    <Content Include="Template\fileInput\js\locales\tr.js" />
+    <Content Include="Template\fileInput\js\locales\uk.js" />
+    <Content Include="Template\fileInput\js\locales\vi.js" />
+    <Content Include="Template\fileInput\js\locales\zh-TW.js" />
+    <Content Include="Template\fileInput\js\locales\zh.js" />
+    <Content Include="Template\fileInput\js\plugins\piexif.js" />
+    <Content Include="Template\fileInput\js\plugins\piexif.min.js" />
+    <Content Include="Template\fileInput\js\plugins\purify.js" />
+    <Content Include="Template\fileInput\js\plugins\purify.min.js" />
+    <Content Include="Template\fileInput\js\plugins\sortable.js" />
+    <Content Include="Template\fileInput\js\plugins\sortable.min.js" />
+    <Content Include="Template\fileInput\themes\explorer-fa\theme.css" />
+    <Content Include="Template\fileInput\themes\explorer-fa\theme.js" />
+    <Content Include="Template\fileInput\themes\explorer-fa\theme.min.css" />
+    <Content Include="Template\fileInput\themes\explorer-fa\theme.min.js" />
+    <Content Include="Template\fileInput\themes\explorer\theme.css" />
+    <Content Include="Template\fileInput\themes\explorer\theme.js" />
+    <Content Include="Template\fileInput\themes\explorer\theme.min.css" />
+    <Content Include="Template\fileInput\themes\explorer\theme.min.js" />
+    <Content Include="Template\fileInput\themes\fa\theme.js" />
+    <Content Include="Template\fileInput\themes\fa\theme.min.js" />
+    <Content Include="Template\fileInput\themes\gly\theme.js" />
+    <Content Include="Template\fileInput\themes\gly\theme.min.js" />
     <Content Include="Template\gulpfile.js" />
     <Content Include="Template\LICENSE.txt" />
     <Content Include="Template\production\calendar.html" />
@@ -4521,6 +4588,18 @@
     <Content Include="Template\vendors\validator\.bower.json" />
     <Content Include="Template\vendors\validator\README.md" />
     <Content Include="Template\vendors\validator\validator.jquery.json" />
+    <Content Include="Template\fileInput\.github\CONTRIBUTING.md" />
+    <Content Include="Template\fileInput\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="Template\fileInput\.github\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="Template\fileInput\bower.json" />
+    <Content Include="Template\fileInput\CHANGE.md" />
+    <Content Include="Template\fileInput\composer.json" />
+    <Content Include="Template\fileInput\LICENSE.md" />
+    <Content Include="Template\fileInput\nuget\build.bat" />
+    <Content Include="Template\fileInput\nuget\Package.nuspec" />
+    <Content Include="Template\fileInput\package.json" />
+    <Content Include="Template\fileInput\README.md" />
+    <Content Include="Template\fileInput\sass\fileinput.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4703,6 +4782,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEDT.Controlador\SEDT.Controlador.csproj">
+      <Project>{4c598b27-6edd-41a5-8168-941062b2212f}</Project>
+      <Name>SEDT.Controlador</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEDT.Modelo\SEDT.Modelo.csproj">
+      <Project>{c8277f02-1907-4bf7-872f-0e598c586ed6}</Project>
+      <Name>SEDT.Modelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

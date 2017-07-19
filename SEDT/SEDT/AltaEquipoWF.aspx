@@ -9,11 +9,9 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-            <div class="row">
-
-
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
+            <%--<div class="row">--%>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form runat="server" class="form-horizontal form-label-left">
                     <div class="x_panel">
                         <div class="x_title">
                             <h2><i class="fa fa-shield"></i> Nuevo Equipo <small>Complete los campos para agregar un nuevo equipo.</small></h2>
@@ -36,40 +34,62 @@
                         </div>
 
                         <div class="x_content">
-                            
-                    <br />
-                    <form runat="server" class="form-horizontal form-label-left">
-                        
-                            <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">
-                                    Nombre del Equipo <span class="required">*</span>
-                                </label>
-                                <div class="col-md-10 col-sm-10 col-xs-12">
-                                    <asp:TextBox ID="txAgregar_Nombre_Equipo" type="text"  required="required" class="form-control col-md-12 col-xs-12" placeholder="" runat="server"></asp:TextBox>
+
+                            <div id="kv-avatar-errors-2" class="center-block" style="width:800px;display:none"></div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="kv-avatar center-block text-center" style="width:200px">
+                                        <input id="avatar-2" name="avatar-2" type="file" class="file-loading" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                          <div class="row">
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label for="email">Nombre<span class="kv-reqd"> (*)</span></label>
+                                        <asp:TextBox runat="server" cssClass="form-control" ID="txAgregar_Equipo_Nombre"></asp:TextBox>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label for="pwd">Siglas</label>
+                                        <asp:TextBox runat="server" cssClass="form-control" ID="txAgregar_Equipo_Siglas"></asp:TextBox>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label for="fname">Sitio Web:</label>
+                                        <asp:TextBox runat="server" cssClass="form-control" ID="txAgregar_Equipo_SitioWeb"></asp:TextBox>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label for="lname">Teléfono / Contacto:</label>
+                                        <asp:TextBox runat="server" cssClass="form-control" ID="txAgregar_Equipo_Telefono"></asp:TextBox>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                             </div>
-
-
-                      <div class="ln_solid"></div>
-
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <button class="btn btn-primary" type="button">Cancelar</button>
-                                    <button class="btn btn-primary" type="reset">Limpiar</button>
-                                    <asp:Button type="submit" runat="server" ID="btnAgregarGeneral" class="btn btn-primary"
-                                AutoPostBack="True" Text="Guardar" OnClick="btnGuardar_OnClick"></asp:Button>
-
-
-                                </div>
-                            </div>
-                        </form>
                         </div>
+                            
+                        <br />
+
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="ln_solid"></div>
+                                <button class="btn btn-primary" type="button">Cancelar</button>
+                                <button class="btn btn-primary" type="reset">Limpiar</button>
+                                <asp:Button type="submit" runat="server" ID="btnAgregarGeneral" class="btn btn-primary"
+                                AutoPostBack="True" Text="Guardar" OnClick="btnGuardar_OnClick"></asp:Button>
+                            </div>
+                        </div>
+                        </div>
+                        </form>
                     </div>
-                </div>
-
-
-            </div>
         </div>
     </div>
 </asp:Content>
