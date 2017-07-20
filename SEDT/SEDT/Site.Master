@@ -32,7 +32,11 @@
     <!-- JQVMap -->
     <link href="Template/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
     <!-- bootstrap-daterangepicker -->
-    <link href="Template/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="Template/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">    
+    <!-- PNotify -->
+    <link href="Template/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="Template/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="Template/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="Template/build/css/custom.min.css" rel="stylesheet">
     
@@ -49,6 +53,8 @@
 </head>
 
 <body class="nav-md">
+    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container body">
         <div class="main_container">
 
@@ -339,7 +345,7 @@
             <!-- /footer content -->
         </div>
     </div>
-
+        </form>
     <!-- GENERAL. -->
     <!-- jQuery -->
     <script src="Template/vendors/jquery/dist/jquery.min.js"></script>
@@ -379,7 +385,12 @@
     <script src="Template/vendors/moment/min/moment.min.js"></script>
     <script src="Template/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="Template/build/js/custom.min.js"></script>
+    <!--<script src="Template/build/js/custom.min.js"></script>-->
+    <script src="Template/build/js/custom.js"></script>
+    <!-- PNotify -->
+    <script src="Template/vendors/pnotify/dist/pnotify.js"></script>
+    <script src="Template/vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="Template/vendors/pnotify/dist/pnotify.nonblock.js"></script>
 
     <!-- FILE INPUT. -->
     <!-- piexif.min.js is only needed for restoring exif data in resized images and when you 
@@ -400,7 +411,25 @@
     locale file as mentioned below -->
     <script src="Template/fileInput/js/<lang>.js"></script>
 
-    <script>
+    <script type="text/javascript">
+        /*
+        $('[id*=btnGuardar]').live("click", function () {
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(Mensaje_Exito);
+        }); */
+
+        $('[id*=UpdatePanel_AltaEquipo_Botones]').on("click", '[id*=btnGuardar]', function () {
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(Mensaje_Exito);
+        });
+
+        // The function returns the product of p1 and p2
+        function Mensaje_Exito() {
+            var asd = new PNotify({
+                title: 'Exito!',
+                text: 'El equipo ha sido guardado exitosamente!!',
+                type: 'success',
+                styling: 'bootstrap3'
+            });
+        }
 
         var btnCust = '<button type="button" class="btn btn-default" title="Add picture tags" ' + 
             'onclick="alert(\'Call your custom code here.\')">' +

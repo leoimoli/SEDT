@@ -13,6 +13,15 @@ namespace SEDT {
     public partial class AltaEquipoWF {
         
         /// <summary>
+        /// UpdatePanel_AltaEquipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_AltaEquipo;
+        
+        /// <summary>
         /// txAgregar_Equipo_Nombre control.
         /// </summary>
         /// <remarks>
@@ -49,12 +58,39 @@ namespace SEDT {
         protected global::System.Web.UI.WebControls.TextBox txAgregar_Equipo_Telefono;
         
         /// <summary>
-        /// btnAgregarGeneral control.
+        /// UpdatePanel_AltaEquipo_Botones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarGeneral;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_AltaEquipo_Botones;
+        
+        /// <summary>
+        /// btnLimpiar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpiar;
+        
+        /// <summary>
+        /// btnNuevo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNuevo;
+        
+        /// <summary>
+        /// btnGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
     }
 }
