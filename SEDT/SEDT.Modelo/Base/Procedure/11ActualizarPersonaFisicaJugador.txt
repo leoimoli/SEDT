@@ -1,0 +1,29 @@
+
+USE `futbol`;
+DROP procedure IF EXISTS `futbol`.`ActualizarPersonaFisicaJugador`;
+
+DELIMITER $$
+USE `futbol`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarPersonaFisicaJugador`
+(IN Dni_in varchar(10), Apellido_in varchar(150), Nombre_in varchar(150), 
+Apodo_in varchar(150), FechaNacimiento_in datetime,
+ Altura_in varchar(100), Peso_in varchar(100), imagen_in Blob, idUsuario_in int, Id int)
+BEGIN 
+update  tPersonaFisicaJugador
+set
+txDNI=Dni_in,
+txApellido=Apellido_in,
+txNombre=Nombre_in,
+txApodo=Apodo_in,
+dtFechaNacimiento=FechaNacimiento_in,
+txAltura=Altura_in,
+txPeso=Peso_in, 
+ImagenJugador=imagen_in, 
+idUsuario=idUsuario_in
+where idPersonaFisicaJugador = Id;
+END$$
+
+DELIMITER ;
+;
+
+

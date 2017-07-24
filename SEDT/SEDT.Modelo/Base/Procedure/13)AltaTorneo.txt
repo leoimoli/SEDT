@@ -1,0 +1,14 @@
+USE `futbol`;
+DROP procedure IF EXISTS `AltaTorneo`;
+
+DELIMITER $$
+USE `futbol`$$
+CREATE PROCEDURE `AltaTorneo` (IN NombreTorneo_in varchar (150),Descripcion_in varchar (150),IdEquipoUsuario_in int(11))
+BEGIN
+insert into ttorneo (txNombreTorneo,txDescripcion,EquipoUsuario)
+values (NombreTorneo_in,Descripcion_in,IdEquipoUsuario_in);
+
+END$$
+
+DELIMITER ;
+

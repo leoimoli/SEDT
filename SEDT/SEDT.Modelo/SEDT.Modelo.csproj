@@ -67,7 +67,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Base\Procedure\15%29ActualizarEquipoRival.txt" />
+    <Content Include="Base\Procedure\14%29ActualizarTorneo.txt" />
+    <Content Include="Base\Procedure\13%29AltaTorneo.txt" />
     <Content Include="Base\Procedure\1%29AltaPersonaFisicaJugadorExistente.txt" />
+    <Content Include="Base\Procedure\12%29ActualizarFichaTecnicaJugador.txt" />
+    <Content Include="Base\Procedure\11ActualizarPersonaFisicaJugador.txt" />
     <Content Include="Base\Procedure\2%29AltaPersonaFisicaJugadorExistentePorDni.txt" />
     <Content Include="Base\Procedure\3%29BuscarNombreEquipoExistente.txt" />
     <Content Include="Base\Procedure\4%29AltaPersonaFisicaJugador.txt" />
@@ -75,6 +80,7 @@
     <Content Include="Base\Procedure\6%29AltaFichaTecnicaJugador.txt" />
     <Content Include="Base\Procedure\7%29BuscarNombreEquipoRivalExistente.txt" />
     <Content Include="Base\Procedure\8%29BuscarTorneoExistente.txt" />
+    <Content Include="Base\Procedure\10%29ActualizarEquipoUsuario.txt" />
     <Content Include="Base\Procedure\9%29AltaEquipoRival.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

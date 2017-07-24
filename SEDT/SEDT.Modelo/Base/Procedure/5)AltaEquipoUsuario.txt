@@ -1,6 +1,12 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaEquipoUsuario`(IN Nombre_in varchar (150), ImagenEscudo_in Blob, IdUsuario_in int, Siglas_in varchar(5), SitioWeb_in varchar(150), TelefonoDeContacto_in varchar(150))
+
+
+DROP procedure IF EXISTS `AltaEquipoUsuario`;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaEquipoUsuario`
+(IN Nombre_in varchar (150), ImagenEscudo_in Blob, IdUsuario_in int, Siglas_in varchar(5), 
+SitioWeb_in varchar(150), TelefonoDeContacto_in varchar(150))
 BEGIN
  insert into
 tEquipoUsuario (txNombreEquipo, ImagenEscudo, idUsuario, txSiglas, txSitioWeb, txTelefonoDeContacto) 
 values (Nombre_in, ImagenEscudo_in, idUsuario_in, Siglas_in, SitioWeb_in, TelefonoDeContacto_in);
-END
+end

@@ -1,0 +1,36 @@
+
+USE `futbol`;
+DROP procedure IF EXISTS `futbol`.`ActualizarFichaTecnicaJugador`;
+
+DELIMITER $$
+USE `futbol`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarFichaTecnicaJugador`(IN PosicionDeCampo_in varchar(20),
+ PiernaHabil_in varchar(20), NivelPiernaHabil_in varchar(20), PiernaInhabil_in varchar(20), 
+NivelPiernaInhabil_in varchar(20), JuegoAereo_in varchar(20), NivelDefensivo_in varchar(20), 
+NivelOfensivo_in varchar(20), Velocidad_in varchar(20), PredisposiciónEntrenamiento_in varchar(20), 
+TecnicaIndividual_in varchar(20)
+, DisciplinaTactica_in varchar(20)
+, IdPersonaFisicaJugador_in int (8)
+,Id int)
+BEGIN
+ update tFichaTecnicaJugador
+set
+
+txPosicion=PosicionDeCampo_in,
+txPiernaHabil = PiernaHabil_in, 
+txNivelPiernaHabil=NivelPiernaHabil_in, 
+txPiernaInhabil=PiernaInhabil_in, 
+txNivelPiernaInhabil=NivelPiernaInhabil_in, 
+txJuegoAereo=JuegoAereo_in, 
+txNivelDefensivo=NivelDefensivo_in,
+txNivelOfensivo=NivelOfensivo_in, 
+txVelocidad=Velocidad_in,   
+txPredisposicionEntrenamiento=PredisposiciónEntrenamiento_in,
+txTecnicaIndividual=TecnicaIndividual_in, 
+txDisciplinaTactica=DisciplinaTactica_in, 
+IdPersonaFisicaJugador=IdPersonaFisicaJugador_in
+where Id = idFichaTecnica;
+END$$
+
+DELIMITER ;
+;

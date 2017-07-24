@@ -1,0 +1,16 @@
+
+USE `futbol`;
+DROP procedure IF EXISTS `futbol`.`ActualizarEquipoRival`;
+
+DELIMITER $$
+USE `futbol`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarEquipoRival`(IN NombreEquipo_in varchar(150), ImagenEscudo_in Blob, IdEquipoUsuario_in int, Id int)
+BEGIN
+ update tEquipoRival
+set
+txNombre=NombreEquipo_in, txEscudo=ImagenEscudo_in, IdEquipoUsuario=IdEquipoUsuario_in
+where idEquipoRival = Id;
+END$$
+
+DELIMITER ;
+;
