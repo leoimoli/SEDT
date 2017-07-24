@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\ConsultarDAO.cs" />
+    <Compile Include="DAO\ActualizarDAO.cs" />
     <Compile Include="DAO\GuardarDAO.cs" />
     <Compile Include="Entidades\Entrenamiento.cs" />
     <Compile Include="Entidades\EstadisticaJugadorTotal.cs" />
