@@ -90,6 +90,7 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
+
         public static int AltaEquipoRival(EquipoRival equipoRival)
         {
             int id = 1;
@@ -104,5 +105,32 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
+        public static int AltaPartido(Partido partido)
+        {
+            int id = 1;
+            connection.Open();
+            string proceso = "AltaPartido";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("FechaPartido_in", partido.FechaPartido);
+            cmd.Parameters.AddWithValue("FechaPartido_in", partido.IdEquipoRival);
+            cmd.Parameters.AddWithValue("txMarcador_in", partido.Marcador);
+            cmd.Parameters.AddWithValue("txResultado_in", partido.Resultado);
+            cmd.Parameters.AddWithValue("txResultado_in", partido.IdTorneo);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            return id;
+        }
     }
+    //cmd.Parameters.AddWithValue("txFechaDisputada_in", partido.FechaDisputada);
+    //cmd.Parameters.AddWithValue("txEquipoRival_in", partido.EquipoRival);
+    //cmd.Parameters.AddWithValue("txSistemaTacticoPropio_in", partido.SistemaTacticoPropio);
+    //cmd.Parameters.AddWithValue("intCornersFavor_in", partido.CornersFavor);
+    //cmd.Parameters.AddWithValue("intCornersRival_in", partido.CornersRival);
+    //cmd.Parameters.AddWithValue("intFaltasCometidasPropias_in", partido.FaltasCometidasPropias);
+    //cmd.Parameters.AddWithValue("intFaltasRival_in", partido.FaltasRival);
+    //cmd.Parameters.AddWithValue("intPenalesPropios_in", partido.PenalesPropios);
+    //cmd.Parameters.AddWithValue("intPenalesRival_in", partido.PenalesRival);
+    //cmd.Parameters.AddWithValue("intPosesionPropia_in", partido.PosesionPropia);
+    //cmd.Parameters.AddWithValue("intPosesionRival_in", partido.PosesionRival);
 }

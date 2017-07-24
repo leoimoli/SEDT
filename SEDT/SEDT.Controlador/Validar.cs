@@ -86,7 +86,6 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
-
         public static Respuesta AltaTorneo(Torneo torneo)
         {
             Respuesta respuesta = new Respuesta();
@@ -104,12 +103,32 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
-
         public static Respuesta AltaFichaTecnicaJugador(FichaTecnicaJugador ficha)
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Errores = new List<string>();
 
+            return respuesta;
+        }
+        public static Respuesta AltaPartido(Partido partido)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            if (partido.IdEquipoRival.ToString() == "SELECCIONE")
+            {
+                respuesta.Errores.Add("Debe seleccionar un equipo rival.");
+                respuesta.Exito = false;
+            }
+            if (String.IsNullOrEmpty(partido.Marcador) || partido.Marcador.ToString() == "")
+            {
+                respuesta.Errores.Add("El campo marcador es obligatorio.");
+                respuesta.Exito = false;
+            }
+            if (String.IsNullOrEmpty(partido.Resultado) || partido.Marcador.ToString() == "SELECCIONE")
+            {
+                respuesta.Errores.Add("El campo resultado es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
             return respuesta;
         }
     }

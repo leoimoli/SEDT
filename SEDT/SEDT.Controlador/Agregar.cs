@@ -104,5 +104,38 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaPartido(Modelo.Entidades.Partido partido)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaPartido(partido);
+                if (respuesta.Exito == true)
+                {
+                    int resultadoA = Convert.ToInt32(partido.MarcadorA);
+                    int resultadoB = Convert.ToInt32(partido.MarcadorB);
+                    if (resultadoA > resultadoB)
+                    {
+                        partido.Resultado = "GANO";
+                    }
+                    else if (resultadoA < resultadoB)
+                    {
+                        partido.Resultado = "PERDIO";
+                    }
+                    else
+                    {
+                        partido.Resultado = "EMPATO";
+                    }
+                    respuesta.Id = GuardarDAO.AltaPartido(partido);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
     }
 }
