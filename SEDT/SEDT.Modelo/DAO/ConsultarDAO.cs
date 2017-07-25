@@ -138,5 +138,16 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return ValidarExistencia;
         }
+        public static int BuscarUltimoPartidoRegistrado()
+        {
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "select MAX(idPartido) From tPartidos";
+            Int32 partido = (Int32)cmd.ExecuteScalar();
+            connection.Close();
+            int idPartido = partido;
+            return idPartido;
+        }
     }
 }
