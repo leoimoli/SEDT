@@ -1,0 +1,19 @@
+
+USE `futbol`;
+DROP procedure IF EXISTS `futbol`.`ActualizarPartido`;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarPartido`(IN 
+FechaPartido_in datetime,
+IdEquipoRival_in int(8),
+txMarcador_in varchar(50),
+txResultado_in varchar(50),
+IdTorneo_in int(8),
+Id int
+)
+BEGIN
+ update tpartidos
+set
+txFechaPartido=FechaPartido_in, idEquipoRival=IdEquipoRival_in, txMarcador=txMarcador_in,txResultado=txResultado_in , idTorneo=IdTorneo_in
+where idPartido = Id;
+END$$

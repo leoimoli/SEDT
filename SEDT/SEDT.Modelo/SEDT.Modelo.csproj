@@ -67,6 +67,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Base\Procedure\19%29ActualizarEstadisticaPartido.txt" />
+    <Content Include="Base\Procedure\18%29AltaEstadisticaPartido .txt" />
+    <Content Include="Base\Procedure\17%29ActualizarPartido.txt" />
     <Content Include="Base\Procedure\15%29ActualizarEquipoRival.txt" />
     <Content Include="Base\Procedure\14%29ActualizarTorneo.txt" />
     <Content Include="Base\Procedure\13%29AltaTorneo.txt" />
@@ -75,6 +78,7 @@
     <Content Include="Base\Procedure\11ActualizarPersonaFisicaJugador.txt" />
     <Content Include="Base\Procedure\2%29AltaPersonaFisicaJugadorExistentePorDni.txt" />
     <Content Include="Base\Procedure\3%29BuscarNombreEquipoExistente.txt" />
+    <Content Include="Base\Procedure\16%29AltaPartidos.txt" />
     <Content Include="Base\Procedure\4%29AltaPersonaFisicaJugador.txt" />
     <Content Include="Base\Procedure\5%29AltaEquipoUsuario.txt" />
     <Content Include="Base\Procedure\6%29AltaFichaTecnicaJugador.txt" />

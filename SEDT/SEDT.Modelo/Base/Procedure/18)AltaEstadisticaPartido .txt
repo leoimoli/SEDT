@@ -1,0 +1,32 @@
+USE `futbol`;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaEstadisticaPartido`(IN 
+CornersPropio_in int(11),
+CornersRival_in int(11),
+FaltasRecibidas_in int(11),
+FaltasCometidas_in int(11),
+PenalesRecibidos_in int(11),
+PenalesCometidos_in int(11),
+OffsideRival_in int(11),
+PosesionPropia_in int(11),
+PosesioRival_in int(11),
+TirosPropios_in int(11),
+TirosRivales_in int(11),
+TirosAlArcoPropios_in int(11),
+TirosAlArcoRivales_in int(11),
+CantidadPasesPropios_in int(11),
+CantidadPasesRivales_in int(11),
+idPartido_in int(8)
+
+)
+BEGIN
+ insert into tPartidos
+ (txCornersPropio,txCornersRival, txFaltasRecibidas, txFaltasCometidas,txPenalesRecibidos,txPenalesCometidos,txOfssidePropio,
+txOfssideRival,txPosesionPropia,txPosesionRival,txTirosPropio,txTirosRival,txTirosAlArcoPropio,txTirosAlArcoRival,
+txtCantidadPasesPropio,txtCantidadPasesRival,idPartido
+)
+ values (CornersPropio_in,CornersRival_in,FaltasRecibidas_in,FaltasCometidas_in,PenalesRecibidos_in,PenalesCometidos_in,
+OffsideRival_in,PosesionPropia_in,PosesioRival_in,PosesioRival_in,TirosPropios_in,TirosRivales_in,TirosAlArcoPropios_in,
+TirosAlArcoRivales_in,CantidadPasesPropios_in,CantidadPasesRivales_in,idPartido_in
+);
+END

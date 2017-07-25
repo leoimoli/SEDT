@@ -1,0 +1,14 @@
+USE `futbol`;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaPartido`(IN 
+FechaPartido_in datetime,
+IdEquipoRival_in int(8),
+txMarcador_in varchar(50),
+txResultado_in varchar(50),
+IdTorneo_in int(8)
+)
+BEGIN
+ insert into tPartidos
+ (txFechaPartido,idEquipoRival, txMarcador, txResultado,idTorneo)
+ values (FechaPartido_in,IdEquipoRival_in,txMarcador_in,txResultado_in,IdTorneo_in);
+END

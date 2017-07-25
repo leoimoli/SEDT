@@ -1,0 +1,49 @@
+
+USE `futbol`;
+DROP procedure IF EXISTS `futbol`.`ActualizarEstadisticaPartido`;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarEstadisticaPartido`(IN 
+CornersPropio_in int(11),
+CornersRival_in int(11),
+FaltasRecibidas_in int(11),
+FaltasCometidas_in int(11),
+PenalesRecibidos_in int(11),
+PenalesCometidos_in int(11),
+OffsideRival_in int(11),
+PosesionPropia_in int(11),
+PosesioRival_in int(11),
+TirosPropios_in int(11),
+TirosRivales_in int(11),
+TirosAlArcoPropios_in int(11),
+TirosAlArcoRivales_in int(11),
+CantidadPasesPropios_in int(11),
+CantidadPasesRivales_in int(11),
+idPartido_in int(8),
+Id int
+
+)
+BEGIN
+ update tPartidos
+set
+txCornersPropio=CornersPropio_in,
+txCornersRival=CornersRival_in,
+txFaltasRecibidas=FaltasRecibidas_in,
+txFaltasCometidas=FaltasCometidas_in,
+txPenalesRecibidos=PenalesRecibidos_in,
+txPenalesCometidos=PenalesCometidos_in,
+txOfssidePropio=PosesionPropia_in,
+txOfssideRival=PosesioRival_in,
+txPosesionPropia=PosesioRival_in,
+txPosesionRival=PosesioRival_in,
+txTirosPropio=TirosPropios_in,
+txTirosRival=TirosRivales_in,
+txTirosAlArcoPropio=TirosAlArcoPropios_in,
+txTirosAlArcoRival=TirosAlArcoRivales_in,
+txtCantidadPasesPropio=CantidadPasesPropios_in,
+txtCantidadPasesRival=CantidadPasesRivales_in,
+idPartido=idPartido_in
+where idPartido = Id;
+
+END
