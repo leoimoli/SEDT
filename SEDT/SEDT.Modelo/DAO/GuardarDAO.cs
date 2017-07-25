@@ -113,10 +113,10 @@ namespace SEDT.Modelo.DAO
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("FechaPartido_in", partido.FechaPartido);
-            cmd.Parameters.AddWithValue("FechaPartido_in", partido.IdEquipoRival);
+            cmd.Parameters.AddWithValue("IdEquipoRival_in", partido.IdEquipoRival);
             cmd.Parameters.AddWithValue("txMarcador_in", partido.Marcador);
             cmd.Parameters.AddWithValue("txResultado_in", partido.Resultado);
-            cmd.Parameters.AddWithValue("txResultado_in", partido.IdTorneo);
+            cmd.Parameters.AddWithValue("IdTorneo_in", partido.IdTorneo);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;
