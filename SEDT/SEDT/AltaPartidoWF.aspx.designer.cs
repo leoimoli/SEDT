@@ -10,6 +10,6 @@
 namespace SEDT {
     
     
-    public partial class AltaEquipoWF {
+    public partial class AltaPartidoWF {
     }
 }

@@ -18,15 +18,6 @@
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li><a class="close-link"><i class="fa fa-close"></i></a>
                             </li>
                         </ul>
@@ -44,63 +35,49 @@
                                 </div>
                             </div>
 
-                            <asp:UpdatePanel ID="UpdatePanel_AltaEquipo" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <fieldset>
-
-                                        <div class="col-sm-9">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="email">Nombre<span class="kv-reqd"> (*)</span></label>
-                                                        <asp:TextBox runat="server" CssClass="form-control" ID="txAgregar_Equipo_Nombre"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="pwd">Siglas</label>
-                                                        <asp:TextBox runat="server" CssClass="form-control" ID="txAgregar_Equipo_Siglas"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="fname">Sitio Web:</label>
-                                                        <asp:TextBox runat="server" CssClass="form-control" ID="txAgregar_Equipo_SitioWeb"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="lname">Teléfono / Contacto:</label>
-                                                        <asp:TextBox runat="server" CssClass="form-control" ID="txAgregar_Equipo_Telefono"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="email">Nombre<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_NombreEquipo">
                                         </div>
-                                    </fieldset>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="pwd">Siglas</label>
+                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_Siglas">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="fname">Sitio Web:</label>
+                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_SitioWeb">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="lname">Teléfono / Contacto:</label>
+                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_TelefonoDeContacto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br />
-                    <asp:UpdatePanel ID="UpdatePanel_AltaEquipo_Botones" runat="server" UpdateMode="Conditional">
-                        <ContentTemplate>
-                            <fieldset>
-                                <div class="form-group">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="ln_solid"></div>
-                                        <asp:Button type="submit" runat="server" ID="btnLimpiar" class="btn btn-primary"
-                                            AutoPostBack="True" Text="Limpiar" OnClick="btnLimpiar_OnClick"></asp:Button>
-                                        <asp:Button type="submit" runat="server" ID="btnNuevo" class="btn btn-primary"
-                                            AutoPostBack="True" Text="Nuevo" OnClick="btnNuevo_OnClick"></asp:Button>
-                                        <asp:Button type="submit" runat="server" ID="btnGuardar" class="btn btn-primary"
-                                            AutoPostBack="True" Text="Guardar" OnClick="btnGuardar_OnClick"></asp:Button>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="ln_solid"></div>
+
+                            <button id="btn_AltaEquipo_Nuevo" class="btn btn-primary" onclick="AltaEquipo_Nuevo()" type="button">Nuevo</button>
+                            <button id="btn_AltaEquipo_Guardar" class="btn btn-primary" onclick="AltaEquipo_Guardar()" type="button">Guardar</button>
+                            <button id="btn_AltaEquipo_Limpiar" class="btn btn-primary" onclick="AltaEquipo_Limpiar()" type="button">Limpiar</button>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
