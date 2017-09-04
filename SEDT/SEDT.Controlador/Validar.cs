@@ -13,6 +13,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaEquipoUsuario(EquipoUsuario equipo)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             if (String.IsNullOrEmpty(equipo.NombreEquipo))
             {

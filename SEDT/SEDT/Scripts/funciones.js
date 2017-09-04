@@ -59,6 +59,8 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje)
 }
 //=======================================================================================================
 
+//=======================================================================================================
+//=======================================================================================================
 function AltaEquipo_Guardar()
 {
     var Mensaje = "Ha registrado el Equipo correctamente!";
@@ -74,8 +76,29 @@ function AltaEquipo_Guardar()
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje);
 }
+function AltaJugador_Guardar() {
+    var Mensaje = "Ha registrado el Jugador correctamente!";
+    var InvocarUrl = "/AltaJugadorWF.aspx/GuardarDatos";
+
+    var ObjetoVista = {
+        Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
+        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
+        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
+        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+        FechaNacimiento: document.getElementById("txt_AltaJugadorWF_FechaNacimiento").value,
+        Altura: document.getElementById("txt_AltaJugadorWF_Altura").value,
+        Peso: document.getElementById("txt_AltaJugadorWF_Peso").value,
+        Imagen: null
+    };
+
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje);
+}
+//=======================================================================================================
+//=======================================================================================================
 
 
+//=======================================================================================================
+//=======================================================================================================
 $('[id*=UpdatePanel_AltaEquipo_Botones]').on("click", '[id*=btnGuardar]', function () {
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(Mensaje_Exito);
 });
@@ -101,3 +124,5 @@ $("#avatar-2").fileinput({
     layoutTemplates: { main2: '{preview} {remove} {browse}' },
     allowedFileExtensions: ["jpg", "png", "gif"]
 });
+//=======================================================================================================
+//=======================================================================================================
