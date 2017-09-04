@@ -2,12 +2,7 @@
 using SEDT.Modelo.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
 using System.Web.Services;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace SEDT
 {
@@ -22,12 +17,23 @@ namespace SEDT
 
         //=============================================================
         //=============================================================
-
         [WebMethod]
-        public static string GuardarDatos(EquipoUsuario obj)
+        public static Respuesta GuardarDatos(EquipoUsuario obj)
         {
-            //
-            return "it worked";
+            Respuesta resultado = new Respuesta();
+            try
+            {
+                resultado = Validar.AltaEquipoUsuario(obj);
+                if(resultado.Exito)
+                    Agregar.AltaEquipoUsuario(obj);
+            }
+            catch (Exception e)
+            {
+                resultado.Exito = false;
+                resultado.Errores = new List<string>();
+                resultado.Errores.Add(e.Message);
+            }
+            return resultado;
         }
 
         //=============================================================

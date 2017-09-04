@@ -1,14 +1,46 @@
-﻿function AltaEquipo_Guardar()
+﻿//=======================================================================================================
+// Este método recibe un mensaje para mostrarlo como un pop-up de Éxito.-
+//=======================================================================================================
+function Mensaje_Exito(mensaje)
 {
-    var name = "my name";
-    var isAttending = true;
-    var returnAddress = "myEmail@gmail.com";
-    SendMail(name, isAttending, returnAddress);
+    var asd = new PNotify({
+        title: 'Exito!',
+        text: mensaje,
+        type: 'success',
+        styling: 'bootstrap3'
+    });
 }
+//=======================================================================================================
 
-function SendMail(person, isAttending, returnEmail)
+//=======================================================================================================
+// Este método recibe los datos necesarios para guardar correctamente un objeto.-
+//=======================================================================================================
+function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje)
 {
-    var pageUrl = "/AltaEquipoWF.aspx/GuardarDatos";
+    var Datos = JSON.stringify(ObjetoVista);
+
+    $.ajax({
+        type: "POST",
+        url: InvocarUrl,
+        data: "{obj:" + Datos + "}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        error: function (XMLHttpRequest, textStatus, errorThrown){
+            alert("Request: " + XMLHttpRequest.toString()
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
+        },
+        success: function (result) {
+            return result.d;
+        }
+    });
+}
+//=======================================================================================================
+
+function AltaEquipo_Guardar()
+{
+    var Mensaje = "Ha registrado el Equipo correctamente!";
+    var InvocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
 
     var ObjetoVista = {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
@@ -18,40 +50,13 @@ function SendMail(person, isAttending, returnEmail)
         ImagenEscudo: 'ImagenEscudo: TODO'
     };
 
-    var datos = JSON.stringify(ObjetoVista);
-
-    $.ajax({
-        type: "POST",
-        url: pageUrl,
-        data: "{obj:" + datos + "}",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Request: " + XMLHttpRequest.toString()
-             + "\n\nStatus: " + textStatus
-              + "\n\nError: " + errorThrown);
-        },
-        success: function (result) {
-            // alert("We returned: " + result.d);
-        }
-    });
-
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje);
 }
+
 
 $('[id*=UpdatePanel_AltaEquipo_Botones]').on("click", '[id*=btnGuardar]', function () {
-    alert("Holis");
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(Mensaje_Exito);
 });
-
-// The function returns the product of p1 and p2
-function Mensaje_Exito() {
-    var asd = new PNotify({
-        title: 'Exito!',
-        text: 'El equipo ha sido guardado exitosamente!!',
-        type: 'success',
-        styling: 'bootstrap3'
-    });
-}
 
 var btnCust = '<button type="button" class="btn btn-default" title="Add picture tags" ' +
     'onclick="alert(\'Call your custom code here.\')">' +
