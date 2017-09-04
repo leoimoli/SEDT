@@ -12,6 +12,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaEquipoUsuario(Modelo.Entidades.EquipoUsuario equipo)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {

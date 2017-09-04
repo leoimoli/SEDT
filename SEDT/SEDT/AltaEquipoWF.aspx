@@ -72,9 +72,9 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="ln_solid"></div>
 
-                            <button id="btn_AltaEquipo_Nuevo" class="btn btn-primary" onclick="AltaEquipo_Nuevo()" type="button">Nuevo</button>
-                            <button id="btn_AltaEquipo_Guardar" class="btn btn-primary" onclick="AltaEquipo_Guardar()" type="button">Guardar</button>
-                            <button id="btn_AltaEquipo_Limpiar" class="btn btn-primary" onclick="AltaEquipo_Limpiar()" type="button">Limpiar</button>
+                            <button id="btn_AltaEquipo_Nuevo" class="btn btn-primary" style="display:none;" onclick="AltaEquipo_Nuevo()" type="button">Nuevo</button>
+                            <button id="btn_AltaEquipo_Guardar" class="btn btn-primary" style="display:block;" onclick="AltaEquipo_Guardar()" type="button">Guardar</button>
+                            <button id="btn_AltaEquipo_Limpiar" class="btn btn-primary" style="display:block;" onclick="AltaEquipo_Limpiar()" type="button">Limpiar</button>
 
                         </div>
                     </div>

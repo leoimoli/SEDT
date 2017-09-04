@@ -29,7 +29,7 @@ function Mensaje_Error(mensaje) {
 function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje)
 {
     var Datos = JSON.stringify(ObjetoVista);
-
+    var Resultado = null;
     $.ajax({
         type: "POST",
         url: InvocarUrl,
@@ -40,6 +40,7 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje)
             alert("Request: " + XMLHttpRequest.toString()
              + "\n\nStatus: " + textStatus
               + "\n\nError: " + errorThrown);
+            Resultado = null;
         },
         success: function (result) {
             if (result.d.Exito)
@@ -54,8 +55,10 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje)
                     Mensaje_Error(errores[i]);
                 }
             }
+            Resultado = result.d;
         }
     });
+    return Resultado;
 }
 //=======================================================================================================
 
@@ -74,8 +77,36 @@ function AltaEquipo_Guardar()
         ImagenEscudo: 'ImagenEscudo: TODO'
     };
 
-    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje);
+    var Resultado = Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje);
+    debugger;
+    if (Resultado != null && Resultado != false && Resultado.Exito != false)
+    {
+        document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'block';
+        document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
+    }
 }
+
+function AltaEquipo_Nuevo()
+{   
+    AltaEquipo_Limpiar();
+}
+
+function AltaEquipo_Limpiar()
+{
+    //Limpiamos los campos del formulario.-
+    document.getElementById("txt_AltaEquipoWF_NombreEquipo").value = "";
+    document.getElementById("txt_AltaEquipoWF_Siglas").value = "";
+    document.getElementById("txt_AltaEquipoWF_SitioWeb").value = "";
+    document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value = "";
+    //Aplicamos visibilidad a los botones del formulario.-
+    document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'none';
+    document.getElementById("btn_AltaEquipo_Guardar").style.display = 'block';
+    document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'block';
+}
+//=======================================================================================================
+
+//=======================================================================================================
 function AltaJugador_Guardar() {
     var Mensaje = "Ha registrado el Jugador correctamente!";
     var InvocarUrl = "/AltaJugadorWF.aspx/GuardarDatos";
