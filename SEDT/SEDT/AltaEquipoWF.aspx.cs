@@ -10,9 +10,6 @@ namespace SEDT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-            }
         }
 
         //=============================================================
@@ -23,9 +20,7 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
-                resultado = Validar.AltaEquipoUsuario(obj);
-                if(resultado.Exito)
-                    Agregar.AltaEquipoUsuario(obj);
+                resultado = Agregar.AltaEquipoUsuario(obj);
             }
             catch (Exception e)
             {
@@ -35,7 +30,6 @@ namespace SEDT
             }
             return resultado;
         }
-
         //=============================================================
         //=============================================================
 

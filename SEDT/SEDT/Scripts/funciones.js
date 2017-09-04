@@ -3,7 +3,7 @@
 //=======================================================================================================
 function Mensaje_Exito(mensaje)
 {
-    var asd = new PNotify({
+    var Msg_Exito = new PNotify({
         title: 'Exito!',
         text: mensaje,
         type: 'success',
@@ -11,7 +11,18 @@ function Mensaje_Exito(mensaje)
     });
 }
 //=======================================================================================================
-
+//=======================================================================================================
+// Este método recibe un mensaje para mostrarlo como un pop-up de Éxito.-
+//=======================================================================================================
+function Mensaje_Error(mensaje) {
+    var Msg_Error = new PNotify({
+        title: 'Error!',
+        text: mensaje,
+        type: 'error',
+        styling: 'bootstrap3'
+    });
+}
+//=======================================================================================================
 //=======================================================================================================
 // Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
@@ -31,7 +42,18 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje)
               + "\n\nError: " + errorThrown);
         },
         success: function (result) {
-            return result.d;
+            if (result.d.Exito)
+            {
+                Mensaje_Exito(Mensaje)
+            }
+            else
+            {
+                var errores = result.d.Errores;
+                for (i = 0; i < errores.length; i++)
+                {
+                    Mensaje_Error(errores[i]);
+                }
+            }
         }
     });
 }
