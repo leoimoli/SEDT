@@ -32,6 +32,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaPersonaFisicaJugador(Modelo.Entidades.PersonaFisicaJugador jugador)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {
@@ -51,6 +52,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaFichaTecnicaJugador(Modelo.Entidades.FichaTecnicaJugador ficha)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {
@@ -70,6 +72,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaEquipoRival(Modelo.Entidades.EquipoRival equipoRival)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {
@@ -89,6 +92,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaTorneo(Modelo.Entidades.Torneo torneo)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {
@@ -108,6 +112,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaPartido(Modelo.Entidades.Partido partido)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {
@@ -141,6 +146,8 @@ namespace SEDT.Controlador
         public static Respuesta AltaEstadisticaPartido(Modelo.Entidades.EstadisticaPartido estadisticaPartido)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+
             respuesta.Errores = new List<string>();
             try
             {
