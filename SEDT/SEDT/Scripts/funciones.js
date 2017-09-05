@@ -48,7 +48,7 @@ function Mensaje_Error(mensaje)
 //=======================================================================================================
 // Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
-function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje)
+function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion)
 {
     var Datos = JSON.stringify(ObjetoVista);
     $.ajax({
@@ -66,11 +66,11 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje)
         success: function (result) {
             if (result.d.Exito)
             {
-                executeFunctionByName("AltaEquipo_Guardar_Exito", window, result.d, Mensaje);
+                executeFunctionByName(Funcion + "_Guardar_Exito", window, result.d, Mensaje);
             }
             else
             {
-                executeFunctionByName("AltaEquipo_Guardar_Error", window, result.d);
+                executeFunctionByName(Funcion + "_Guardar_Error", window, result.d);
             }
         }
     });
@@ -103,7 +103,7 @@ function AltaEquipo_Guardar()
         Imagen: imgInfom
     };
 
-    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje);
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaEquipo");
 }
 
 function AltaEquipo_Nuevo()
@@ -135,8 +135,24 @@ function AltaEquipo_Guardar_Exito(Respuesta, Mensaje)
     }
 }
 
+function AltaJugador_Guardar_Exito(Respuesta, Mensaje) {
+    Mensaje_Exito(Mensaje);
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
+        document.getElementById("btn_AltaJugador_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaJugador_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaJugador_Limpiar").style.display = 'none';
+    }
+}
+
 function AltaEquipo_Guardar_Error(Respuesta)
 {
+    var errores = Respuesta.Errores;
+    for (i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
+    }
+}
+
+function AltaJugador_Guardar_Error(Respuesta) {
     var errores = Respuesta.Errores;
     for (i = 0; i < errores.length; i++) {
         Mensaje_Error(errores[i]);
@@ -150,7 +166,8 @@ function AltaJugador_Guardar()
     var Mensaje = "Ha registrado el Jugador correctamente!";
     var InvocarUrl = "/AltaJugadorWF.aspx/GuardarDatos";
 
-    var ObjetoVista = {
+    var ObjetoVista =
+    {
         Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
         Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
         Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
@@ -161,7 +178,7 @@ function AltaJugador_Guardar()
         Imagen: null
     };
 
-    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje);
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
 }
 //=======================================================================================================
 //=======================================================================================================
