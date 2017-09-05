@@ -33,6 +33,7 @@ namespace SEDT.Controlador
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Errores = new List<string>();
+            respuesta.Exito = true;
             if (String.IsNullOrEmpty(jugador.Apellido))
             {
                 respuesta.Errores.Add("El campo Apellido es un dato obligatorio.");
@@ -51,20 +52,24 @@ namespace SEDT.Controlador
             ///// Si se ingreso un dni se valida por dni.
             if (!String.IsNullOrEmpty(jugador.Dni))
             {
-                bool AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistentePorDni(jugador.Dni, jugador.idUsuario);
+                bool AltaPersonaFisicaJugadorExistente = true;
+                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistentePorDni(jugador.Dni, jugador.idUsuario);
+                //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
                 if (AltaPersonaFisicaJugadorExistente == true)
                 {
-                    respuesta.Errores.Add("Ya existe una persona fisica con los mismos datos para el usuario logueado.");
+                    respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado.");
                     respuesta.Exito = false;
                 }
             }
             ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
             else
             {
-                bool AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.idUsuario);
+                bool AltaPersonaFisicaJugadorExistente = true;
+                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.idUsuario);
+                //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
                 if (AltaPersonaFisicaJugadorExistente == true)
                 {
-                    respuesta.Errores.Add("Ya existe una persona fisica con los mismos datos para el usuario logueado.");
+                    respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado.");
                     respuesta.Exito = false;
                 }
             }

@@ -89,7 +89,6 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return ValidarExistencia;
         }
-
         public static bool ValidarAltaEquipoRival(EquipoRival equipoRival)
         {
             bool ValidarExistencia;
