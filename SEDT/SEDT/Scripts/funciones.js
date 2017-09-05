@@ -84,23 +84,12 @@ function AltaEquipo_Guardar()
     var Mensaje = "Ha registrado el Equipo correctamente!";
     var InvocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
 
-    var img = document.getElementById("Imagen_Escudo");
-    var imgCanvas = document.createElement("canvas"),
-    imgContext = imgCanvas.getContext("2d");
-    // Make sure canvas is as big as the picture
-    imgCanvas.width = image.width;
-    imgCanvas.height = image.height;
-    // Draw image into canvas element
-    imgContext.drawImage(image, 0, 0, image.width, image.height);
-    // Save image as a data URL
-    imgInfom = imgCanvas.toDataURL("image/png");
-
     var ObjetoVista = {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
         Siglas: document.getElementById("txt_AltaEquipoWF_Siglas").value,
         SitioWeb: document.getElementById("txt_AltaEquipoWF_SitioWeb").value,
         TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value,
-        Imagen: imgInfom
+        Imagen: null
     };
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaEquipo");
@@ -125,42 +114,6 @@ function AltaEquipo_Limpiar()
     document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'inline-block';
 }
 
-function AltaEquipo_Guardar_Exito(Respuesta, Mensaje)
-{
-    Mensaje_Exito(Mensaje);
-    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
-        document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'inline-block';
-        document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
-        document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
-    }
-}
-
-function AltaJugador_Guardar_Exito(Respuesta, Mensaje) {
-    Mensaje_Exito(Mensaje);
-    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
-        document.getElementById("btn_AltaJugador_Nuevo").style.display = 'inline-block';
-        document.getElementById("btn_AltaJugador_Guardar").style.display = 'none';
-        document.getElementById("btn_AltaJugador_Limpiar").style.display = 'none';
-    }
-}
-
-function AltaEquipo_Guardar_Error(Respuesta)
-{
-    var errores = Respuesta.Errores;
-    for (i = 0; i < errores.length; i++) {
-        Mensaje_Error(errores[i]);
-    }
-}
-
-function AltaJugador_Guardar_Error(Respuesta) {
-    var errores = Respuesta.Errores;
-    for (i = 0; i < errores.length; i++) {
-        Mensaje_Error(errores[i]);
-    }
-}
-//=======================================================================================================
-
-//=======================================================================================================
 function AltaJugador_Guardar()
 {
     var Mensaje = "Ha registrado el Jugador correctamente!";
@@ -180,6 +133,65 @@ function AltaJugador_Guardar()
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
 }
+
+function AltaJugador_Nuevo()
+{
+    AltaJugador_Limpiar();
+}
+
+function AltaJugador_Limpiar()
+{
+    //Limpiamos los campos del formulario.-
+    document.getElementById("txt_AltaJugadorWF_Nombre").value = "";
+    document.getElementById("txt_AltaJugadorWF_Apellido").value = "";
+    document.getElementById("txt_AltaJugadorWF_Apodo").value = "";
+    document.getElementById("txt_AltaJugadorWF_DNI").value = "";
+    document.getElementById("txt_AltaJugadorWF_FechaNacimiento").value = "";
+    document.getElementById("txt_AltaJugadorWF_Peso").value = "";
+    document.getElementById("txt_AltaJugadorWF_Altura").value = "";
+
+    //Aplicamos visibilidad a los botones del formulario.-
+    document.getElementById("btn_AltaJugador_Nuevo").style.display = 'none';
+    document.getElementById("btn_AltaJugador_Guardar").style.display = 'inline-block';
+    document.getElementById("btn_AltaJugador_Limpiar").style.display = 'inline-block';
+}
+//=======================================================================================================
+
+//=======================================================================================================
+//=======================================================================================================
+function AltaEquipo_Guardar_Exito(Respuesta, Mensaje)
+{
+    Mensaje_Exito(Mensaje);
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
+        document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
+    }
+}
+
+function AltaEquipo_Guardar_Error(Respuesta) {
+    var errores = Respuesta.Errores;
+    for (i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
+    }
+}
+
+function AltaJugador_Guardar_Exito(Respuesta, Mensaje) {
+    Mensaje_Exito(Mensaje);
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
+        document.getElementById("btn_AltaJugador_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaJugador_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaJugador_Limpiar").style.display = 'none';
+    }
+}
+
+function AltaJugador_Guardar_Error(Respuesta) {
+    var errores = Respuesta.Errores;
+    for (i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
+    }
+}
+
 //=======================================================================================================
 //=======================================================================================================
 
