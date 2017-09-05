@@ -16,10 +16,8 @@
                     <div class="x_title">
                         <h2><i class="fa fa-shield"></i>Nuevo Equipo <small>Complete los campos para agregar un nuevo equipo.</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a></li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -40,13 +38,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="email">Nombre<span class="kv-reqd"> (*)</span></label>
-                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_NombreEquipo">
+                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_NombreEquipo" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="pwd">Siglas</label>
-                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_Siglas">
+                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_Siglas" required>
                                         </div>
                                     </div>
                                 </div>
@@ -54,13 +52,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="fname">Sitio Web:</label>
-                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_SitioWeb">
+                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_SitioWeb" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="lname">Teléfono / Contacto:</label>
-                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_TelefonoDeContacto">
+                                            <input type="text" class="form-control" id="txt_AltaEquipoWF_TelefonoDeContacto" required>
                                         </div>
                                     </div>
                                 </div>
@@ -71,11 +69,9 @@
                     <div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="ln_solid"></div>
-
-                            <button id="btn_AltaEquipo_Nuevo" class="btn btn-primary" style="display:none;" onclick="AltaEquipo_Nuevo()" type="button">Nuevo</button>
-                            <button id="btn_AltaEquipo_Guardar" class="btn btn-primary" style="display:block;" onclick="AltaEquipo_Guardar()" type="button">Guardar</button>
-                            <button id="btn_AltaEquipo_Limpiar" class="btn btn-primary" style="display:block;" onclick="AltaEquipo_Limpiar()" type="button">Limpiar</button>
-
+                            <button id="btn_AltaEquipo_Nuevo" class="btn btn-primary" style="display: none;" onclick="AltaEquipo_Nuevo()" type="button">Nuevo</button>
+                            <button id="btn_AltaEquipo_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEquipo_Guardar()" type="button">Guardar</button>
+                            <button id="btn_AltaEquipo_Limpiar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEquipo_Limpiar()" type="button">Limpiar</button>
                         </div>
                     </div>
                 </div>

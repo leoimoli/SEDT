@@ -15,5 +15,6 @@ namespace SEDT.Modelo.Entidades
         public string Siglas { get; set; }
         public string SitioWeb { get; set; }
         public string TelefonoDeContacto { get; set; }
+        public byte[] Imagen { get; set; }
     }
 }
