@@ -635,7 +635,7 @@ table.no-margin .progress {
     margin-left: -10px
 }
 .grid_slider .col-md-6 {
-    padding: 0 40px
+    padding: 0 40px !important
 }
 h1,
 .h1,
@@ -1112,7 +1112,7 @@ legend {
 }
 .profile_details .profile_view {
     display: inline-block;
-    padding: 10px 0 0;
+    padding: 0px 0 0;
     background: #fff
 }
 .profile_details .profile_view .divider {

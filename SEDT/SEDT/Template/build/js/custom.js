@@ -1540,10 +1540,82 @@ if (typeof NProgress != 'undefined') {
 			$("#range_31").ionRangeSlider({
 			  type: "double",
 			  min: 0,
-			  max: 100,
-			  from: 30,
-			  to: 70,
+			  max: 10,
+			  from: 0,
+			  to: 5,
 			  from_fixed: true
+			});
+			$("#range_A1").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
+			});
+			$("#range_A2").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
+			});
+			$("#range_A3").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
+			});
+			$("#range_A4").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
+			});
+			$("#range_A5").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
+			});
+			$("#range_A6").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
+			});
+			$("#range_A7").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
+			});
+			$("#range_A8").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
+			});
+			$("#range_A9").ionRangeSlider({
+			    type: "double",
+			    min: 0,
+			    max: 10,
+			    from: 0,
+			    to: 5,
+			    from_fixed: true
 			});
 			$(".range_min_max").ionRangeSlider({
 			  type: "double",

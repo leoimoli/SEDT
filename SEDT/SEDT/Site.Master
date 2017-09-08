@@ -40,7 +40,17 @@
     <link href="Template/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="Template/build/css/custom.min.css" rel="stylesheet">
-    
+    <!-- NProgress -->
+    <link href="Template/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="Template/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Ion.RangeSlider -->
+    <link href="Template/vendors/normalize-css/normalize.css" rel="stylesheet">
+    <link href="Template/vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
+    <link href="Template/vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <!-- Bootstrap Colorpicker -->
+    <link href="Template/vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <link href="Template/vendors/cropper/dist/cropper.min.css" rel="stylesheet">
     <!-- FILE INPUT: -->
     <link href="Template/fileInput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     <!-- if using RTL (Right-To-Left) orientation, load the RTL CSS file after fileinput.css by uncommenting below -->
@@ -350,8 +360,6 @@
     <!-- GENERAL. -->
     <!-- jQuery -->
     <script src="Template/vendors/jquery/dist/jquery.min.js"></script>
-     
-    
     <!-- Bootstrap -->
     <script src="Template/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -417,5 +425,14 @@
     locale file as mentioned below -->
     <script src="Template/fileInput/js/<lang>.js"></script>    
     <script src="Scripts/funciones.js"></script>    
+        <!-- NProgress -->
+    <script src="Template/vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="Template/vendors/moment/min/moment.min.js"></script>
+    <script src="Template/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- Ion.RangeSlider -->
+    <script src="Template/vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+    <!-- Bootstrap Colorpicker -->
+    <script src="Template/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
 </body>
 </html>
