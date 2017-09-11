@@ -16,12 +16,12 @@ namespace SEDT
         //=============================================================
         //=============================================================
         [WebMethod]
-        public static Respuesta GuardarDatos(PersonaFisicaJugador obj)
+        public static Respuesta GuardarDatos(FichaTecnicaJugador obj)
         {
             Respuesta resultado = new Respuesta();
             try
             {
-                resultado = Agregar.AltaPersonaFisicaJugador(obj);
+                resultado = Agregar.AltaFichaTecnicaJugador(obj);
             }
             catch (Exception e)
             {

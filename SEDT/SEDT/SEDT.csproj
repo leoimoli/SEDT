@@ -2250,6 +2250,8 @@
     <Content Include="Template\vendors\iCheck\skins\flat\grey%402x.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\grey.css" />
     <Content Include="Template\vendors\iCheck\skins\flat\grey.png" />
+    <Content Include="Template\vendors\iCheck\skins\flat\mcd.css" />
+    <Content Include="Template\vendors\iCheck\skins\flat\mcd.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\orange%402x.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\orange.css" />
     <Content Include="Template\vendors\iCheck\skins\flat\orange.png" />

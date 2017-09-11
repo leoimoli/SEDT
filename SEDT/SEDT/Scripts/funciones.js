@@ -78,6 +78,7 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion)
 //=======================================================================================================
 
 //=======================================================================================================
+// Métodos referentes a la pantalla: AltaEquipoWF.-
 //=======================================================================================================
 function AltaEquipo_Guardar()
 {
@@ -113,7 +114,11 @@ function AltaEquipo_Limpiar()
     document.getElementById("btn_AltaEquipo_Guardar").style.display = 'inline-block';
     document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'inline-block';
 }
+//=======================================================================================================
 
+//=======================================================================================================
+// Métodos referentes a la pantalla: AltaJugadorWF.-
+//=======================================================================================================
 function AltaJugador_Guardar()
 {
     var Mensaje = "Ha registrado el Jugador correctamente!";
@@ -154,6 +159,50 @@ function AltaJugador_Limpiar()
     document.getElementById("btn_AltaJugador_Nuevo").style.display = 'none';
     document.getElementById("btn_AltaJugador_Guardar").style.display = 'inline-block';
     document.getElementById("btn_AltaJugador_Limpiar").style.display = 'inline-block';
+}
+//=======================================================================================================
+
+//=======================================================================================================
+// Métodos referentes a la pantalla: AltaFichaTecnicaWF.-
+//=======================================================================================================
+function AltaFichaTecnica_Guardar() {
+    var Mensaje = "Ha registrado la ficha técnica del jugador correctamente!";
+    var InvocarUrl = "/AltaFichaTecnicaWF.aspx/GuardarDatos";
+
+    var ObjetoVista =
+    {
+        Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
+        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
+        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
+        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+        FechaNacimiento: document.getElementById("txt_AltaJugadorWF_FechaNacimiento").value,
+        Altura: document.getElementById("txt_AltaJugadorWF_Altura").value,
+        Peso: document.getElementById("txt_AltaJugadorWF_Peso").value,
+        Imagen: null
+    };
+
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
+}
+
+function AltaFichaTecnica_Nuevo() {
+    AltaFichaTecnica_Limpiar();
+}
+
+function AltaFichaTecnica_Limpiar() {
+    //Limpiamos los campos del formulario.-
+    document.getElementById("po").checked = false;
+    document.getElementById("ld").checked = false;
+    document.getElementById("dcd").checked = false;
+    document.getElementById("dci").checked = false;
+    document.getElementById("li").checked = false;
+    document.getElementById("md").checked = false;
+    document.getElementById("mcd").checked = false;
+    document.getElementById("mci").checked = false;
+    document.getElementById("mi").checked = false;
+    document.getElementById("mp").checked = false;
+    document.getElementById("ed").checked = false;
+    document.getElementById("ei").checked = false;
+    document.getElementById("cd").checked = false;
 }
 //=======================================================================================================
 
