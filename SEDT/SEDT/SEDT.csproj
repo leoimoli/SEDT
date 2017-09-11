@@ -170,6 +170,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AltaFichaTecnicaWF.aspx" />
     <Content Include="AltaPartidoWF.aspx" />
     <Content Include="AltaEquipoWF.aspx" />
     <Content Include="AltaJugadorWF.aspx" />
@@ -382,6 +383,7 @@
     <Content Include="Template\production\typography.html" />
     <Content Include="Template\production\widgets.html" />
     <Content Include="Template\production\xx.html" />
+    <Content Include="Template\src\img\field.png" />
     <Content Include="Template\src\js\custom.js" />
     <Content Include="Template\src\js\helpers\smartresize.js" />
     <Content Include="Template\vendors\animate.css\animate.css" />
@@ -4723,6 +4725,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaFichaTecnicaWF.aspx.cs">
+      <DependentUpon>AltaFichaTecnicaWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaFichaTecnicaWF.aspx.designer.cs">
+      <DependentUpon>AltaFichaTecnicaWF.aspx</DependentUpon>
     </Compile>
     <Compile Include="AltaPartidoWF.aspx.cs">
       <DependentUpon>AltaPartidoWF.aspx</DependentUpon>
