@@ -34,20 +34,23 @@ namespace SEDT.Controlador
             Respuesta respuesta = new Respuesta();
             respuesta.Errores = new List<string>();
             respuesta.Exito = true;
-            if (String.IsNullOrEmpty(jugador.Apellido))
+            if (string.IsNullOrEmpty(jugador.Dni))
             {
-                respuesta.Errores.Add("El campo Apellido es un dato obligatorio.");
-                respuesta.Exito = false;
-            }
-            if (String.IsNullOrEmpty(jugador.Nombre))
-            {
-                respuesta.Errores.Add("El campo Nombre es un dato obligatorio.");
-                respuesta.Exito = false;
-            }
-            if (String.IsNullOrEmpty(jugador.Apodo))
-            {
-                respuesta.Errores.Add("El campo Apodo es un dato obligatorio.");
-                respuesta.Exito = false;
+                if (String.IsNullOrEmpty(jugador.Apellido))
+                {
+                    respuesta.Errores.Add("El campo Apellido es un dato obligatorio.");
+                    respuesta.Exito = false;
+                }
+                if (String.IsNullOrEmpty(jugador.Nombre))
+                {
+                    respuesta.Errores.Add("El campo Nombre es un dato obligatorio.");
+                    respuesta.Exito = false;
+                }
+                if (String.IsNullOrEmpty(jugador.Apodo))
+                {
+                    respuesta.Errores.Add("El campo Apodo es un dato obligatorio.");
+                    respuesta.Exito = false;
+                }
             }
             ///// Si se ingreso un dni se valida por dni.
             if (!String.IsNullOrEmpty(jugador.Dni))
@@ -104,6 +107,7 @@ namespace SEDT.Controlador
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Errores = new List<string>();
+            respuesta.Exito = true;
             if (String.IsNullOrEmpty(torneo.NombreTorneo))
             {
                 respuesta.Errores.Add("El nombre del torneo es dato obligatorio.");
@@ -115,6 +119,14 @@ namespace SEDT.Controlador
                 respuesta.Errores.Add("Ya existe un torneo con el mismo nombre ingresado.");
                 respuesta.Exito = false;
             }
+
+            return respuesta;
+        }
+        public static Respuesta AltaEstadisticaPartido(EstadisticaPartido estadisticaPartido)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            respuesta.Exito = true;
             return respuesta;
         }
         public static Respuesta AltaFichaTecnicaJugador(FichaTecnicaJugador ficha)
