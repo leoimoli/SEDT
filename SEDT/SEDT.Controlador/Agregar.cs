@@ -147,11 +147,10 @@ namespace SEDT.Controlador
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Exito = true;
-
             respuesta.Errores = new List<string>();
             try
             {
-                //respuesta = Validar.AltaEstadisticaPartido(estadisticaPartido);
+                respuesta = Validar.AltaEstadisticaPartido(estadisticaPartido);
                 if (respuesta.Exito == true)
                 {
                     respuesta.Id = GuardarDAO.AltaEstadisticaPartido(estadisticaPartido);

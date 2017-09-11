@@ -8,8 +8,7 @@ var Resultado = null;
 //=======================================================================================================
 // Nos permite invocar una función JavaScript solo sabiendo su nombre.-
 //=======================================================================================================
-function executeFunctionByName(functionName, context /*, args */)
-{
+function executeFunctionByName(functionName, context /*, args */) {
     var args = [].slice.call(arguments).splice(2);
     var namespaces = functionName.split(".");
     var func = namespaces.pop();
@@ -22,8 +21,7 @@ function executeFunctionByName(functionName, context /*, args */)
 //=======================================================================================================
 // Este método recibe un mensaje para mostrarlo como un pop-up de Éxito.-
 //=======================================================================================================
-function Mensaje_Exito(mensaje)
-{
+function Mensaje_Exito(mensaje) {
     Msg_Exito = new PNotify({
         title: 'Exito!',
         text: mensaje,
@@ -35,8 +33,7 @@ function Mensaje_Exito(mensaje)
 //=======================================================================================================
 // Este método recibe un mensaje para mostrarlo como un pop-up de Éxito.-
 //=======================================================================================================
-function Mensaje_Error(mensaje)
-{
+function Mensaje_Error(mensaje) {
     Msg_Error = new PNotify({
         title: 'Error!',
         text: mensaje,
@@ -48,8 +45,7 @@ function Mensaje_Error(mensaje)
 //=======================================================================================================
 // Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
-function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion)
-{
+function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
     var Datos = JSON.stringify(ObjetoVista);
     $.ajax({
         type: "POST",
@@ -57,19 +53,17 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion)
         data: "{obj:" + Datos + "}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        error: function (XMLHttpRequest, textStatus, errorThrown){
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Request: " + XMLHttpRequest.toString()
              + "\n\nStatus: " + textStatus
               + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
-            if (result.d.Exito)
-            {
+            if (result.d.Exito) {
                 executeFunctionByName(Funcion + "_Guardar_Exito", window, result.d, Mensaje);
             }
-            else
-            {
+            else {
                 executeFunctionByName(Funcion + "_Guardar_Error", window, result.d);
             }
         }
@@ -80,8 +74,7 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion)
 //=======================================================================================================
 // Métodos referentes a la pantalla: AltaEquipoWF.-
 //=======================================================================================================
-function AltaEquipo_Guardar()
-{
+function AltaEquipo_Guardar() {
     var Mensaje = "Ha registrado el Equipo correctamente!";
     var InvocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
 
@@ -96,13 +89,11 @@ function AltaEquipo_Guardar()
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaEquipo");
 }
 
-function AltaEquipo_Nuevo()
-{   
+function AltaEquipo_Nuevo() {
     AltaEquipo_Limpiar();
 }
 
-function AltaEquipo_Limpiar()
-{
+function AltaEquipo_Limpiar() {
     //Limpiamos los campos del formulario.-
     document.getElementById("txt_AltaEquipoWF_NombreEquipo").value = "";
     document.getElementById("txt_AltaEquipoWF_Siglas").value = "";
@@ -116,9 +107,6 @@ function AltaEquipo_Limpiar()
 }
 //=======================================================================================================
 
-//=======================================================================================================
-// Métodos referentes a la pantalla: AltaJugadorWF.-
-//=======================================================================================================
 function AltaJugador_Guardar()
 {
     var Mensaje = "Ha registrado el Jugador correctamente!";
@@ -139,13 +127,11 @@ function AltaJugador_Guardar()
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
 }
 
-function AltaJugador_Nuevo()
-{
+function AltaJugador_Nuevo() {
     AltaJugador_Limpiar();
 }
 
-function AltaJugador_Limpiar()
-{
+function AltaJugador_Limpiar() {
     //Limpiamos los campos del formulario.-
     document.getElementById("txt_AltaJugadorWF_Nombre").value = "";
     document.getElementById("txt_AltaJugadorWF_Apellido").value = "";
@@ -208,8 +194,7 @@ function AltaFichaTecnica_Limpiar() {
 
 //=======================================================================================================
 //=======================================================================================================
-function AltaEquipo_Guardar_Exito(Respuesta, Mensaje)
-{
+function AltaEquipo_Guardar_Exito(Respuesta, Mensaje) {
     Mensaje_Exito(Mensaje);
     if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
         document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'inline-block';
@@ -263,5 +248,54 @@ $("#avatar-2").fileinput({
     layoutTemplates: { main2: '{preview} {remove} {browse}' },
     allowedFileExtensions: ["jpg", "png", "gif"]
 });
+//=======================================================================================================
+//=======================================================================================================
+function AltaTorneo_Guardar() {
+    var Mensaje = "Ha registrado el Torneo correctamente!";
+    var InvocarUrl = "/AltaTorneoWF.aspx/GuardarDatos";
+
+    var ObjetoVista = {
+        NombreTorneo: document.getElementById("txt_AltaTorneoWF_NombreTorneo").value,
+        FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
+        DuracionPartidos: document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value,
+        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value,
+        //Imagen: null
+    };
+
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaTorneo");
+}
+
+function AltaTorneo_Nuevo() {
+    AltaTorneo_Limpiar();
+}
+
+function AltaTorneo_Limpiar() {
+    //Limpiamos los campos del formulario.-
+    document.getElementById("txt_AltaTorneoWF_NombreTorneo").value = "";
+    document.getElementById("txt_AltaTorneoWF_Formato").value = "";
+    document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value = "";
+    document.getElementById("txt_AltaTorneoWF_Descripción").value = "";
+
+    //Aplicamos visibilidad a los botones del formulario.-
+    document.getElementById("btn_AltaTorneo_Nuevo").style.display = 'none';
+    document.getElementById("btn_AltaTorneo_Guardar").style.display = 'inline-block';
+    document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'inline-block';
+}
+
+function AltaTorneo_Guardar_Exito(Respuesta, Mensaje) {
+    Mensaje_Exito(Mensaje);
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
+        document.getElementById("btn_AltaTorneo_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaTorneo_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'none';
+    }
+}
+
+function AltaTorneo_Guardar_Error(Respuesta) {
+    var errores = Respuesta.Errores;
+    for (i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
+    }
+}
 //=======================================================================================================
 //=======================================================================================================

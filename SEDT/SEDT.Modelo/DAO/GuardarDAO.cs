@@ -85,6 +85,8 @@ namespace SEDT.Modelo.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("NombreTorneo_in", torneo.NombreTorneo);
             cmd.Parameters.AddWithValue("Descripcion_in", torneo.Descripcion);
+            cmd.Parameters.AddWithValue("FormatoTorneo_in", torneo.FormatoTorneo);
+            cmd.Parameters.AddWithValue("DuracionPartido_in", torneo.DuracionPartidos);
             cmd.Parameters.AddWithValue("IdEquipoUsuario_in", torneo.IdEquipoUsuario);
             cmd.ExecuteNonQuery();
             connection.Close();

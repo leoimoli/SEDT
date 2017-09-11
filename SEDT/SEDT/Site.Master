@@ -56,10 +56,24 @@
     <!-- if using RTL (Right-To-Left) orientation, load the RTL CSS file after fileinput.css by uncommenting below -->
     <!-- link href="Template/fileInput/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /-->
     <style>
-        .kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
-            margin: 0; padding: 0; border: none; box-shadow: none; text-align: center; }
-        .kv-avatar .file-input { display: table-cell; max-width: 220px; }
-        .kv-reqd { color: red; font-family: monospace; font-weight: normal; }
+        .kv-avatar .krajee-default.file-preview-frame, .kv-avatar .krajee-default.file-preview-frame:hover {
+            margin: 0;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            text-align: center;
+        }
+
+        .kv-avatar .file-input {
+            display: table-cell;
+            max-width: 220px;
+        }
+
+        .kv-reqd {
+            color: red;
+            font-family: monospace;
+            font-weight: normal;
+        }
    </style>
 </head>
     
@@ -156,14 +170,12 @@
                                     <ul class="nav child_menu">
                                         <li><a href="AltaEquipoWF.aspx">Nuevo Equipo</a></li>
                                         <li><a href="AltaJugadorWF.aspx">Alta Jugador</a></li>
-                                        <li><a href="index3.html">Dashboard3</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-home"></i>Partidos <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
+                                            <li><a href="AltaTorneoWF.aspx">Alta Torneo</a></li>
                                         <li><a href="AltaPartidoWF.aspx">Alta Partido</a></li>
-                                        <li><a href="index2.html">Dashboard2</a></li>
-                                        <li><a href="index3.html">Dashboard3</a></li>
                                     </ul>
                                 </li>
                                  <li><a><i class="fa fa-home"></i>Entrenamientos <span class="fa fa-chevron-down"></span></a>
@@ -344,7 +356,7 @@
             </div>
             <!-- /top navigation -->
 
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"> </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
 
             <!-- footer content -->
             <footer>

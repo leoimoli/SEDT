@@ -1,5 +1,6 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarTorneoExistente`(IN NombreTorneo_in varchar(150), IdEquipoUsuario_in int)
 BEGIN 
-Select * From tTorneo where(NombreTorneo_in  is null or txNombreTorneo = NombreTorneo_in and idEquipoUsuario_in is null or idEquipoUsuario = 
-idEquipoUsuario_in);
+Select * From tTorneo where(NombreTorneo_in  is null or txNombreTorneo = NombreTorneo_in) 
+and
+(idEquipoUsuario_in is null or idEquipoUsuario = idEquipoUsuario_in);
 END
