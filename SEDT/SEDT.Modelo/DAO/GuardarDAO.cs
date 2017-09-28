@@ -127,7 +127,6 @@ namespace SEDT.Modelo.DAO
         {
             int id = 0;
             connection.Open();
-            connection.Open();
             string proceso = "AltaEstadisticaPartido";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -148,6 +147,20 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("CantidadPasesPropios_in", estadisticaPartido.CantidadPasesPropios);
             cmd.Parameters.AddWithValue("CantidadPasesRivales_in", estadisticaPartido.CantidadPasesRivales);
             cmd.Parameters.AddWithValue("idPartido_in", estadisticaPartido.idPartido);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            return id;
+        }
+        public static int AltaEntrenamiento(Entrenamiento entrenamiento)
+        {
+            int id = 1;
+            connection.Open();
+            string proceso = "AltaEntrenamiento";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("FechaEntrenamiento_in", entrenamiento.FechaEntrenamiento);
+            cmd.Parameters.AddWithValue("CantidadTurnoEntrenamiento_in", entrenamiento.CantidadTurnoEntrenamiento);
+            cmd.Parameters.AddWithValue("IdEquipo_in", entrenamiento.IdEquipo);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;

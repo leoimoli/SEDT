@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaEntrenamiento`(IN FechaEntrenamiento_in datetime,
+ CantidadTurnoEntrenamiento_in int, IdEquipo_in int)
+BEGIN
+ insert into tEntrenamiento(dtFechaEntrenamiento, txCantidadDeTurnoEntrenamiento,
+ idEquipo)  values (FechaEntrenamiento_in, CantidadTurnoEntrenamiento_in, IdEquipo_in);
+END

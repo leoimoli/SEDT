@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Base\Procedure\20%29AltaEntrenamiento.txt" />
     <Content Include="Base\Procedure\19%29ActualizarEstadisticaPartido.txt" />
     <Content Include="Base\Procedure\18%29AltaEstadisticaPartido .txt" />
     <Content Include="Base\Procedure\17%29ActualizarPartido.txt" />

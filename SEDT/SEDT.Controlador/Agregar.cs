@@ -163,5 +163,26 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaEntrenamiento(Modelo.Entidades.Entrenamiento entrenamiento)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+            respuesta.Errores = new List<string>();
+            try
+            {
+                //respuesta = Validar.AltaEntrenamiento(entrenamiento);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaEntrenamiento(entrenamiento);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
     }
 }
+
