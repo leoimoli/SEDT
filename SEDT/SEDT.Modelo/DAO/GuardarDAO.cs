@@ -165,5 +165,34 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
+        public static int AltaTurnoEntrenamiento(TurnoEntrenamiento turnoentrenamiento)
+        {
+            int id = 1;
+            connection.Open();
+            string proceso = "AltaTurnoEntrenamiento";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("IdEntrenamiento_in", turnoentrenamiento.IdEntrenamiento);
+            cmd.Parameters.AddWithValue("Horario_in", turnoentrenamiento.Horario);
+            cmd.Parameters.AddWithValue("LugarEntrenamiento_in", turnoentrenamiento.LugarEntrenamiento);
+            cmd.Parameters.AddWithValue("CantidadEtapas_in", turnoentrenamiento.CantidadEtapas);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            return id;
+        }                
+        public static int AltaEtapasEntrenamiento(EtapasEntrenamiento etapasentrenamiento)
+        {
+            int id = 1;
+            connection.Open();
+            string proceso = "AltaEtapasEntrenamiento";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("MaterialesDeTrabajo_in", etapasentrenamiento.MaterialesDeTrabajo);
+            cmd.Parameters.AddWithValue("Descripcion_in", etapasentrenamiento.Descripcion);
+            cmd.Parameters.AddWithValue("IdTurno_in", etapasentrenamiento.IdTurno);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            return id;
+        }
     }
 }

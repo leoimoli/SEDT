@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaTurnoEntrenamiento`(IN IdEntrenamiento_in int,
+ Horario_in datetime, LugarEntrenamiento_in varchar(100), CantidadEtapas_in int)
+BEGIN
+ insert into tTurnoEntrenamiento(idEntrenamiento, dtHorario, txLugarEntrenamiento, 
+ txCantidadDeEtapas) values (IdEntrenamiento_in, Horario_in, LugarEntrenamiento_in, CantidadEtapas_in);
+END

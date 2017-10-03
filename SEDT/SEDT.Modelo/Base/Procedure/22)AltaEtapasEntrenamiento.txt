@@ -1,0 +1,7 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaEtapasEntrenamiento`(IN MaterialesDeTrabajo_in varchar(250),
+ Descripcion_in varchar(250), IdTurno_in int)
+BEGIN
+ insert into tetapasentrenamiento(txmaterialesDeTrabajo, txDescripcion, idTurno)
+ values
+ (MaterialesDeTrabajo_in, Descripcion_in, IdTurno_in);
+END

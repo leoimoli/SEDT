@@ -183,6 +183,47 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaTurnoEntrenamiento(Modelo.Entidades.TurnoEntrenamiento turnoentrenamiento)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+            respuesta.Errores = new List<string>();
+            try
+            {
+                //respuesta = Validar.AltaEntrenamiento(entrenamiento);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaTurnoEntrenamiento(turnoentrenamiento);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
+        public static Respuesta AltaEtapasEntrenamiento(Modelo.Entidades.EtapasEntrenamiento etapasentrenamiento)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+            respuesta.Errores = new List<string>();
+            try
+            {
+                //respuesta = Validar.AltaEntrenamiento(entrenamiento);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaEtapasEntrenamiento(etapasentrenamiento);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
+
     }
 }
 

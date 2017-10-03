@@ -41,6 +41,36 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return ValidarExistencia;
         }
+
+        public static List<EquipoUsuario> ConsultarEquiposUsuario(EquipoUsuario equipo)
+        {
+            connection.Open();
+            List<EquipoUsuario> lista = new List<EquipoUsuario>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+
+            //string BuscarJugador = "Select * From tPersona";
+            //MySqlDataAdapter dt = new MySqlDataAdapter(BuscarJugador, connection);
+            //DataTable Tabla = new DataTable();
+            //dt.Fill(Tabla);
+            //if (Tabla.Rows.Count > 0)
+            //{
+            //    DtoJugadores li = new DtoJugadores();
+            //    DataSet ds = new DataSet();
+            //    dt.Fill(ds, "tPersona");
+            //    foreach (DataRow item in ds.Tables[0].Rows)
+            //    {
+            //        DtoJugadores dtoLista = new DtoJugadores();
+            //        dtoLista.IdPersona = int.Parse(item["idPersona"].ToString());
+            //        dtoLista.Apellido = item["txApellido"].ToString();
+            //        dtoLista.Nombre = item["txNombre"].ToString();
+            //        lista.Add(dtoLista);
+            //    }
+            //}
+            //connection.Close();
+            //return lista;
+        }
+
         public static bool AltaPersonaFisicaJugadorExistentePorDni(string dni, int idUsuario)
         {
             bool ValidarExistencia;
