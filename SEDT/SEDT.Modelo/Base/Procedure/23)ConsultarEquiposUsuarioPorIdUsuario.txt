@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarEquiposUsuarioPorIdUsuario`(IN idUsuario_in int)
+BEGIN
+Select * From tEquipoUsuario where(idUsuario_in is null or 
+idEquipoUsuario = idUsuario_in);
+END

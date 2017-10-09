@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LoginUsuario`(IN Dni_in varchar(100), Contraseña_in varchar(150))
+BEGIN
+Select * From tusuarios where(Dni_in is null or txDni = Dni_in) and (Contraseña_in is null or txContraseña = Contraseña_in);
+END

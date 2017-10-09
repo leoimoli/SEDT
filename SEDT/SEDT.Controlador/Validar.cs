@@ -10,6 +10,34 @@ namespace SEDT.Controlador
 {
     public static class Validar
     {
+        public static Respuesta AltaUsuario(Usuario usuario)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+            respuesta.Errores = new List<string>();
+            if (string.IsNullOrEmpty(usuario.Dni))
+            {
+                respuesta.Errores.Add("El campo DNI es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            if (String.IsNullOrEmpty(usuario.Apellido))
+            {
+                respuesta.Errores.Add("El campo Apellido es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            if (String.IsNullOrEmpty(usuario.Nombre))
+            {
+                respuesta.Errores.Add("El campo Nombre es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            bool ValidarUsuarioExistente = ConsultarDAO.ValidarUsuarioExistente(usuario.Dni);
+            if (ValidarUsuarioExistente == true)
+            {
+                respuesta.Errores.Add("Ya existe un usuario con el Nro.Documento ingresado.");
+                respuesta.Exito = false;
+            }
+            return respuesta;
+        }
         public static Respuesta AltaEquipoUsuario(EquipoUsuario equipo)
         {
             Respuesta respuesta = new Respuesta();

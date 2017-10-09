@@ -14,6 +14,26 @@ namespace SEDT.Modelo.DAO
     public class GuardarDAO
     {
         public static MySql.Data.MySqlClient.MySqlConnection connection = new MySqlConnection(ConfigurationManager.AppSettings.Get("DB"));
+        public static int AltaUsuario(Usuario usuario)
+        {
+            int id = 1;
+            connection.Open();
+            string proceso = "AltaUsuario";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("Apellido_in", usuario.Apellido);
+            cmd.Parameters.AddWithValue("Nombre_in", usuario.Nombre);
+            cmd.Parameters.AddWithValue("Dni_in", usuario.Dni);
+            cmd.Parameters.AddWithValue("Email_in", usuario.Email);
+            cmd.Parameters.AddWithValue("Telefono_in", usuario.Telefono);
+            cmd.Parameters.AddWithValue("IdPlanDePago_in", usuario.IdPlanDePago);
+            cmd.Parameters.AddWithValue("FechaDeAlta_in", usuario.FechaDeAlta);
+            cmd.Parameters.AddWithValue("FechaUltimaConexion_in", usuario.FechaUltimaConexion);
+            cmd.Parameters.AddWithValue("Contraseña_in", usuario.Contraseña);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            return id;
+        }
         public static int AltaEquipoUsuario(EquipoUsuario equipo)
         {
             int id = 1;
@@ -179,7 +199,7 @@ namespace SEDT.Modelo.DAO
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;
-        }                
+        }
         public static int AltaEtapasEntrenamiento(EtapasEntrenamiento etapasentrenamiento)
         {
             int id = 1;

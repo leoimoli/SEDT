@@ -9,6 +9,26 @@ namespace SEDT.Controlador
 {
     public static class Agregar
     {
+        public static Respuesta AltaUsuario(Modelo.Entidades.Usuario usuario)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaUsuario(usuario);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaUsuario(usuario);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
         public static Respuesta AltaEquipoUsuario(Modelo.Entidades.EquipoUsuario equipo)
         {
             Respuesta respuesta = new Respuesta();
