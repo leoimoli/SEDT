@@ -46,6 +46,7 @@ function Mensaje_Error(mensaje) {
 // Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
 function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    debugger;
     var Datos = JSON.stringify(ObjetoVista);
     $.ajax({
         type: "POST",
@@ -155,19 +156,9 @@ function AltaFichaTecnica_Guardar() {
     var Mensaje = "Ha registrado la ficha técnica del jugador correctamente!";
     var InvocarUrl = "/AltaFichaTecnicaWF.aspx/GuardarDatos";
 
-    var ObjetoVista =
-    {
-        Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
-        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
-        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
-        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
-        FechaNacimiento: document.getElementById("txt_AltaJugadorWF_FechaNacimiento").value,
-        Altura: document.getElementById("txt_AltaJugadorWF_Altura").value,
-        Peso: document.getElementById("txt_AltaJugadorWF_Peso").value,
-        Imagen: null
-    };
+    var ObjetoVista = {};
 
-    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaFichaTecnica");
 }
 
 function AltaFichaTecnica_Nuevo() {

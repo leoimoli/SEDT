@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title>SEDT / Sistema de Estadísticas para DTs</title>
 
     <asp:PlaceHolder runat="server"></asp:PlaceHolder>
 
@@ -27,7 +27,12 @@
     <!-- NProgress -->
     <link href="Template/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-    <link href="Template/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="Template/vendors/iCheck/skins/flat/mcd.css" rel="stylesheet">
+    <link href="Template/vendors/iCheck/skins/flat/AR.css" rel="stylesheet">
+    <link href="Template/vendors/iCheck/skins/flat/DCD.css" rel="stylesheet">
+    <link href="Template/vendors/iCheck/skins/flat/DCI.css" rel="stylesheet">
+    <link href="Template/vendors/iCheck/skins/flat/LD.css" rel="stylesheet">
+    <link href="Template/vendors/iCheck/skins/flat/LI.css" rel="stylesheet">
     <!-- bootstrap-progressbar -->
     <link href="Template/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -75,6 +80,7 @@
             font-weight: normal;
         }
    </style>
+
 </head>
     
 <body class="nav-md">
@@ -111,129 +117,55 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home"></i>Home <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-home"></i>EJEMPLO <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="index2.html">Dashboard2</a></li>
-                                        <li><a href="index3.html">Dashboard3</a></li>
+                                        <li><a href="Template/production/index.html">Ejemplo Diseño</a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-edit"></i>Forms <span class="fa fa-chevron-down"></span></a>
+                                 <li><a><i class="fa fa-users"></i>Jugadores <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="form.html">General Form</a></li>
-                                        <li><a href="form_advanced.html">Advanced Components</a></li>
-                                        <li><a href="form_validation.html">Form Validation</a></li>
-                                        <li><a href="form_wizards.html">Form Wizard</a></li>
-                                        <li><a href="form_upload.html">Form Upload</a></li>
-                                        <li><a href="form_buttons.html">Form Buttons</a></li>
+                                        <li><a href="AltaJugadorWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Jugador</div></a></li>
+                                        <li><a href="AltaFichaTecnicaWF.aspx"><span class="label label-success pull-left"">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Ficha técnica</div></a></li>
+                                        <li><a href="ConsultaJugadorWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Jugadores</div></a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-desktop"></i>UI Elements <span class="fa fa-chevron-down"></span></a>
+                                 <li><a><i class="fa fa-shield"></i>Equipos <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="general_elements.html">General Elements</a></li>
-                                        <li><a href="media_gallery.html">Media Gallery</a></li>
-                                        <li><a href="typography.html">Typography</a></li>
-                                        <li><a href="icons.html">Icons</a></li>
-                                        <li><a href="glyphicons.html">Glyphicons</a></li>
-                                        <li><a href="widgets.html">Widgets</a></li>
-                                        <li><a href="invoice.html">Invoice</a></li>
-                                        <li><a href="inbox.html">Inbox</a></li>
-                                        <li><a href="calendar.html">Calendar</a></li>
+                                        <li><a href="AltaEquipoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Equipo</div></a></li>
+                                        <li><a href="AltaEquipoRivalWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Equipo rival</div></a></li>
+                                        <li><a href="ConsultaEquipoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Equipos</div></a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-table"></i>Tables <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-futbol-o"></i>Partidos <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="tables.html">Tables</a></li>
-                                        <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                                        <li><a href="AltaPartidoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Partido</div></a></li>
+                                        <li><a href="ConsultaPartidoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Partidos</div></a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-bar-chart-o"></i>Data Presentation <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-trophy"></i>Competiciones <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="chartjs.html">Chart JS</a></li>
-                                        <li><a href="chartjs2.html">Chart JS2</a></li>
-                                        <li><a href="morisjs.html">Moris JS</a></li>
-                                        <li><a href="echarts.html">ECharts</a></li>
-                                        <li><a href="other_charts.html">Other Charts</a></li>
+                                            <li><a href="AltaTorneoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Torneo</div></a></li>
+                                            <li><a href="ConsultaTorneoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Torneos</div></a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                                 <li><a><i class="fa fa-clock-o"></i>Entrenamientos <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                                        <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                                        <li><a href="AltaEntrenamientoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Entrenamiento</div></a></li>
+                                        <li><a href="ConsultaEntrenamientoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Entrenamientos</div></a></li>
+                                        <li><a href="AltaEtapaWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Etapa</div></a></li>
+                                        <li><a href="ConsultaEtapaWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Etapas</div></a></li>
+                                        <li><a href="AltaTurnoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Turno</div></a></li>
+                                        <li><a href="ConsultaTurnoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Turnos</div></a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-home"></i>Inicio <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-line-chart"></i>Reportes <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
+                                        <li><a href="ConsultaEstadisticaPartidoWF.aspx"><span class="label label-danger pull-left">estadísticas</span><div style="margin-top:4px !important;">&nbsp;&nbsp; Partidos</div></a></li>
+                                        <li><a href="ConsultaEstadisticaEntrenamientoWF.aspx"><span class="label label-danger pull-left">estadísticas</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Entrenamientos</div></a></li>
+                                        <li><a href="ConsultaComparacionJugadorWF.aspx"><span class="label label-warning pull-left">comparar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Jugadores</div></a></li>
+                                        <li><a href="ConsultaComparaciionEquipoWF.aspx"><span class="label label-warning pull-left">comparar</span><div style="margin-top:4px !important;">&nbsp;&nbsp;Equipos</div></a></li>
                                     </ul>
                                 </li>
-                                 <li><a><i class="fa fa-home"></i>Equipo <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="AltaEquipoWF.aspx">Nuevo Equipo</a></li>
-                                        <li><a href="AltaJugadorWF.aspx">Alta Jugador</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-home"></i>Partidos <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                            <li><a href="AltaTorneoWF.aspx">Alta Torneo</a></li>
-                                        <li><a href="AltaPartidoWF.aspx">Alta Partido</a></li>
-                                    </ul>
-                                </li>
-                                 <li><a><i class="fa fa-home"></i>Entrenamientos <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="index2.html">Dashboard2</a></li>
-                                        <li><a href="index3.html">Dashboard3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-home"></i>Reportes <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="index2.html">Dashboard2</a></li>
-                                        <li><a href="index3.html">Dashboard3</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="menu_section">
-                            <h3>Live On</h3>
-                            <ul class="nav side-menu">
-                                <li><a><i class="fa fa-bug"></i>Additional Pages <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="e_commerce.html">E-commerce</a></li>
-                                        <li><a href="projects.html">Projects</a></li>
-                                        <li><a href="project_detail.html">Project Detail</a></li>
-                                        <li><a href="contacts.html">Contacts</a></li>
-                                        <li><a href="profile.html">Profile</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-windows"></i>Extras <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="page_403.html">403 Error</a></li>
-                                        <li><a href="page_404.html">404 Error</a></li>
-                                        <li><a href="page_500.html">500 Error</a></li>
-                                        <li><a href="plain_page.html">Plain Page</a></li>
-                                        <li><a href="login.html">Login Page</a></li>
-                                        <li><a href="pricing_tables.html">Pricing Tables</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-sitemap"></i>Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="#level1_1">Level One</a>
-                                        <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="level2.html">Level Two</a>
-                                                </li>
-                                                <li><a href="#level2_1">Level Two</a>
-                                                </li>
-                                                <li><a href="#level2_2">Level Two</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#level1_2">Level One</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i>Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                             </ul>
                         </div>
 
@@ -258,6 +190,8 @@
                     <!-- /menu footer buttons -->
                 </div>
             </div>
+
+
             <!-- top navigation -->
             <div class="top_nav">
                 <div class="nav_menu">
@@ -414,7 +348,6 @@
     <script src="Template/vendors/pnotify/dist/pnotify.js"></script>
     <script src="Template/vendors/pnotify/dist/pnotify.buttons.js"></script>
     <script src="Template/vendors/pnotify/dist/pnotify.nonblock.js"></script>
-    
     <script src="Template/football/js/jquery-ui.min.js"></script>
     <script src="Template/football/js/prefixfree.min.js"></script>
     <script src="Template/football/js/index.js"></script>
@@ -437,7 +370,7 @@
     locale file as mentioned below -->
     <script src="Template/fileInput/js/<lang>.js"></script>    
     <script src="Scripts/funciones.js"></script>    
-        <!-- NProgress -->
+    <!-- NProgress -->
     <script src="Template/vendors/nprogress/nprogress.js"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="Template/vendors/moment/min/moment.min.js"></script>
@@ -446,5 +379,13 @@
     <script src="Template/vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
     <!-- Bootstrap Colorpicker -->
     <script src="Template/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+    <!-- Ion.RangeSlider -->
+    <script src="Template/vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+    <!-- jquery.inputmask -->
+    <script src="Template/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+    <!-- jQuery Knob -->
+    <script src="Template/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
+    <!-- Cropper -->
+    <script src="Template/vendors/cropper/dist/cropper.min.js"></script>
 </body>
 </html>

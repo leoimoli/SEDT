@@ -68,7 +68,7 @@ namespace SEDT.Modelo.DAO
             //    }
             //}
             //connection.Close();
-            //return lista;
+            return lista;
         }
 
         public static bool AltaPersonaFisicaJugadorExistentePorDni(string dni, int idUsuario)

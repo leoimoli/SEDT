@@ -170,6 +170,21 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AltaEtapaWF.aspx" />
+    <Content Include="AltaTurnoWF.aspx" />
+    <Content Include="AltaEquipoRivalWF.aspx" />
+    <Content Include="AltaEntrenamientoWF.aspx" />
+    <Content Include="ConsultaEstadisticaEntrenamientoWF.aspx" />
+    <Content Include="ConsultaEstadisticaPartidoWF.aspx" />
+    <Content Include="ConsultaComparacionEquipoWF.aspx" />
+    <Content Include="ConsultaEtapaWF.aspx" />
+    <Content Include="ConsultaComparacionJugadorWF.aspx" />
+    <Content Include="ConsultaTurnoWF.aspx" />
+    <Content Include="ConsultaEntrenamientoWF.aspx" />
+    <Content Include="ConsultaTorneoWF.aspx" />
+    <Content Include="ConsultaPartidoWF.aspx" />
+    <Content Include="ConsultaJugadorWF.aspx" />
+    <Content Include="ConsultaEquipoWF.aspx" />
     <Content Include="AltaFichaTecnicaWF.aspx" />
     <Content Include="AltaPartidoWF.aspx" />
     <Content Include="AltaEquipoWF.aspx" />
@@ -4727,6 +4742,111 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaEtapaWF.aspx.cs">
+      <DependentUpon>AltaEtapaWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaEtapaWF.aspx.designer.cs">
+      <DependentUpon>AltaEtapaWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaTurnoWF.aspx.cs">
+      <DependentUpon>AltaTurnoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaTurnoWF.aspx.designer.cs">
+      <DependentUpon>AltaTurnoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaEquipoRivalWF.aspx.cs">
+      <DependentUpon>AltaEquipoRivalWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaEquipoRivalWF.aspx.designer.cs">
+      <DependentUpon>AltaEquipoRivalWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaEntrenamientoWF.aspx.cs">
+      <DependentUpon>AltaEntrenamientoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaEntrenamientoWF.aspx.designer.cs">
+      <DependentUpon>AltaEntrenamientoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEstadisticaEntrenamientoWF.aspx.cs">
+      <DependentUpon>ConsultaEstadisticaEntrenamientoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEstadisticaEntrenamientoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEstadisticaEntrenamientoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEstadisticaPartidoWF.aspx.cs">
+      <DependentUpon>ConsultaEstadisticaPartidoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEstadisticaPartidoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEstadisticaPartidoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaComparacionEquipoWF.aspx.cs">
+      <DependentUpon>ConsultaComparacionEquipoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaComparacionEquipoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaComparacionEquipoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEtapaWF.aspx.cs">
+      <DependentUpon>ConsultaEtapaWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEtapaWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEtapaWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaComparacionJugadorWF.aspx.cs">
+      <DependentUpon>ConsultaComparacionJugadorWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaComparacionJugadorWF.aspx.designer.cs">
+      <DependentUpon>ConsultaComparacionJugadorWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaTurnoWF.aspx.cs">
+      <DependentUpon>ConsultaTurnoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaTurnoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaTurnoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEntrenamientoWF.aspx.cs">
+      <DependentUpon>ConsultaEntrenamientoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEntrenamientoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEntrenamientoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaTorneoWF.aspx.cs">
+      <DependentUpon>ConsultaTorneoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaTorneoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaTorneoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaPartidoWF.aspx.cs">
+      <DependentUpon>ConsultaPartidoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaPartidoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaPartidoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaJugadorWF.aspx.cs">
+      <DependentUpon>ConsultaJugadorWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaJugadorWF.aspx.designer.cs">
+      <DependentUpon>ConsultaJugadorWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEquipoWF.aspx.cs">
+      <DependentUpon>ConsultaEquipoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEquipoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEquipoWF.aspx</DependentUpon>
     </Compile>
     <Compile Include="AltaFichaTecnicaWF.aspx.cs">
       <DependentUpon>AltaFichaTecnicaWF.aspx</DependentUpon>

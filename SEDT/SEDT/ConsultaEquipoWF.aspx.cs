@@ -2,13 +2,11 @@
 using SEDT.Modelo.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Web;
 using System.Web.Services;
-using System.Web.UI;
 
 namespace SEDT
 {
-    public partial class AltaFichaTecnicaWF : Page
+    public partial class ConsultaEquipoWF : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,13 +15,12 @@ namespace SEDT
         //=============================================================
         //=============================================================
         [WebMethod]
-        public static Respuesta GuardarDatos(FichaTecnicaJugador obj)
+        public static Respuesta GuardarDatos(EquipoUsuario obj)
         {
             Respuesta resultado = new Respuesta();
-            string asd = HttpContext.Current.Request.Form["PiernaHabil"].ToString();
             try
             {
-                resultado = Agregar.AltaFichaTecnicaJugador(obj);
+                resultado = Agregar.AltaEquipoUsuario(obj);
             }
             catch (Exception e)
             {
@@ -35,5 +32,6 @@ namespace SEDT
         }
         //=============================================================
         //=============================================================
+
     }
 }

@@ -104,7 +104,7 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input id="li" type="checkbox" class="flat">
+                                                    <input id="LI" type="checkbox" class="flat">
                                                 </label>
                                             </div>
                                         </div>
@@ -131,7 +131,7 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input id="dci" type="checkbox" class="flat">
+                                                    <input id="DCI" type="checkbox" class="flat">
                                                 </label>
                                             </div>
                                         </div>
@@ -151,7 +151,7 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input id="po" type="checkbox" class="flat">
+                                                    <input id="AR" type="checkbox" class="flat">
                                                 </label>
                                             </div>
                                         </div>
@@ -174,14 +174,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input id="dcd" type="checkbox" class="flat">
+                                                    <input id="DCD" type="checkbox" class="flat">
                                                 </label>
                                             </div>
                                         </div>
@@ -203,7 +203,7 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input id="ld" type="checkbox" class="flat">
+                                                    <input id="LD" type="checkbox" class="flat">
                                                 </label>
                                             </div>
                                         </div>
@@ -249,7 +249,7 @@
                                         <div class="form-group">
                                             <label>Pierna Habil:</label>
                                         </div>
-                                        <input type="text" id="range_A1" value="" name="range" />
+                                        <input name="PiernaHabil" type="text" id="range_A1" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
@@ -325,9 +325,9 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="ln_solid"></div>
 
-                                <button id="btn_AltaJugador_Nuevo" class="btn btn-primary" style="display: none;" onclick="AltaJugador_Nuevo()" type="button">Nuevo</button>
-                                <button id="btn_AltaJugador_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="AltaJugador_Guardar()" type="button">Guardar</button>
-                                <button id="btn_AltaJugador_Limpiar" class="btn btn-primary" style="display: inline-block;" onclick="AltaFichaTecnica_Limpiar()" type="button">Limpiar</button>
+                                <button id="btn_AltaFichaJugador_Nuevo" class="btn btn-primary" style="display: none;" onclick="AltaFichaTecnica_Nuevo()" type="button">Nuevo</button>
+                                <button id="btn_AltaFichaJugador_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="AltaFichaTecnica_Guardar()" type="button">Guardar</button>
+                                <button id="btn_AltaFichaJugador_Limpiar" class="btn btn-primary" style="display: inline-block;" onclick="AltaFichaTecnica_Limpiar()" type="button">Limpiar</button>
 
                             </div>
                         </div>
