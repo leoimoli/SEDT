@@ -31,12 +31,32 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="row">
-                                </div>
-                                <div class="row">
-                                </div>
-                                <div class="row">
-                                </div>
-                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="txt_AltaJugadorWF_DNI">DNI:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_DNI">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="txt_AltaJugadorWF_Nombre">Nombre:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_Nombre">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="txt_AltaJugadorWF_Apellido">Apellido:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_Apellido">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="txt_AltaJugadorWF_Apodo">Apodo:<span class="kv-reqd"> (*)</span></label>
+                                                <input type="text" class="form-control" id="txt_AltaJugadorWF_Apodo">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +65,7 @@
                     <div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="ln_solid"></div>
-                            
+
                             <button id="btn_ConsultaJugador_Nuevo" class="btn btn-primary" style="display: none;" onclick="ConsultaJugador_Nuevo()" type="button">Nuevo</button>
                             <button id="btn_ConsultaJugador_Imprimir" class="btn btn-primary" style="display: none;" onclick="ConsultaJugador_Imprimir()" type="button">Imprimir</button>
                             <button id="btn_ConsultaJugador_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="ConsultaJugador_Guardar()" type="button">Consultar</button>
