@@ -66,6 +66,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Base\Procedure\26%29LoginUsuario.txt" />
+    <Content Include="Base\Procedure\25%29AltaUsuario.txt" />
+    <Content Include="Base\Procedure\24%29BuscarUsuarioExistentePorDni.txt" />
+    <Content Include="Base\Procedure\23%29ConsultarEquiposUsuarioPorIdUsuario.txt" />
     <Content Include="Base\Procedure\22%29AltaEtapasEntrenamiento.txt" />
     <Content Include="Base\Procedure\21%29AltaTurnoEntrenamiento.txt" />
     <Content Include="Base\Procedure\20%29AltaEntrenamiento.txt" />

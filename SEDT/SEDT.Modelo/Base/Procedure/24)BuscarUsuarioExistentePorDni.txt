@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarUsuarioExistentePorDni`(IN Dni_in varchar(100))
+BEGIN 
+Select * From tusuarios where(Dni_in is null or txDni = Dni_in);
+END
