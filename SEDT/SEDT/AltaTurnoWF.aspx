@@ -29,36 +29,25 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label for="fname">Entrenamiento:</label>
+                                            <label for="fname">Equipo:</label>
                                             <select class="form-control">
-                                                <option>Cargar entrenamiento de DB</option>
-                                                <option>Cargar entrenamiento de DB</option>
+                                                <option>Cargar equipo de DB</option>
+                                                <option>Cargar equipo de DB</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label for="fname">Horario:</label>
-                                            <input type="text" class="form-control" id="txt_AltaTurnoWF_Horario" required>
+                                            <label for="fname">Fecha:</label>
+                                            <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_Fecha" required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label for="fname">Lugar de entrenamiento:</label>
-                                            <select class="form-control">
-                                                <option>Cargar lugar de DB</option>
-                                                <option>Cargar lugar de DB</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="fname">Cantidad de etapas:</label>
-                                            <input type="text" class="form-control" id="txt_AltaTurnoWF_CantidadEtapas" required>
+                                            <label for="fname">Cantidad de turnos:</label>
+                                            <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadTurnos" required>
                                         </div>
                                     </div>
                                 </div>

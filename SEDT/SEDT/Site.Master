@@ -59,6 +59,7 @@
     <link href="Template/vendors/cropper/dist/cropper.min.css" rel="stylesheet">
     <!-- FILE INPUT: -->
     <link href="Template/fileInput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="Template/production/css/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css">
     <!-- if using RTL (Right-To-Left) orientation, load the RTL CSS file after fileinput.css by uncommenting below -->
     <!-- link href="Template/fileInput/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /-->
     <style>
@@ -390,6 +391,12 @@
     <script src="Template/vendors/cropper/dist/cropper.min.js"></script>
     <!-- jQuery Smart Wizard -->
     <script src="Template/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
-    <script src="Scripts/FormWizard.js"></script>    
+    <script src="Scripts/FormWizard.js"></script>   
+    <script src="Template/production/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script> 
+    <script src="Template/production/js/bootstrap-clockpicker.min.js" type="text/javascript"></script>
+    
+<script type="text/javascript">
+$('.clockpicker').clockpicker();
+</script>
 </body>
 </html>

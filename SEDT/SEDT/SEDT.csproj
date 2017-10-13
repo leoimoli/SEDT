@@ -345,6 +345,7 @@
     <Content Include="Template\production\chartjs.html" />
     <Content Include="Template\production\chartjs2.html" />
     <Content Include="Template\production\contacts.html" />
+    <Content Include="Template\production\css\bootstrap-clockpicker.min.css" />
     <Content Include="Template\production\css\maps\jquery-jvectormap-2.0.3.css" />
     <Content Include="Template\production\echarts.html" />
     <Content Include="Template\production\e_commerce.html" />
@@ -379,6 +380,7 @@
     <Content Include="Template\production\index2.html" />
     <Content Include="Template\production\index3.html" />
     <Content Include="Template\production\invoice.html" />
+    <Content Include="Template\production\js\bootstrap-clockpicker.min.js" />
     <Content Include="Template\production\js\datepicker\daterangepicker.js" />
     <Content Include="Template\production\js\moment\moment.min.js" />
     <Content Include="Template\production\level2.html" />
