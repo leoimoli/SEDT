@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+
     <div class="right_col" role="main">
         <div class="page-title">
             <div class="title_left">
@@ -13,6 +14,7 @@
 
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="form-horizontal form-label-left">
+
                 <div class="x_panel">
                     <div class="x_title">
                         <h2><i class="fa fa-clock-o"></i>Nuevo Entrenamiento <small>Complete los campos para agregar un nuevo entrenamiento.</small></h2>
@@ -24,74 +26,144 @@
                     </div>
 
                     <div class="x_content">
-                        <div id="wizard" class="form_wizard wizard_horizontal">
-                            <ul class="wizard_steps">
-                                <li>
-                                    <a href="#step-1">
-                                        <span class="step_no">1</span>
-                                        <span class="step_descr">Entrenamiento<br />
-                                            <small>Creación inicial del entrenamiento</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#step-2">
-                                        <span class="step_no">2</span>
-                                        <span class="step_descr">Turnos<br />
-                                            <small>Carga de los turnos que lo conforman</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#step-3">
-                                        <span class="step_no">3</span>
-                                        <span class="step_descr">Etapas<br />
-                                            <small>Diferentes etapas para cada turno</small>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div id="step-1">
-                                <form class="form-horizontal form-label-left">
+
+                        <!-- FORM WIZARD -->
+
+
+                        <section id="employer-post-new-job">
+                            <div class="row">
+                                <div class="container">
                                     <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="row calendar-exibit">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="fname">Equipo:</label>
-                                                        <select class="form-control">
-                                                            <option>Cargar equipo de DB</option>
-                                                            <option>Cargar equipo de DB</option>
-                                                        </select>
-                                                    </div>
+                                        <div class="col-xs-10 col-xs-offset-1" id="container">
+                                            <div class="res-steps-container">
+                                                <div class="res-steps res-step-one active" data-class=".res-form-one">
+                                                    <div class="res-step-bar">1</div>
+                                                    <div class="res-progress-bar"></div>
+                                                    <div class="res-progress-title">Add Title & Description 1</div>
                                                 </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="fname">Cantidad de turnos:</label>
-                                                        <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadTurnoEntrenamiento" required>
-                                                    </div>
+                                                <div class="res-steps res-step-two" data-class=".res-form-two">
+                                                    <div class="res-step-bar">2</div>
+                                                    <div class="res-progress-bar"></div>
+                                                    <div class="res-progress-title">Add Title & Description 2</div>
                                                 </div>
-                                                <div class="col-sm-4">
-                                                    <label for="txt_AltaEntrenamientoWF_FechaEntrenamiento">Fecha de entrenamiento:</label>
-                                                    <div class="control-group">
-                                                        <div class="controls">
-                                                            <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-                                                                <input type="text" class="form-control has-feedback-left" id="txt_AltaEntrenamientoWF_FechaEntrenamiento" aria-describedby="inputSuccess2Status">
-                                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
-                                                            </div>
+                                                <div class="res-steps res-step-three" data-class=".res-form-three">
+                                                    <div class="res-step-bar">3</div>
+                                                    <div class="res-progress-bar"></div>
+                                                    <div class="res-progress-title">Add Title & Description 3</div>
+                                                </div>
+                                                <div class="res-steps res-step-four" data-class=".res-form-four">
+                                                    <div class="res-step-bar">4</div>
+                                                    <div class="res-progress-bar"></div>
+                                                    <div class="res-progress-title">Add Title & Description 4</div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix">&nbsp;</div>
+                                            <div class="clearfix">&nbsp;</div>
+
+                                            <div class="res-step-form col-md-8 col-md-offset-2 res-form-one">
+                                                <h3 class="text-center">Add Title &amp; Description 1</h3>
+                                                <div class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="choose-title" class="col-sm-3 control-label">Choose Title</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="choose-title" placeholder="Choose Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputPassword3" class="col-sm-3 control-label">Description</label>
+                                                        <div class="col-sm-8">
+                                                            <textarea class="form-control" rows="3" placeholder="Add Description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="text-center">
+                                                            <button type="button" class="btn btn-default col-xs-offset-1 btn res-btn-orange" data-class=".res-form-one">Next</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="res-step-form col-md-8 col-md-offset-2 res-form-two">
+                                                <h3 class="text-center">Add Title &amp; Description 2</h3>
+                                                <div class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="choose-title" class="col-sm-3 control-label">Choose Title</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="choose-title" placeholder="Choose Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputPassword3" class="col-sm-3 control-label">Description</label>
+                                                        <div class="col-sm-8">
+                                                            <textarea class="form-control" rows="3" placeholder="Add Description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="text-center">
+                                                            <button type="button" class="btn btn-default btn res-btn-gray" data-class=".res-form-two">Back</button>
+                                                            <button type="button" class="btn btn-default col-xs-offset-1 btn res-btn-orange" data-class=".res-form-two">Next</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="res-step-form col-md-8 col-md-offset-2 res-form-three">
+                                                <h3 class="text-center">Add Title &amp; Description 3</h3>
+                                                <div class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="choose-title" class="col-sm-3 control-label">Choose Title</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="choose-title" placeholder="Choose Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputPassword3" class="col-sm-3 control-label">Description</label>
+                                                        <div class="col-sm-8">
+                                                            <textarea class="form-control" rows="3" placeholder="Add Description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="text-center">
+                                                            <button type="button" class="btn btn-default btn res-btn-gray" data-class=".res-form-three">Back</button>
+                                                            <button type="button" class="btn btn-default col-xs-offset-1 btn res-btn-orange" data-class=".res-form-three">Next</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="res-step-form col-md-8 col-md-offset-2 res-form-four">
+                                                <h3 class="text-center">Add Title &amp; Description 4</h3>
+                                                <div class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="choose-title" class="col-sm-3 control-label">Choose Title</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="choose-title" placeholder="Choose Title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputPassword3" class="col-sm-3 control-label">Description</label>
+                                                        <div class="col-sm-8">
+                                                            <textarea class="form-control" rows="3" placeholder="Add Description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="text-center">
+                                                            <button type="button" class="btn btn-default btn res-btn-gray" data-class=".res-form-four">Back</button>
+                                                            <button type="button" class="btn btn-default col-xs-offset-1 btn res-btn-orange" data-class=".res-form-four">Preview</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                            <div id="step-2"></div>
-                            <div id="step-3"></div>
-                        </div>
-                        <!-- End SmartWizard Content -->
+                        </section>
+
+                        <!-- FIN FORM WIZARD -->
+                        <div style="clear:both;"></div>
+                        <br />
                     </div>
                     <br />
                     <div class="form-group">

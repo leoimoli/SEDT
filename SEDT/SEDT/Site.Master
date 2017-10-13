@@ -15,10 +15,11 @@
 
     <asp:PlaceHolder runat="server"></asp:PlaceHolder>
 
-    <!-- <webopt:BundleReference runat="server" Path="~/Content/css" />-->
+    <!-- <webopt:BundleReference runat="server" Path="~/Content/css" />-->  
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Custom Theme Style -->
     <link href="Template/football/css/style.css" rel="stylesheet">
+    <link href="Template/football/css/FormWizard.css" rel="stylesheet">
     <!-- CSS GENERAL: -->
     <!-- Bootstrap -->
     <link href="Template/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -387,5 +388,8 @@
     <script src="Template/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
     <!-- Cropper -->
     <script src="Template/vendors/cropper/dist/cropper.min.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="Template/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <script src="Scripts/FormWizard.js"></script>    
 </body>
 </html>

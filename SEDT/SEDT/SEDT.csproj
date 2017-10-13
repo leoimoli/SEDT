@@ -202,6 +202,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\FormWizard.js" />
     <Content Include="Scripts\funciones.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -330,6 +331,7 @@
     <Content Include="Template\fileInput\themes\fa\theme.min.js" />
     <Content Include="Template\fileInput\themes\gly\theme.js" />
     <Content Include="Template\fileInput\themes\gly\theme.min.js" />
+    <Content Include="Template\football\css\FormWizard.css" />
     <Content Include="Template\football\css\style.css" />
     <Content Include="Template\football\index.html" />
     <Content Include="Template\football\js\index.js" />

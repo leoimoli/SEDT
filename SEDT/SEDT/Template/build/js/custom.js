@@ -1193,12 +1193,12 @@ if (typeof NProgress != 'undefined') {
 			  $('button[data-method="scale"]').prop('disabled', true);
 			}
 
-
+            /*
 			// Download
 			if (typeof $download[0].download === 'undefined') {
 			  $download.addClass('disabled');
 			}
-
+            */
 
 			// Options
 			$('.docs-toggles').on('change', 'input', function () {
