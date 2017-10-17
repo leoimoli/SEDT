@@ -98,32 +98,35 @@
                                             <div class="form-horizontal form-label-left">
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <div class="row">
-                                                            <div class="col-sm-4">
-                                                                <div class="form-group">
-                                                                    <label for="fname">Horario:</label>
-                                                                    <input type="text" class="form-control" id="txt_AltaTurnoWF_Horario" required>
-                                                                    <div class="input-group clockpicker">
-                                                                        <input type="text" class="form-control" value="09:30">
-                                                                        <span class="input-group-addon">
-                                                                            <span class="glyphicon glyphicon-time"></span>
-                                                                        </span>
+                                                        <div id="container_AltaEntrenamientoWF_Turnos">
+                                                            <div id="container_Clonar_1" class="clonedInput">
+                                                                <div class="row">
+                                                                    <div class="col-sm-4">
+                                                                        <div class="form-group">
+                                                                            <label for="fname">Horario:</label>
+                                                                            <div class="input-group clockpicker">
+                                                                                <input type="text" class="form-control" value="09:30" id="txt_AltaTurnoWF_Horario_0" required>
+                                                                                <span class="input-group-addon">
+                                                                                    <span class="glyphicon glyphicon-time"></span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <div class="form-group">
-                                                                    <label for="fname">Lugar de entrenamiento:</label>
-                                                                    <select class="form-control">
-                                                                        <option>Cargar lugar de DB</option>
-                                                                        <option>Cargar lugar de DB</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <div class="form-group">
-                                                                    <label for="fname">Cantidad de etapas:</label>
-                                                                    <input type="text" class="form-control" id="txt_AltaTurnoWF_CantidadEtapas" required>
+                                                                    <div class="col-sm-4">
+                                                                        <div class="form-group">
+                                                                            <label for="fname">Lugar de entrenamiento:</label>
+                                                                            <select class="form-control">
+                                                                                <option>Cargar lugar de DB</option>
+                                                                                <option>Cargar lugar de DB</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <div class="form-group">
+                                                                            <label for="fname">Cantidad de etapas:</label>
+                                                                            <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadEtapas_0" required>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
