@@ -317,3 +317,23 @@ body {
 #employer-post-new-job .active .res-progress-title {
     color: #0aa7e1
 }
+
+.Validacion {
+    border: 1px solid #CE5454;
+    box-shadow: 0 0 4px -2px #CE5454;
+}
+
+.Error_Fecha_Invisible
+{
+    display:none;
+}
+
+.Error_Fecha_Visible
+{
+    display:block;
+}
+
+.label-danger-Validacion
+{
+    background-color:#CE5454;
+}

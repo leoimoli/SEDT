@@ -4,42 +4,6 @@
 var Msg_Exito = null;
 var Msg_Error = null;
 var Resultado = null;
-
-function mySiguiente() {
-    // Cantidad de turnos actual.-
-    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
-    // Contenedor donde se ubican todos los campos referentes a los turnos.-
-    var containerTurnos = document.getElementById("container_AltaEntrenamientoWF_Turnos");
-    // Tomamos el elemento Row que vamos a clonar.-
-    var rowClonar = document.getElementById("container_Clonar");
-    // Por las dudas chequeamos que los turnos sean válidos.-
-    if (Turnos != null && Turnos != 0 && Turnos != "0") {
-        // Por las dudas chequeamos que los contenedores sean válidos.-
-        if (containerTurnos != null && containerTurnos != "null") {
-            var countChild = containerTurnos.childNodes.length;
-            // Limpiamos el contenido de todos los elementos dentro del div contenedor.-
-            for (i = 0; i < countChild - 1; i++) { containerTurnos.removeChild(containerTurnos.lastChild); }
-            for (i = 1; i <= Turnos; i++) {
-                //Primero clonamos el elemento.-
-                var elementoClonado = jQuery.extend({}, containerTurnos.firstChild)
-                // Agregamos un nuevo elemento
-                elementoClonado.innerHTML = elementoClonado.innerHTML.replace(/_0/g, '_' + i);
-                containerTurnos.appendChild(elementoClonado);
-            }
-        }
-    }
-    /*
-    var Etapas = document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas").value;
-    if (Etapas != null && Etapas != 0 && Etapas != "0")
-    {
-
-    }*/
-
-    //alert("Terminó el Siguiente!");
-}
-function myAnterior() {
-    //alert("Terminó el Anterior!");
-}
 //=======================================================================================================
 //=======================================================================================================
 // Nos permite invocar una función JavaScript solo sabiendo su nombre.-
@@ -322,119 +286,150 @@ function AltaTorneo_Guardar_Error(Respuesta) {
         Mensaje_Error(errores[i]);
     }
 }
+
 //=======================================================================================================
 //=======================================================================================================
 // LOGICA PARA AGREGAR Y ELIMINAR ELEMENTOS DUPLICADOS DEL FORMULARIO.-
 //=======================================================================================================
 //=======================================================================================================
-$(function () {
-    $('#btnAdd').click(function () {
-        // Checks to see how many "duplicatable" input fields we currently have
-        var num = $('.clonedInput').length;
 
+function Aplicar_Cambio_Solapa_Etapas_por_Turno()
+{
+    // Cantidad de turnos actual.-
+    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
+    
+    for (i = 1; i <= Turnos; i++)
+    {
         // Cantidad de turnos actual.-
-        var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
+        var HorarioActual = document.getElementById("txt_AltaTurnoWF_Horario_" + i).value;
+        var EtapasActual = document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas_" + i).value;
+        
+        // Checks to see how many "duplicatable" input fields we currently have
+        var num = $('#container_Clonar_Etapas_' + i).find('.clonedInput_EtapaSingular').length;
 
         // En caso de que haya la misma cantidad no se hace nada.-
-        if (num == Turnos) return false;
+        if (num == EtapasActual) continue;
 
         // En caso de que haya menos una cantidad mayor eliminamos.-
-        if (Turnos < num) {
-            var cantEliminar = num - Turnos;
-            if (cantEliminar == 1) {
-                cantEliminar++;
+        if (EtapasActual < num) {
+            var cantEliminar = num - EtapasActual;
+            for (j = num; j > EtapasActual; j--) {
+                $('#container_Clonar_EtapaSingular_' + i + '_' + j).remove();
             }
-            for (i = num; i >= cantEliminar; i--) {
-                $('#container_Clonar_' + i).remove();
-            }
-            return false;
+            continue;
         }
 
-        var cantAgregar = Turnos - num;
-        for (i = num; i < Turnos; i++) {
-            newNum = new Number(num + 1);      // The numeric ID of the new input field being added, increasing by 1 each time
-            newElem = $('#container_Clonar_' + 1).clone().attr('id', 'container_Clonar_' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
-
-            /*  This is where we manipulate the name/id values of the input inside the new, cloned element
-                Below are examples of what forms elements you can clone, but not the only ones.
-                There are 2 basic structures below: one for an H2, and one for form elements.
-                To make more, you can copy the one for form elements and simply update the classes for its label and input.
-                Keep in mind that the .val() method is what clears the element when it gets cloned. Radio and checkboxes need .val([]) instead of .val('').
-            */
-            /*
-            // H2 - section
-            newElem.find('.heading-reference').attr('id', 'ID' + newNum + '_reference').attr('name', 'ID' + newNum + '_reference').html('Entry #' + newNum);
-
-            // Title - select
-            newElem.find('.label_ttl').attr('for', 'ID' + newNum + '_title');
-            newElem.find('.select_ttl').attr('id', 'ID' + newNum + '_title').attr('name', 'ID' + newNum + '_title').val('');
-
-            // First name - text
-            newElem.find('.label_fn').attr('for', 'ID' + newNum + '_first_name');
-            newElem.find('.input_fn').attr('id', 'ID' + newNum + '_first_name').attr('name', 'ID' + newNum + '_first_name').val('');
-
-            // Last name - text
-            newElem.find('.label_ln').attr('for', 'ID' + newNum + '_last_name');
-            newElem.find('.input_ln').attr('id', 'ID' + newNum + '_last_name').attr('name', 'ID' + newNum + '_last_name').val('');
-
-            // Flavor - checkbox
-            // Note that each input_checkboxitem has a unique identifier "-0". This helps pair up duplicated checkboxes and labels correctly. A bit verbose, at the moment.
-            newElem.find('.label_checkboxitem').attr('for', 'ID' + newNum + '_checkboxitem');
-            newElem.find('.input_checkboxitem-0').attr('id', 'ID' + newNum + '_checkboxitem-0').attr('name', 'ID' + newNum + '_checkboxitem').val([]);
-            newElem.find('.input_checkboxitem-1').attr('id', 'ID' + newNum + '_checkboxitem-1').attr('name', 'ID' + newNum + '_checkboxitem').val([]);
-            newElem.find('.input_checkboxitem-2').attr('id', 'ID' + newNum + '_checkboxitem-2').attr('name', 'ID' + newNum + '_checkboxitem').val([]);
-            newElem.find('.input_checkboxitem-3').attr('id', 'ID' + newNum + '_checkboxitem-3').attr('name', 'ID' + newNum + '_checkboxitem').val([]);
-
-            // Flavor - checkbox labels
-            // Note that each checkboxitem has a unique identifier "-0". This helps pair up duplicated checkboxes and labels correctly. A bit verbose, at the moment.
-            newElem.find('.checkboxitem-0').attr('for', 'ID' + newNum + '_checkboxitem-0');
-            newElem.find('.checkboxitem-1').attr('for', 'ID' + newNum + '_checkboxitem-1');
-            newElem.find('.checkboxitem-2').attr('for', 'ID' + newNum + '_checkboxitem-2');
-            newElem.find('.checkboxitem-3').attr('for', 'ID' + newNum + '_checkboxitem-3');
-
-            // Skate - radio
-            newElem.find('.label_radio').attr('for', 'ID' + newNum + '_radioitem');
-            newElem.find('.input_radio').attr('id', 'ID' + newNum + '_radioitem').attr('name', 'ID' + newNum + '_radioitem').val([]);
-
-            // Email - text
-            newElem.find('.label_email').attr('for', 'ID' + newNum + '_email_address');
-            newElem.find('.input_email').attr('id', 'ID' + newNum + '_email_address').attr('name', 'ID' + newNum + '_email_address').val('');
-
-            // Twitter handle (for Bootstrap demo) - append and text
-            newElem.find('.label_twt').attr('for', 'ID' + newNum + '_twitter_handle');
-            newElem.find('.input_twt').attr('id', 'ID' + newNum + '_twitter_handle').attr('name', 'ID' + newNum + '_twitter_handle').val('');
-
-            */
-            // Insert the new element after the last "duplicatable" input field
-            $('#container_Clonar_' + i).after(newElem);
-            //$('#ID' + newNum + '_title').focus();
-            //Actualizamos el nuevo valor autoIncremental.-
+        var cantAgregar = EtapasActual - num;
+        for (k = num; k < EtapasActual; k++)
+        {
+            // The numeric ID of the new input field being added, increasing by 1 each time
+            var newNum = new Number(num + 1);
+            // create the new element via clone(), and manipulate it's ID using newNum value
+            var newElem = $('#container_Clonar_EtapaSingular_' + i + '_' + 1).clone().attr('id', 'container_Clonar_EtapaSingular_' + i +'_'+ newNum).fadeIn('slow');
+            $('#container_Clonar_EtapaSingular_' + i + '_' + 1).after(newElem);
             num++;
         }
-        // Enable the "remove" button. This only shows once you have a duplicated section.
-        $('#btnDel').attr('disabled', false);
+    }
+}
 
-        // Right now you can only add 4 sections, for a total of 5. Change '5' below to the max number of sections you want to allow.
-        //if (newNum == 5)
-        //  $('#btnAdd').attr('disabled', true).prop('value', "You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached 
-    });
+function Aplicar_Cambio_Solapa_Etapa()
+{
+    // Checks to see how many "duplicatable" input fields we currently have
+    var num = $('.clonedInput_Etapas').length;
 
-    $('#btnDel').click(function () {
-        // Confirmation dialog box. Works on all desktop browsers and iPhone.
-        if (confirm("Are you sure you wish to remove this section? This cannot be undone.")) {
-            var num = $('.clonedInput').length;
-            // how many "duplicatable" input fields we currently have
-            $('#entry' + num).slideUp('slow', function () {
-                $(this).remove();
-                // if only one element remains, disable the "remove" button
-                if (num - 1 === 1)
-                    $('#btnDel').attr('disabled', true);
-                // enable the "add" button
-                $('#btnAdd').attr('disabled', false).prop('value', "add section");
-            });
+    // Cantidad de turnos actual.-
+    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;    
+    
+    // En caso de que haya la misma cantidad no se hace nada.-
+    if (num == Turnos) return false;
+
+    // En caso de que haya menos una cantidad mayor eliminamos.-
+    if (Turnos < num) {
+        var cantEliminar = num - Turnos;
+        for (i = num; i > Turnos; i--) {
+            $('#container_Clonar_Etapas_' + i).remove();
         }
+        return false;
+    }
+
+    var cantAgregar = Turnos - num;
+    for (i = num; i < Turnos; i++)
+    {
+        // The numeric ID of the new input field being added, increasing by 1 each time
+        var newNum = new Number(num + 1);
+        // create the new element via clone(), and manipulate it's ID using newNum value
+        var newElem = $('#container_Clonar_Etapas_' + 1).clone().attr('id', 'container_Clonar_Etapas_' + newNum).fadeIn('slow');
+        newElem.find('#container_Clonar_EtapaSingular_1_1').attr('id', 'container_Clonar_EtapaSingular_' + newNum + '_1');
+        $('#container_Clonar_Etapas_' + i).after(newElem);
+        num++;
+    }
+    // Enable the "remove" button. This only shows once you have a duplicated section.
+    $('#btnDel').attr('disabled', false);
+    return false;
+}
+
+function Aplicar_Cambio_Solapa_Turno()
+{
+    // Checks to see how many "duplicatable" input fields we currently have
+    var num = $('.clonedInput').length;
+
+    // Cantidad de turnos actual.-
+    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
+
+    // En caso de que haya la misma cantidad no se hace nada.-
+    if (num == Turnos) return false;
+
+    // En caso de que haya menos una cantidad mayor eliminamos.-
+    if (Turnos < num) {
+        var cantEliminar = num - Turnos;
+        for (i = num; i > Turnos; i--) {
+            $('#container_Clonar_' + i).remove();
+        }
+        return false;
+    }
+
+    var cantAgregar = Turnos - num;
+    for (i = num; i < Turnos; i++)
+    {
+        var newNum = new Number(num + 1);      // The numeric ID of the new input field being added, increasing by 1 each time
+        var newElem = $('#container_Clonar_' + 1).clone().attr('id', 'container_Clonar_' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
+        newElem.find('#txt_AltaTurnoWF_Horario_1').attr('id', 'txt_AltaTurnoWF_Horario_' + newNum);
+        newElem.find('#txt_AltaEntrenamientoWF_CantidadEtapas_1').attr('id', 'txt_AltaEntrenamientoWF_CantidadEtapas_' + newNum);
+        /*newElem.find('.heading-reference').attr('id', 'ID' + newNum + '_reference');*/
+
+        newElem.find('.clockpicker').clockpicker({
+            placement: 'top',
+            align: 'left',
+            donetext: 'Elegir'
+        });
+
+        // Insert the new element after the last "duplicatable" input field
+        $('#container_Clonar_' + i).after(newElem);
+        //Actualizamos el nuevo valor autoIncremental.-
+        num++;
+    }
+    // Enable the "remove" button. This only shows once you have a duplicated section.
+    $('#btnDel').attr('disabled', false);
+    return false;
+}
+
+$(function () {
+    $('#btnAdd').click(function ()
+    {
+        Aplicar_Cambio_Solapa_Turno();
+        Aplicar_Cambio_Solapa_Etapa();
+        Aplicar_Cambio_Solapa_Etapas_por_Turno();
         return false; // Removes the last section you added
     });
+
+    $('#btnDel').click(function ()
+    {
+        Aplicar_Cambio_Solapa_Turno();
+        Aplicar_Cambio_Solapa_Etapa();
+        Aplicar_Cambio_Solapa_Etapas_por_Turno();
+        return false; // Removes the last section you added
+    });
+
     // Enable the "add" button
     $('#btnAdd').attr('disabled', false);
     // Disable the "remove" button
@@ -442,3 +437,12 @@ $(function () {
 });
 //=======================================================================================================
 //=======================================================================================================
+$('.fechaValidar').on('change keydown paste input', function () {
+    // Checks to see how many "duplicatable" input fields we currently have
+    var num = $('.clonedInput').length;
+    // Corroboramos que todas las fechas sean correctas entre si.
+    for (i = 1; i <= num; i++)
+    {
+
+    }
+});

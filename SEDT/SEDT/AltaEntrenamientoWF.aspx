@@ -84,7 +84,7 @@
                                                             <div class="col-sm-4">
                                                                 <div class="form-group">
                                                                     <label for="fname">Cantidad de turnos:</label>
-                                                                    <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadTurnos" required>
+                                                                    <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadTurnos"  value="1" required>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -104,11 +104,14 @@
                                                                     <div class="col-sm-4">
                                                                         <div class="form-group">
                                                                             <label for="fname">Horario:</label>
-                                                                            <div class="input-group clockpicker">
-                                                                                <input type="text" class="form-control" value="09:30" id="txt_AltaTurnoWF_Horario_0" required>
+                                                                            <div class="input-group clockpicker Validacion">
+                                                                                <input type="text" class="form-control fechaValidar" value="09:30" id="txt_AltaTurnoWF_Horario_1" required>
                                                                                 <span class="input-group-addon">
                                                                                     <span class="glyphicon glyphicon-time"></span>
                                                                                 </span>
+                                                                            </div>
+                                                                            <div id="Error_Fecha_1" class="Error_Fecha_Invisible">
+                                                                                <span class="label label-danger-Validacion">Puede arrancar el turno a partir de las 14:00 o posterior.</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -124,7 +127,7 @@
                                                                     <div class="col-sm-4">
                                                                         <div class="form-group">
                                                                             <label for="fname">Cantidad de etapas:</label>
-                                                                            <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadEtapas_0" required>
+                                                                            <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadEtapas_1" value="1" required>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -136,32 +139,40 @@
                                             </div>
                                         </div>
                                         <div id="step-3">
-                                            <h2 class="StepTitle">Etapas</h2>
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="fname">Turno:</label>
-                                                        <select class="form-control">
-                                                            <option>Cargar turno de DB</option>
-                                                            <option>Cargar turno de DB</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="lname">Material de trabajo:</label>
-                                                        <input type="text" class="form-control" id="txt_AltaEtapaWF_MaterialesDeTrabajo" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="lname">Descripción:</label>
-                                                        <input type="text" class="form-control" id="txt_AltaEtapaWF_Descripcion" required>
+
+                                            <div id="Seccion_Turno_1">
+                                                <div id="container_AltaEntrenamientoWF_Etapas">
+                                                    <div id="container_Clonar_Etapas_1" class="clonedInput_Etapas">
+                                                        <h2 class="StepTitle">Etapas del turno</h2>
+                                                        <div id="container_Clonar_EtapaSingular_1_1" class="clonedInput_EtapaSingular">
+                                                            <div class="row">
+                                                                <div class="col-sm-4">
+                                                                    <div class="form-group">
+                                                                        <label for="fname">Tipo de Actividad:</label>
+                                                                        <select class="form-control">
+                                                                            <option>Cargar tipo de DB</option>
+                                                                            <option>Cargar tipo de DB</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="form-group">
+                                                                        <label for="lname">Material de trabajo:</label>
+                                                                        <input type="text" class="form-control" id="txt_AltaEtapaWF_MaterialesDeTrabajo" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="form-group">
+                                                                        <label for="lname">Descripción:</label>
+                                                                        <input type="text" class="form-control" id="txt_AltaEtapaWF_Descripcion" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     <!-- End SmartWizard Content -->
                                 </div>
