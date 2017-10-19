@@ -6,21 +6,33 @@ using System.Threading.Tasks;
 
 namespace SEDT.Modelo.Entidades
 {
-    public class FichaTecnicaJugador
+   public class FichaTecnicaJugador
     {
         public int IdFichaTecnicaJugador { get; set; }
-        public int IdPersonaFisicaJugador { get; set; }
+        public int IdUsuario { get; set; }
         public string PosicionDeCampo { get; set; }
         public string PiernaHabil { get; set; }
-        public string NivelPiernaHabil { get; set; }
-        public string PiernaInhabil { get; set; }
-        public string NivelPiernaInhabil { get; set; }
-        public string JuegoAereo { get; set; }
+
+        ///// Cualidades Fisicas
+        public string Salto { get; set; }
+        public string Velocidad { get; set; }
+        public string Resistencia { get; set; }
+        public string Fuerza { get; set; }
+
+        ///// Cualidades Tecnicas
+        public string ControlDeBalon { get; set; }
+        public string Regates { get; set; }
+        public string Definicion { get; set; }
+        public string Marcaje { get; set; }
+        public string PaseCorto { get; set; }
+        public string PaseLargo { get; set; }
+        public string Remate { get; set; }
+        public string TiroLibre { get; set; }
+
+
+        ///// Cualidades tacticas
+        public string DisciplinaTactica { get; set; }
         public string NivelDefensivo { get; set; }
         public string NivelOfensivo { get; set; }
-        public string Velocidad { get; set; }
-        public string PredisposiciónEntrenamiento { get; set; }
-        public string TecnicaIndividual { get; set; }
-        public string DisciplinaTactica { get; set; }
     }
 }

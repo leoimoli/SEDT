@@ -157,7 +157,7 @@ namespace SEDT.Controlador
             respuesta.Exito = true;
             return respuesta;
         }
-        public static Respuesta AltaFichaTecnicaJugador(FichaTecnicaJugador ficha)
+        public static Respuesta AltaFichaTecnicaJugadorCartera(FichaTecnicaJugadorDeCartera ficha)
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Errores = new List<string>();

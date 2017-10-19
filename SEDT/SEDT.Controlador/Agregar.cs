@@ -76,10 +76,30 @@ namespace SEDT.Controlador
             respuesta.Errores = new List<string>();
             try
             {
-                respuesta = Validar.AltaFichaTecnicaJugador(ficha);
+                //respuesta = Validar.AltaFichaTecnicaJugadorCartera(ficha);
+                //if (respuesta.Exito == true)
+                //{
+                //    respuesta.Id = GuardarDAO.AltaFichaTecnicaJugadorCartera(ficha);
+                //}
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
+        public static Respuesta AltaFichaTecnicaJugadorDeCartera(Modelo.Entidades.FichaTecnicaJugadorDeCartera ficha)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaFichaTecnicaJugadorCartera(ficha);
                 if (respuesta.Exito == true)
                 {
-                    respuesta.Id = GuardarDAO.AltaFichaTecnicaJugador(ficha);
+                    respuesta.Id = GuardarDAO.AltaFichaTecnicaJugadorCartera(ficha);
                 }
             }
             catch (Exception ex)
