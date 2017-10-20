@@ -180,7 +180,7 @@
                                         <ul class="nav child_menu">
                                             <li><a href="AltaJugadorCarteraWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugador</div>
                                             </a></li>
-                                            <li><a href="AltaJugadorCarteraWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Ficha técnica</div>
+                                            <li><a href="AltaAtributosJugadorCarteraWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Atributos</div>
                                             </a></li>
                                             <li><a href="ConsultaJugadorWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugadores</div>
                                             </a></li>

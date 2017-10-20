@@ -81,6 +81,8 @@ namespace SEDT.Modelo.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("PosicionDeCampo_in", ficha.PosicionDeCampo);
             cmd.Parameters.AddWithValue("PiernaHabil_in", ficha.PiernaHabil);
+            cmd.Parameters.AddWithValue("Altura_in", ficha.Altura);
+            cmd.Parameters.AddWithValue("Peso_in", ficha.Peso);
             ///// Cualidades Fisicas
             cmd.Parameters.AddWithValue("Salto_in", ficha.Salto);
             cmd.Parameters.AddWithValue("Velocidad_in", ficha.Velocidad);

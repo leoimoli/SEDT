@@ -12,6 +12,8 @@ namespace SEDT.Modelo.Entidades
         public int IdUsuario { get; set; }
         public string PosicionDeCampo { get; set; }
         public string PiernaHabil { get; set; }
+        public string Altura { get; set; }
+        public string Peso { get; set; }
 
         ///// Cualidades Fisicas
         public string Salto { get; set; }

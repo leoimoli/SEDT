@@ -29,43 +29,67 @@
                         <div id="kv-avatar-errors-2" class="center-block" style="width: 800px; display: none"></div>
 
                         <div class="row">
-                            <div class="col-sm-3">
+                            <%--  <div class="col-sm-3">
                                 <div class="kv-avatar center-block text-center" style="width: 200px">
                                     <input id="avatar-2" name="avatar-2" type="file" class="file-loading" required>
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div class="col-sm-9">
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="txt_AltaJugadorWF_DNI">Equipo Observado:<span class="kv-reqd"> (*)</span></label>
-                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_DNI">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="txt_AltaJugadorWF_Apellido">Apellido:<span class="kv-reqd"> (*)</span></label>
                                             <input type="text" class="form-control" id="txt_AltaJugadorWF_Apellido">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="txt_AltaJugadorWF_Nombre">Nombre:<span class="kv-reqd"> (*)</span></label>
                                             <input type="text" class="form-control" id="txt_AltaJugadorWF_Nombre">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="txt_AltaJugadorWF_Apodo">Apodo:<span class="kv-reqd"> (*)</span></label>
                                             <input type="text" class="form-control" id="txt_AltaJugadorWF_Apodo">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                </div>
+                                 <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="txt_AltaJugadorWF_Telefono">Telefono de Contacto:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_Telefono">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="txt_AltaJugadorWF_Email">Email:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="txt_AltaJugadorWF_RedSocial">Facebook:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_RedSocial">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="txt_AltaJugadorWF_EquipoObservado">Equipo Observado:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_EquipoObservado">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="txt_AltaJugadorWF_EquipoRival">Equipo Rival:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_EquipoRival">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="txt_AltaJugadorWF_Apodo">Fecha Partido:<span class="kv-reqd"> (*)</span></label>
                                             <div class="row calendar-exibit">
