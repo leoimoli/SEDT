@@ -319,21 +319,37 @@ body {
 }
 
 .Validacion {
-    border: 1px solid #CE5454;
-    box-shadow: 0 0 4px -2px #CE5454;
+    border: 1px solid #CE5454 !important;
+    box-shadow: 0 0 4px -2px #CE5454 !important;
 }
 
 .Error_Fecha_Invisible
 {
-    display:none;
+    display:none !important;
 }
 
 .Error_Fecha_Visible
 {
-    display:block;
+    display:block !important;
 }
 
 .label-danger-Validacion
 {
-    background-color:#CE5454;
+    background-color:#CE5454 !important;
 }
+
+.color_Azul 
+{
+    color:#337ab7;
+}
+
+.color_Verde 
+{
+    color:#5cb85c;
+}
+
+.color_Rojo 
+{
+    color:#d9534f;
+}
+

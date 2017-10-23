@@ -84,7 +84,7 @@
                                                             <div class="col-sm-4">
                                                                 <div class="form-group">
                                                                     <label for="fname">Cantidad de turnos:</label>
-                                                                    <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadTurnos"  value="1" required>
+                                                                    <input type="text" class="form-control" id="txt_AltaEntrenamientoWF_CantidadTurnos" value="1" required>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -104,7 +104,7 @@
                                                                     <div class="col-sm-4">
                                                                         <div class="form-group">
                                                                             <label for="fname">Horario:</label>
-                                                                            <div class="input-group clockpicker Validacion">
+                                                                            <div class="input-group clockpicker">
                                                                                 <input type="text" class="form-control fechaValidar" value="09:30" id="txt_AltaTurnoWF_Horario_1" required>
                                                                                 <span class="input-group-addon">
                                                                                     <span class="glyphicon glyphicon-time"></span>
@@ -143,7 +143,7 @@
                                             <div id="Seccion_Turno_1">
                                                 <div id="container_AltaEntrenamientoWF_Etapas">
                                                     <div id="container_Clonar_Etapas_1" class="clonedInput_Etapas">
-                                                        <h2 class="StepTitle">Etapas del turno</h2>
+                                                        <h2 class="StepTitle">Etapas del turno que arranca 09:00:</h2>
                                                         <div id="container_Clonar_EtapaSingular_1_1" class="clonedInput_EtapaSingular">
                                                             <div class="row">
                                                                 <div class="col-sm-4">
@@ -155,16 +155,18 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-sm-4">
-                                                                    <div class="form-group">
-                                                                        <label for="lname">Material de trabajo:</label>
-                                                                        <input type="text" class="form-control" id="txt_AltaEtapaWF_MaterialesDeTrabajo" required>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4">
+                                                                <div class="col-sm-8">
                                                                     <div class="form-group">
                                                                         <label for="lname">Descripción:</label>
                                                                         <input type="text" class="form-control" id="txt_AltaEtapaWF_Descripcion" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="lname">Material de trabajo:</label>
+                                                                        <input id="txt_AltaEtapaWF_MaterialesDeTrabajo" type="text" class="form-control" value="pelos, pecheras" data-role="tagsinput"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -174,26 +176,27 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- End SmartWizard Content -->
                                 </div>
+                                <!-- End SmartWizard Content -->
                             </div>
                         </div>
-
-                        <!-- FIN FORM WIZARD -->
-                        <div style="clear: both;"></div>
-
                     </div>
-                    <br />
-                    <div class="form-group">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="ln_solid"></div>
-                            <button id="btn_AltaEquipo_Nuevo" class="btn btn-primary" style="display: none;" onclick="AltaEntrenamiento_Nuevo()" type="button">Nuevo</button>
-                            <button id="btn_AltaEquipo_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEntrenamiento_Guardar()" type="button">Guardar</button>
-                            <button id="btn_AltaEquipo_Limpiar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEntrenamiento_Limpiar()" type="button">Limpiar</button>
-                        </div>
+
+                    <!-- FIN FORM WIZARD -->
+                    <div style="clear: both;"></div>
+
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="ln_solid"></div>
+                        <button id="btn_AltaEquipo_Nuevo" class="btn btn-primary" style="display: none;" onclick="AltaEntrenamiento_Nuevo()" type="button">Nuevo</button>
+                        <button id="btn_AltaEquipo_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEntrenamiento_Guardar()" type="button">Guardar</button>
+                        <button id="btn_AltaEquipo_Limpiar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEntrenamiento_Limpiar()" type="button">Limpiar</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </asp:Content>
