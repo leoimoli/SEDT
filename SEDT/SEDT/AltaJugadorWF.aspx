@@ -69,7 +69,17 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="txt_AltaJugadorWF_FechaNacimiento">Fecha de Nacimiento:<span class="kv-reqd"> (*)</span></label>
-                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_FechaNacimiento">
+                                            <div class="row calendar-exibit">
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                                                            <input type="text" class="form-control has-feedback-left" id="single_cal2" aria-describedby="inputSuccess2Status2">
+                                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                            <span id="inputSuccess2Status2" class="sr-only">(success)</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

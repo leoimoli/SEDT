@@ -170,6 +170,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AltaAtributosJugadorCarteraWF.aspx" />
     <Content Include="AltaEtapaWF.aspx" />
     <Content Include="AltaJugadorCarteraWF.aspx" />
     <Content Include="AltaTurnoWF.aspx" />
@@ -4751,6 +4752,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaAtributosJugadorCarteraWF.aspx.cs">
+      <DependentUpon>AltaAtributosJugadorCarteraWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaAtributosJugadorCarteraWF.aspx.designer.cs">
+      <DependentUpon>AltaAtributosJugadorCarteraWF.aspx</DependentUpon>
     </Compile>
     <Compile Include="AltaEtapaWF.aspx.cs">
       <DependentUpon>AltaEtapaWF.aspx</DependentUpon>

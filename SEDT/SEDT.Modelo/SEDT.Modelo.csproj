@@ -47,6 +47,7 @@
     <Compile Include="DAO\ConsultarDAO.cs" />
     <Compile Include="DAO\ActualizarDAO.cs" />
     <Compile Include="DAO\GuardarDAO.cs" />
+    <Compile Include="Entidades\JugadorCartera.cs" />
     <Compile Include="Entidades\Entrenamiento.cs" />
     <Compile Include="Entidades\EstadisticaJugadorTotal.cs" />
     <Compile Include="Entidades\EstadisticaJugadorPorPartido.cs" />
@@ -88,7 +89,7 @@
     <Content Include="Base\Procedure\16%29AltaPartidos.txt" />
     <Content Include="Base\Procedure\4%29AltaPersonaFisicaJugador.txt" />
     <Content Include="Base\Procedure\5%29AltaEquipoUsuario.txt" />
-    <Content Include="Base\Procedure\6%29AltaFichaTecnicaJugador.txt" />
+    <Content Include="Base\Procedure\6%29AltaFichaTecnicaJugadorCartera.txt" />
     <Content Include="Base\Procedure\7%29BuscarNombreEquipoRivalExistente.txt" />
     <Content Include="Base\Procedure\8%29BuscarTorneoExistente.txt" />
     <Content Include="Base\Procedure\10%29ActualizarEquipoUsuario.txt" />
