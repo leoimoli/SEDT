@@ -339,7 +339,21 @@ function Aplicar_Cambio_Solapa_Etapa()
 
     // Cantidad de turnos actual.-
     var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;    
-    
+
+    for (i = 1; i <= Turnos; i++) {
+        var Horario = $('#txt_AltaTurnoWF_Horario_' + i).val();
+
+        var color = "color_Azul";
+        // Add to the set
+        var Set2 = "2 5 8";
+        if (~Set2.indexOf(i)) { color = "color_Verde"; }
+        // Add to the set
+        var Set3 = "3 6 9";
+        if (~Set3.indexOf(i)) { color = "color_Rojo"; }
+
+        $('#container_Clonar_Etapas_' + i).find('.StepTitle').html('Etapas del turno que arranca <span class="' + color + '">' + Horario + '</span>:');
+    }
+
     // En caso de que haya la misma cantidad no se hace nada.-
     if (num == Turnos) return false;
 
@@ -363,6 +377,7 @@ function Aplicar_Cambio_Solapa_Etapa()
         $('#container_Clonar_Etapas_' + i).after(newElem);
         num++;
     }
+
     // Enable the "remove" button. This only shows once you have a duplicated section.
     $('#btnDel').attr('disabled', false);
     return false;
@@ -394,13 +409,15 @@ function Aplicar_Cambio_Solapa_Turno()
         var newNum = new Number(num + 1);      // The numeric ID of the new input field being added, increasing by 1 each time
         var newElem = $('#container_Clonar_' + 1).clone().attr('id', 'container_Clonar_' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
         newElem.find('#txt_AltaTurnoWF_Horario_1').attr('id', 'txt_AltaTurnoWF_Horario_' + newNum);
+        newElem.find('#Error_Fecha_1').attr('id', 'Error_Fecha_' + newNum);
         newElem.find('#txt_AltaEntrenamientoWF_CantidadEtapas_1').attr('id', 'txt_AltaEntrenamientoWF_CantidadEtapas_' + newNum);
         /*newElem.find('.heading-reference').attr('id', 'ID' + newNum + '_reference');*/
 
         newElem.find('.clockpicker').clockpicker({
             placement: 'top',
             align: 'left',
-            donetext: 'Elegir'
+            donetext: 'Elegir',
+            afterDone: function () { ClockPicker_HoraSeleccionada(); }
         });
 
         // Insert the new element after the last "duplicatable" input field
@@ -437,12 +454,32 @@ $(function () {
 });
 //=======================================================================================================
 //=======================================================================================================
-$('.fechaValidar').on('change keydown paste input', function () {
+function ClockPicker_HoraSeleccionada()
+{
     // Checks to see how many "duplicatable" input fields we currently have
     var num = $('.clonedInput').length;
-    // Corroboramos que todas las fechas sean correctas entre si.
-    for (i = 1; i <= num; i++)
-    {
 
+    // Corroboramos que todas las fechas sean correctas entre si.
+    for (i = 2; i <= num; i++)
+    {
+        var contador = i;
+        var valorNuevo = $('#txt_AltaTurnoWF_Horario_' + contador).val();
+        contador--;
+        var valorActual = $('#txt_AltaTurnoWF_Horario_' + contador).val();
+        valorActual = moment.utc(valorActual, 'hh:mm').add(1, 'hour').format('hh:mm');
+        
+        //input-group clockpicker Validacion
+        if (valorActual > valorNuevo)
+        {
+            $('#container_Clonar_' + i).find('.fechaValidar').attr('class', 'form-control fechaValidar Validacion');
+            $('#container_Clonar_' + i).find('#Error_Fecha_' + i).attr('class', 'Error_Fecha_Visible');
+            $('#container_Clonar_' + i).find('.label-danger-Validacion').html("Puede arrancar el turno a partir de las " + valorActual + " o posterior.");
+        }
+        else
+        {
+            $('#container_Clonar_' + i).find('.fechaValidar').attr('class', 'form-control fechaValidar');
+            $('#container_Clonar_' + i).find('#Error_Fecha_' + i).attr('class', 'Error_Fecha_Invisible');
+        }
     }
-});
+    // .trigger('change')
+}

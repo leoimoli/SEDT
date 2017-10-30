@@ -238,6 +238,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Template\.gitignore" />
+    <Content Include="Template\build\css\bootstrap-tagsinput.css" />
     <Content Include="Template\build\css\custom.css" />
     <Content Include="Template\build\css\custom.min.css" />
     <Content Include="Template\build\images\back_disabled.png" />
@@ -247,6 +248,8 @@
     <Content Include="Template\build\images\forward_enabled.png" />
     <Content Include="Template\build\images\forward_enabled_hover.png" />
     <Content Include="Template\build\images\loading.gif" />
+    <Content Include="Template\build\js\bootstrap-tagsinput-angular.js" />
+    <Content Include="Template\build\js\bootstrap-tagsinput.js" />
     <Content Include="Template\build\js\custom.js" />
     <Content Include="Template\build\js\custom.min.js" />
     <Content Include="Template\documentation\css\animate.min.css" />
@@ -384,6 +387,7 @@
     <Content Include="Template\production\invoice.html" />
     <Content Include="Template\production\js\bootstrap-clockpicker.min.js" />
     <Content Include="Template\production\js\datepicker\daterangepicker.js" />
+    <Content Include="Template\production\js\moment-with-locales.js" />
     <Content Include="Template\production\js\moment\moment.min.js" />
     <Content Include="Template\production\level2.html" />
     <Content Include="Template\production\login.html" />
