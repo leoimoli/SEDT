@@ -25,12 +25,10 @@
                     </div>
                     <div class="x_content">
                         <div id="kv-avatar-errors-2" class="center-block" style="width: 800px; display: none"></div>
-
                         <div class="row">
 
                             <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
                                 <div class="well profile_view" style="margin-bottom: 0px !important;">
-
                                     <div class="col-xs-12 bottom text-center">
                                         <div class="col-xs-12 col-sm-6 emphasis">
                                             <h2>Nicole Pearson</h2>

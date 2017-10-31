@@ -1650,10 +1650,10 @@ function init_IonRangeSlider() {
     });
     $("#range_A14").ionRangeSlider({
         type: "double",
-        min: 1.40,
-        max: 2.20,
-        from: 1.40,
-        to: 1.70,
+        min: 0,
+        max: 10,
+        from: 0,
+        to: 5,
         from_fixed: true
     });
     $("#range_A15").ionRangeSlider({
@@ -1670,7 +1670,7 @@ function init_IonRangeSlider() {
         min: 0,
         max: 2.50,
         from: 0,
-        to: 1.50,
+        to: 1.20,
         type: 'decimal',
         step: 0.10,
         prefix: "mts: ",
