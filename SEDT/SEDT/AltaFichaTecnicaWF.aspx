@@ -4,7 +4,7 @@
     <div class="right_col" role="main">
         <div class="page-title">
             <div class="title_left">
-                <h3>Alta Jugador</h3>
+                <h3>Alta Ficha Técnica</h3>
             </div>
         </div>
 
@@ -14,7 +14,7 @@
             <div class="form-horizontal form-label-left">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2><i class="fa fa-users"></i>Nuevo Jugador <small>Complete los campos para agregar un nuevo jugador.</small></h2>
+                        <h2><i class="fa fa-users"></i>Nueva Ficha Técnica <small>Complete los campos para agregar un nuevo jugador.</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -23,11 +23,8 @@
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-
                     <div class="x_content">
-
                         <div id="kv-avatar-errors-2" class="center-block" style="width: 800px; display: none"></div>
-
                         <div class="row">
 
                             <div class="col-md-4 col-sm-4 col-xs-12 profile_details canchita">
@@ -232,18 +229,50 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <label>Pierna Habil:</label>
+                                    <p>
+                                        Derecha:
+                        <input type="radio" class="flat" name="gender" id="piernaD" value="D" checked="" required />
+                                        &nbsp;&nbsp;&nbsp;&nbsp; Izquierda:
+                        <input type="radio" class="flat" name="gender" id="piernaI" value="I" />
+                                    </p>
+                            </div>
+
+                                <div class="row grid_slider">
+                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Altura:</label>
+                                        </div>
+                                        <input type="text" id="range_A16" value="" name="range" />
+                                    </div>
+                                </div>
+                                <div class="row grid_slider">
+                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                        <div class="form-group">
+                                            <label>peso:</label>
+                                        </div>
+                                        <input type="text" id="range_A17" value="" name="range" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <%--Atributos--%>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <h2><i class="fa fa-users"></i>&nbsp;&nbsp;Atributos Físicos <small></small></h2>
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-12">
+                                <%--Atributos Fisicos--%>
                                 <div class="row grid_slider">
                                     <div id="FichaTecnica_PiernaHabil" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Pierna Habil:</label>
+                                            <label>Velocidad:</label>
                                         </div>
                                         <input name="PiernaHabil" type="text" id="range_A1" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Pierna NO Habil:</label>
+                                            <label>Resistencia:</label>
                                         </div>
                                         <input type="text" id="range_A2" value="" name="range" />
                                     </div>
@@ -251,27 +280,30 @@
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Juego Aéreo:</label>
+                                            <label>Salto:</label>
                                         </div>
                                         <input type="text" id="range_A3" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Nivel Defensivo:</label>
+                                            <label>Fuerza:</label>
                                         </div>
                                         <input type="text" id="range_A4" value="" name="range" />
                                     </div>
                                 </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <h2><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;Atributos Técnicos <small></small></h2>
+                                </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Nivel Ofensivo:</label>
+                                            <label>Control:</label>
                                         </div>
                                         <input type="text" id="range_A5" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Velocidad:</label>
+                                            <label>Regates:</label>
                                         </div>
                                         <input type="text" id="range_A6" value="" name="range" />
                                     </div>
@@ -279,13 +311,13 @@
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Predisposición al Entrenamiento:</label>
+                                            <label>Pase Corto:</label>
                                         </div>
                                         <input type="text" id="range_A7" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Tecnica Individual:</label>
+                                            <label>Pase Largo:</label>
                                         </div>
                                         <input type="text" id="range_A8" value="" name="range" />
                                     </div>
@@ -293,19 +325,54 @@
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <label>Disciplina Táctica:</label>
+                                            <label>Definición:</label>
                                         </div>
                                         <input type="text" id="range_A9" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-
-                                        <label>Pierna Hábil:</label>
-                                        <p>
-                                            D:
-                        <input type="radio" class="flat" name="gender" id="piernaD" value="D" checked="" required />
-                                            I:
-                        <input type="radio" class="flat" name="gender" id="piernaI" value="I" />
-                                        </p>
+                                        <div class="form-group">
+                                            <label>Remates:</label>
+                                        </div>
+                                        <input type="text" id="range_A10" value="" name="range" />
+                                    </div>
+                                </div>
+                                <div class="row grid_slider">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Lanzamiento pelota parada:</label>
+                                        </div>
+                                        <input type="text" id="range_A14" value="" name="range" />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Marcaje:</label>
+                                        </div>
+                                        <input type="text" id="range_A15" value="" name="range" />
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <h2><i class="fa fa-users"></i>&nbsp;&nbsp;Atributos Tácticos <small></small></h2>
+                                </div>
+                                <div class="row grid_slider">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Disciplina Táctica:</label>
+                                        </div>
+                                        <input type="text" id="range_A11" value="" name="range" />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Nivel Defensivo:</label>
+                                        </div>
+                                        <input type="text" id="range_A12" value="" name="range" />
+                                    </div>
+                                    </div>
+                                <div class="row grid_slider">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Nivel Ofensivo:</label>
+                                        </div>
+                                        <input type="text" id="range_A13" value="" name="range" />
                                     </div>
                                 </div>
                             </div>

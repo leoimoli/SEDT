@@ -4827,6 +4827,7 @@
     <Compile Include="AltaEntrenamientoWF.aspx.designer.cs">
       <DependentUpon>AltaEntrenamientoWF.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ValoresConstantes.cs" />
     <Compile Include="ConsultaEstadisticaEntrenamientoWF.aspx.cs">
       <DependentUpon>ConsultaEstadisticaEntrenamientoWF.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
