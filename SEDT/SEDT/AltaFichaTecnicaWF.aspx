@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="AltaFichaTecnicaWF.aspx.cs" Inherits="SEDT.AltaFichaTecnicaWF" %>
 
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="right_col" role="main">
         <div class="page-title">
@@ -31,7 +30,7 @@
 
                         <div class="row">
 
-                            <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                            <div class="col-md-4 col-sm-4 col-xs-12 profile_details canchita">
                                 <div class="well profile_view" style="margin-bottom: 0px !important;">
 
                                     <div class="col-xs-12 bottom text-center">
@@ -80,8 +79,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="background-image: url(Template/src/img/field.png); margin-left: 0px !important; margin-right: 0px !important; border-right: 1px solid #e3e3e3;">
-                                    <div class="row">
+                                <div class="row rowCanchita" style="background-image: url(Template/src/img/field2.png); margin-left: 0px !important; margin-right: 0px !important;">
+                                    <div class="row rowFicticia">
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                             <div class="checkbox" style="visibility: hidden; height: 12px !important; min-height: 15px !important;">
                                                 <label>
@@ -102,44 +101,43 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="LI" type="checkbox" class="flat">
-                                                </label>
+   
+                                            <div class="checkLI">
+                                                <input type="checkbox" id="ch_LI" class="checkLI-input" />
+                                                <label for="ch_LI"></label>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-2 col-sm-2 col-xs-2 text-left">
+                                            <div class="checkMI">
+                                                <input type="checkbox" id="ch_MI" class="checkMI-input" />
+                                                <label for="ch_MI"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="mi" type="checkbox" class="flat">
-                                                </label>
-                                            </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                        </div>
-                                        <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="ei" type="checkbox" class="flat">
-                                                </label>
+   
+                                            <div class="checkEI">
+                                                <input type="checkbox" id="ch_EI" class="checkEI-input" />
+                                                <label for="ch_EI"></label>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="DCI" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkDCI">
+                                                <input type="checkbox" id="ch_DCI" class="checkDCI-input" />
+                                                <label for="ch_DCI"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="mci" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkMCI">
+                                                <input type="checkbox" id="ch_MCI" class="checkMCI-input" />
+                                                <label for="ch_MCI"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
@@ -149,10 +147,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="AR" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkAR">
+                                                <input type="checkbox" id="ch_AR" class="checkAR-input" />
+                                                <label for="ch_AR"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
@@ -160,17 +157,15 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="mp" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkMP">
+                                                <input type="checkbox" id="ch_MP" class="checkMP-input" />
+                                                <label for="ch_MP"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="cd" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkCD">
+                                                <input type="checkbox" id="ch_CD" class="checkCD-input" />
+                                                <label for="ch_CD"></label>
                                             </div>
                                         </div>
                                     </div>
@@ -179,17 +174,15 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="DCD" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkDCD">
+                                                <input type="checkbox" id="ch_DCD" class="checkDCD-input" />
+                                                <label for="ch_DCD"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="mcd" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkMCD">
+                                                <input type="checkbox" id="ch_MCD" class="checkMCD-input" />
+                                                <label for="ch_MCD"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
@@ -201,26 +194,23 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="LD" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkLD">
+                                                <input type="checkbox" id="ch_LD" class="checkLD-input" />
+                                                <label for="ch_LD"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="md" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkMD">
+                                                <input type="checkbox" id="ch_MD" class="checkMD-input" />
+                                                <label for="ch_MD"></label>
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input id="ed" type="checkbox" class="flat">
-                                                </label>
+                                            <div class="checkED">
+                                                <input type="checkbox" id="ch_ED" class="checkED-input" />
+                                                <label for="ch_ED"></label>
                                             </div>
                                         </div>
                                     </div>
@@ -245,7 +235,7 @@
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-12">
                                 <div class="row grid_slider">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_PiernaHabil" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group">
                                             <label>Pierna Habil:</label>
                                         </div>

@@ -12,13 +12,15 @@ namespace SEDT
         {
 
         }
+
         [WebMethod]
-        public static Respuesta GuardarDatos(Torneo obj)
+        public static Respuesta GuardarDatos(Entrenamiento obj)
         {
             Respuesta resultado = new Respuesta();
+            resultado.Exito = true;
             try
             {
-                resultado = Agregar.AltaTorneo(obj);
+                //resultado = Agregar.AltaEntrenamiento(obj);
             }
             catch (Exception e)
             {

@@ -1,0 +1,229 @@
+﻿.checkMCD, .checkMCI, .checkMD, .checkMI
+{
+    padding-left: 10px !important;
+}
+.checkMP
+{
+    padding-left: 5px !important;
+}
+.checkAR-input {
+    display: none;
+}
+
+.checkAR label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkAR-input:checked + label {
+    background: url(AR.png);
+}
+
+.checkLD-input {
+    display: none;
+}
+
+.checkLD label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkLD-input:checked + label {
+    background: url(LD.png);
+}
+
+.checkDCD-input {
+    display: none;
+}
+
+.checkDCD label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkDCD-input:checked + label {
+    background: url(DCD.png);
+}
+
+.checkDCI-input {
+    display: none;
+}
+
+.checkDCI label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkDCI-input:checked + label {
+    background: url(DCI.png);
+}
+
+.checkLI-input {
+    display: none;
+}
+
+.checkLI label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkLI-input:checked + label {
+    background: url(LI.png);
+}
+
+.checkMD-input {
+    display: none;
+}
+
+.checkMD label {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkMD-input:checked + label {
+    background: url(MD.png);
+}
+
+.checkMCD-input {
+    display: none;
+}
+
+.checkMCD label {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkMCD-input:checked + label {
+    background: url(mcd.png);
+}
+
+.checkMCI-input {
+    display: none;
+}
+
+.checkMCI label {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkMCI-input:checked + label {
+    background: url(MCI.png);
+}
+
+.checkMI-input {
+    display: none;
+}
+
+.checkMI label {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkMI-input:checked + label {
+    background: url(MI.png);
+}
+
+.checkMP-input {
+    display: none;
+}
+
+.checkMP label {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: url(SP.png);
+    cursor: pointer;
+}
+
+.checkMP-input:checked + label {
+    background: url(MP.png);
+}
+
+.checkED-input {
+    display: none;
+}
+
+.checkED label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(SP-ED.png);
+    cursor: pointer;
+}
+
+.checkED-input:checked + label {
+    background: url(ED.png);
+}
+
+.checkCD-input {
+    display: none;
+}
+
+.checkCD label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(SP-CD.png);
+    cursor: pointer;
+}
+
+.checkCD-input:checked + label {
+    background: url(CD.png);
+}
+
+.checkEI-input {
+    display: none;
+}
+
+.checkEI label {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(SP-EI.png);
+    cursor: pointer;
+}
+
+.checkEI-input:checked + label {
+    background: url(EI.png);
+}
+
+.canchita{
+    padding-right: 7px !important;
+}
+
+.rowCanchita {
+    padding-top: 5px !important;
+    background-repeat: no-repeat !important;
+    padding-left: 15px !Important;
+}
+
+.rowFicticia {
+    padding-bottom: 3px !important;
+}
