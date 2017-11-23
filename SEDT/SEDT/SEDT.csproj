@@ -362,9 +362,20 @@
     <Content Include="Template\POS\MI.png" />
     <Content Include="Template\POS\MP.png" />
     <Content Include="Template\POS\POS.css" />
+    <Content Include="Template\POS\PRUEBA.png" />
+    <Content Include="Template\POS\SP-AR.png" />
     <Content Include="Template\POS\SP-CD.png" />
+    <Content Include="Template\POS\SP-DCD.png" />
+    <Content Include="Template\POS\SP-DCI.png" />
     <Content Include="Template\POS\SP-ED.png" />
     <Content Include="Template\POS\SP-EI.png" />
+    <Content Include="Template\POS\SP-LD.png" />
+    <Content Include="Template\POS\SP-LI.png" />
+    <Content Include="Template\POS\SP-MCD.png" />
+    <Content Include="Template\POS\SP-MCI.png" />
+    <Content Include="Template\POS\SP-MD.png" />
+    <Content Include="Template\POS\SP-MI.png" />
+    <Content Include="Template\POS\SP-MP.png" />
     <Content Include="Template\POS\SP.png" />
     <Content Include="Template\production\calendar.html" />
     <Content Include="Template\production\chartjs.html" />
@@ -4672,6 +4683,7 @@
     <Content Include="Template\fileInput\README.md" />
     <Content Include="Template\fileInput\sass\fileinput.scss" />
     <Content Include="Template\football\sass\style.sass" />
+    <Content Include="Template\POS\POS.psd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

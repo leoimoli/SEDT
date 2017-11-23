@@ -241,16 +241,16 @@
 
                                 <div class="row grid_slider">
                                     <div class="col-md-10 col-sm-10 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Altura:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Altura:</label>
                                         </div>
                                         <input type="text" id="range_A16" value="" name="range" />
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-10 col-sm-10 col-xs-12">
-                                        <div class="form-group">
-                                            <label>peso:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">peso:</label>
                                         </div>
                                         <input type="text" id="range_A17" value="" name="range" />
                                     </div>
@@ -264,29 +264,29 @@
                             <div class="col-md-8 col-sm-8 col-xs-12">
                                 <%--Atributos Fisicos--%>
                                 <div class="row grid_slider">
-                                    <div id="FichaTecnica_PiernaHabil" class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Velocidad:</label>
+                                    <div id="FichaTecnica_Velocidad" class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Velocidad:</label>
                                         </div>
                                         <input name="PiernaHabil" type="text" id="range_A1" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Resistencia:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Resistencia:</label>
                                         </div>
                                         <input type="text" id="range_A2" value="" name="range" />
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Salto:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Salto:</label>
                                         </div>
                                         <input type="text" id="range_A3" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Fuerza:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Fuerza:</label>
                                         </div>
                                         <input type="text" id="range_A4" value="" name="range" />
                                     </div>
@@ -296,56 +296,56 @@
                                 </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Control:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Control:</label>
                                         </div>
                                         <input type="text" id="range_A5" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Regates:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Regates:</label>
                                         </div>
                                         <input type="text" id="range_A6" value="" name="range" />
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Pase Corto:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Pase Corto:</label>
                                         </div>
                                         <input type="text" id="range_A7" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Pase Largo:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Pase Largo:</label>
                                         </div>
                                         <input type="text" id="range_A8" value="" name="range" />
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Definición:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Definición:</label>
                                         </div>
                                         <input type="text" id="range_A9" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Remates:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Remates:</label>
                                         </div>
                                         <input type="text" id="range_A10" value="" name="range" />
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Lanzamiento pelota parada:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Lanzamiento pelota parada:</label>
                                         </div>
                                         <input type="text" id="range_A14" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Marcaje:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Marcaje:</label>
                                         </div>
                                         <input type="text" id="range_A15" value="" name="range" />
                                     </div>
@@ -355,22 +355,22 @@
                                 </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Disciplina Táctica:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Disciplina Táctica:</label>
                                         </div>
                                         <input type="text" id="range_A11" value="" name="range" />
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Nivel Defensivo:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Nivel Defensivo:</label>
                                         </div>
                                         <input type="text" id="range_A12" value="" name="range" />
                                     </div>
                                     </div>
                                 <div class="row grid_slider">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Nivel Ofensivo:</label>
+                                        <div class="form-group rowTitulitos">
+                                            <label class="titulitos">Nivel Ofensivo:</label>
                                         </div>
                                         <input type="text" id="range_A13" value="" name="range" />
                                     </div>

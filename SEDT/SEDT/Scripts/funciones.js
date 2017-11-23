@@ -154,12 +154,14 @@ function AltaFichaTecnica_Guardar() {
     var Mensaje = "Ha registrado la ficha técnica del jugador correctamente!";
     var InvocarUrl = "/AltaFichaTecnicaWF.aspx/GuardarDatos";
 
-    var ObjetoVista = {};
+    var asdasd = $('#FichaTecnica_Velocidad').find('.irs-to').html();
+    var asdasdasd = $('#ch_MD').is(":checked");
+
+    var ObjetoVista = { Velocidad  : asdasd  };
 
     //Ejemplo para obtener valor de una de las barritas.-
-    var valor = $('#FichaTecnica_PiernaHabil').find('.irs-to').html();
-    var valis = $('#fos1').is(":checked");
-    alert(valis);//document.getElementById("fos1").value);
+    document.getElementById("txt_AltaJugadorWF_Altura").value;
+
 
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaFichaTecnica");
