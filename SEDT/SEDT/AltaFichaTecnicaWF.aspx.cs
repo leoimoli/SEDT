@@ -20,7 +20,6 @@ namespace SEDT
         public static Respuesta GuardarDatos(FichaTecnicaJugador obj)
         {
             Respuesta resultado = new Respuesta();
-            string asd = HttpContext.Current.Request.Form["PiernaHabil"].ToString();
             try
             {
                 resultado = Agregar.AltaFichaTecnicaJugador(obj);

@@ -77,10 +77,10 @@ namespace SEDT.Controlador
             try
             {
                 //respuesta = Validar.AltaFichaTecnicaJugadorCartera(ficha);
-                //if (respuesta.Exito == true)
-                //{
-                //    respuesta.Id = GuardarDAO.AltaFichaTecnicaJugadorCartera(ficha);
-                //}
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaFichaTecnica(ficha);
+                }
             }
             catch (Exception ex)
             {

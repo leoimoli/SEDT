@@ -98,7 +98,7 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-   
+
                                             <div class="checkLI">
                                                 <input type="checkbox" id="ch_LI" class="checkLI-input" />
                                                 <label for="ch_LI"></label>
@@ -114,7 +114,7 @@
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
                                         </div>
                                         <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-   
+
                                             <div class="checkEI">
                                                 <input type="checkbox" id="ch_EI" class="checkEI-input" />
                                                 <label for="ch_EI"></label>
@@ -237,18 +237,18 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp; Izquierda:
                         <input type="radio" class="flat" name="gender" id="piernaI" value="I" />
                                     </p>
-                            </div>
+                                </div>
 
                                 <div class="row grid_slider">
                                     <div class="col-md-10 col-sm-10 col-xs-12">
-                                        <div class="form-group rowTitulitos">
+                                        <div id="FichaTecnica_Altura" class="form-group rowTitulitos">
                                             <label class="titulitos">Altura:</label>
                                         </div>
                                         <input type="text" id="range_A16" value="" name="range" />
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
-                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                    <div id="FichaTecnica_Peso" class="col-md-10 col-sm-10 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">peso:</label>
                                         </div>
@@ -270,7 +270,7 @@
                                         </div>
                                         <input name="PiernaHabil" type="text" id="range_A1" value="" name="range" />
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_Resistencia" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Resistencia:</label>
                                         </div>
@@ -278,13 +278,13 @@
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_Salto" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Salto:</label>
                                         </div>
                                         <input type="text" id="range_A3" value="" name="range" />
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_Fuerza" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Fuerza:</label>
                                         </div>
@@ -295,13 +295,13 @@
                                     <h2><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;Atributos Técnicos <small></small></h2>
                                 </div>
                                 <div class="row grid_slider">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_ControlDeBalon" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Control:</label>
                                         </div>
                                         <input type="text" id="range_A5" value="" name="range" />
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_Regates" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Regates:</label>
                                         </div>
@@ -309,13 +309,13 @@
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_PaseCorto" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Pase Corto:</label>
                                         </div>
                                         <input type="text" id="range_A7" value="" name="range" />
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_PaseLargo" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Pase Largo:</label>
                                         </div>
@@ -323,13 +323,13 @@
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_Definicion" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Definición:</label>
                                         </div>
                                         <input type="text" id="range_A9" value="" name="range" />
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_Remate" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Remates:</label>
                                         </div>
@@ -337,13 +337,13 @@
                                     </div>
                                 </div>
                                 <div class="row grid_slider">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_Lanzamientopelotaparada" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Lanzamiento pelota parada:</label>
                                         </div>
                                         <input type="text" id="range_A14" value="" name="range" />
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_Marcaje" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Marcaje:</label>
                                         </div>
@@ -354,21 +354,21 @@
                                     <h2><i class="fa fa-users"></i>&nbsp;&nbsp;Atributos Tácticos <small></small></h2>
                                 </div>
                                 <div class="row grid_slider">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_DisciplinaTactica" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Disciplina Táctica:</label>
                                         </div>
                                         <input type="text" id="range_A11" value="" name="range" />
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_NivelDefensivo" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Nivel Defensivo:</label>
                                         </div>
                                         <input type="text" id="range_A12" value="" name="range" />
                                     </div>
-                                    </div>
+                                </div>
                                 <div class="row grid_slider">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div id="FichaTecnica_NivelOfensivo" class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group rowTitulitos">
                                             <label class="titulitos">Nivel Ofensivo:</label>
                                         </div>

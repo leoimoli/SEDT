@@ -153,14 +153,71 @@ function AltaJugador_Limpiar() {
 function AltaFichaTecnica_Guardar() {
     var Mensaje = "Ha registrado la ficha técnica del jugador correctamente!";
     var InvocarUrl = "/AltaFichaTecnicaWF.aspx/GuardarDatos";
+    debugger;
 
-    var asdasd = $('#FichaTecnica_Velocidad').find('.irs-to').html();
-    var asdasdasd = $('#ch_MD').is(":checked");
+    var Derecha = document.getElementById("piernaD").checked;
+    var Izquierda = document.getElementById("piernaI").checked;
+    var piernahabil = "";
+    if (Derecha == true) { piernahabil = "D" } else if (Izquierda == true) { piernahabil = "I" };
+    var Altura_Vista = $('#FichaTecnica_Altura').find('.irs-to').html();
+    var Peso_Vista = $('#FichaTecnica_Peso').find('.irs-to').html();
 
-    var ObjetoVista = { Velocidad  : asdasd  };
+    /////Atributos
+    var Salto_Vista = $('#FichaTecnica_Salto').find('.irs-to').html();
+    var Velocidad_Vista = $('#FichaTecnica_Velocidad').find('.irs-to').html();
+    var Resistencia_Vista = $('#FichaTecnica_Resistencia').find('.irs-to').html();
+    var Fuerza_Vista = $('#FichaTecnica_Fuerza').find('.irs-to').html();
+    var ControlDeBalon_Vista = $('#FichaTecnica_ControlDeBalon').find('.irs-to').html();
+    var Regates_Vista = $('#FichaTecnica_Regates').find('.irs-to').html();
+    var Definicion_Vista = $('#FichaTecnica_Definicion').find('.irs-to').html();
+    var Marcaje_Vista = $('#FichaTecnica_Marcaje').find('.irs-to').html();
+    var PaseCorto_Vista = $('#FichaTecnica_PaseCorto').find('.irs-to').html();
+    var PaseLargo_Vista = $('#FichaTecnica_PaseLargo').find('.irs-to').html();
+    var Remate_Vista = $('#FichaTecnica_Remate').find('.irs-to').html();
+    var TiroLibre_Vista = $('#FichaTecnica_Lanzamientopelotaparada').find('.irs-to').html();
+    var DisciplinaTactica_Vista = $('#FichaTecnica_DisciplinaTactica').find('.irs-to').html();
+    var NivelDefensivo_Vista = $('#FichaTecnica_NivelDefensivo').find('.irs-to').html();
+    var NivelOfensivo_Vista = $('#FichaTecnica_NivelOfensivo').find('.irs-to').html();
+    /////Canchita
+    var posiciones_Vista = "";
+
+    if ($('#ch_AR').is(":checked")) { posiciones_Vista += "AR " }
+    if ($('#ch_LD').is(":checked")) { posiciones_Vista += "LD " }
+    if ($('#ch_DCD').is(":checked")) { posiciones_Vista += "DFD " }
+    if ($('#ch_DCI').is(":checked")) { posiciones_Vista += "DFI " }
+    if ($('#ch_LI').is(":checked")) { posiciones_Vista += "LI " }
+    if ($('#ch_MD').is(":checked")) { posiciones_Vista += "MD " }
+    if ($('#ch_MCD').is(":checked")) { posiciones_Vista += "MCD " }
+    if ($('#ch_MCI').is(":checked")) { posiciones_Vista += "MCI " }
+    if ($('#ch_MI').is(":checked")) { posiciones_Vista += "MI " }
+    if ($('#ch_MP').is(":checked")) { posiciones_Vista += "MP " }
+    if ($('#ch_ED').is(":checked")) { posiciones_Vista += "ED " }
+    if ($('#ch_CD').is(":checked")) { posiciones_Vista += "CD " }
+    if ($('#ch_EI').is(":checked")) { posiciones_Vista += "EI " }
+    var ObjetoVista = {
+        PiernaHabil: piernahabil,
+        Peso: Peso_Vista,
+        Altura : Altura_Vista,
+        Salto: Salto_Vista,
+        Velocidad: Velocidad_Vista,
+        Resistencia: Resistencia_Vista,
+        Fuerza: Fuerza_Vista,
+        ControlDeBalon: ControlDeBalon_Vista,
+        Regates: Regates_Vista,
+        Definicion: Definicion_Vista,
+        Marcaje: Marcaje_Vista,
+        PaseCorto: PaseCorto_Vista,
+        PaseLargo: PaseLargo_Vista,
+        Remate: Remate_Vista,
+        TiroLibre: TiroLibre_Vista,
+        DisciplinaTactica: DisciplinaTactica_Vista,
+        NivelDefensivo: NivelDefensivo_Vista,
+        NivelOfensivo: NivelOfensivo_Vista,
+        PosicionDeCampo: posiciones_Vista
+    };
 
     //Ejemplo para obtener valor de una de las barritas.-
-    document.getElementById("txt_AltaJugadorWF_Altura").value;
+    // document.getElementById("txt_AltaJugadorWF_Altura").value;
 
 
 
@@ -208,8 +265,7 @@ function AltaEntrenamiento_Nuevo() {
     AltaEntrenamiento_Limpiar();
 }
 
-function AltaEntrenamiento_Limpiar()
-{
+function AltaEntrenamiento_Limpiar() {
     document.getElementById('entrenamiento_pasos').style.display = 'block';
     document.getElementById('entrenamiento_resultado').style.display = 'none';
 
@@ -220,7 +276,7 @@ function AltaEntrenamiento_Limpiar()
     document.getElementById('step-1').style.display = 'block';
     document.getElementById('step-2').style.display = 'none';
     document.getElementById('step-3').style.display = 'none';
-    
+
     $("#btnDel").click();
     $("#btnDel").click();
 
@@ -241,7 +297,7 @@ function AltaEntrenamiento_Limpiar()
     */
 
     var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
-    
+
     for (i = 1; i <= Turnos; i++) {
         // Cantidad de turnos y estapas actuales.-
         var Horario = document.getElementById("txt_AltaTurnoWF_Horario_" + i).value;

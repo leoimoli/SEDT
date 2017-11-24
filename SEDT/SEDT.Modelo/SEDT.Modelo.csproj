@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Base\Procedure\27%29AltaFichaTecnica.txt" />
     <Content Include="Base\Procedure\26%29LoginUsuario.txt" />
     <Content Include="Base\Procedure\25%29AltaUsuario.txt" />
     <Content Include="Base\Procedure\24%29BuscarUsuarioExistentePorDni.txt" />
