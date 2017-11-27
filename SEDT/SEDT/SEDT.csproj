@@ -202,6 +202,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\FormWizard.js" />
@@ -441,6 +442,7 @@
     <Content Include="Template\production\xx.html" />
     <Content Include="Template\src\img\field.png" />
     <Content Include="Template\src\img\field2.png" />
+    <Content Include="Template\src\img\Fondo_login.jpg" />
     <Content Include="Template\src\js\custom.js" />
     <Content Include="Template\src\js\helpers\smartresize.js" />
     <Content Include="Template\vendors\animate.css\animate.css" />
@@ -4838,6 +4840,13 @@
     </Compile>
     <Compile Include="AltaEntrenamientoWF.aspx.designer.cs">
       <DependentUpon>AltaEntrenamientoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValoresConstantes.cs" />
     <Compile Include="ConsultaEstadisticaEntrenamientoWF.aspx.cs">
