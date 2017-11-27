@@ -170,6 +170,23 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AltaAtributosJugadorCarteraWF.aspx" />
+    <Content Include="AltaEtapaWF.aspx" />
+    <Content Include="AltaJugadorCarteraWF.aspx" />
+    <Content Include="AltaTurnoWF.aspx" />
+    <Content Include="AltaEquipoRivalWF.aspx" />
+    <Content Include="AltaEntrenamientoWF.aspx" />
+    <Content Include="ConsultaEstadisticaEntrenamientoWF.aspx" />
+    <Content Include="ConsultaEstadisticaPartidoWF.aspx" />
+    <Content Include="ConsultaComparacionEquipoWF.aspx" />
+    <Content Include="ConsultaEtapaWF.aspx" />
+    <Content Include="ConsultaComparacionJugadorWF.aspx" />
+    <Content Include="ConsultaTurnoWF.aspx" />
+    <Content Include="ConsultaEntrenamientoWF.aspx" />
+    <Content Include="ConsultaTorneoWF.aspx" />
+    <Content Include="ConsultaPartidoWF.aspx" />
+    <Content Include="ConsultaJugadorWF.aspx" />
+    <Content Include="ConsultaEquipoWF.aspx" />
     <Content Include="AltaFichaTecnicaWF.aspx" />
     <Content Include="AltaPartidoWF.aspx" />
     <Content Include="AltaEquipoWF.aspx" />
@@ -187,10 +204,12 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\FormWizard.js" />
     <Content Include="Scripts\funciones.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -220,6 +239,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Template\.gitignore" />
+    <Content Include="Template\build\css\bootstrap-tagsinput.css" />
     <Content Include="Template\build\css\custom.css" />
     <Content Include="Template\build\css\custom.min.css" />
     <Content Include="Template\build\images\back_disabled.png" />
@@ -229,6 +249,8 @@
     <Content Include="Template\build\images\forward_enabled.png" />
     <Content Include="Template\build\images\forward_enabled_hover.png" />
     <Content Include="Template\build\images\loading.gif" />
+    <Content Include="Template\build\js\bootstrap-tagsinput-angular.js" />
+    <Content Include="Template\build\js\bootstrap-tagsinput.js" />
     <Content Include="Template\build\js\custom.js" />
     <Content Include="Template\build\js\custom.min.js" />
     <Content Include="Template\documentation\css\animate.min.css" />
@@ -315,6 +337,7 @@
     <Content Include="Template\fileInput\themes\fa\theme.min.js" />
     <Content Include="Template\fileInput\themes\gly\theme.js" />
     <Content Include="Template\fileInput\themes\gly\theme.min.js" />
+    <Content Include="Template\football\css\FormWizard.css" />
     <Content Include="Template\football\css\style.css" />
     <Content Include="Template\football\index.html" />
     <Content Include="Template\football\js\index.js" />
@@ -324,10 +347,41 @@
     <Content Include="Template\football\README.txt" />
     <Content Include="Template\gulpfile.js" />
     <Content Include="Template\LICENSE.txt" />
+    <Content Include="Template\POS\AR.png" />
+    <Content Include="Template\POS\CD.png" />
+    <Content Include="Template\POS\CI.png" />
+    <Content Include="Template\POS\DCD.png" />
+    <Content Include="Template\POS\DCI.png" />
+    <Content Include="Template\POS\ED.png" />
+    <Content Include="Template\POS\EI.png" />
+    <Content Include="Template\POS\LD.png" />
+    <Content Include="Template\POS\LI.png" />
+    <Content Include="Template\POS\mcd.png" />
+    <Content Include="Template\POS\MCI.png" />
+    <Content Include="Template\POS\MD.png" />
+    <Content Include="Template\POS\MI.png" />
+    <Content Include="Template\POS\MP.png" />
+    <Content Include="Template\POS\POS.css" />
+    <Content Include="Template\POS\PRUEBA.png" />
+    <Content Include="Template\POS\SP-AR.png" />
+    <Content Include="Template\POS\SP-CD.png" />
+    <Content Include="Template\POS\SP-DCD.png" />
+    <Content Include="Template\POS\SP-DCI.png" />
+    <Content Include="Template\POS\SP-ED.png" />
+    <Content Include="Template\POS\SP-EI.png" />
+    <Content Include="Template\POS\SP-LD.png" />
+    <Content Include="Template\POS\SP-LI.png" />
+    <Content Include="Template\POS\SP-MCD.png" />
+    <Content Include="Template\POS\SP-MCI.png" />
+    <Content Include="Template\POS\SP-MD.png" />
+    <Content Include="Template\POS\SP-MI.png" />
+    <Content Include="Template\POS\SP-MP.png" />
+    <Content Include="Template\POS\SP.png" />
     <Content Include="Template\production\calendar.html" />
     <Content Include="Template\production\chartjs.html" />
     <Content Include="Template\production\chartjs2.html" />
     <Content Include="Template\production\contacts.html" />
+    <Content Include="Template\production\css\bootstrap-clockpicker.min.css" />
     <Content Include="Template\production\css\maps\jquery-jvectormap-2.0.3.css" />
     <Content Include="Template\production\echarts.html" />
     <Content Include="Template\production\e_commerce.html" />
@@ -362,7 +416,9 @@
     <Content Include="Template\production\index2.html" />
     <Content Include="Template\production\index3.html" />
     <Content Include="Template\production\invoice.html" />
+    <Content Include="Template\production\js\bootstrap-clockpicker.min.js" />
     <Content Include="Template\production\js\datepicker\daterangepicker.js" />
+    <Content Include="Template\production\js\moment-with-locales.js" />
     <Content Include="Template\production\js\moment\moment.min.js" />
     <Content Include="Template\production\level2.html" />
     <Content Include="Template\production\login.html" />
@@ -384,6 +440,7 @@
     <Content Include="Template\production\widgets.html" />
     <Content Include="Template\production\xx.html" />
     <Content Include="Template\src\img\field.png" />
+    <Content Include="Template\src\img\field2.png" />
     <Content Include="Template\src\js\custom.js" />
     <Content Include="Template\src\js\helpers\smartresize.js" />
     <Content Include="Template\vendors\animate.css\animate.css" />
@@ -2239,9 +2296,16 @@
     <Content Include="Template\vendors\iCheck\skins\flat\aero%402x.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\aero.css" />
     <Content Include="Template\vendors\iCheck\skins\flat\aero.png" />
+    <Content Include="Template\vendors\iCheck\skins\flat\AR.css" />
+    <Content Include="Template\vendors\iCheck\skins\flat\AR.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\blue%402x.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\blue.css" />
     <Content Include="Template\vendors\iCheck\skins\flat\blue.png" />
+    <Content Include="Template\vendors\iCheck\skins\flat\CI.png" />
+    <Content Include="Template\vendors\iCheck\skins\flat\DCD.css" />
+    <Content Include="Template\vendors\iCheck\skins\flat\DCD.png" />
+    <Content Include="Template\vendors\iCheck\skins\flat\DCI.css" />
+    <Content Include="Template\vendors\iCheck\skins\flat\DCI.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\flat%402x.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\flat.css" />
     <Content Include="Template\vendors\iCheck\skins\flat\flat.png" />
@@ -2251,6 +2315,10 @@
     <Content Include="Template\vendors\iCheck\skins\flat\grey%402x.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\grey.css" />
     <Content Include="Template\vendors\iCheck\skins\flat\grey.png" />
+    <Content Include="Template\vendors\iCheck\skins\flat\LD.css" />
+    <Content Include="Template\vendors\iCheck\skins\flat\LD.png" />
+    <Content Include="Template\vendors\iCheck\skins\flat\LI.css" />
+    <Content Include="Template\vendors\iCheck\skins\flat\LI.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\mcd.css" />
     <Content Include="Template\vendors\iCheck\skins\flat\mcd.png" />
     <Content Include="Template\vendors\iCheck\skins\flat\orange%402x.png" />
@@ -4615,6 +4683,7 @@
     <Content Include="Template\fileInput\README.md" />
     <Content Include="Template\fileInput\sass\fileinput.scss" />
     <Content Include="Template\football\sass\style.sass" />
+    <Content Include="Template\POS\POS.psd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4727,6 +4796,126 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaAtributosJugadorCarteraWF.aspx.cs">
+      <DependentUpon>AltaAtributosJugadorCarteraWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaAtributosJugadorCarteraWF.aspx.designer.cs">
+      <DependentUpon>AltaAtributosJugadorCarteraWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaEtapaWF.aspx.cs">
+      <DependentUpon>AltaEtapaWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaEtapaWF.aspx.designer.cs">
+      <DependentUpon>AltaEtapaWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaJugadorCarteraWF.aspx.cs">
+      <DependentUpon>AltaJugadorCarteraWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaJugadorCarteraWF.aspx.designer.cs">
+      <DependentUpon>AltaJugadorCarteraWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaTurnoWF.aspx.cs">
+      <DependentUpon>AltaTurnoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaTurnoWF.aspx.designer.cs">
+      <DependentUpon>AltaTurnoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaEquipoRivalWF.aspx.cs">
+      <DependentUpon>AltaEquipoRivalWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaEquipoRivalWF.aspx.designer.cs">
+      <DependentUpon>AltaEquipoRivalWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaEntrenamientoWF.aspx.cs">
+      <DependentUpon>AltaEntrenamientoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaEntrenamientoWF.aspx.designer.cs">
+      <DependentUpon>AltaEntrenamientoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ValoresConstantes.cs" />
+    <Compile Include="ConsultaEstadisticaEntrenamientoWF.aspx.cs">
+      <DependentUpon>ConsultaEstadisticaEntrenamientoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEstadisticaEntrenamientoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEstadisticaEntrenamientoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEstadisticaPartidoWF.aspx.cs">
+      <DependentUpon>ConsultaEstadisticaPartidoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEstadisticaPartidoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEstadisticaPartidoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaComparacionEquipoWF.aspx.cs">
+      <DependentUpon>ConsultaComparacionEquipoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaComparacionEquipoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaComparacionEquipoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEtapaWF.aspx.cs">
+      <DependentUpon>ConsultaEtapaWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEtapaWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEtapaWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaComparacionJugadorWF.aspx.cs">
+      <DependentUpon>ConsultaComparacionJugadorWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaComparacionJugadorWF.aspx.designer.cs">
+      <DependentUpon>ConsultaComparacionJugadorWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaTurnoWF.aspx.cs">
+      <DependentUpon>ConsultaTurnoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaTurnoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaTurnoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEntrenamientoWF.aspx.cs">
+      <DependentUpon>ConsultaEntrenamientoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEntrenamientoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEntrenamientoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaTorneoWF.aspx.cs">
+      <DependentUpon>ConsultaTorneoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaTorneoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaTorneoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaPartidoWF.aspx.cs">
+      <DependentUpon>ConsultaPartidoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaPartidoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaPartidoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaJugadorWF.aspx.cs">
+      <DependentUpon>ConsultaJugadorWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaJugadorWF.aspx.designer.cs">
+      <DependentUpon>ConsultaJugadorWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEquipoWF.aspx.cs">
+      <DependentUpon>ConsultaEquipoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaEquipoWF.aspx.designer.cs">
+      <DependentUpon>ConsultaEquipoWF.aspx</DependentUpon>
     </Compile>
     <Compile Include="AltaFichaTecnicaWF.aspx.cs">
       <DependentUpon>AltaFichaTecnicaWF.aspx</DependentUpon>

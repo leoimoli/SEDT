@@ -20,10 +20,20 @@ function SmartWizard(target, options) {
     this.msgBox = $('<div class="msgBox"><div class="content"></div><a href="#" class="close">X</a></div>');
     this.elmStepContainer = $('<div></div>').addClass("stepContainer");
     this.loader = $('<div>Loading</div>').addClass("loader");
+    /*
     this.buttons = {
         next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext"),
         previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious"),
         finish  : $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish")
+    };
+        this.buttons = {
+            next: $('<a id="btnAdd">Siguiente</a>').attr("href", "#").addClass("buttonNext").click(function (e) { e.preventDefault(); mySiguiente(); return false; }),
+            previous: $('<a id="btnDel">Anterior</a>').attr("href", "#").addClass("buttonPrevious").click(function (e) { e.preventDefault(); myAnterior(); return false; }),
+    };*/
+
+    this.buttons = {
+        next: $('<a id="btnAdd">Siguiente</a>').attr("href", "#").addClass("buttonNext"),
+        previous: $('<a id="btnDel">Anterior</a>').attr("href", "#").addClass("buttonPrevious"),
     };
 
     /*
@@ -105,7 +115,7 @@ function SmartWizard(target, options) {
                 }
             });
         }
-        //  Prepare the steps
+        // Prepare the steps
         _prepareSteps($this);
         // Show the first slected step
         _loadContent($this, $this.curStepIdx);
@@ -184,7 +194,7 @@ function SmartWizard(target, options) {
                 }
             }
         }
-        $this.elmStepContainer.height(_step($this, selStep).outerHeight());
+        //$this.elmStepContainer.height(_step($this, selStep).outerHeight());
         var prevCurStepIdx = $this.curStepIdx;
         $this.curStepIdx =  stepIdx;
         if ($this.options.transitionEffect == 'slide'){

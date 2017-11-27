@@ -72,26 +72,72 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
-        public static int AltaFichaTecnicaJugador(FichaTecnicaJugador ficha)
+        public static int AltaFichaTecnica(FichaTecnicaJugador ficha)
         {
             int id = 1;
             connection.Open();
-            string proceso = "AltaFichaTecnicaJugador";
+            string proceso = "AltaFichaTecnica";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("PosicionDeCampo_in", ficha.PosicionDeCampo);
             cmd.Parameters.AddWithValue("PiernaHabil_in", ficha.PiernaHabil);
-            cmd.Parameters.AddWithValue("NivelPiernaHabil_in", ficha.NivelPiernaHabil);
-            cmd.Parameters.AddWithValue("PiernaInhabil_in", ficha.PiernaInhabil);
-            cmd.Parameters.AddWithValue("NivelPiernaInhabil_in", ficha.NivelPiernaInhabil);
-            cmd.Parameters.AddWithValue("JuegoAereo_in", ficha.JuegoAereo);
+            cmd.Parameters.AddWithValue("Altura_in", ficha.Altura);
+            cmd.Parameters.AddWithValue("Peso_in", ficha.Peso);
+            ///// Cualidades Fisicas
+            cmd.Parameters.AddWithValue("Salto_in", ficha.Salto);
+            cmd.Parameters.AddWithValue("Velocidad_in", ficha.Velocidad);
+            cmd.Parameters.AddWithValue("Resistencia_in", ficha.Resistencia);
+            cmd.Parameters.AddWithValue("Fuerza_in", ficha.Fuerza);
+            ///// Cualidades Tecnicas
+            cmd.Parameters.AddWithValue("ControlDeBalon_in", ficha.ControlDeBalon);
+            cmd.Parameters.AddWithValue("Regates_in", ficha.Regates);
+            cmd.Parameters.AddWithValue("Definicion_in", ficha.Definicion);
+            cmd.Parameters.AddWithValue("Marcaje_in", ficha.Marcaje);
+            cmd.Parameters.AddWithValue("PaseCorto_in", ficha.PaseCorto);
+            cmd.Parameters.AddWithValue("PaseLargo_in", ficha.PaseLargo);
+            cmd.Parameters.AddWithValue("Remate_in", ficha.Remate);
+            cmd.Parameters.AddWithValue("TiroLibre_in", ficha.TiroLibre);
+            ///// Cualidades tacticas
+            cmd.Parameters.AddWithValue("DisciplinaTactica_in", ficha.DisciplinaTactica);
             cmd.Parameters.AddWithValue("NivelDefensivo_in", ficha.NivelDefensivo);
             cmd.Parameters.AddWithValue("NivelOfensivo_in", ficha.NivelOfensivo);
+
+            cmd.Parameters.AddWithValue("IdUsuario_in", ficha.IdUsuario);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            return id;
+        }
+        public static int AltaFichaTecnicaJugadorCartera(FichaTecnicaJugadorDeCartera ficha)
+        {
+            int id = 1;
+            connection.Open();
+            string proceso = "AltaFichaTecnicaJugadorCartera";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("PosicionDeCampo_in", ficha.PosicionDeCampo);
+            cmd.Parameters.AddWithValue("PiernaHabil_in", ficha.PiernaHabil);
+            cmd.Parameters.AddWithValue("Altura_in", ficha.Altura);
+            cmd.Parameters.AddWithValue("Peso_in", ficha.Peso);
+            ///// Cualidades Fisicas
+            cmd.Parameters.AddWithValue("Salto_in", ficha.Salto);
             cmd.Parameters.AddWithValue("Velocidad_in", ficha.Velocidad);
-            cmd.Parameters.AddWithValue("PredisposiciónEntrenamiento_in", ficha.PredisposiciónEntrenamiento);
-            cmd.Parameters.AddWithValue("TecnicaIndividual_in", ficha.TecnicaIndividual);
+            cmd.Parameters.AddWithValue("Resistencia_in", ficha.Resistencia);
+            cmd.Parameters.AddWithValue("Fuerza_in", ficha.Fuerza);
+            ///// Cualidades Tecnicas
+            cmd.Parameters.AddWithValue("ControlDeBalon_in", ficha.ControlDeBalon);
+            cmd.Parameters.AddWithValue("Regates_in", ficha.Regates);
+            cmd.Parameters.AddWithValue("Definicion_in", ficha.Definicion);
+            cmd.Parameters.AddWithValue("Marcaje_in", ficha.Marcaje);
+            cmd.Parameters.AddWithValue("PaseCorto_in", ficha.PaseCorto);
+            cmd.Parameters.AddWithValue("PaseLargo_in", ficha.PaseLargo);
+            cmd.Parameters.AddWithValue("Remate_in", ficha.Remate);
+            cmd.Parameters.AddWithValue("TiroLibre_in", ficha.TiroLibre);
+            ///// Cualidades tacticas
             cmd.Parameters.AddWithValue("DisciplinaTactica_in", ficha.DisciplinaTactica);
-            cmd.Parameters.AddWithValue("IdPersonaFisicaJugador_in", ficha.IdPersonaFisicaJugador);
+            cmd.Parameters.AddWithValue("NivelDefensivo_in", ficha.NivelDefensivo);
+            cmd.Parameters.AddWithValue("NivelOfensivo_in", ficha.NivelOfensivo);
+          
+            cmd.Parameters.AddWithValue("IdUsuario_in", ficha.IdUsuario);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;

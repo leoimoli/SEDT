@@ -76,10 +76,10 @@ namespace SEDT.Controlador
             respuesta.Errores = new List<string>();
             try
             {
-                respuesta = Validar.AltaFichaTecnicaJugador(ficha);
+                //respuesta = Validar.AltaFichaTecnicaJugadorCartera(ficha);
                 if (respuesta.Exito == true)
                 {
-                    respuesta.Id = GuardarDAO.AltaFichaTecnicaJugador(ficha);
+                    respuesta.Id = GuardarDAO.AltaFichaTecnica(ficha);
                 }
             }
             catch (Exception ex)
@@ -88,7 +88,7 @@ namespace SEDT.Controlador
                 respuesta.Errores.Add(ex.Message);
             }
             return respuesta;
-        }
+        }       
         public static Respuesta AltaEquipoRival(Modelo.Entidades.EquipoRival equipoRival)
         {
             Respuesta respuesta = new Respuesta();
@@ -234,6 +234,46 @@ namespace SEDT.Controlador
                 if (respuesta.Exito == true)
                 {
                     respuesta.Id = GuardarDAO.AltaEtapasEntrenamiento(etapasentrenamiento);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
+        public static Respuesta AltaJugadorCartera(Modelo.Entidades.PersonaFisicaJugador jugador)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaPersonaFisicaJugador(jugador);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaPersonaFisicaJugador(jugador);
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta.Exito = false;
+                respuesta.Errores.Add(ex.Message);
+            }
+            return respuesta;
+        }
+        public static Respuesta AltaFichaTecnicaJugadorDeCartera(Modelo.Entidades.FichaTecnicaJugadorDeCartera ficha)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
+            respuesta.Errores = new List<string>();
+            try
+            {
+                respuesta = Validar.AltaFichaTecnicaJugadorCartera(ficha);
+                if (respuesta.Exito == true)
+                {
+                    respuesta.Id = GuardarDAO.AltaFichaTecnicaJugadorCartera(ficha);
                 }
             }
             catch (Exception ex)

@@ -9,7 +9,7 @@ namespace SEDT.Controlador
 {
     public static class Consultar
     {
-        public static List<Modelo.Entidades.EquipoUsuario> LoginUsuario(Modelo.Entidades.Usuario usuario)
+        public static List<Modelo.Entidades.Usuario> LoginUsuario(Modelo.Entidades.Usuario usuario)
         {
             List<Modelo.Entidades.Usuario> lista = new List<Modelo.Entidades.Usuario>();
             lista = ConsultarDAO.LoginUsuario(usuario);

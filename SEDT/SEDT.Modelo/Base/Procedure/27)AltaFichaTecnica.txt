@@ -1,0 +1,37 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaFichaTecnica`(IN PosicionDeCampo_in varchar(20), PiernaHabil_in varchar(20),
+ Salto_in varchar(20), Velocidad_in varchar(20),
+ Resistencia_in varchar(20), Fuerza_in varchar(20),
+ ControlDeBalon_in varchar(20), Regates_in varchar(20),
+ Definicion_in varchar(20), Marcaje_in varchar(20),
+ PaseCorto_in varchar(20),
+ PaseLargo_in varchar(20),
+ Remate_in varchar(20),
+ TiroLibre_in varchar(20),
+ DisciplinaTactica_in varchar(20),
+ NivelDefensivo_in varchar(20),
+ NivelOfensivo_in varchar(20),
+ Altura_in varchar(20),
+ Peso_in varchar(20),
+ IdUsuario_in int (8))
+BEGIN
+ insert into tFichaTecnica
+(txPosicionDeCampo,txPiernaHabil, txSalto,
+ txVelocidad, txResistencia, txFuerza,
+ txControlDeBalon,txRegates, txDefinicon,
+ txMarcaje,txPaseCorto, txPaseLargo,
+ txRemate,txTiroLibre, txDisciplinaTactica,
+ txNivelDefensivo,txNivelOfensivo, txAltura, txPeso,
+ idUsuario)
+values (PosicionDeCampo_in , PiernaHabil_in, Salto_in,
+ Velocidad_in, Resistencia_in, Fuerza_in,
+ ControlDeBalon_in, Regates_in, Definicion_in,
+ Marcaje_in, PaseCorto_in, PaseLargo_in,
+ Remate_in,
+ TiroLibre_in,
+ DisciplinaTactica_in,
+ NivelDefensivo_in,
+ NivelOfensivo_in,
+ Altura_in,
+ Peso_in,
+ IdUsuario_in);
+END
