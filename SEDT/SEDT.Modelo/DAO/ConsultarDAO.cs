@@ -23,7 +23,8 @@ namespace SEDT.Modelo.DAO
             DataTable Tabla = new DataTable();
             MySqlParameter[] oParam = {
                                       new MySqlParameter("Dni_in", usuario.Dni),
-                                       new MySqlParameter("Contraseña_in", usuario.Contraseña)};
+                                       new MySqlParameter("Contraseña_in", usuario.Contraseña),
+             new MySqlParameter("Estado_in", usuario.Estado)};
             string proceso = "LoginUsuario";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -45,7 +46,8 @@ namespace SEDT.Modelo.DAO
                     listaUsuario.IdPlanDePago = Convert.ToInt32(item["idPlanDePago"].ToString());
                     listaUsuario.FechaDeAlta = Convert.ToDateTime(item["dtFechaDeAlta"].ToString());
                     listaUsuario.FechaUltimaConexion = Convert.ToDateTime(item["dtFechaUltimaConexion"].ToString());
-                    listaUsuario.Contraseña = item["txContraseña"].ToString();
+                    listaUsuario.Contraseña = item["txContrasena"].ToString();
+                    listaUsuario.Estado = item["txEstado"].ToString();
                     lista.Add(listaUsuario);
                 }
             }

@@ -17,7 +17,7 @@ namespace SEDT
 
         }
         [WebMethod]
-        public static Usuario LoginUsuario(Usuario obj)
+        public static Respuesta LoginUsuario(Usuario obj)
         {
             List<Modelo.Entidades.Usuario> usuarios = new List<Usuario>();
             Respuesta resultado = new Respuesta();
@@ -25,6 +25,11 @@ namespace SEDT
             {
                 usuarios = Consultar.LoginUsuario(obj);
                 if (usuarios.Count == 0) { throw new Exception("El usuario ingresado/contraseña incorrecta."); }
+                else
+                {
+                    HttpContext.Current.Session["loginUsuario"] = usuarios.First();
+                    resultado.Exito = true;
+                }
             }
             catch (Exception e)
             {
@@ -32,7 +37,7 @@ namespace SEDT
                 resultado.Errores = new List<string>();
                 resultado.Errores.Add(e.Message);
             }
-            return usuarios.First();
+            return resultado;
         }
         [WebMethod]
         public static Respuesta GuardarUsuario(Usuario obj)
@@ -41,7 +46,6 @@ namespace SEDT
             try
             {
                 resultado = Agregar.AltaUsuario(obj);
-                // if (usuarios.Count == 0) { throw new Exception("El usuario ingresado/contraseña incorrecta."); }
             }
             catch (Exception e)
             {

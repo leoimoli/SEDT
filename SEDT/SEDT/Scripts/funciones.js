@@ -70,6 +70,55 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
         }
     });
 }
+
+function Loguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    var Datos = JSON.stringify(ObjetoVista);
+    $.ajax({
+        type: "POST",
+        url: InvocarUrl,
+        data: "{obj:" + Datos + "}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString()
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
+            Resultado = null;
+        },
+        success: function (result) {
+            debugger;
+            if (result.d.Exito) {
+                window.location.href = "Default.aspx";
+            }
+            else {
+                alert("Puede verificar la información")
+            }
+
+            return false;
+        }
+    });
+}
+function Desloguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    debugger;
+    $.ajax({
+        type: "POST",
+        url: InvocarUrl,
+        data: "{}",
+        //contentType: "application/json; charset=utf-8",
+        //dataType: "json",
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString()
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
+            Resultado = null;
+        },
+        success: function (result) {
+
+            window.location.href = "Login.aspx";
+            return false;
+        }
+    });
+}
 //=======================================================================================================
 
 //=======================================================================================================
@@ -87,7 +136,7 @@ function Guardar_Usuario() {
         Apellido: document.getElementById("txt_Login_Apellido").value,
         Nombre: document.getElementById("txt_Login_Nombre").value,
         Email: document.getElementById("txt_Login_Email").value,
-        Contraseña: document.getElementById("txt_Login_Contraseña").value
+        Contraseña: document.getElementById("txt_Login_ContraseñaGuardar").value
     };
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "");
@@ -103,7 +152,7 @@ function Login_Usuario() {
         Contraseña: document.getElementById("txt_Login_Contraseña").value
     };
 
-    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "");
+    Loguear(InvocarUrl, ObjetoVista, Mensaje, "");
 }
 
 function AltaEquipo_Guardar() {

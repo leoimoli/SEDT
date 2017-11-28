@@ -1,4 +1,8 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarUsuarioExistentePorDni`(IN Dni_in varchar(100))
-BEGIN 
-Select * From tusuarios where(Dni_in is null or txDni = Dni_in);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaUsuario`(IN Apellido_in varchar(100), Nombre_in varchar(100), Dni_in varchar(100),
+Email_in varchar(100), Telefono_in varchar(100), IdPlanDePago_in int, FechaDeAlta_in datetime,
+FechaUltimaConexion_in datetime, Contraseña_in varchar(150), Estado_in varchar(100))
+BEGIN insert into tusuarios(txApellido,txNombre,txDni,txEmail,txTelefono,idPlanDePago,dtFechaDeAlta,dtFechaUltimaConexion,
+txContrasena, txEstado)  
+values (Apellido_in, Nombre_in, Dni_in, Email_in, Telefono_in, IdPlanDePago_in,FechaDeAlta_in,
+ FechaUltimaConexion_in, Contraseña_in, Estado_in);
 END

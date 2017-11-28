@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using System.Web.Services;
 
 namespace SEDT
 {
@@ -45,6 +46,8 @@ namespace SEDT
                 Response.Cookies.Set(responseCookie);
             }
 
+            if (HttpContext.Current.Session["loginUsuario"] == null)
+                Response.Redirect("~/Login");
             Page.PreLoad += master_Page_PreLoad;
         }
 
@@ -75,6 +78,12 @@ namespace SEDT
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        [WebMethod]
+        public static void Desloguear()
+        {
+            HttpContext.Current.Session["loginUsuario"] = null;
         }
     }
 

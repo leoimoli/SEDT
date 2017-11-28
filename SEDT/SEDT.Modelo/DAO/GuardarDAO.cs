@@ -31,6 +31,8 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("FechaDeAlta_in", usuario.FechaDeAlta);
             cmd.Parameters.AddWithValue("FechaUltimaConexion_in", usuario.FechaUltimaConexion);
             cmd.Parameters.AddWithValue("Contraseña_in", usuario.Contraseña);
+            usuario.Estado = "ACTIVO";
+            cmd.Parameters.AddWithValue("Estado_in", usuario.Estado);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;
