@@ -39,6 +39,7 @@ namespace SEDT.Controlador
                 respuesta = Validar.AltaEquipoUsuario(equipo);
                 if (respuesta.Exito == true)
                 {
+                    equipo.ImagenDB = Convert.FromBase64String(equipo.Imagen.ToString());
                     respuesta.Id = GuardarDAO.AltaEquipoUsuario(equipo);
                 }
             }

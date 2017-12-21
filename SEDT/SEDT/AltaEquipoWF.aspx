@@ -30,6 +30,7 @@
                             <div class="col-sm-3">
                                 <div class="kv-avatar center-block text-center" style="width: 200px">
                                     <input id="avatar-2" name="avatar-2" type="file" class="file-loading" required>
+                                    <%-- <asp:FileUpload runat="server" CssClass="file-loading" ID="avatar3" />--%>
                                 </div>
                             </div>
 

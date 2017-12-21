@@ -78,12 +78,25 @@ function AltaEquipo_Guardar() {
     var Mensaje = "Ha registrado el Equipo correctamente!";
     var InvocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
 
+    debugger;
+
+    var data = new FormData(),
+    file = $("#avatar-2")[0].files[0];
+    data.append("name", file.name);
+    data.append("size", file.size);
+    data.append("type", file.type);
+    data.append("file", file);
+
+    //var Pic = document.getElementById().toDataURL("image/png");
+    //var file = document.getElementsByClassName('file-preview-image kv-preview-data rotate-1');//.src;
+    //var file = $('.file-preview-image kv-preview-data rotate-1').attr("src");
+    //var img = file[0].src;
+
     var ObjetoVista = {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
         Siglas: document.getElementById("txt_AltaEquipoWF_Siglas").value,
         SitioWeb: document.getElementById("txt_AltaEquipoWF_SitioWeb").value,
-        TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value,
-        Imagen: null
+        TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value
     };
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaEquipo");
