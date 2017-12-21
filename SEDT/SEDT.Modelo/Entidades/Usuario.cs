@@ -18,5 +18,6 @@ namespace SEDT.Modelo.Entidades
         public DateTime FechaDeAlta { get; set; }
         public DateTime FechaUltimaConexion { get; set; }
         public string Contraseña { get; set; }
+        public string Estado { get; set; }
     }
 }

@@ -60,6 +60,7 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
             Resultado = null;
         },
         success: function (result) {
+
             if (result.d.Exito) {
                 executeFunctionByName(Funcion + "_Guardar_Exito", window, result.d, Mensaje);
             }
@@ -69,11 +70,91 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
         }
     });
 }
+
+function Loguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    var Datos = JSON.stringify(ObjetoVista);
+    $.ajax({
+        type: "POST",
+        url: InvocarUrl,
+        data: "{obj:" + Datos + "}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString()
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
+            Resultado = null;
+        },
+        success: function (result) {
+            debugger;
+            if (result.d.Exito) {
+                window.location.href = "Default.aspx";
+            }
+            else {
+                alert("Puede verificar la información")
+            }
+
+            return false;
+        }
+    });
+}
+function Desloguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    debugger;
+    $.ajax({
+        type: "POST",
+        url: InvocarUrl,
+        data: "{}",
+        //contentType: "application/json; charset=utf-8",
+        //dataType: "json",
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString()
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
+            Resultado = null;
+        },
+        success: function (result) {
+
+            window.location.href = "Login.aspx";
+            return false;
+        }
+    });
+}
 //=======================================================================================================
 
 //=======================================================================================================
 // Métodos referentes a la pantalla: AltaEquipoWF.-
 //=======================================================================================================
+
+
+function Guardar_Usuario() {
+    debugger;
+    var Mensaje = "Ha registrado el Usuario correctamente!";
+    var InvocarUrl = "/Login.aspx/GuardarUsuario";
+
+    var ObjetoVista = {
+        Dni: document.getElementById("txt_Login_Dni").value,
+        Apellido: document.getElementById("txt_Login_Apellido").value,
+        Nombre: document.getElementById("txt_Login_Nombre").value,
+        Email: document.getElementById("txt_Login_Email").value,
+        Contraseña: document.getElementById("txt_Login_ContraseñaGuardar").value
+    };
+
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "");
+}
+
+function Login_Usuario() {
+    debugger;
+    var Mensaje = "asdasda";
+    var InvocarUrl = "/Login.aspx/LoginUsuario";
+
+    var ObjetoVista = {
+        Dni: document.getElementById("txt_Login_Usuario").value,
+        Contraseña: document.getElementById("txt_Login_Contraseña").value
+    };
+
+    Loguear(InvocarUrl, ObjetoVista, Mensaje, "");
+}
+
 function AltaEquipo_Guardar() {
     var Mensaje = "Ha registrado el Equipo correctamente!";
     var InvocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
@@ -210,7 +291,7 @@ function AltaFichaTecnica_Guardar() {
     var ObjetoVista = {
         PiernaHabil: piernahabil,
         Peso: Peso_Vista,
-        Altura : Altura_Vista,
+        Altura: Altura_Vista,
         Salto: Salto_Vista,
         Velocidad: Velocidad_Vista,
         Resistencia: Resistencia_Vista,

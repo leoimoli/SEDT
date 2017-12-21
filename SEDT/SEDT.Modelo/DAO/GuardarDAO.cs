@@ -27,9 +27,12 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("Email_in", usuario.Email);
             cmd.Parameters.AddWithValue("Telefono_in", usuario.Telefono);
             cmd.Parameters.AddWithValue("IdPlanDePago_in", usuario.IdPlanDePago);
+            usuario.FechaDeAlta = DateTime.Now;
             cmd.Parameters.AddWithValue("FechaDeAlta_in", usuario.FechaDeAlta);
             cmd.Parameters.AddWithValue("FechaUltimaConexion_in", usuario.FechaUltimaConexion);
             cmd.Parameters.AddWithValue("Contraseña_in", usuario.Contraseña);
+            usuario.Estado = "ACTIVO";
+            cmd.Parameters.AddWithValue("Estado_in", usuario.Estado);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;
@@ -136,7 +139,7 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("DisciplinaTactica_in", ficha.DisciplinaTactica);
             cmd.Parameters.AddWithValue("NivelDefensivo_in", ficha.NivelDefensivo);
             cmd.Parameters.AddWithValue("NivelOfensivo_in", ficha.NivelOfensivo);
-          
+
             cmd.Parameters.AddWithValue("IdUsuario_in", ficha.IdUsuario);
             cmd.ExecuteNonQuery();
             connection.Close();
