@@ -116,7 +116,7 @@ namespace SEDT.Modelo.DAO
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
             MySqlParameter[] oParam = {
-                                      new MySqlParameter("NombreTorneo_in", equipo.IdUsuario)};
+                                      new MySqlParameter("idUsuario_in", equipo.IdUsuario)};
             string proceso = "ConsultarEquiposUsuarioPorIdUsuario";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
