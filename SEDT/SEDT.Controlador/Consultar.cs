@@ -15,10 +15,21 @@ namespace SEDT.Controlador
             lista = ConsultarDAO.LoginUsuario(usuario);
             return lista;
         }
+
         public static List<Modelo.Entidades.EquipoUsuario> ConsultarEquiposUsuario(Modelo.Entidades.EquipoUsuario equipo)
         {
             List<Modelo.Entidades.EquipoUsuario> lista = new List<Modelo.Entidades.EquipoUsuario>();
             lista = ConsultarDAO.ConsultarEquiposUsuario(equipo);
+            return lista;
+        }
+
+
+        //TODO!!
+        public static List<Modelo.Entidades.PersonaFisicaJugador> ConsultarJugadores(Modelo.Entidades.PersonaFisicaJugador jugador)
+        {
+            List<Modelo.Entidades.PersonaFisicaJugador> lista = new List<Modelo.Entidades.PersonaFisicaJugador>();
+            int ID = ConsultarDAO.BuscarJugador();
+            lista.Add(new Modelo.Entidades.PersonaFisicaJugador { IdPersonaFisicaJugador = ID });
             return lista;
         }
     }

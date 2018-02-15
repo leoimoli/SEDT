@@ -42,6 +42,7 @@ namespace SEDT
             resultado.Exito = true;
             try
             {
+
                 //resultado = Agregar.AltaEntrenamiento(obj);
             }
             catch (Exception e)

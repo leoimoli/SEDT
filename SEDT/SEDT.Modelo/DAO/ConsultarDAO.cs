@@ -247,5 +247,17 @@ namespace SEDT.Modelo.DAO
             int idPartido = partido;
             return idPartido;
         }
+
+        // TODO:
+        public static int BuscarJugador()
+        {
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "select MAX(idPersonaFisicaJugador) FROM tpersonafisicajugador";
+            Int32 idJugador = (Int32)cmd.ExecuteScalar();
+            connection.Close();
+            return idJugador;
+        }
     }
 }
