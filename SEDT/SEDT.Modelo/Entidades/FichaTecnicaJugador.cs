@@ -9,7 +9,7 @@ namespace SEDT.Modelo.Entidades
    public class FichaTecnicaJugador
     {
         public int IdFichaTecnicaJugador { get; set; }
-        public int IdUsuario { get; set; }
+        public int IdJugador { get; set; }
         public string PosicionDeCampo { get; set; }
         public string PiernaHabil { get; set; }
         public string Altura { get; set; }

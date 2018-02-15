@@ -54,7 +54,40 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return lista;
         }
-
+        public static PersonaFisicaJugador ConsultarJugadorPorID(int idJugador)
+        {
+            connection.Open();
+            PersonaFisicaJugador lista = new PersonaFisicaJugador();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                new MySqlParameter("idJugador_in", idJugador) };
+            string proceso = "ConsultarJugadorPorId";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tpersonafisicajugador");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    PersonaFisicaJugador jugador = new PersonaFisicaJugador();
+                    jugador.Dni = item["txDni"].ToString();
+                    jugador.Apellido = item["txApellido"].ToString();
+                    jugador.Nombre = item["txNombre"].ToString();
+                    jugador.Apodo = item["txApodo"].ToString();
+                    jugador.FechaNacimiento = Convert.ToDateTime(item["dtFechaNacimiento"].ToString());
+                    jugador.Altura = item["txTelefono"].ToString();
+                    jugador.Peso = item["txPeso"].ToString();
+                    lista = jugador;
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static bool ValidarUsuarioExistente(string dni)
         {
             bool ValidarExistencia;
