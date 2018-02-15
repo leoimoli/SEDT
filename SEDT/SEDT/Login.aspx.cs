@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace SEDT
 {
@@ -19,7 +18,7 @@ namespace SEDT
         [WebMethod]
         public static Respuesta LoginUsuario(Usuario obj)
         {
-            List<Modelo.Entidades.Usuario> usuarios = new List<Usuario>();
+            List<Usuario> usuarios = new List<Usuario>();
             Respuesta resultado = new Respuesta();
             try
             {

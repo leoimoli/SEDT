@@ -14,25 +14,33 @@ namespace SEDT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<EquipoUsuario> equipos = Consultar.ConsultarEquiposUsuario(new EquipoUsuario { IdUsuario = Master.usuarioActual.IdUsuario });
+            string elemento_equipo = "<label for=\"fname\"> Equipo:</label><select id=\"cmb_ConsultaJugadorWF_Equipo\" class=\"form-control\">";
+            elemento_equipo += "<option value=\"" + 0 + "\">Seleccione</option>";
+            foreach (EquipoUsuario equipo in equipos)
+                elemento_equipo += "<option value=\"" + equipo.IdEquipoUsuario + "\">" + equipo.NombreEquipo + "</option>";
+            elemento_equipo += "</select>";
+
+            ConsultaJugador_ComboEquipo.Controls.Add(new LiteralControl(elemento_equipo));
         }
 
         //=============================================================
         //=============================================================
         [WebMethod]
-        public static Respuesta GuardarDatos(PersonaFisicaJugador obj)
+        public static Respuesta ConsultarDatos(PersonaFisicaJugador obj)
         {
-            Respuesta resultado = new Respuesta();
+            Respuesta respuesta = new Respuesta();
             try
             {
-                resultado = Agregar.AltaPersonaFisicaJugador(obj);
+                respuesta.Resultado = Consultar.ConsultarJugadores(obj);
             }
             catch (Exception e)
             {
-                resultado.Exito = false;
-                resultado.Errores = new List<string>();
-                resultado.Errores.Add(e.Message);
+                respuesta.Exito = false;
+                respuesta.Errores = new List<string>();
+                respuesta.Errores.Add(e.Message);
             }
-            return resultado;
+            return respuesta;
         }
         //=============================================================
         //=============================================================

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Actualizar.cs" />
     <Compile Include="Agregar.cs" />
+    <Compile Include="Enumeraciones.cs" />
     <Compile Include="Consultar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Respuesta.cs" />

@@ -149,7 +149,7 @@ namespace SEDT.Modelo.DAO
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
             MySqlParameter[] oParam = {
-                                      new MySqlParameter("NombreTorneo_in", equipo.IdUsuario)};
+                                      new MySqlParameter("idUsuario_in", equipo.IdUsuario)};
             string proceso = "ConsultarEquiposUsuarioPorIdUsuario";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -279,6 +279,18 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             int idPartido = partido;
             return idPartido;
+        }
+
+        // TODO:
+        public static int BuscarJugador()
+        {
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "select MAX(idPersonaFisicaJugador) FROM tpersonafisicajugador";
+            Int32 idJugador = (Int32)cmd.ExecuteScalar();
+            connection.Close();
+            return idJugador;
         }
     }
 }

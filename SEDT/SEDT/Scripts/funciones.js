@@ -41,7 +41,35 @@ function Mensaje_Error(mensaje) {
         styling: 'bootstrap3'
     });
 }
+//=======================================================================================================//=======================================================================================================
+// Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
+function Consultar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    var Datos = JSON.stringify(ObjetoVista);
+    $.ajax({
+        type: "POST",
+        url: InvocarUrl,
+        data: "{obj:" + Datos + "}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            alert("Request: " + XMLHttpRequest.toString()
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
+            Resultado = null;
+        },
+        success: function (result)
+        {
+            if (result.d.Exito) {
+                executeFunctionByName(Funcion + "_Exito", window, result.d, Mensaje);
+            }
+            else {
+                executeFunctionByName(Funcion + "_Error", window, result.d);
+            }
+        }
+    });
+}
 //=======================================================================================================
 // Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
@@ -99,7 +127,6 @@ function Loguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
     });
 }
 function Desloguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
-    debugger;
     $.ajax({
         type: "POST",
         url: InvocarUrl,
@@ -124,10 +151,7 @@ function Desloguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
 //=======================================================================================================
 // Métodos referentes a la pantalla: AltaEquipoWF.-
 //=======================================================================================================
-
-
 function Guardar_Usuario() {
-    debugger;
     var Mensaje = "Ha registrado el Usuario correctamente!";
     var InvocarUrl = "/Login.aspx/GuardarUsuario";
 
@@ -143,7 +167,6 @@ function Guardar_Usuario() {
 }
 
 function Login_Usuario() {
-    debugger;
     var Mensaje = "asdasda";
     var InvocarUrl = "/Login.aspx/LoginUsuario";
 
@@ -155,6 +178,87 @@ function Login_Usuario() {
     Loguear(InvocarUrl, ObjetoVista, Mensaje, "");
 }
 
+//=======================================================================================================
+// CONSULTAS.-
+//=======================================================================================================
+function ConsultaJugador_Consultar()
+{
+    var Mensaje = "Ha registrado el Equipo correctamente!";
+    var InvocarUrl = "/ConsultaJugadorWF.aspx/ConsultarDatos";
+
+    var e = document.getElementById("cmb_ConsultaJugadorWF_Equipo");
+    var equipoSelecto = e.options[e.selectedIndex].value;
+
+    var ObjetoVista = {
+        Dni: document.getElementById("txt_ConsultaJugadorWF_DNI").value,
+        Apellido: document.getElementById("txt_ConsultaJugadorWF_Apellido").value,
+        Nombre: document.getElementById("txt_ConsultaJugadorWF_Nombre").value,
+        Apodo: document.getElementById("txt_ConsultaJugadorWF_Apodo").value,
+        idEquipo: equipoSelecto
+    };
+
+    Consultar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "ConsultaJugador");
+}
+function ConsultaJugador_Nuevo() {
+    ConsultaJugador_Limpiar();
+}
+
+function ConsultaJugador_Limpiar()
+{
+    //Limpiamos los campos del formulario.-
+    document.getElementById("txt_AltaEquipoWF_NombreEquipo").value = "";
+    document.getElementById("txt_AltaEquipoWF_Siglas").value = "";
+    document.getElementById("txt_AltaEquipoWF_SitioWeb").value = "";
+    document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value = "";
+
+    //Aplicamos visibilidad a los botones del formulario.-
+    document.getElementById("btn_ConsultaJugador_Nuevo").style.display = 'none';
+    document.getElementById("btn_ConsultaJugador_Consultar").style.display = 'inline-block';
+    document.getElementById("btn_ConsultaJugador_Limpiar").style.display = 'inline-block';
+}
+
+function isEven(value) {
+    if (value % 2 == 0)
+        return true;
+    else
+        return false;
+}
+
+function ConsultaJugador_Exito(Respuesta, Mensaje)
+{
+    debugger;
+    //Mensaje_Exito(Mensaje);
+    var tabla = "";
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false)
+    {
+        if (Respuesta.Resultado != null && Respuesta.Resultado.length > 0)
+        {
+            for (var i=0; i < Respuesta.Resultado.length; i++)
+            {
+                var elemento = Respuesta.Resultado[i];
+                if (isEven(i)) { tabla += '<tr class="even pointer">'; } else { tabla += '<tr class="odd pointer">'; }
+                tabla += '<td class="a-center "><input type="checkbox" class="flat" name="table_records"></td>';
+                tabla += '<td class=" ">' + elemento.IdPersonaFisicaJugador + '</td>';
+                tabla += '<td class=" ">' + elemento.Apellido + '</td>';
+                tabla += '<td class=" ">' + elemento.Apodo + '</td>';
+                tabla += '<td class=" ">' + elemento.Posicion + '</td>';
+                tabla += '<td class=" ">' + elemento.Altura + '</td>';
+                tabla += '<td class="a-right a-right ">' + elemento.Peso + '</td>';
+                tabla += '<td class=" last"><a href="#">Ver</a></td></tr>';
+            }
+        }
+        $('#ConsultaJugador_TablaResultado').html(tabla);
+    }
+    return false;
+}
+
+function ConsultaJugador_Error(Respuesta, Mensaje)
+{
+
+}
+//=======================================================================================================
+// ALTAS.-
+//=======================================================================================================
 function AltaEquipo_Guardar() {
     var Mensaje = "Ha registrado el Equipo correctamente!";
     var InvocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
@@ -163,8 +267,7 @@ function AltaEquipo_Guardar() {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
         Siglas: document.getElementById("txt_AltaEquipoWF_Siglas").value,
         SitioWeb: document.getElementById("txt_AltaEquipoWF_SitioWeb").value,
-        TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value,
-        Imagen: null
+        TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value
     };
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaEquipo");
@@ -795,3 +898,34 @@ function ClockPicker_HoraSeleccionada() {
 
 //============================================================================================================
 //============================================================================================================
+function consultaJugador_Resultado() {
+    /*
+                                    <tr class="even pointer">
+                                    <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                    </td>
+                                    <td class=" ">121000040</td>
+                                    <td class=" ">May 23, 2014 11:47:56 PM </td>
+                                    <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
+                                    <td class=" ">John Blank L</td>
+                                    <td class=" ">Paid</td>
+                                    <td class="a-right a-right ">$7.45</td>
+                                    <td class=" last"><a href="#">View</a>
+                                    </td>
+                                </tr>
+                                                                <tr class="odd pointer">
+                                    <td class="a-center ">
+                                        <input type="checkbox" class="flat" name="table_records">
+                                    </td>
+                                    <td class=" ">121000039</td>
+                                    <td class=" ">May 23, 2014 11:30:12 PM</td>
+                                    <td class=" ">121000208 <i class="success fa fa-long-arrow-up"></i>
+                                    </td>
+                                    <td class=" ">John Blank L</td>
+                                    <td class=" ">Paid</td>
+                                    <td class="a-right a-right ">$741.20</td>
+                                    <td class=" last"><a href="#">View</a>
+                                    </td>
+                                </tr>
+    */
+}

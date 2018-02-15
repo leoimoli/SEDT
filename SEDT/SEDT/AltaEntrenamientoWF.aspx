@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="AltaEntrenamientoWF.aspx.cs" Inherits="SEDT.AltaEntrenamientoWF" %>
+<%@ MasterType VirtualPath="~/Site.Master" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -67,12 +68,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="row">
                                                                 <div class="col-sm-4">
-                                                                    <div class="form-group">
-                                                                        <label for="fname">Equipo:</label>
-                                                                        <select class="form-control">
-                                                                            <option>Cargar equipo de DB</option>
-                                                                            <option>Cargar equipo de DB</option>
-                                                                        </select>
+                                                                    <div runat="server" id="AltaEntrenamiento_ComboEquipo" class="form-group">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-4">
@@ -116,12 +112,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-sm-4">
-                                                                            <div class="form-group">
-                                                                                <label for="fname">Lugar de entrenamiento:</label>
-                                                                                <select class="form-control">
-                                                                                    <option>Cargar lugar de DB</option>
-                                                                                    <option>Cargar lugar de DB</option>
-                                                                                </select>
+                                                                            <div id="AltaEntrenamiento_ComboLugar" runat="server" class="form-group">
+
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-sm-4">
@@ -147,14 +139,7 @@
                                                             <div id="container_Clonar_EtapaSingular_1_1" class="clonedInput_EtapaSingular">
                                                                 <div class="row">
                                                                     <div class="col-sm-4">
-                                                                        <div class="form-group">
-                                                                            <label for="fname">Tipo de Actividad:</label>
-                                                                            <select id="txt_AltaEtapaWF_Actividad_1_1" class="form-control">
-                                                                                <option>Físico</option>
-                                                                                <option>Táctico</option>
-                                                                                <option>Técnico</option>
-                                                                                <option>Fútbol</option>
-                                                                            </select>
+                                                                        <div runat="server" id="AltaEntrenamiento_ComboActividad" class="form-group">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-8">

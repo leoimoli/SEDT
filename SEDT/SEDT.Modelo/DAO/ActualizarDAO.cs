@@ -22,7 +22,7 @@ namespace SEDT.Modelo.DAO
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("Nombre_in", equipo.NombreEquipo);
-            cmd.Parameters.AddWithValue("ImagenEscudo_in", equipo.ImagenEscudo);
+            cmd.Parameters.AddWithValue("ImagenEscudo_in", equipo.Imagen);
             cmd.Parameters.AddWithValue("IdUsuario_in", equipo.IdUsuario);
             cmd.Parameters.AddWithValue("Siglas_in", equipo.Siglas);
             cmd.Parameters.AddWithValue("SitioWeb_in", equipo.SitioWeb);

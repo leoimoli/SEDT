@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\EnumerableDAO.cs" />
     <Compile Include="DAO\ConsultarDAO.cs" />
     <Compile Include="DAO\ActualizarDAO.cs" />
     <Compile Include="DAO\GuardarDAO.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEDT.Modelo.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,7 @@ namespace SEDT.Controlador
         public bool Exito { get; set; }
         public List<string> Errores { get; set; }
         public int Id { get; set; }
+
+        public List<PersonaFisicaJugador> Resultado { get; set; }
     }
 }
