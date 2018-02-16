@@ -23,7 +23,8 @@ namespace SEDT.Modelo.DAO
             DataTable Tabla = new DataTable();
             MySqlParameter[] oParam = {
                                       new MySqlParameter("Dni_in", usuario.Dni),
-                                       new MySqlParameter("Contraseña_in", usuario.Contraseña)};
+                                       new MySqlParameter("Contraseña_in", usuario.Contraseña),
+             new MySqlParameter("Estado_in", usuario.Estado)};
             string proceso = "LoginUsuario";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -45,14 +46,48 @@ namespace SEDT.Modelo.DAO
                     listaUsuario.IdPlanDePago = Convert.ToInt32(item["idPlanDePago"].ToString());
                     listaUsuario.FechaDeAlta = Convert.ToDateTime(item["dtFechaDeAlta"].ToString());
                     listaUsuario.FechaUltimaConexion = Convert.ToDateTime(item["dtFechaUltimaConexion"].ToString());
-                    listaUsuario.Contraseña = item["txContraseña"].ToString();
+                    listaUsuario.Contraseña = item["txContrasena"].ToString();
+                    listaUsuario.Estado = item["txEstado"].ToString();
                     lista.Add(listaUsuario);
                 }
             }
             connection.Close();
             return lista;
         }
-
+        public static PersonaFisicaJugador ConsultarJugadorPorID(int idJugador)
+        {
+            connection.Open();
+            PersonaFisicaJugador lista = new PersonaFisicaJugador();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                new MySqlParameter("idJugador_in", idJugador) };
+            string proceso = "ConsultarJugadorPorId";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tpersonafisicajugador");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    PersonaFisicaJugador jugador = new PersonaFisicaJugador();
+                    jugador.Dni = item["txDni"].ToString();
+                    jugador.Apellido = item["txApellido"].ToString();
+                    jugador.Nombre = item["txNombre"].ToString();
+                    jugador.Apodo = item["txApodo"].ToString();
+                    jugador.FechaNacimiento = Convert.ToDateTime(item["dtFechaNacimiento"].ToString());
+                    jugador.Altura = item["txTelefono"].ToString();
+                    jugador.Peso = item["txPeso"].ToString();
+                    lista = jugador;
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static bool ValidarUsuarioExistente(string dni)
         {
             bool ValidarExistencia;
@@ -114,7 +149,7 @@ namespace SEDT.Modelo.DAO
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
             MySqlParameter[] oParam = {
-                                      new MySqlParameter("NombreTorneo_in", equipo.IdUsuario)};
+                                      new MySqlParameter("idUsuario_in", equipo.IdUsuario)};
             string proceso = "ConsultarEquiposUsuarioPorIdUsuario";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -244,6 +279,18 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             int idPartido = partido;
             return idPartido;
+        }
+
+        // TODO:
+        public static int BuscarJugador()
+        {
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "select MAX(idPersonaFisicaJugador) FROM tpersonafisicajugador";
+            Int32 idJugador = (Int32)cmd.ExecuteScalar();
+            connection.Close();
+            return idJugador;
         }
     }
 }

@@ -11,5 +11,44 @@ namespace SEDT {
     
     
     public partial class AltaEntrenamientoWF {
+        
+        /// <summary>
+        /// AltaEntrenamiento_ComboEquipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AltaEntrenamiento_ComboEquipo;
+        
+        /// <summary>
+        /// AltaEntrenamiento_ComboLugar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AltaEntrenamiento_ComboLugar;
+        
+        /// <summary>
+        /// AltaEntrenamiento_ComboActividad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AltaEntrenamiento_ComboActividad;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new SEDT.SiteMaster Master {
+            get {
+                return ((SEDT.SiteMaster)(base.Master));
+            }
+        }
     }
 }

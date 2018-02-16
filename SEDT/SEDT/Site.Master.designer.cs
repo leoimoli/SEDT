@@ -22,6 +22,24 @@ namespace SEDT {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// Master_Usuario_Left control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Master_Usuario_Left;
+        
+        /// <summary>
+        /// Master_Usuario_Top control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor Master_Usuario_Top;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

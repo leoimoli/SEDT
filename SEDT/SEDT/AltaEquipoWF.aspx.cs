@@ -2,7 +2,11 @@
 using SEDT.Modelo.Entidades;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Services;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace SEDT
 {
@@ -20,6 +24,7 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
+                //asdasd();
                 resultado = Agregar.AltaEquipoUsuario(obj);
             }
             catch (Exception e)
@@ -30,6 +35,15 @@ namespace SEDT
             }
             return resultado;
         }
+
+        /*public void asdasd()
+        {
+            string asd = "";
+            foreach (var control in AltaEquipo_Avatar.Controls)
+            {
+                asd = control.ToString();
+            }
+        }*/
         //=============================================================
         //=============================================================
 

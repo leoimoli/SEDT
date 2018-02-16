@@ -84,16 +84,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="txt_AltaJugadorWF_Peso">Peso:<span class="kv-reqd"> (*)</span></label>
-                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_Peso">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="txt_AltaJugadorWF_Altura">Altura:<span class="kv-reqd"> (*)</span></label>
-                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_Altura">
+                                            <label for="txt_AltaJugadorWF_Peso">Telefono:<span class="kv-reqd"> (*)</span></label>
+                                            <input type="text" class="form-control" id="txt_AltaJugadorWF_Telefono">
                                         </div>
                                     </div>
                                 </div>
@@ -106,6 +98,7 @@
                             <div class="ln_solid"></div>
 
                             <button id="btn_AltaJugador_Nuevo" class="btn btn-primary" style="display: none;" onclick="AltaJugador_Nuevo()" type="button">Nuevo</button>
+                            <button id="btn_AltaJugador_Siguiente" class="btn btn-success" style="display: none;" onclick="AltaJugador_Siguiente()" type="button">Ficha Tecnica</button>
                             <button id="btn_AltaJugador_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="AltaJugador_Guardar()" type="button">Guardar</button>
                             <button id="btn_AltaJugador_Limpiar" class="btn btn-primary" style="display: inline-block;" onclick="AltaJugador_Limpiar()" type="button">Limpiar</button>
                         </div>

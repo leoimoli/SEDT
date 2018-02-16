@@ -87,10 +87,10 @@
                             <input id="txt_Login_Email" type="email" class="form-control" placeholder="Email" required="" />
                         </div>
                         <div>
-                            <input id="txt_Login_ContraseñaGuardar" type="password" class="form-control" placeholder="Contraseña" required="" />
+                            <input id="txt_Login_ContraseñaGuardar" type="text" class="form-control" placeholder="Contraseña" required="" />
                         </div>
                         <div>
-                            <input id="txt_Login_RepitaContraseña" type="password" class="form-control" placeholder="Repita Contraseña" required="" />
+                            <input id="txt_Login_RepitaContraseña" type="text" class="form-control" placeholder="Repita Contraseña" required="" />
                         </div>
                         <div>
                             <%-- <a class="btn btn-default submit" onclick="Guardar_Usuario()">Registrar</a>--%>

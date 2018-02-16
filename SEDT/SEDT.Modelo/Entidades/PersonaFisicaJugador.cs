@@ -10,6 +10,7 @@ namespace SEDT.Modelo.Entidades
     {
         public int IdPersonaFisicaJugador { get; set; }
         public int idUsuario { get; set; }
+        public int idEquipo { get; set; }
         public string Dni { get; set; }
         public string Apellido { get; set; }
         public string Nombre { get; set; }
@@ -18,5 +19,6 @@ namespace SEDT.Modelo.Entidades
         public string Altura { get; set; }
         public string Peso { get; set; }
         public byte[] Imagen { get; set; }
+        public string Telefono { get; set; }
     }
 }

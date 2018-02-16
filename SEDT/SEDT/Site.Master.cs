@@ -7,6 +7,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using System.Web.Services;
+using SEDT.Modelo.Entidades;
 
 namespace SEDT
 {
@@ -15,6 +17,7 @@ namespace SEDT
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        public Usuario usuarioActual { get; set; }
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -45,6 +48,27 @@ namespace SEDT
                 Response.Cookies.Set(responseCookie);
             }
 
+            if (HttpContext.Current.Session["loginUsuario"] == null) {
+                usuarioActual = null;
+                Response.Redirect("~/Login");
+            }
+            else
+            {
+                // Obtenemos el usuario de Sesión.
+                usuarioActual = (Usuario)HttpContext.Current.Session["loginUsuario"];
+
+                // Generamos el HTML con el contenido a mostrar.
+                string usuario_html_top = "<img src=\"Template/production/images/user.png\" alt=\"\">";
+                usuario_html_top += usuarioActual.Nombre + " " + usuarioActual.Apellido;
+                usuario_html_top += "<span class=\"fa fa-angle-down\"></span>";
+
+                string usuario_html_left = "<span>Bienvenido,</span>";
+                usuario_html_left += "<h2>" + usuarioActual.Nombre + " " + usuarioActual.Apellido + "</h2>";
+
+                // Insertamos el HTML dentro del DIV que corresponda.
+                Master_Usuario_Top.Controls.Add(new LiteralControl(usuario_html_top));
+                Master_Usuario_Left.Controls.Add(new LiteralControl(usuario_html_left));
+            }
             Page.PreLoad += master_Page_PreLoad;
         }
 
@@ -75,6 +99,12 @@ namespace SEDT
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        [WebMethod]
+        public static void Desloguear()
+        {
+            HttpContext.Current.Session["loginUsuario"] = null;
         }
     }
 

@@ -83,7 +83,7 @@
 }
 
 .checkLI-input:checked + label {
-    background: url(PRUEBA.png);
+    background: url(LI.png);
 }
 
 .checkMD-input {

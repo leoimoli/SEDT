@@ -12,8 +12,16 @@ namespace SEDT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var idJugador = ((int)HttpContext.Current.Session["personaJugador"]);
+            if (idJugador > 0)
+            {
+                PersonaFisicaJugador jugador = Consultar.JugadorPorID(idJugador);
+                ApeNom_label.Text = jugador.Apellido + " " + jugador.Nombre;
+                Apodo_label.Text = jugador.Apodo;
+                DNI_label.Text = jugador.Dni;
+                Telefono_label.Text = jugador.Telefono;
+            }
         }
-
         //=============================================================
         //=============================================================
         [WebMethod]
@@ -22,6 +30,7 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
+                obj.IdJugador = ((int)HttpContext.Current.Session["personaJugador"]);
                 resultado = Agregar.AltaFichaTecnicaJugador(obj);
             }
             catch (Exception e)
