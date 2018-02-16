@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SEDT.Modelo.Entidades;
 
 namespace SEDT.Controlador
 {
@@ -29,6 +30,7 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+
         public static Respuesta AltaEquipoUsuario(Modelo.Entidades.EquipoUsuario equipo)
         {
             Respuesta respuesta = new Respuesta();
@@ -244,17 +246,17 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
-        public static Respuesta AltaJugadorCartera(Modelo.Entidades.PersonaFisicaJugador jugador)
+        public static Respuesta AltaJugadorCartera(Modelo.Entidades.JugadorCartera jugador)
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {
-                respuesta = Validar.AltaPersonaFisicaJugador(jugador);
+                respuesta = Validar.AltaJugadorCartera(jugador);
                 if (respuesta.Exito == true)
                 {
-                    respuesta.Id = GuardarDAO.AltaPersonaFisicaJugador(jugador);
+                    respuesta.Id = GuardarDAO.AltaJugadorCartera(jugador);
                 }
             }
             catch (Exception ex)

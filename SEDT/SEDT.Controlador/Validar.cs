@@ -185,5 +185,40 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+        public static Respuesta AltaJugadorCartera(JugadorCartera jugador)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            respuesta.Exito = true;
+
+            if (String.IsNullOrEmpty(jugador.Apellido))
+            {
+                respuesta.Errores.Add("El campo Apellido es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            if (String.IsNullOrEmpty(jugador.Nombre))
+            {
+                respuesta.Errores.Add("El campo Nombre es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            if (String.IsNullOrEmpty(jugador.Apodo))
+            {
+                respuesta.Errores.Add("El campo Apodo es un dato obligatorio.");
+                respuesta.Exito = false;
+            }
+            ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
+            else
+            {
+                bool AltaPersonaFisicaJugadorExistente = true;
+                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.idUsuario);
+                //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
+                if (AltaPersonaFisicaJugadorExistente == true)
+                {
+                    respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado y equipo seleccionado.");
+                    respuesta.Exito = false;
+                }
+            }
+            return respuesta;
+        }
     }
 }

@@ -54,6 +54,38 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return lista;
         }
+
+        public static JugadorCartera ConsultarJugadorCarteraPorID(int idJugador)
+        {
+            connection.Open();
+            JugadorCartera lista = new JugadorCartera();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                new MySqlParameter("idJugador_in", idJugador) };
+            string proceso = "ConsultarJugadorCarteraPorId";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tJugadorCartera");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    JugadorCartera jugador = new JugadorCartera();
+                    jugador.Apellido = item["txApellido"].ToString();
+                    jugador.Nombre = item["txNombre"].ToString();
+                    jugador.Apodo = item["txApodo"].ToString();
+                    lista = jugador;
+                }
+            }
+            connection.Close();
+            return lista;
+        }
+
         public static PersonaFisicaJugador ConsultarJugadorPorID(int idJugador)
         {
             connection.Open();

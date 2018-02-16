@@ -183,6 +183,31 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
+        public static int AltaJugadorCartera(JugadorCartera jugador)
+        {
+            int id = 0;
+            connection.Open();
+            string proceso = "AltaJugadorCartera";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("Apellido_in", jugador.Apellido);
+            cmd.Parameters.AddWithValue("Nombre_in", jugador.Nombre);
+            cmd.Parameters.AddWithValue("Apodo_in", jugador.Apodo);
+            cmd.Parameters.AddWithValue("Telefono_in", jugador.Telefono);
+            cmd.Parameters.AddWithValue("Email_in", jugador.Email);
+            cmd.Parameters.AddWithValue("RedSocial_in", jugador.RedSocial);
+            cmd.Parameters.AddWithValue("EquipoObservado_in", jugador.EquipoObservado);
+            cmd.Parameters.AddWithValue("EquipoRival_in", jugador.EquipoRival);
+            cmd.Parameters.AddWithValue("FechaPartido_in", jugador.FechaPartido);
+            cmd.Parameters.AddWithValue("idUsuario_in", jugador.idUsuario);
+            MySqlDataReader r = cmd.ExecuteReader();
+            while (r.Read())
+            {
+                id = Convert.ToInt32(r["ID"].ToString());
+            }
+            connection.Close();
+            return id;
+        }
         public static int AltaPartido(Partido partido)
         {
             int id = 0;
