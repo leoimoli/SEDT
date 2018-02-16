@@ -56,9 +56,8 @@ namespace SEDT.Modelo.DAO
         }
         public static int AltaPersonaFisicaJugador(PersonaFisicaJugador jugador)
         {
-            int id = 1;
+            int id = 0;
             connection.Open();
-            ///PROCEDIMIENTO
             string proceso = "AltaPersonaFisicaJugador";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -67,11 +66,15 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("Nombre_in", jugador.Nombre);
             cmd.Parameters.AddWithValue("Apodo_in", jugador.Apodo);
             cmd.Parameters.AddWithValue("FechaNacimiento_in", jugador.FechaNacimiento);
-            cmd.Parameters.AddWithValue("Altura_in", jugador.Altura);
             cmd.Parameters.AddWithValue("Peso_in", jugador.Peso);
-            cmd.Parameters.AddWithValue("imagen_in", Convert.FromBase64String(FixBase64ForImage(jugador.StringImagen)));
-            cmd.Parameters.AddWithValue("idUsuario_in", jugador.idUsuario);
-            cmd.ExecuteNonQuery();
+            //cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
+            cmd.Parameters.AddWithValue("Telefono_in", jugador.Telefono);
+			cmd.Parameters.AddWithValue("imagen_in", Convert.FromBase64String(FixBase64ForImage(jugador.StringImagen)));            cmd.Parameters.AddWithValue("idUsuario_in", jugador.idUsuario);
+            MySqlDataReader r = cmd.ExecuteReader();
+            while (r.Read())
+            {
+                id = Convert.ToInt32(r["ID"].ToString());
+            }
             connection.Close();
             return id;
         }
@@ -84,6 +87,11 @@ namespace SEDT.Modelo.DAO
         }
         public static int AltaFichaTecnica(FichaTecnicaJugador ficha)
         {
+
+            string[] p = ficha.Peso.Split(':');
+            string peso = p[1];
+            string[] a = ficha.Altura.Split(':');
+            string altura = a[1];
             int id = 1;
             connection.Open();
             string proceso = "AltaFichaTecnica";
@@ -91,8 +99,8 @@ namespace SEDT.Modelo.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("PosicionDeCampo_in", ficha.PosicionDeCampo);
             cmd.Parameters.AddWithValue("PiernaHabil_in", ficha.PiernaHabil);
-            cmd.Parameters.AddWithValue("Altura_in", ficha.Altura);
-            cmd.Parameters.AddWithValue("Peso_in", ficha.Peso);
+            cmd.Parameters.AddWithValue("Altura_in", altura);
+            cmd.Parameters.AddWithValue("Peso_in", peso);
             ///// Cualidades Fisicas
             cmd.Parameters.AddWithValue("Salto_in", ficha.Salto);
             cmd.Parameters.AddWithValue("Velocidad_in", ficha.Velocidad);
@@ -112,7 +120,7 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("NivelDefensivo_in", ficha.NivelDefensivo);
             cmd.Parameters.AddWithValue("NivelOfensivo_in", ficha.NivelOfensivo);
 
-            cmd.Parameters.AddWithValue("IdUsuario_in", ficha.IdUsuario);
+            cmd.Parameters.AddWithValue("IdJugador_in", ficha.IdJugador);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;

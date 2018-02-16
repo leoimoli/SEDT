@@ -319,9 +319,9 @@ function AltaJugador_Guardar() {
         Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
         Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
         Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+        
         FechaNacimiento: document.getElementById("single_cal2").value,
-        Altura: document.getElementById("txt_AltaJugadorWF_Altura").value,
-        Peso: document.getElementById("txt_AltaJugadorWF_Peso").value,
+        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
         //Imagen: null,
         StringImagen: imagenData
     };
@@ -332,6 +332,10 @@ function AltaJugador_Guardar() {
 function AltaJugador_Nuevo() {
     AltaJugador_Limpiar();
 }
+function AltaJugador_Siguiente() {
+    window.location.href = "AltaFichaTecnicaWF.aspx";
+    return false;
+}
 
 function AltaJugador_Limpiar() {
     //Limpiamos los campos del formulario.-
@@ -340,8 +344,8 @@ function AltaJugador_Limpiar() {
     document.getElementById("txt_AltaJugadorWF_Apodo").value = "";
     document.getElementById("txt_AltaJugadorWF_DNI").value = "";
     document.getElementById("txt_AltaJugadorWF_FechaNacimiento").value = "";
-    document.getElementById("txt_AltaJugadorWF_Peso").value = "";
-    document.getElementById("txt_AltaJugadorWF_Altura").value = "";
+    document.getElementById("txt_AltaJugadorWF_Telefono").value = "";
+
 
     //Aplicamos visibilidad a los botones del formulario.-
     document.getElementById("btn_AltaJugador_Nuevo").style.display = 'none';
@@ -362,8 +366,8 @@ function AltaFichaTecnica_Guardar() {
     var Izquierda = document.getElementById("piernaI").checked;
     var piernahabil = "";
     if (Derecha == true) { piernahabil = "D" } else if (Izquierda == true) { piernahabil = "I" };
-    var Altura_Vista = $('#FichaTecnica_Altura').find('.irs-to').html();
     var Peso_Vista = $('#FichaTecnica_Peso').find('.irs-to').html();
+    var Altura_Vista = $('#FichaTecnica_Altura').find('.irs-to').html();
 
     /////Atributos
     var Salto_Vista = $('#FichaTecnica_Salto').find('.irs-to').html();
@@ -565,6 +569,7 @@ function AltaJugador_Guardar_Exito(Respuesta, Mensaje) {
     Mensaje_Exito(Mensaje);
     if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
         document.getElementById("btn_AltaJugador_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaJugador_Siguiente").style.display = 'inline-block';
         document.getElementById("btn_AltaJugador_Guardar").style.display = 'none';
         document.getElementById("btn_AltaJugador_Limpiar").style.display = 'none';
     }
@@ -597,6 +602,7 @@ $("#avatar-2").fileinput({
     removeTitle: 'Cancel or reset changes',
     elErrorContainer: '#kv-avatar-errors-2',
     msgErrorClass: 'alert alert-block alert-danger',
+    
     defaultPreviewContent: '<img id="Imagen_Escudo" src="/Template/fileInput/img/Escudo.png" alt="Su Escudo" style="width:160px"><h6 class="text-muted">Seleccionar un imagen</h6>',
     layoutTemplates: { main2: '{preview} {remove} {browse}' },
     allowedFileExtensions: ["jpg", "png", "gif"]

@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarUltimaConexion`(IN idUsuario_in int(8), FechaUltimaConexion_in datetime)
+BEGIN
+Update tusuarios set dtFechaUltimaConexion = FechaUltimaConexion_in
+where idUsuario = idUsuario_in;
+END

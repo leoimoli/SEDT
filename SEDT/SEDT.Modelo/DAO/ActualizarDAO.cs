@@ -32,6 +32,19 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return id;
         }
+        public static void ActualizarUltimaConexion(int idUsuario)
+        {
+            connection.Open();
+            ///PROCEDIMIENTO
+            string proceso = "ActualizarUltimaConexion";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idUsuario_in", idUsuario);
+            DateTime Fecha = DateTime.Now;
+            cmd.Parameters.AddWithValue("FechaUltimaConexion_in", Fecha);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
         public static int ActualizarPersonaFisicaJugador(PersonaFisicaJugador jugador)
         {
             int id = 1;
@@ -134,7 +147,6 @@ namespace SEDT.Modelo.DAO
             int idRegistroUltimoPartido = ConsultarDAO.BuscarUltimoPartidoRegistrado();
             return id = idRegistroUltimoPartido;
         }
-
         public static int ActualizarEstadisticaPartido(EstadisticaPartido estadisticaPartido)
         {
             int id = 0;

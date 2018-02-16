@@ -32,7 +32,7 @@
 
                                     <div class="col-xs-12 bottom text-center">
                                         <div class="col-xs-12 col-sm-6 emphasis">
-                                            <h2>Nicole Pearson</h2>
+                                            <asp:Label ForeColor="#009933" runat="server" ID="ApeNom_label"></asp:Label>
                                         </div>
 
                                     </div>
@@ -43,7 +43,11 @@
                                                     <i class="fa fa-bolt"></i>
                                                 </div>
                                                 <div class="col-xs-10 col-sm-10">
-                                                    <p><strong>Apodo: </strong></p>
+                                                    <p>
+                                                        <strong>Apodo:
+                                                        <asp:Label ForeColor="#009933" runat="server" ID="Apodo_label"></asp:Label>
+                                                        </strong>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -51,7 +55,11 @@
                                                     <i class="fa fa-credit-card"></i>
                                                 </div>
                                                 <div class="col-xs-10 col-sm-10">
-                                                    <p><strong>DNI: </strong></p>
+                                                    <p>
+                                                        <strong>DNI:
+                                                        <asp:Label ForeColor="#009933" runat="server" ID="DNI_label"></asp:Label>
+                                                        </strong>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -59,7 +67,11 @@
                                                     <i class="fa fa-arrows-h"></i>
                                                 </div>
                                                 <div class="col-xs-10 col-sm-10">
-                                                    <p><strong>Altura: </strong></p>
+                                                    <p>
+                                                        <strong>Altura:
+                                                        <asp:Label ForeColor="#009933" runat="server" ID="Telefono_label"></asp:Label>
+                                                        </strong>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -67,7 +79,11 @@
                                                     <i class="fa fa-arrows-v"></i>
                                                 </div>
                                                 <div class="col-xs-10 col-sm-10">
-                                                    <p><strong>Peso: </strong></p>
+                                                    <p>
+                                                        <strong>Peso:
+                                                        <asp:Label ForeColor="Blue" runat="server" ID="Peso_label"></asp:Label>
+                                                        </strong>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -240,8 +256,8 @@
                                 </div>
 
                                 <div class="row grid_slider">
-                                    <div class="col-md-10 col-sm-10 col-xs-12">
-                                        <div id="FichaTecnica_Altura" class="form-group rowTitulitos">
+                                    <div id="FichaTecnica_Altura" class="col-md-10 col-sm-10 col-xs-12">
+                                        <div class="form-group rowTitulitos">
                                             <label class="titulitos">Altura:</label>
                                         </div>
                                         <input type="text" id="range_A16" value="" name="range" />

@@ -12,7 +12,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `AltaFichaTecnica`(IN PosicionDeCamp
  NivelOfensivo_in varchar(20),
  Altura_in varchar(20),
  Peso_in varchar(20),
- IdUsuario_in int (8))
+ IdJugador_in int (8))
 BEGIN
  insert into tFichaTecnica
 (txPosicionDeCampo,txPiernaHabil, txSalto,
@@ -21,7 +21,7 @@ BEGIN
  txMarcaje,txPaseCorto, txPaseLargo,
  txRemate,txTiroLibre, txDisciplinaTactica,
  txNivelDefensivo,txNivelOfensivo, txAltura, txPeso,
- idUsuario)
+ idJugador)
 values (PosicionDeCampo_in , PiernaHabil_in, Salto_in,
  Velocidad_in, Resistencia_in, Fuerza_in,
  ControlDeBalon_in, Regates_in, Definicion_in,
@@ -33,5 +33,5 @@ values (PosicionDeCampo_in , PiernaHabil_in, Salto_in,
  NivelOfensivo_in,
  Altura_in,
  Peso_in,
- IdUsuario_in);
+ IdJugador_in);
 END

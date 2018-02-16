@@ -14,6 +14,7 @@ namespace SEDT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
         }
 
         //=============================================================
@@ -24,7 +25,9 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
+                obj.idUsuario = ((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario;
                 resultado = Agregar.AltaPersonaFisicaJugador(obj);
+                HttpContext.Current.Session["personaJugador"] = resultado.Id;
             }
             catch (Exception e)
             {

@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarJugadorPorId`(IN idJugador_in int)
+BEGIN
+Select * From tpersonafisicajugador where(idJugador_in is null
+ or idPersonaFisicaJugador = idJugador_in);
+END
