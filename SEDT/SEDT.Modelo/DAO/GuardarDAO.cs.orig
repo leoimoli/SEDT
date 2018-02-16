@@ -67,11 +67,13 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("Apodo_in", jugador.Apodo);
             cmd.Parameters.AddWithValue("FechaNacimiento_in", jugador.FechaNacimiento);
             cmd.Parameters.AddWithValue("Peso_in", jugador.Peso);
-            //cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
+<<<<<<< HEAD
+            cmd.Parameters.AddWithValue("imagen_in", Convert.FromBase64String(FixBase64ForImage(jugador.StringImagen)));
+=======
             cmd.Parameters.AddWithValue("Telefono_in", jugador.Telefono);
-			cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
-            cmd.Parameters.AddWithValue("idUsuario_in", jugador.IdUsuario);
-
+            cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
+>>>>>>> a2b9ab910d90e9faec042c3b98d03037488c85c8
+            cmd.Parameters.AddWithValue("idUsuario_in", jugador.idUsuario);
             MySqlDataReader r = cmd.ExecuteReader();
             while (r.Read())
             {

@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                         <div class="right col-xs-5 text-center">
-                                            <img src="Template/production/images/user.png" alt="" class="img-circle img-responsive">
+                                            <img src="Template/production/images/user.png" alt="" id="imagenJugador" runat="server" class="img-circle img-responsive"/>
                                         </div>
                                     </div>
                                 </div>

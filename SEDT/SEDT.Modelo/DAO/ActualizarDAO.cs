@@ -60,8 +60,8 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("dtFechaNacimiento_in", jugador.FechaNacimiento);
             cmd.Parameters.AddWithValue("txAltura_in", jugador.Altura);
             cmd.Parameters.AddWithValue("txPeso_in", jugador.Peso);
-            cmd.Parameters.AddWithValue("imagen_in", Convert.FromBase64String(FixBase64ForImage(jugador.StringImagen)));
-            cmd.Parameters.AddWithValue("idUsuario_in", jugador.idUsuario);
+            cmd.Parameters.AddWithValue("imagen_in", Convert.FromBase64String(FixBase64ForImage(jugador.Imagen)));
+            cmd.Parameters.AddWithValue("idUsuario_in", jugador.IdUsuario);
             cmd.Parameters.AddWithValue("Id", jugador.IdPersonaFisicaJugador);
             cmd.ExecuteNonQuery();
             connection.Close();

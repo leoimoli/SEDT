@@ -9,6 +9,7 @@ var Resultado = null;
 // Nos permite invocar una función JavaScript solo sabiendo su nombre.-
 //=======================================================================================================
 function executeFunctionByName(functionName, context /*, args */) {
+    debugger;
     var args = [].slice.call(arguments).splice(2);
     var namespaces = functionName.split(".");
     var func = namespaces.pop();
@@ -44,26 +45,28 @@ function Mensaje_Error(mensaje) {
 //=======================================================================================================//=======================================================================================================
 // Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
-function Consultar_Objeto(invocarUrl, objetoVista, mensaje, funcion) {
-    var datos = JSON.stringify(objetoVista);
+function Consultar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    var Datos = JSON.stringify(ObjetoVista);
     $.ajax({
         type: "POST",
-        url: invocarUrl,
-        data: "{obj:" + datos + "}",
+        url: InvocarUrl,
+        data: "{obj:" + Datos + "}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        error: function (xmlHttpRequest, textStatus, errorThrown) {
-            alert("Request: " + xmlHttpRequest.toString()
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            alert("Request: " + XMLHttpRequest.toString()
              + "\n\nStatus: " + textStatus
               + "\n\nError: " + errorThrown);
             Resultado = null;
         },
-        success: function (result) {
+        success: function (result)
+        {
             if (result.d.Exito) {
-                executeFunctionByName(funcion + "_Exito", window, result.d, mensaje);
+                executeFunctionByName(Funcion + "_Exito", window, result.d, Mensaje);
             }
             else {
-                executeFunctionByName(funcion + "_Error", window, result.d);
+                executeFunctionByName(Funcion + "_Error", window, result.d);
             }
         }
     });
@@ -71,71 +74,74 @@ function Consultar_Objeto(invocarUrl, objetoVista, mensaje, funcion) {
 //=======================================================================================================
 // Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
-function Guardar_Objeto(invocarUrl, objetoVista, mensaje, funcion) {
-    var datos = JSON.stringify(objetoVista);
+function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    debugger;
+    var Datos = JSON.stringify(ObjetoVista);
     $.ajax({
         type: "POST",
-        url: invocarUrl,
-        data: "{obj:" + datos + "}",
+        url: InvocarUrl,
+        data: "{obj:" + Datos + "}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        error: function (xmlHttpRequest, textStatus, errorThrown) {
-            alert("Request: " + xmlHttpRequest.toString()
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            alert("Request: " + XMLHttpRequest.toString()
              + "\n\nStatus: " + textStatus
               + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
             if (result.d.Exito) {
-                executeFunctionByName(funcion + "_Guardar_Exito", window, result.d, mensaje);
+                executeFunctionByName(Funcion + "_Guardar_Exito", window, result.d, Mensaje);
             }
             else {
-                executeFunctionByName(funcion + "_Guardar_Error", window, result.d);
+                executeFunctionByName(Funcion + "_Guardar_Error", window, result.d);
             }
         }
     });
 }
 
-function Loguear(invocarUrl, objetoVista) {
-    var datos = JSON.stringify(objetoVista);
+function Loguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    var Datos = JSON.stringify(ObjetoVista);
     $.ajax({
         type: "POST",
-        url: invocarUrl,
-        data: "{obj:" + datos + "}",
+        url: InvocarUrl,
+        data: "{obj:" + Datos + "}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        error: function (xmlHttpRequest, textStatus, errorThrown) {
-            alert("Request: " + xmlHttpRequest.toString()
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString()
              + "\n\nStatus: " + textStatus
               + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
+            debugger;
             if (result.d.Exito) {
                 window.location.href = "Default.aspx";
             }
             else {
-                alert("Puede verificar la información");
+                alert("Puede verificar la información")
             }
 
             return false;
         }
     });
 }
-function Desloguear(invocarUrl) {
+function Desloguear(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
     $.ajax({
         type: "POST",
-        url: invocarUrl,
+        url: InvocarUrl,
         data: "{}",
         //contentType: "application/json; charset=utf-8",
         //dataType: "json",
-        error: function (xmlHttpRequest, textStatus, errorThrown) {
-            alert("Request: " + xmlHttpRequest.toString()
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString()
              + "\n\nStatus: " + textStatus
               + "\n\nError: " + errorThrown);
             Resultado = null;
         },
-        success: function () {
+        success: function (result) {
 
             window.location.href = "Login.aspx";
             return false;
@@ -148,10 +154,10 @@ function Desloguear(invocarUrl) {
 // Métodos referentes a la pantalla: AltaEquipoWF.-
 //=======================================================================================================
 function Guardar_Usuario() {
-    var mensaje = "Ha registrado el Usuario correctamente!";
-    var invocarUrl = "/Login.aspx/GuardarUsuario";
+    var Mensaje = "Ha registrado el Usuario correctamente!";
+    var InvocarUrl = "/Login.aspx/GuardarUsuario";
 
-    var objetoVista = {
+    var ObjetoVista = {
         Dni: document.getElementById("txt_Login_Dni").value,
         Apellido: document.getElementById("txt_Login_Apellido").value,
         Nombre: document.getElementById("txt_Login_Nombre").value,
@@ -159,31 +165,33 @@ function Guardar_Usuario() {
         Contraseña: document.getElementById("txt_Login_ContraseñaGuardar").value
     };
 
-    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "");
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "");
 }
 
 function Login_Usuario() {
-    var invocarUrl = "/Login.aspx/LoginUsuario";
+    var Mensaje = "asdasda";
+    var InvocarUrl = "/Login.aspx/LoginUsuario";
 
-    var objetoVista = {
+    var ObjetoVista = {
         Dni: document.getElementById("txt_Login_Usuario").value,
         Contraseña: document.getElementById("txt_Login_Contraseña").value
     };
 
-    Loguear(invocarUrl, objetoVista);
+    Loguear(InvocarUrl, ObjetoVista, Mensaje, "");
 }
 
 //=======================================================================================================
 // CONSULTAS.-
 //=======================================================================================================
-function ConsultaJugador_Consultar() {
-    var mensaje = "Ha registrado el Equipo correctamente!";
-    var invocarUrl = "/ConsultaJugadorWF.aspx/ConsultarDatos";
+function ConsultaJugador_Consultar()
+{
+    var Mensaje = "Ha registrado el Equipo correctamente!";
+    var InvocarUrl = "/ConsultaJugadorWF.aspx/ConsultarDatos";
 
     var e = document.getElementById("cmb_ConsultaJugadorWF_Equipo");
     var equipoSelecto = e.options[e.selectedIndex].value;
 
-    var objetoVista = {
+    var ObjetoVista = {
         Dni: document.getElementById("txt_ConsultaJugadorWF_DNI").value,
         Apellido: document.getElementById("txt_ConsultaJugadorWF_Apellido").value,
         Nombre: document.getElementById("txt_ConsultaJugadorWF_Nombre").value,
@@ -191,13 +199,14 @@ function ConsultaJugador_Consultar() {
         idEquipo: equipoSelecto
     };
 
-    Consultar_Objeto(invocarUrl, objetoVista, mensaje, "ConsultaJugador");
+    Consultar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "ConsultaJugador");
 }
 function ConsultaJugador_Nuevo() {
     ConsultaJugador_Limpiar();
 }
 
-function ConsultaJugador_Limpiar() {
+function ConsultaJugador_Limpiar()
+{
     //Limpiamos los campos del formulario.-
     document.getElementById("txt_AltaEquipoWF_NombreEquipo").value = "";
     document.getElementById("txt_AltaEquipoWF_Siglas").value = "";
@@ -217,13 +226,18 @@ function isEven(value) {
         return false;
 }
 
-function ConsultaJugador_Exito(respuesta, mensaje) {
+function ConsultaJugador_Exito(Respuesta, Mensaje)
+{
+    debugger;
     //Mensaje_Exito(Mensaje);
     var tabla = "";
-    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
-        if (respuesta.Resultado != null && respuesta.Resultado.length > 0) {
-            for (var i = 0; i < respuesta.Resultado.length; i++) {
-                var elemento = respuesta.Resultado[i];
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false)
+    {
+        if (Respuesta.Resultado != null && Respuesta.Resultado.length > 0)
+        {
+            for (var i=0; i < Respuesta.Resultado.length; i++)
+            {
+                var elemento = Respuesta.Resultado[i];
                 if (isEven(i)) { tabla += '<tr class="even pointer">'; } else { tabla += '<tr class="odd pointer">'; }
                 tabla += '<td class="a-center "><input type="checkbox" class="flat" name="table_records"></td>';
                 tabla += '<td class=" ">' + elemento.IdPersonaFisicaJugador + '</td>';
@@ -240,24 +254,25 @@ function ConsultaJugador_Exito(respuesta, mensaje) {
     return false;
 }
 
-function ConsultaJugador_Error(respuesta, mensaje) {
+function ConsultaJugador_Error(Respuesta, Mensaje)
+{
 
 }
 //=======================================================================================================
 // ALTAS.-
 //=======================================================================================================
 function AltaEquipo_Guardar() {
-    var mensaje = "Ha registrado el Equipo correctamente!";
-    var invocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
+    var Mensaje = "Ha registrado el Equipo correctamente!";
+    var InvocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
 
-    var objetoVista = {
+    var ObjetoVista = {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
         Siglas: document.getElementById("txt_AltaEquipoWF_Siglas").value,
         SitioWeb: document.getElementById("txt_AltaEquipoWF_SitioWeb").value,
         TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value
     };
 
-    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEquipo");
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaEquipo");
 }
 
 function AltaEquipo_Nuevo() {
@@ -279,6 +294,7 @@ function AltaEquipo_Limpiar() {
 //=======================================================================================================
 
 function GetImagen() {
+    debugger;
     var canvas = document.createElement("canvas");
     var img1 = document.createElement("img");
     var p = document.getElementsByClassName("file-preview-image")[0].src;
@@ -287,33 +303,39 @@ function GetImagen() {
     canvas.height = img1.height;
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img1, 0, 0);
-    var dataUrl = canvas.toDataURL();
+    var dataURL = canvas.toDataURL();
     //alert("from getbase64 function" + dataURL);
-    return dataUrl;
+    return dataURL;
 }
 
 function AltaJugador_Guardar() {
-    var mensaje = "Ha registrado el Jugador correctamente!";
-    var invocarUrl = "/AltaJugadorWF.aspx/GuardarDatos";
+    var Mensaje = "Ha registrado el Jugador correctamente!";
+    var InvocarUrl = "/AltaJugadorWF.aspx/GuardarDatos";
+<<<<<<< HEAD
     var imagenData = GetImagen();
-
-    var objetoVista =
+    
+=======
+    debugger;
+>>>>>>> a2b9ab910d90e9faec042c3b98d03037488c85c8
+    var ObjetoVista =
     {
-        IdPersonaFisicaJugador: 0,
-        idUsuario: 0,
-        idEquipo: 0,
         Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
         Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
         Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
         Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
         FechaNacimiento: document.getElementById("single_cal2").value,
-        Altura: '',
-        Peso: '',
-        Imagen: imagenData,
-        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value
+<<<<<<< HEAD
+        Altura: document.getElementById("txt_AltaJugadorWF_Altura").value,
+        Peso: document.getElementById("txt_AltaJugadorWF_Peso").value,
+        //Imagen: null,
+        StringImagen: imagenData
+=======
+        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
+        Imagen: null
+>>>>>>> a2b9ab910d90e9faec042c3b98d03037488c85c8
     };
 
-    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaJugador");
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
 }
 
 function AltaJugador_Nuevo() {
@@ -345,68 +367,69 @@ function AltaJugador_Limpiar() {
 // Métodos referentes a la pantalla: AltaFichaTecnicaWF.-
 //=======================================================================================================
 function AltaFichaTecnica_Guardar() {
-    var mensaje = "Ha registrado la ficha técnica del jugador correctamente!";
-    var invocarUrl = "/AltaFichaTecnicaWF.aspx/GuardarDatos";
+    var Mensaje = "Ha registrado la ficha técnica del jugador correctamente!";
+    var InvocarUrl = "/AltaFichaTecnicaWF.aspx/GuardarDatos";
+    debugger;
 
-    var derecha = document.getElementById("piernaD").checked;
-    var izquierda = document.getElementById("piernaI").checked;
+    var Derecha = document.getElementById("piernaD").checked;
+    var Izquierda = document.getElementById("piernaI").checked;
     var piernahabil = "";
-    if (derecha == true) { piernahabil = "D" } else if (izquierda == true) { piernahabil = "I" };
-    var pesoVista = $('#FichaTecnica_Peso').find('.irs-to').html();
-    var alturaVista = $('#FichaTecnica_Altura').find('.irs-to').html();
+    if (Derecha == true) { piernahabil = "D" } else if (Izquierda == true) { piernahabil = "I" };
+    var Peso_Vista = $('#FichaTecnica_Peso').find('.irs-to').html();
+    var Altura_Vista = $('#FichaTecnica_Altura').find('.irs-to').html();
 
     /////Atributos
-    var saltoVista = $('#FichaTecnica_Salto').find('.irs-to').html();
-    var velocidadVista = $('#FichaTecnica_Velocidad').find('.irs-to').html();
-    var resistenciaVista = $('#FichaTecnica_Resistencia').find('.irs-to').html();
-    var fuerzaVista = $('#FichaTecnica_Fuerza').find('.irs-to').html();
-    var controlDeBalonVista = $('#FichaTecnica_ControlDeBalon').find('.irs-to').html();
-    var regatesVista = $('#FichaTecnica_Regates').find('.irs-to').html();
-    var definicionVista = $('#FichaTecnica_Definicion').find('.irs-to').html();
-    var marcajeVista = $('#FichaTecnica_Marcaje').find('.irs-to').html();
-    var paseCortoVista = $('#FichaTecnica_PaseCorto').find('.irs-to').html();
-    var paseLargoVista = $('#FichaTecnica_PaseLargo').find('.irs-to').html();
-    var remateVista = $('#FichaTecnica_Remate').find('.irs-to').html();
-    var tiroLibreVista = $('#FichaTecnica_Lanzamientopelotaparada').find('.irs-to').html();
-    var disciplinaTacticaVista = $('#FichaTecnica_DisciplinaTactica').find('.irs-to').html();
-    var nivelDefensivoVista = $('#FichaTecnica_NivelDefensivo').find('.irs-to').html();
-    var nivelOfensivoVista = $('#FichaTecnica_NivelOfensivo').find('.irs-to').html();
+    var Salto_Vista = $('#FichaTecnica_Salto').find('.irs-to').html();
+    var Velocidad_Vista = $('#FichaTecnica_Velocidad').find('.irs-to').html();
+    var Resistencia_Vista = $('#FichaTecnica_Resistencia').find('.irs-to').html();
+    var Fuerza_Vista = $('#FichaTecnica_Fuerza').find('.irs-to').html();
+    var ControlDeBalon_Vista = $('#FichaTecnica_ControlDeBalon').find('.irs-to').html();
+    var Regates_Vista = $('#FichaTecnica_Regates').find('.irs-to').html();
+    var Definicion_Vista = $('#FichaTecnica_Definicion').find('.irs-to').html();
+    var Marcaje_Vista = $('#FichaTecnica_Marcaje').find('.irs-to').html();
+    var PaseCorto_Vista = $('#FichaTecnica_PaseCorto').find('.irs-to').html();
+    var PaseLargo_Vista = $('#FichaTecnica_PaseLargo').find('.irs-to').html();
+    var Remate_Vista = $('#FichaTecnica_Remate').find('.irs-to').html();
+    var TiroLibre_Vista = $('#FichaTecnica_Lanzamientopelotaparada').find('.irs-to').html();
+    var DisciplinaTactica_Vista = $('#FichaTecnica_DisciplinaTactica').find('.irs-to').html();
+    var NivelDefensivo_Vista = $('#FichaTecnica_NivelDefensivo').find('.irs-to').html();
+    var NivelOfensivo_Vista = $('#FichaTecnica_NivelOfensivo').find('.irs-to').html();
     /////Canchita
-    var posicionesVista = "";
+    var posiciones_Vista = "";
 
-    if ($('#ch_AR').is(":checked")) { posicionesVista += "AR " }
-    if ($('#ch_LD').is(":checked")) { posicionesVista += "LD " }
-    if ($('#ch_DCD').is(":checked")) { posicionesVista += "DFD " }
-    if ($('#ch_DCI').is(":checked")) { posicionesVista += "DFI " }
-    if ($('#ch_LI').is(":checked")) { posicionesVista += "LI " }
-    if ($('#ch_MD').is(":checked")) { posicionesVista += "MD " }
-    if ($('#ch_MCD').is(":checked")) { posicionesVista += "MCD " }
-    if ($('#ch_MCI').is(":checked")) { posicionesVista += "MCI " }
-    if ($('#ch_MI').is(":checked")) { posicionesVista += "MI " }
-    if ($('#ch_MP').is(":checked")) { posicionesVista += "MP " }
-    if ($('#ch_ED').is(":checked")) { posicionesVista += "ED " }
-    if ($('#ch_CD').is(":checked")) { posicionesVista += "CD " }
-    if ($('#ch_EI').is(":checked")) { posicionesVista += "EI " }
-    var objetoVista = {
+    if ($('#ch_AR').is(":checked")) { posiciones_Vista += "AR " }
+    if ($('#ch_LD').is(":checked")) { posiciones_Vista += "LD " }
+    if ($('#ch_DCD').is(":checked")) { posiciones_Vista += "DFD " }
+    if ($('#ch_DCI').is(":checked")) { posiciones_Vista += "DFI " }
+    if ($('#ch_LI').is(":checked")) { posiciones_Vista += "LI " }
+    if ($('#ch_MD').is(":checked")) { posiciones_Vista += "MD " }
+    if ($('#ch_MCD').is(":checked")) { posiciones_Vista += "MCD " }
+    if ($('#ch_MCI').is(":checked")) { posiciones_Vista += "MCI " }
+    if ($('#ch_MI').is(":checked")) { posiciones_Vista += "MI " }
+    if ($('#ch_MP').is(":checked")) { posiciones_Vista += "MP " }
+    if ($('#ch_ED').is(":checked")) { posiciones_Vista += "ED " }
+    if ($('#ch_CD').is(":checked")) { posiciones_Vista += "CD " }
+    if ($('#ch_EI').is(":checked")) { posiciones_Vista += "EI " }
+    var ObjetoVista = {
         PiernaHabil: piernahabil,
-        Peso: pesoVista,
-        Altura: alturaVista,
-        Salto: saltoVista,
-        Velocidad: velocidadVista,
-        Resistencia: resistenciaVista,
-        Fuerza: fuerzaVista,
-        ControlDeBalon: controlDeBalonVista,
-        Regates: regatesVista,
-        Definicion: definicionVista,
-        Marcaje: marcajeVista,
-        PaseCorto: paseCortoVista,
-        PaseLargo: paseLargoVista,
-        Remate: remateVista,
-        TiroLibre: tiroLibreVista,
-        DisciplinaTactica: disciplinaTacticaVista,
-        NivelDefensivo: nivelDefensivoVista,
-        NivelOfensivo: nivelOfensivoVista,
-        PosicionDeCampo: posicionesVista
+        Peso: Peso_Vista,
+        Altura: Altura_Vista,
+        Salto: Salto_Vista,
+        Velocidad: Velocidad_Vista,
+        Resistencia: Resistencia_Vista,
+        Fuerza: Fuerza_Vista,
+        ControlDeBalon: ControlDeBalon_Vista,
+        Regates: Regates_Vista,
+        Definicion: Definicion_Vista,
+        Marcaje: Marcaje_Vista,
+        PaseCorto: PaseCorto_Vista,
+        PaseLargo: PaseLargo_Vista,
+        Remate: Remate_Vista,
+        TiroLibre: TiroLibre_Vista,
+        DisciplinaTactica: DisciplinaTactica_Vista,
+        NivelDefensivo: NivelDefensivo_Vista,
+        NivelOfensivo: NivelOfensivo_Vista,
+        PosicionDeCampo: posiciones_Vista
     };
 
     //Ejemplo para obtener valor de una de las barritas.-
@@ -414,7 +437,7 @@ function AltaFichaTecnica_Guardar() {
 
 
 
-    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaFichaTecnica");
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaFichaTecnica");
 }
 
 function AltaFichaTecnica_Nuevo() {
@@ -443,14 +466,14 @@ function AltaFichaTecnica_Limpiar() {
 // Métodos referentes a la pantalla: AltaEntrenamientoWF.-
 //=======================================================================================================
 function AltaEntrenamiento_Guardar() {
-    var mensaje = "Ha registrado el entrenamiento correctamente!";
-    var invocarUrl = "/AltaEntrenamientoWF.aspx/GuardarDatos";
+    var Mensaje = "Ha registrado el entrenamiento correctamente!";
+    var InvocarUrl = "/AltaEntrenamientoWF.aspx/GuardarDatos";
 
-    var objetoVista = {
+    var ObjetoVista = {
 
     };
 
-    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEntrenamiento");
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaEntrenamiento");
 
 }
 
@@ -489,14 +512,14 @@ function AltaEntrenamiento_Limpiar() {
     $('#btnDel').attr('disabled', true);
     */
 
-    var turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
+    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
 
-    for (var i = 1; i <= turnos; i++) {
+    for (i = 1; i <= Turnos; i++) {
         // Cantidad de turnos y estapas actuales.-
-        var horario = document.getElementById("txt_AltaTurnoWF_Horario_" + i).value;
-        var etapas = document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas_" + i).value;
+        var Horario = document.getElementById("txt_AltaTurnoWF_Horario_" + i).value;
+        var Etapas = document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas_" + i).value;
 
-        for (var j = 1; j <= etapas; j++) {
+        for (j = 1; j <= Etapas; j++) {
             document.getElementById("txt_AltaEtapaWF_Descripcion_" + i + "_" + j).value = "";
             document.getElementById("txt_AltaEtapaWF_MaterialesDeTrabajo_" + i + "_" + j).value = "";
             document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas_" + i).value = "1";
@@ -509,10 +532,10 @@ function AltaEntrenamiento_Limpiar() {
 //=======================================================================================================
 // Resultadaos de las operaciones de las diferentes pantallas.-
 //=======================================================================================================
-function AltaEntrenamiento_Guardar_Exito(respuesta, mensaje) {
-    Mensaje_Exito(mensaje);
+function AltaEntrenamiento_Guardar_Exito(Respuesta, Mensaje) {
+    Mensaje_Exito(Mensaje);
 
-    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
         document.getElementById("btn_AltaEntrenamiento_Nuevo").style.display = 'inline-block';
         document.getElementById("btn_AltaEntrenamiento_Guardar").style.display = 'none';
         document.getElementById("btn_AltaEntrenamiento_Limpiar").style.display = 'none';
@@ -525,17 +548,17 @@ function AltaEntrenamiento_Guardar_Exito(respuesta, mensaje) {
     return false;
 }
 
-function AltaEntrenamiento_Guardar_Error(respuesta) {
-    var errores = respuesta.Errores;
-    for (var i = 0; i < errores.length; i++) {
+function AltaEntrenamiento_Guardar_Error(Respuesta) {
+    var errores = Respuesta.Errores;
+    for (i = 0; i < errores.length; i++) {
         Mensaje_Error(errores[i]);
     }
     return false;
 }
 
-function AltaEquipo_Guardar_Exito(respuesta, mensaje) {
-    Mensaje_Exito(mensaje);
-    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+function AltaEquipo_Guardar_Exito(Respuesta, Mensaje) {
+    Mensaje_Exito(Mensaje);
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
         document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'inline-block';
         document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
         document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
@@ -543,17 +566,17 @@ function AltaEquipo_Guardar_Exito(respuesta, mensaje) {
     return false;
 }
 
-function AltaEquipo_Guardar_Error(respuesta) {
-    var errores = respuesta.Errores;
-    for (var i = 0; i < errores.length; i++) {
+function AltaEquipo_Guardar_Error(Respuesta) {
+    var errores = Respuesta.Errores;
+    for (i = 0; i < errores.length; i++) {
         Mensaje_Error(errores[i]);
     }
     return false;
 }
 
-function AltaJugador_Guardar_Exito(respuesta, mensaje) {
-    Mensaje_Exito(mensaje);
-    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+function AltaJugador_Guardar_Exito(Respuesta, Mensaje) {
+    Mensaje_Exito(Mensaje);
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
         document.getElementById("btn_AltaJugador_Nuevo").style.display = 'inline-block';
         document.getElementById("btn_AltaJugador_Siguiente").style.display = 'inline-block';
         document.getElementById("btn_AltaJugador_Guardar").style.display = 'none';
@@ -562,9 +585,9 @@ function AltaJugador_Guardar_Exito(respuesta, mensaje) {
     return false;
 }
 
-function AltaJugador_Guardar_Error(respuesta) {
-    var errores = respuesta.Errores;
-    for (var i = 0; i < errores.length; i++) {
+function AltaJugador_Guardar_Error(Respuesta) {
+    var errores = Respuesta.Errores;
+    for (i = 0; i < errores.length; i++) {
         Mensaje_Error(errores[i]);
     }
     return false;
@@ -588,7 +611,6 @@ $("#avatar-2").fileinput({
     removeTitle: 'Cancel or reset changes',
     elErrorContainer: '#kv-avatar-errors-2',
     msgErrorClass: 'alert alert-block alert-danger',
-
     defaultPreviewContent: '<img id="Imagen_Escudo" src="/Template/fileInput/img/Escudo.png" alt="Su Escudo" style="width:160px"><h6 class="text-muted">Seleccionar un imagen</h6>',
     layoutTemplates: { main2: '{preview} {remove} {browse}' },
     allowedFileExtensions: ["jpg", "png", "gif"]
@@ -596,10 +618,10 @@ $("#avatar-2").fileinput({
 //=======================================================================================================
 //=======================================================================================================
 function AltaTorneo_Guardar() {
-    var mensaje = "Ha registrado el Torneo correctamente!";
-    var invocarUrl = "/AltaTorneoWF.aspx/GuardarDatos";
+    var Mensaje = "Ha registrado el Torneo correctamente!";
+    var InvocarUrl = "/AltaTorneoWF.aspx/GuardarDatos";
 
-    var objetoVista = {
+    var ObjetoVista = {
         NombreTorneo: document.getElementById("txt_AltaTorneoWF_NombreTorneo").value,
         FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
         DuracionPartidos: document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value,
@@ -607,7 +629,7 @@ function AltaTorneo_Guardar() {
         //,Imagen: null
     };
 
-    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaTorneo");
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaTorneo");
 }
 
 function AltaTorneo_Nuevo() {
@@ -627,18 +649,18 @@ function AltaTorneo_Limpiar() {
     document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'inline-block';
 }
 
-function AltaTorneo_Guardar_Exito(respuesta, mensaje) {
-    Mensaje_Exito(mensaje);
-    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+function AltaTorneo_Guardar_Exito(Respuesta, Mensaje) {
+    Mensaje_Exito(Mensaje);
+    if (Respuesta != null && Respuesta != false && Respuesta.Exito != false) {
         document.getElementById("btn_AltaTorneo_Nuevo").style.display = 'inline-block';
         document.getElementById("btn_AltaTorneo_Guardar").style.display = 'none';
         document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'none';
     }
 }
 
-function AltaTorneo_Guardar_Error(respuesta) {
-    var errores = respuesta.Errores;
-    for (var i = 0; i < errores.length; i++) {
+function AltaTorneo_Guardar_Error(Respuesta) {
+    var errores = Respuesta.Errores;
+    for (i = 0; i < errores.length; i++) {
         Mensaje_Error(errores[i]);
     }
 }
@@ -651,30 +673,30 @@ function AltaTorneo_Guardar_Error(respuesta) {
 
 function Aplicar_Cambio_Solapa_Etapas_por_Turno() {
     // Cantidad de turnos actual.-
-    var turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
+    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
 
-    for (var i = 1; i <= turnos; i++) {
+    for (i = 1; i <= Turnos; i++) {
         // Cantidad de turnos y estapas actuales.-
-        var horarioActual = document.getElementById("txt_AltaTurnoWF_Horario_" + i).value;
-        var etapasActual = document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas_" + i).value;
+        var HorarioActual = document.getElementById("txt_AltaTurnoWF_Horario_" + i).value;
+        var EtapasActual = document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas_" + i).value;
 
         // Checks to see how many "duplicatable" input fields we currently have
         var num = $('#container_Clonar_Etapas_' + i).find('.clonedInput_EtapaSingular').length;
 
         // En caso de que haya la misma cantidad no se hace nada.-
-        if (num == etapasActual) continue;
+        if (num == EtapasActual) continue;
 
         // En caso de que haya menos una cantidad mayor eliminamos.-
-        if (etapasActual < num) {
-            var cantEliminar = num - etapasActual;
-            for (var j = num; j > etapasActual; j--) {
+        if (EtapasActual < num) {
+            var cantEliminar = num - EtapasActual;
+            for (j = num; j > EtapasActual; j--) {
                 $('#container_Clonar_EtapaSingular_' + i + '_' + j).remove();
             }
             continue;
         }
 
-        var cantAgregar = etapasActual - num;
-        for (var k = num; k < etapasActual; k++) {
+        var cantAgregar = EtapasActual - num;
+        for (k = num; k < EtapasActual; k++) {
             // The numeric ID of the new input field being added, increasing by 1 each time
             var newNum = new Number(num + 1);
             // create the new element via clone(), and manipulate it's ID using newNum value
@@ -697,9 +719,9 @@ function Aplicar_Cambio_Solapa_Etapa() {
     var num = $('.clonedInput_Etapas').length;
 
     // Cantidad de turnos actual.-
-    var turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
+    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
 
-    for (i = 1; i <= turnos; i++) {
+    for (i = 1; i <= Turnos; i++) {
         var Horario = $('#txt_AltaTurnoWF_Horario_' + i).val();
 
         var color = "color_Azul";
@@ -714,19 +736,19 @@ function Aplicar_Cambio_Solapa_Etapa() {
     }
 
     // En caso de que haya la misma cantidad no se hace nada.-
-    if (num == turnos) return false;
+    if (num == Turnos) return false;
 
     // En caso de que haya menos una cantidad mayor eliminamos.-
-    if (turnos < num) {
-        var cantEliminar = num - turnos;
-        for (var i = num; i > turnos; i--) {
+    if (Turnos < num) {
+        var cantEliminar = num - Turnos;
+        for (i = num; i > Turnos; i--) {
             $('#container_Clonar_Etapas_' + i).remove();
         }
         return false;
     }
 
-    var cantAgregar = turnos - num;
-    for (var i = num; i < turnos; i++) {
+    var cantAgregar = Turnos - num;
+    for (i = num; i < Turnos; i++) {
         // The numeric ID of the new input field being added, increasing by 1 each time
         var newNum = new Number(num + 1);
         // create the new element via clone(), and manipulate it's ID using newNum value
@@ -746,22 +768,22 @@ function Aplicar_Cambio_Solapa_Turno() {
     var num = $('.clonedInput').length;
 
     // Cantidad de turnos actual.-
-    var turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
+    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
 
     // En caso de que haya la misma cantidad no se hace nada.-
-    if (num == turnos) return false;
+    if (num == Turnos) return false;
 
     // En caso de que haya menos una cantidad mayor eliminamos.-
-    if (turnos < num) {
-        var cantEliminar = num - turnos;
-        for (var i = num; i > turnos; i--) {
+    if (Turnos < num) {
+        var cantEliminar = num - Turnos;
+        for (i = num; i > Turnos; i--) {
             $('#container_Clonar_' + i).remove();
         }
         return false;
     }
 
-    var cantAgregar = turnos - num;
-    for (var i = num; i < turnos; i++) {
+    var cantAgregar = Turnos - num;
+    for (i = num; i < Turnos; i++) {
         var newNum = new Number(num + 1);      // The numeric ID of the new input field being added, increasing by 1 each time
         var newElem = $('#container_Clonar_' + 1).clone().attr('id', 'container_Clonar_' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
         newElem.find('#txt_AltaTurnoWF_Horario_1').attr('id', 'txt_AltaTurnoWF_Horario_' + newNum);
@@ -812,13 +834,13 @@ $(function () {
 //=======================================================================================================
 function Graficar_Entrenamiento() {
     // Cantidad de turnos actual.-
-    var turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
+    var Turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
     var arr = [];
 
-    for (var i = 1; i <= turnos; i++) {
+    for (i = 1; i <= Turnos; i++) {
         // Cantidad de turnos y estapas actuales.-
-        var horario = document.getElementById("txt_AltaTurnoWF_Horario_" + i).value;
-        var etapas = document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas_" + i).value;
+        var Horario = document.getElementById("txt_AltaTurnoWF_Horario_" + i).value;
+        var Etapas = document.getElementById("txt_AltaEntrenamientoWF_CantidadEtapas_" + i).value;
 
         // create the new element via clone(), and manipulate it's ID using newNum value
         if (i >= 2) {
@@ -827,36 +849,36 @@ function Graficar_Entrenamiento() {
             $('#Descripcion_Turno_' + h).after(newElem);
         }
 
-        var horarioTurnoHtml = '<a class="tag"><span>' + horario + '</span></a>';
-        var descripcionEtapaHtml = '';
+        var horarioTurno_HTML = '<a class="tag"><span>' + Horario + '</span></a>';
+        var descripcionEtapa_HTML = '';
 
         var fisico = 0; var tecnico = 0;
         var tactico = 0; var futbol = 0;
 
-        for (var j = 1; j <= etapas; j++) {
-            var tipoActividad = document.getElementById("txt_AltaEtapaWF_Actividad_" + i + '_' + j).value;
+        for (j = 1; j <= Etapas; j++) {
+            var TipoActividad = document.getElementById("txt_AltaEtapaWF_Actividad_" + i + '_' + j).value;
 
-            if (tipoActividad == "Físico") fisico++;
-            if (tipoActividad == "Técnico") tecnico++;
-            if (tipoActividad == "Táctico") tactico++;
-            if (tipoActividad == "Fútbol") futbol++;
+            if (TipoActividad == "Físico") fisico++;
+            if (TipoActividad == "Técnico") tecnico++;
+            if (TipoActividad == "Táctico") tactico++;
+            if (TipoActividad == "Fútbol") futbol++;
 
-            descripcionEtapaHtml += '<h2 class="title">';
-            descripcionEtapaHtml += '<a>ETAPA ' + j + '</a>';
-            descripcionEtapaHtml += '</h2> <br />';
-            descripcionEtapaHtml += '<p class="excerpt">';
-            descripcionEtapaHtml += '<span><b>Tipo de actividad:</b> ' + tipoActividad + '</span><br />';
-            descripcionEtapaHtml += '<span><b>Descripción:</b> ' + document.getElementById("txt_AltaEtapaWF_Descripcion_" + i + '_' + j).value + '</span><br />';
-            descripcionEtapaHtml += '<span><b>Materiales:</b> ' + document.getElementById("txt_AltaEtapaWF_MaterialesDeTrabajo_" + i + '_' + j).value + '</span>';
-            descripcionEtapaHtml += '</p>';
+            descripcionEtapa_HTML += '<h2 class="title">';
+            descripcionEtapa_HTML += '<a>ETAPA ' + j + '</a>';
+            descripcionEtapa_HTML += '</h2> <br />';
+            descripcionEtapa_HTML += '<p class="excerpt">';
+            descripcionEtapa_HTML += '<span><b>Tipo de actividad:</b> ' + TipoActividad + '</span><br />';
+            descripcionEtapa_HTML += '<span><b>Descripción:</b> ' + document.getElementById("txt_AltaEtapaWF_Descripcion_" + i + '_' + j).value + '</span><br />';
+            descripcionEtapa_HTML += '<span><b>Materiales:</b> ' + document.getElementById("txt_AltaEtapaWF_MaterialesDeTrabajo_" + i + '_' + j).value + '</span>';
+            descripcionEtapa_HTML += '</p>';
         }
 
-        arr.push({ x: 'Turno ' + horario, y: tecnico, z: fisico, a: tactico, b: futbol });
+        arr.push({ x: 'Turno ' + Horario, y: tecnico, z: fisico, a: tactico, b: futbol });
 
         // Añado todo el HTML generado para remarcar el horario del turno.-
-        $('#Descripcion_Turno_' + i).find('.tags').html(horarioTurnoHtml);
+        $('#Descripcion_Turno_' + i).find('.tags').html(horarioTurno_HTML);
         // Añado todo el HTML generado para las etapas de este turno.-
-        $('#Descripcion_Turno_' + i).find('.block_content').html(descripcionEtapaHtml);
+        $('#Descripcion_Turno_' + i).find('.block_content').html(descripcionEtapa_HTML);
     }
 
     if ($('#pruebas').length) {
