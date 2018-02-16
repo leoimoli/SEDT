@@ -19,6 +19,12 @@ namespace SEDT.Controlador
             return lista;
         }
 
+        public static JugadorCartera JugadorCarteraPorID(int idJugador)
+        {
+            JugadorCartera jugador = ConsultarDAO.ConsultarJugadorCarteraPorID(idJugador);
+            return jugador;
+        }
+
         public static PersonaFisicaJugador JugadorPorID(int idJugador)
         {
             PersonaFisicaJugador jugador = ConsultarDAO.ConsultarJugadorPorID(idJugador);

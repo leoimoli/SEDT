@@ -12,7 +12,7 @@ namespace SEDT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var idJugador = ((int)HttpContext.Current.Session["personaJugador"]);
+            var idJugador = ((int) HttpContext.Current.Session["personaJugador"]);
             if (idJugador > 0)
             {
                 PersonaFisicaJugador jugador = Consultar.JugadorPorID(idJugador);
@@ -20,6 +20,7 @@ namespace SEDT
                 Apodo_label.Text = jugador.Apodo;
                 DNI_label.Text = jugador.Dni;
                 Telefono_label.Text = jugador.Telefono;
+                imagenJugador.Src = jugador.Imagen;
             }
         }
         //=============================================================

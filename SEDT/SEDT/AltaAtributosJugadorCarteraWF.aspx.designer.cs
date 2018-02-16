@@ -11,5 +11,23 @@ namespace SEDT {
     
     
     public partial class AltaAtributosJugadorCarteraWF {
+        
+        /// <summary>
+        /// ApeNom_label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ApeNom_label;
+        
+        /// <summary>
+        /// Apodo_label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Apodo_label;
     }
 }

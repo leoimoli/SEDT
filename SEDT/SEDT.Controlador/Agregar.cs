@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SEDT.Modelo.Entidades;
 
 namespace SEDT.Controlador
 {
@@ -29,6 +30,7 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+
         public static Respuesta AltaEquipoUsuario(Modelo.Entidades.EquipoUsuario equipo)
         {
             Respuesta respuesta = new Respuesta();
@@ -60,6 +62,9 @@ namespace SEDT.Controlador
                 respuesta = Validar.AltaPersonaFisicaJugador(jugador);
                 if (respuesta.Exito == true)
                 {
+                    //Byte[] bitmapData = new Byte[jugador.Imagen.Length];
+                    //bitmapData = Convert.FromBase64String(FixBase64ForImage(jugador.Imagen));
+                    //jugador.Imagen = bitmapData;
                     respuesta.Id = GuardarDAO.AltaPersonaFisicaJugador(jugador);
                 }
             }
@@ -70,6 +75,7 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+
         public static Respuesta AltaFichaTecnicaJugador(Modelo.Entidades.FichaTecnicaJugador ficha)
         {
             Respuesta respuesta = new Respuesta();
@@ -244,17 +250,17 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
-        public static Respuesta AltaJugadorCartera(Modelo.Entidades.PersonaFisicaJugador jugador)
+        public static Respuesta AltaJugadorCartera(Modelo.Entidades.JugadorCartera jugador)
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {
-                respuesta = Validar.AltaPersonaFisicaJugador(jugador);
+                respuesta = Validar.AltaJugadorCartera(jugador);
                 if (respuesta.Exito == true)
                 {
-                    respuesta.Id = GuardarDAO.AltaPersonaFisicaJugador(jugador);
+                    respuesta.Id = GuardarDAO.AltaJugadorCartera(jugador);
                 }
             }
             catch (Exception ex)
