@@ -64,6 +64,8 @@
     <link href="Template/build/css/custom.min.css" rel="stylesheet">
     <link href="Template/build/css/bootstrap-tagsinput.css" rel="stylesheet" />
     <link href="Template/POS/POS.css" rel="stylesheet" />
+    
+    <link href="Content/Estilos.css" rel="stylesheet" />
     <style>
         .kv-avatar .krajee-default.file-preview-frame, .kv-avatar .krajee-default.file-preview-frame:hover {
             margin: 0;

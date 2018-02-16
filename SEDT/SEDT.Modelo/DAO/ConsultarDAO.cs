@@ -114,6 +114,7 @@ namespace SEDT.Modelo.DAO
                     jugador.FechaNacimiento = Convert.ToDateTime(item["dtFechaNacimiento"].ToString());
                     jugador.Altura = item["txTelefono"].ToString();
                     jugador.Peso = item["txPeso"].ToString();
+                    jugador.Imagen = item["ImagenJugador"].ToString();
                     lista = jugador;
                 }
             }

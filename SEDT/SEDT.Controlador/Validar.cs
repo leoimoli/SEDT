@@ -84,7 +84,7 @@ namespace SEDT.Controlador
             if (!String.IsNullOrEmpty(jugador.Dni))
             {
                 bool AltaPersonaFisicaJugadorExistente = true;
-                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistentePorDni(jugador.Dni, jugador.idUsuario);
+                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistentePorDni(jugador.Dni, jugador.IdUsuario);
                 //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
                 if (AltaPersonaFisicaJugadorExistente == true)
                 {
@@ -92,7 +92,7 @@ namespace SEDT.Controlador
                     respuesta.Exito = false;
                 }
                 ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
-                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.idUsuario);
+                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.IdUsuario);
                 //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
                 if (AltaPersonaFisicaJugadorExistente == true)
                 {
@@ -104,7 +104,7 @@ namespace SEDT.Controlador
             else
             {
                 bool AltaPersonaFisicaJugadorExistente = true;
-                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.idUsuario);
+                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.IdUsuario);
                 //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
                 if (AltaPersonaFisicaJugadorExistente == true)
                 {

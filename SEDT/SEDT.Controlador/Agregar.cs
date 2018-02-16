@@ -62,6 +62,9 @@ namespace SEDT.Controlador
                 respuesta = Validar.AltaPersonaFisicaJugador(jugador);
                 if (respuesta.Exito == true)
                 {
+                    //Byte[] bitmapData = new Byte[jugador.Imagen.Length];
+                    //bitmapData = Convert.FromBase64String(FixBase64ForImage(jugador.Imagen));
+                    //jugador.Imagen = bitmapData;
                     respuesta.Id = GuardarDAO.AltaPersonaFisicaJugador(jugador);
                 }
             }
@@ -72,6 +75,7 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+
         public static Respuesta AltaFichaTecnicaJugador(Modelo.Entidades.FichaTecnicaJugador ficha)
         {
             Respuesta respuesta = new Respuesta();

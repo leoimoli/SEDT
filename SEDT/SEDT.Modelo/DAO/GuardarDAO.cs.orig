@@ -67,11 +67,13 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("Apodo_in", jugador.Apodo);
             cmd.Parameters.AddWithValue("FechaNacimiento_in", jugador.FechaNacimiento);
             cmd.Parameters.AddWithValue("Peso_in", jugador.Peso);
-            //cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
+<<<<<<< HEAD
+            cmd.Parameters.AddWithValue("imagen_in", Convert.FromBase64String(FixBase64ForImage(jugador.StringImagen)));
+=======
             cmd.Parameters.AddWithValue("Telefono_in", jugador.Telefono);
-			cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
-            cmd.Parameters.AddWithValue("idUsuario_in", jugador.IdUsuario);
-
+            cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
+>>>>>>> a2b9ab910d90e9faec042c3b98d03037488c85c8
+            cmd.Parameters.AddWithValue("idUsuario_in", jugador.idUsuario);
             MySqlDataReader r = cmd.ExecuteReader();
             while (r.Read())
             {
@@ -189,31 +191,6 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("ImagenEscudo_in", equipoRival.ImagenEscudo);
             cmd.Parameters.AddWithValue("IdEquipoUsuario_in", equipoRival.IdEquipoUsuario);
             cmd.ExecuteNonQuery();
-            connection.Close();
-            return id;
-        }
-        public static int AltaJugadorCartera(JugadorCartera jugador)
-        {
-            int id = 0;
-            connection.Open();
-            string proceso = "AltaJugadorCartera";
-            MySqlCommand cmd = new MySqlCommand(proceso, connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("Apellido_in", jugador.Apellido);
-            cmd.Parameters.AddWithValue("Nombre_in", jugador.Nombre);
-            cmd.Parameters.AddWithValue("Apodo_in", jugador.Apodo);
-            cmd.Parameters.AddWithValue("Telefono_in", jugador.Telefono);
-            cmd.Parameters.AddWithValue("Email_in", jugador.Email);
-            cmd.Parameters.AddWithValue("RedSocial_in", jugador.RedSocial);
-            cmd.Parameters.AddWithValue("EquipoObservado_in", jugador.EquipoObservado);
-            cmd.Parameters.AddWithValue("EquipoRival_in", jugador.EquipoRival);
-            cmd.Parameters.AddWithValue("FechaPartido_in", jugador.FechaPartido);
-            cmd.Parameters.AddWithValue("idUsuario_in", jugador.idUsuario);
-            MySqlDataReader r = cmd.ExecuteReader();
-            while (r.Read())
-            {
-                id = Convert.ToInt32(r["ID"].ToString());
-            }
             connection.Close();
             return id;
         }
