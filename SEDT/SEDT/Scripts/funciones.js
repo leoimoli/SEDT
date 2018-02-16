@@ -9,6 +9,7 @@ var Resultado = null;
 // Nos permite invocar una función JavaScript solo sabiendo su nombre.-
 //=======================================================================================================
 function executeFunctionByName(functionName, context /*, args */) {
+    debugger;
     var args = [].slice.call(arguments).splice(2);
     var namespaces = functionName.split(".");
     var func = namespaces.pop();
@@ -74,6 +75,7 @@ function Consultar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
 // Este método recibe los datos necesarios para guardar correctamente un objeto.-
 //=======================================================================================================
 function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
+    debugger;
     var Datos = JSON.stringify(ObjetoVista);
     $.ajax({
         type: "POST",
@@ -82,13 +84,13 @@ function Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, Funcion) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         error: function (XMLHttpRequest, textStatus, errorThrown) {
+
             alert("Request: " + XMLHttpRequest.toString()
              + "\n\nStatus: " + textStatus
               + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
-
             if (result.d.Exito) {
                 executeFunctionByName(Funcion + "_Guardar_Exito", window, result.d, Mensaje);
             }
@@ -291,20 +293,37 @@ function AltaEquipo_Limpiar() {
 }
 //=======================================================================================================
 
+function GetImagen() {
+    debugger;
+    var canvas = document.createElement("canvas");
+    var img1 = document.createElement("img");
+    var p = document.getElementsByClassName("file-preview-image")[0].src;
+    img1.setAttribute('src', p);
+    canvas.width = img1.width;
+    canvas.height = img1.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img1, 0, 0);
+    var dataURL = canvas.toDataURL();
+    //alert("from getbase64 function" + dataURL);
+    return dataURL;
+}
+
 function AltaJugador_Guardar() {
     var Mensaje = "Ha registrado el Jugador correctamente!";
     var InvocarUrl = "/AltaJugadorWF.aspx/GuardarDatos";
-
+    var imagenData = GetImagen();
+    
     var ObjetoVista =
     {
         Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
         Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
         Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
         Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
-        FechaNacimiento: document.getElementById("txt_AltaJugadorWF_FechaNacimiento").value,
+        FechaNacimiento: document.getElementById("single_cal2").value,
         Altura: document.getElementById("txt_AltaJugadorWF_Altura").value,
         Peso: document.getElementById("txt_AltaJugadorWF_Peso").value,
-        Imagen: null
+        //Imagen: null,
+        StringImagen: imagenData
     };
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
@@ -578,7 +597,7 @@ $("#avatar-2").fileinput({
     removeTitle: 'Cancel or reset changes',
     elErrorContainer: '#kv-avatar-errors-2',
     msgErrorClass: 'alert alert-block alert-danger',
-    defaultPreviewContent: '<img id="Imagen_Escudo" src="/Template/fileInput/img/Escudo.png" alt="Su Escudo" style="width:160px"><h6 class="text-muted">Seleccionar un escudo</h6>',
+    defaultPreviewContent: '<img id="Imagen_Escudo" src="/Template/fileInput/img/Escudo.png" alt="Su Escudo" style="width:160px"><h6 class="text-muted">Seleccionar un imagen</h6>',
     layoutTemplates: { main2: '{preview} {remove} {browse}' },
     allowedFileExtensions: ["jpg", "png", "gif"]
 });
@@ -592,8 +611,8 @@ function AltaTorneo_Guardar() {
         NombreTorneo: document.getElementById("txt_AltaTorneoWF_NombreTorneo").value,
         FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
         DuracionPartidos: document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value,
-        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value,
-        //Imagen: null
+        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value
+        //,Imagen: null
     };
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaTorneo");

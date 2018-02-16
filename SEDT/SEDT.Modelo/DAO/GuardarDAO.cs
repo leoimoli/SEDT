@@ -69,11 +69,18 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("FechaNacimiento_in", jugador.FechaNacimiento);
             cmd.Parameters.AddWithValue("Altura_in", jugador.Altura);
             cmd.Parameters.AddWithValue("Peso_in", jugador.Peso);
-            cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
+            cmd.Parameters.AddWithValue("imagen_in", Convert.FromBase64String(FixBase64ForImage(jugador.StringImagen)));
             cmd.Parameters.AddWithValue("idUsuario_in", jugador.idUsuario);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;
+        }
+        public static string FixBase64ForImage(string image)
+        {
+            StringBuilder sbText = new StringBuilder(image, image.Length);
+            sbText.Replace("\r\n", String.Empty);
+            sbText.Replace(" ", String.Empty);
+            return sbText.ToString();
         }
         public static int AltaFichaTecnica(FichaTecnicaJugador ficha)
         {
