@@ -24,7 +24,6 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
-                //asdasd();
                 resultado = Agregar.AltaEquipoUsuario(obj);
             }
             catch (Exception e)
@@ -35,15 +34,6 @@ namespace SEDT
             }
             return resultado;
         }
-
-        /*public void asdasd()
-        {
-            string asd = "";
-            foreach (var control in AltaEquipo_Avatar.Controls)
-            {
-                asd = control.ToString();
-            }
-        }*/
         //=============================================================
         //=============================================================
 
