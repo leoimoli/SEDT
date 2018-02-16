@@ -23,16 +23,19 @@
 
     <!-- Custom Theme Style -->
     <link href="Template/build/css/custom.css" rel="stylesheet">
+    
+    <link href="Content/Login.css" rel="stylesheet" />
 </head>
 
 <body class="login">
+<div id="particles-js" style="width: 100%; height: 100%; position: fixed;"></div> 
     <div>
         <a class="hiddenanchor" id="signup"></a>
         <a class="hiddenanchor" id="signin"></a>
 
         <div class="login_wrapper">
             <div class="animate form login_form">
-                <section class="login_content">
+                <section class="login_content" style="background-color: rgba(3, 78, 22, 0.6); padding: 25px; color: #fefefe;">
                     <form>
                         <h1>Autenticación de Usuario</h1>
                         <div>
@@ -118,5 +121,7 @@
     </div>
     <script src="Scripts/funciones.js"></script>
     <script src="Template/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="Scripts/particles.js"></script>
+    <script src="Scripts/particulas.js"></script>
 </body>
 </html>
