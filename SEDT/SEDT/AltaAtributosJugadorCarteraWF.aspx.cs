@@ -27,9 +27,10 @@ namespace SEDT
         public static Respuesta GuardarDatos(FichaTecnicaJugadorDeCartera obj)
         {
             Respuesta resultado = new Respuesta();
-            string asd = HttpContext.Current.Request.Form["PiernaHabil"].ToString();
+            //string asd = HttpContext.Current.Request.Form["PiernaHabil"].ToString();
             try
             {
+                obj.IdJugador = ((int)HttpContext.Current.Session["personaJugador"]);
                 resultado = Agregar.AltaFichaTecnicaJugadorDeCartera(obj);
             }
             catch (Exception e)

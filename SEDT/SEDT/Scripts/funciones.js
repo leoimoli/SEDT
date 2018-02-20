@@ -188,7 +188,10 @@ function ConsultaJugador_Consultar() {
         Apellido: document.getElementById("txt_ConsultaJugadorWF_Apellido").value,
         Nombre: document.getElementById("txt_ConsultaJugadorWF_Nombre").value,
         Apodo: document.getElementById("txt_ConsultaJugadorWF_Apodo").value,
-        idEquipo: equipoSelecto
+        idEquipo: equipoSelecto,
+        IdPersonaFisicaJugador: 0,
+        idUsuario: 0,
+        idEquipo: 0,
     };
 
     Consultar_Objeto(invocarUrl, objetoVista, mensaje, "ConsultaJugador");
@@ -218,12 +221,14 @@ function isEven(value) {
 }
 
 function ConsultaJugador_Exito(respuesta, mensaje) {
+    //alert(mensaje);
     //Mensaje_Exito(Mensaje);
+    //ResultadoConsultar
     var tabla = "";
     if (respuesta != null && respuesta != false && respuesta.Exito != false) {
-        if (respuesta.Resultado != null && respuesta.Resultado.length > 0) {
-            for (var i = 0; i < respuesta.Resultado.length; i++) {
-                var elemento = respuesta.Resultado[i];
+        if (respuesta.ResultadoConsultar != null && respuesta.ResultadoConsultar.length > 0) {
+            for (var i = 0; i < respuesta.ResultadoConsultar.length; i++) {
+                var elemento = respuesta.ResultadoConsultar[i];
                 if (isEven(i)) { tabla += '<tr class="even pointer">'; } else { tabla += '<tr class="odd pointer">'; }
                 tabla += '<td class="a-center "><input type="checkbox" class="flat" name="table_records"></td>';
                 tabla += '<td class=" ">' + elemento.IdPersonaFisicaJugador + '</td>';
@@ -488,11 +493,102 @@ function AltaFichaTecnica_Guardar() {
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaFichaTecnica");
 }
 
+function AltaFichaTecnicaCartera_Guardar() {
+    debugger;
+    var mensaje = "Ha registrado la ficha técnica del jugador cartera correctamente!";
+    var invocarUrl = "/AltaAtributosJugadorCarteraWF.aspx/GuardarDatos";
+
+    var derecha = document.getElementById("piernaD").checked;
+    var izquierda = document.getElementById("piernaI").checked;
+    var piernahabil = "";
+    if (derecha == true) { piernahabil = "D" } else if (izquierda == true) { piernahabil = "I" };
+    var pesoVista = $('#FichaTecnica_Peso').find('.irs-to').html();
+    var alturaVista = $('#FichaTecnica_Altura').find('.irs-to').html();
+
+    /////Atributos
+    var saltoVista = $('#FichaTecnica_Salto').find('.irs-to').html();
+    var velocidadVista = $('#FichaTecnica_Velocidad').find('.irs-to').html();
+    var resistenciaVista = $('#FichaTecnica_Resistencia').find('.irs-to').html();
+    var fuerzaVista = $('#FichaTecnica_Fuerza').find('.irs-to').html();
+    var controlDeBalonVista = $('#FichaTecnica_ControlDeBalon').find('.irs-to').html();
+    var regatesVista = $('#FichaTecnica_Regates').find('.irs-to').html();
+    var definicionVista = $('#FichaTecnica_Definicion').find('.irs-to').html();
+    var marcajeVista = $('#FichaTecnica_Marcaje').find('.irs-to').html();
+    var paseCortoVista = $('#FichaTecnica_PaseCorto').find('.irs-to').html();
+    var paseLargoVista = $('#FichaTecnica_PaseLargo').find('.irs-to').html();
+    var remateVista = $('#FichaTecnica_Remate').find('.irs-to').html();
+    var tiroLibreVista = $('#FichaTecnica_Lanzamientopelotaparada').find('.irs-to').html();
+    var disciplinaTacticaVista = $('#FichaTecnica_DisciplinaTactica').find('.irs-to').html();
+    var nivelDefensivoVista = $('#FichaTecnica_NivelDefensivo').find('.irs-to').html();
+    var nivelOfensivoVista = $('#FichaTecnica_NivelOfensivo').find('.irs-to').html();
+    /////Canchita
+    var posicionesVista = "";
+
+    if ($('#ch_AR').is(":checked")) { posicionesVista += "AR " }
+    if ($('#ch_LD').is(":checked")) { posicionesVista += "LD " }
+    if ($('#ch_DCD').is(":checked")) { posicionesVista += "DFD " }
+    if ($('#ch_DCI').is(":checked")) { posicionesVista += "DFI " }
+    if ($('#ch_LI').is(":checked")) { posicionesVista += "LI " }
+    if ($('#ch_MD').is(":checked")) { posicionesVista += "MD " }
+    if ($('#ch_MCD').is(":checked")) { posicionesVista += "MCD " }
+    if ($('#ch_MCI').is(":checked")) { posicionesVista += "MCI " }
+    if ($('#ch_MI').is(":checked")) { posicionesVista += "MI " }
+    if ($('#ch_MP').is(":checked")) { posicionesVista += "MP " }
+    if ($('#ch_ED').is(":checked")) { posicionesVista += "ED " }
+    if ($('#ch_CD').is(":checked")) { posicionesVista += "CD " }
+    if ($('#ch_EI').is(":checked")) { posicionesVista += "EI " }
+    var objetoVista = {
+        PiernaHabil: piernahabil,
+        Peso: pesoVista,
+        Altura: alturaVista,
+        Salto: saltoVista,
+        Velocidad: velocidadVista,
+        Resistencia: resistenciaVista,
+        Fuerza: fuerzaVista,
+        ControlDeBalon: controlDeBalonVista,
+        Regates: regatesVista,
+        Definicion: definicionVista,
+        Marcaje: marcajeVista,
+        PaseCorto: paseCortoVista,
+        PaseLargo: paseLargoVista,
+        Remate: remateVista,
+        TiroLibre: tiroLibreVista,
+        DisciplinaTactica: disciplinaTacticaVista,
+        NivelDefensivo: nivelDefensivoVista,
+        NivelOfensivo: nivelOfensivoVista,
+        PosicionDeCampo: posicionesVista
+    };
+
+    //Ejemplo para obtener valor de una de las barritas.-
+    // document.getElementById("txt_AltaJugadorWF_Altura").value;
+
+
+
+    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaFichaTecnicaCartera");
+}
+
 function AltaFichaTecnica_Nuevo() {
     AltaFichaTecnica_Limpiar();
 }
 
 function AltaFichaTecnica_Limpiar() {
+    //Limpiamos los campos del formulario.-
+    document.getElementById("po").checked = false;
+    document.getElementById("ld").checked = false;
+    document.getElementById("dcd").checked = false;
+    document.getElementById("dci").checked = false;
+    document.getElementById("li").checked = false;
+    document.getElementById("md").checked = false;
+    document.getElementById("mcd").checked = false;
+    document.getElementById("mci").checked = false;
+    document.getElementById("mi").checked = false;
+    document.getElementById("mp").checked = false;
+    document.getElementById("ed").checked = false;
+    document.getElementById("ei").checked = false;
+    document.getElementById("cd").checked = false;
+}
+
+function AltaFichaTecnicaCartera_Limpiar() {
     //Limpiamos los campos del formulario.-
     document.getElementById("po").checked = false;
     document.getElementById("ld").checked = false;

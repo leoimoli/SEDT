@@ -1,2 +1,55 @@
 ﻿body {
+
+}
+
+input[type="text"]{color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px; outline: none !important;}
+
+input[type="text"]::-webkit-input-placeholder , input[type="password"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fefefe;
+}
+input[type="text"]::-moz-placeholder , input[type="password"]::-moz-placeholder , input[type="email"]::-moz-placeholder { /* Firefox 19+ */
+  color: #fefefe;
+}
+input[type="text"]:-ms-input-placeholder , input[type="password"]:-ms-input-placeholder , input[type="email"]:-ms-input-placeholder { /* IE 10+ */
+  color: #fefefe;
+}
+input[type="text"]:-moz-placeholder , input[type="password"]:-moz-placeholder , input[type="email"]:-moz-placeholder { /* Firefox 18- */
+  color: #fefefe;
+}
+
+.PisoForm { position: relative;
+}
+
+.effect-3 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; z-index: 99; outline: none !important;}
+.effect-3 ~ .focus-border:before, 
+.effect-3 ~ .focus-border:after{content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 100%; background-color: #149B7E; transition: 0.4s;}
+.effect-3 ~ .focus-border:after{left: auto; right: 0;}
+.effect-3:focus ~ .focus-border:before, 
+.effect-3:focus ~ .focus-border:after{width: 50%; transition: 0.4s;outline: none !important;}
+
+
+.effect-8 ~ .focus-border:before,
+.effect-8 ~ .focus-border:after{content: ""; position: absolute; top: 0; left: 0; width: 0; height: 2px; background-color: #149B7E; transition: 0.3s;}
+.effect-8 ~ .focus-border:after{top: auto; bottom: 0; left: auto; right: 0;}
+.effect-8 ~ .focus-border i:before,
+.effect-8 ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 0; background-color: #149B7E; transition: 0.4s;}
+.effect-8 ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0;}
+.effect-8:focus ~ .focus-border:before,
+.effect-8:focus ~ .focus-border:after{width: 100%; transition: 0.3s;}
+.effect-8:focus ~ .focus-border i:before,
+.effect-8:focus ~ .focus-border i:after{height: 100%; transition: 0.4s;}
+
+
+.btn-default {
+        width: 100%;
+    background-color: transparent;
+    color: #149b7e;
+    border: 2px solid #149b7e;
+}
+
+.btn-default:hover {
+        width: 100%;
+    background-color: #149b7e;
+    color: #fefefe;
+    border: 2px solid #149b7e;
 }

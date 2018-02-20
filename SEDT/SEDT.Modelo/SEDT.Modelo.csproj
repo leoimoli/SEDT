@@ -58,6 +58,7 @@
     <Compile Include="Entidades\FichaTecnicaJugadorDeCartera.cs" />
     <Compile Include="Entidades\HistorialEtapa.cs" />
     <Compile Include="Entidades\Partido.cs" />
+    <Compile Include="Entidades\PersonaFisicaJugadorConsultar.cs" />
     <Compile Include="Entidades\PersonaFisicaJugador.cs" />
     <Compile Include="Entidades\EquipoRival.cs" />
     <Compile Include="Entidades\HistorialDePago.cs" />

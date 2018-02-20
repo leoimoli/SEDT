@@ -35,16 +35,18 @@
 
         <div class="login_wrapper">
             <div class="animate form login_form">
-                <section class="login_content" style="background-color: rgba(3, 78, 22, 0.6); padding: 25px; color: #fefefe;">
+                <section class="login_content">
                     <form>
-                        <h1>Autenticación de Usuario</h1>
-                        <div>
-                            <input id="txt_Login_Usuario" type="text" class="form-control" placeholder="Usuario" required="" />
+                        <h1>Login</h1>
+                        <div class="PisoForm" style="margin-top: -25px !important;">
+                            <input id="txt_Login_Usuario" type="text" class="effect-3" placeholder="Usuario" required="" />
+                            <span class="focus-border"></span>
                         </div>
-                        <div>
-                            <input id="txt_Login_Contraseña" type="password" class="form-control" placeholder="Contraseña" required="" />
+                        <div class="PisoForm">
+                            <input id="txt_Login_Contraseña" type="password" class="effect-3" placeholder="Contraseña" required="" />
+                            <span class="focus-border"></span>
                         </div>
-                        <div>
+                        <div style="margin-top: 25px !important;">
                             <!-- <a onclick="Login_Usuario()" class="btn btn-default submit">Ingresar</a>-->
                             <button id="btn_LoginUsuario_Nuevo" class="btn btn-default submit" onclick="Login_Usuario()" type="button">Ingresar</button>
                             <a class="reset_pass" href="#">Olvido su contraseña?</a>
@@ -74,30 +76,36 @@
                 <section class="login_content">
                     <form>
                         <h1>Crear Cuenta</h1>
-                        <div>
-                            <input id="txt_Login_Dni" type="text" class="form-control" placeholder="Dni" required="" />
+                        <div class="PisoForm">
+                            <input id="txt_Login_Dni" type="text" class="effect-3" placeholder="Dni" required="" />
+                            <span class="focus-border"></span>
                         </div>
-                        <div>
-                            <input id="txt_Login_Apellido" type="text" class="form-control" placeholder="Apellido" required="" />
+                        <div class="PisoForm">
+                            <input id="txt_Login_Apellido" type="text" class="effect-3" placeholder="Apellido" required="" />
+                            <span class="focus-border"></span>
                         </div>
-                        <div>
-                            <input id="txt_Login_Nombre" type="text" class="form-control" placeholder="Nombre" required="" />
+                        <div class="PisoForm">
+                            <input id="txt_Login_Nombre" type="text" class="effect-3" placeholder="Nombre" required="" />
+                            <span class="focus-border"></span>
                         </div>
                         <%-- <div>
                             <input type="email" class="form-control" placeholder="Teléfono" required="" />
                         </div>--%>
-                        <div>
-                            <input id="txt_Login_Email" type="email" class="form-control" placeholder="Email" required="" />
+                        <div class="PisoForm">
+                            <input id="txt_Login_Email" type="email" class="effect-3" placeholder="Email" required="" />
+                            <span class="focus-border"></span>
                         </div>
-                        <div>
-                            <input id="txt_Login_ContraseñaGuardar" type="text" class="form-control" placeholder="Contraseña" required="" />
+                        <div class="PisoForm">
+                            <input id="txt_Login_ContraseñaGuardar" type="text" class="effect-3" placeholder="Contraseña" required="" />
+                            <span class="focus-border"></span>
                         </div>
-                        <div>
-                            <input id="txt_Login_RepitaContraseña" type="text" class="form-control" placeholder="Repita Contraseña" required="" />
+                        <div class="PisoForm">
+                            <input id="txt_Login_RepitaContraseña" type="text" class="effect-3" placeholder="Repita Contraseña" required="" />
+                            <span class="focus-border"></span>
                         </div>
-                        <div>
+                        <div style="margin-top: 25px;">
                             <%-- <a class="btn btn-default submit" onclick="Guardar_Usuario()">Registrar</a>--%>
-                            <button id="btn_Usuario_Nuevo" class="btn btn-default submit" onclick="Guardar_Usuario()" type="button">Ingresar</button>
+                            <button id="btn_Usuario_Nuevo" class="btn btn-default submit" onclick="Guardar_Usuario()" type="button">Registrarse</button>
                         </div>
                         <div class="clearfix"></div>
                         <div class="separator">
