@@ -247,14 +247,20 @@ function ConsultaJugador_Error(respuesta, mensaje) {
 // ALTAS.-
 //=======================================================================================================
 function AltaEquipo_Guardar() {
+    debugger;
     var mensaje = "Ha registrado el Equipo correctamente!";
     var invocarUrl = "/AltaEquipoWF.aspx/GuardarDatos";
+    var imagenData = GetImagen();
 
     var objetoVista = {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
         Siglas: document.getElementById("txt_AltaEquipoWF_Siglas").value,
         SitioWeb: document.getElementById("txt_AltaEquipoWF_SitioWeb").value,
-        TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value
+        Imagen: imagenData,
+        TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value,
+        IdEquipoUsuario: 0,
+        IdUsuario: 0
+
     };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEquipo");
@@ -279,6 +285,7 @@ function AltaEquipo_Limpiar() {
 //=======================================================================================================
 
 function GetImagen() {
+    debugger;
     var canvas = document.createElement("canvas");
     var img1 = document.createElement("img");
     var p = document.getElementsByClassName("file-preview-image")[0].src;
@@ -288,7 +295,6 @@ function GetImagen() {
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img1, 0, 0);
     var dataUrl = canvas.toDataURL();
-    //alert("from getbase64 function" + dataURL);
     return dataUrl;
 }
 
@@ -604,7 +610,6 @@ function AltaTorneo_Guardar() {
         FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
         DuracionPartidos: document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value,
         Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value
-        //,Imagen: null
     };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaTorneo");

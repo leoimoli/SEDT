@@ -24,26 +24,15 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
-                //asdasd();
                 resultado = Agregar.AltaEquipoUsuario(obj);
             }
             catch (Exception e)
             {
                 resultado.Exito = false;
-                resultado.Errores = new List<string>();
-                resultado.Errores.Add(e.Message);
+                resultado.Errores = new List<string> { e.Message };
             }
             return resultado;
         }
-
-        /*public void asdasd()
-        {
-            string asd = "";
-            foreach (var control in AltaEquipo_Avatar.Controls)
-            {
-                asd = control.ToString();
-            }
-        }*/
         //=============================================================
         //=============================================================
 
