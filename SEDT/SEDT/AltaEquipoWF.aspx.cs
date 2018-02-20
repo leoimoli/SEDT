@@ -29,8 +29,7 @@ namespace SEDT
             catch (Exception e)
             {
                 resultado.Exito = false;
-                resultado.Errores = new List<string>();
-                resultado.Errores.Add(e.Message);
+                resultado.Errores = new List<string> { e.Message };
             }
             return resultado;
         }
