@@ -62,6 +62,11 @@ namespace SEDT.Controlador
             Respuesta respuesta = new Respuesta();
             respuesta.Errores = new List<string>();
             respuesta.Exito = true;
+            if (jugador.IdUsuario <= 0)
+            {
+                respuesta.Errores.Add("Error al agregar un jugador. IdUsuario = 0");
+                respuesta.Exito = false;
+            }
             if (string.IsNullOrEmpty(jugador.Dni))
             {
                 if (String.IsNullOrEmpty(jugador.Apellido))
@@ -157,9 +162,14 @@ namespace SEDT.Controlador
             respuesta.Exito = true;
             return respuesta;
         }
-        public static Respuesta AltaFichaTecnicaJugadorCartera(FichaTecnicaJugadorDeCartera ficha)
+        public static Respuesta AltaFichaTecnicaJugador(FichaTecnicaJugador ficha)
         {
             Respuesta respuesta = new Respuesta();
+            if (ficha.IdJugador <= 0)
+            {
+                respuesta.Errores.Add("Error al agregar una ficha Técnica. IdJugador = 0");
+                respuesta.Exito = false;
+            }
             respuesta.Errores = new List<string>();
 
             return respuesta;
@@ -217,6 +227,18 @@ namespace SEDT.Controlador
                     respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado y equipo seleccionado.");
                     respuesta.Exito = false;
                 }
+            }
+            return respuesta;
+        }
+        public static Respuesta AltaFichaTecnicaJugadorCartera(FichaTecnicaJugadorDeCartera ficha)
+        {
+            Respuesta respuesta = new Respuesta();
+            respuesta.Errores = new List<string>();
+            respuesta.Exito = true;
+            if (ficha.IdJugador <= 0)
+            {
+                respuesta.Errores.Add("Error al agregar una ficha Técnica. IdJugador = 0");
+                respuesta.Exito = false;
             }
             return respuesta;
         }

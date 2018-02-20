@@ -16,7 +16,7 @@ namespace SEDT
             if (idJugador > 0)
             {
                 PersonaFisicaJugador jugador = Consultar.JugadorPorID(idJugador);
-                ApeNom_label.Text = jugador.Apellido + " " + jugador.Nombre;
+                ApeNom_label.Text = jugador.Apellido + ", " + jugador.Nombre;
                 Apodo_label.Text = jugador.Apodo;
                 DNI_label.Text = jugador.Dni;
                 Telefono_label.Text = jugador.Telefono;
