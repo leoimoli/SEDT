@@ -123,7 +123,7 @@ namespace SEDT.Controlador
             try
             {
                 respuesta = Validar.AltaTorneo(torneo);
-                if (respuesta.Exito == true)
+                if (respuesta.Exito)
                 {
                     respuesta.Id = GuardarDAO.AltaTorneo(torneo);
                 }

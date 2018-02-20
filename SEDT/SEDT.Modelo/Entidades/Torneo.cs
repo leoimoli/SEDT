@@ -14,5 +14,6 @@ namespace SEDT.Modelo.Entidades
         public int IdEquipoUsuario { get; set; }
         public string FormatoTorneo { get; set; }
         public int DuracionPartidos { get; set; }
+        public string ImagenTorneo { get; set; }
     }
 }

@@ -168,6 +168,7 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("FormatoTorneo_in", torneo.FormatoTorneo);
             cmd.Parameters.AddWithValue("DuracionPartido_in", torneo.DuracionPartidos);
             cmd.Parameters.AddWithValue("IdEquipoUsuario_in", torneo.IdEquipoUsuario);
+            cmd.Parameters.AddWithValue("Imagen_in", torneo.ImagenTorneo);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;

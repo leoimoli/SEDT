@@ -763,14 +763,17 @@ $("#avatar-2").fileinput({
 //=======================================================================================================
 //=======================================================================================================
 function AltaTorneo_Guardar() {
+    debugger;
     var mensaje = "Ha registrado el Torneo correctamente!";
     var invocarUrl = "/AltaTorneoWF.aspx/GuardarDatos";
+    var imagenData = GetImagen();
 
     var objetoVista = {
         NombreTorneo: document.getElementById("txt_AltaTorneoWF_NombreTorneo").value,
         FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
-        DuracionPartidos: document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value,
-        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value
+        DuracionPartidos: parseInt(document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value) || 0,
+        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value,
+        ImagenTorneo: imagenData
     };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaTorneo");
