@@ -122,6 +122,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaEquipoRival(EquipoRival equipoRival)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             if (String.IsNullOrEmpty(equipoRival.NombreEquipo))
             {
