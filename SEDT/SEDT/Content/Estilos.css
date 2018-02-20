@@ -1,2 +1,31 @@
 ﻿body {
 }
+
+textarea:focus, input:focus{ outline: none; }
+
+#menu_toggle {
+    text-shadow: 1px 2px 1px rgba(42, 63, 64, 1);
+}
+
+#menu_toggle:hover {
+    color: #ddd;
+}
+
+a {
+    color: #fefefe;
+}
+
+.top_nav .nav .open>a, .top_nav .nav .open>a, .top_nav .nav .open>a, .top_nav .nav>li>a, .top_nav .nav>li>a {
+    text-shadow: 1px 2px 1px rgba(42, 63, 64, 1);
+    color: #fefefe !important;
+}
+
+.top_nav .nav .open>a, .top_nav .nav .open>a:focus, .top_nav .nav .open>a:hover, .top_nav .nav>li>a:focus, .top_nav .nav>li>a:hover {
+    background: rgba(42, 63, 64, 0.3);
+}
+
+.bg-negro {
+    background: #172D44 !important;
+    border: 2px solid #fefefe !important;
+    color: #fff;
+}
