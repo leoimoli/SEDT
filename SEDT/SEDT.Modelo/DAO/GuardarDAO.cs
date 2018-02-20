@@ -69,7 +69,7 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("Peso_in", jugador.Peso);
             //cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
             cmd.Parameters.AddWithValue("Telefono_in", jugador.Telefono);
-			cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
+            cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
             cmd.Parameters.AddWithValue("idUsuario_in", jugador.IdUsuario);
 
             MySqlDataReader r = cmd.ExecuteReader();
@@ -79,13 +79,6 @@ namespace SEDT.Modelo.DAO
             }
             connection.Close();
             return id;
-        }
-        public static string FixBase64ForImage(string image)
-        {
-            StringBuilder sbText = new StringBuilder(image, image.Length);
-            sbText.Replace("\r\n", String.Empty);
-            sbText.Replace(" ", String.Empty);
-            return sbText.ToString();
         }
         public static int AltaFichaTecnica(FichaTecnicaJugador ficha)
         {
@@ -130,6 +123,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaFichaTecnicaJugadorCartera(FichaTecnicaJugadorDeCartera ficha)
         {
             int id = 1;
+            connection.Close();
             connection.Open();
             string proceso = "AltaFichaTecnicaJugadorCartera";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -157,7 +151,7 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("NivelDefensivo_in", ficha.NivelDefensivo);
             cmd.Parameters.AddWithValue("NivelOfensivo_in", ficha.NivelOfensivo);
 
-            cmd.Parameters.AddWithValue("IdUsuario_in", ficha.IdUsuario);
+            cmd.Parameters.AddWithValue("IdJugador_in", ficha.IdJugador);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;

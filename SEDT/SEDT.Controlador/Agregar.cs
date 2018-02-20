@@ -83,7 +83,7 @@ namespace SEDT.Controlador
             respuesta.Errores = new List<string>();
             try
             {
-                //respuesta = Validar.AltaFichaTecnicaJugadorCartera(ficha);
+                respuesta = Validar.AltaFichaTecnicaJugador(ficha);
                 if (respuesta.Exito == true)
                 {
                     respuesta.Id = GuardarDAO.AltaFichaTecnica(ficha);
