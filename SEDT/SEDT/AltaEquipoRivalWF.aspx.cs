@@ -2,6 +2,7 @@
 using SEDT.Modelo.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Services;
 
 namespace SEDT
@@ -15,12 +16,13 @@ namespace SEDT
         //=============================================================
         //=============================================================
         [WebMethod]
-        public static Respuesta GuardarDatos(EquipoUsuario obj)
+        public static Respuesta GuardarDatos(EquipoRival obj)
         {
             Respuesta resultado = new Respuesta();
             try
             {
-                resultado = Agregar.AltaEquipoUsuario(obj);
+                obj.IdEquipoUsuario = ((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario;
+                resultado = Agregar.AltaEquipoRival(obj);
             }
             catch (Exception e)
             {

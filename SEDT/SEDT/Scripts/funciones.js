@@ -282,6 +282,46 @@ function AltaEquipo_Limpiar() {
     document.getElementById("btn_AltaEquipo_Guardar").style.display = 'inline-block';
     document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'inline-block';
 }
+
+
+
+//=======================================================================================================
+// Equipo Rival.-
+//=======================================================================================================
+
+function AltaEquipoRival_Guardar() {
+    debugger;
+    var mensaje = "Ha registrado el Equipo rival correctamente!";
+    var invocarUrl = "/AltaEquipoRivalWF.aspx/GuardarDatos";
+    var imagenData = GetImagen();
+
+    var objetoVista = {
+        NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
+        ImagenEscudo: imagenData,
+        IdEquipoRival: 0
+    };
+
+    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEquipoRival");
+}
+
+function AltaEquipoRival_Guardar_Exito(respuesta, mensaje) {
+    Mensaje_Exito(mensaje);
+
+    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+        document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
+    }
+    return false;
+}
+
+function AltaEquipoRival_Guardar_Error(respuesta) {
+    var errores = respuesta.Errores;
+    for (var i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
+    }
+    return false;
+}
 //=======================================================================================================
 
 function GetImagen() {
