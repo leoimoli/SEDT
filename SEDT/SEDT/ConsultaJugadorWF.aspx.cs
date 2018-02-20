@@ -12,8 +12,17 @@ namespace SEDT
 {
     public partial class ConsultaJugadorWF : Page
     {
+        private static Usuario _usuarioActual;
+        public static Usuario usuarioActual
+        {
+            get { return _usuarioActual; }
+            set { _usuarioActual = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            usuarioActual = (Usuario)HttpContext.Current.Session["loginUsuario"];
             List<EquipoUsuario> equipos = Consultar.ConsultarEquiposUsuario(new EquipoUsuario { IdUsuario = Master.usuarioActual.IdUsuario });
             string elemento_equipo = "<label for=\"fname\"> Equipo:</label><select id=\"cmb_ConsultaJugadorWF_Equipo\" class=\"form-control\">";
             elemento_equipo += "<option value=\"" + 0 + "\">Seleccione</option>";
@@ -32,7 +41,10 @@ namespace SEDT
             Respuesta respuesta = new Respuesta();
             try
             {
-                respuesta.Resultado = Consultar.ConsultarJugadores(obj);
+                // Obtenemos el usuario de Sesión.
+                obj.IdUsuario = usuarioActual.IdUsuario;
+                respuesta.ResultadoConsultar = Consultar.ConsultarJugadores(obj);
+                respuesta.Exito = true;
             }
             catch (Exception e)
             {

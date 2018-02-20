@@ -41,7 +41,6 @@ namespace SEDT.Controlador
                 respuesta = Validar.AltaEquipoUsuario(equipo);
                 if (respuesta.Exito == true)
                 {
-                    equipo.ImagenDB = Convert.FromBase64String(equipo.Imagen.ToString());
                     respuesta.Id = GuardarDAO.AltaEquipoUsuario(equipo);
                 }
             }
@@ -83,7 +82,7 @@ namespace SEDT.Controlador
             respuesta.Errores = new List<string>();
             try
             {
-                //respuesta = Validar.AltaFichaTecnicaJugadorCartera(ficha);
+                respuesta = Validar.AltaFichaTecnicaJugador(ficha);
                 if (respuesta.Exito == true)
                 {
                     respuesta.Id = GuardarDAO.AltaFichaTecnica(ficha);

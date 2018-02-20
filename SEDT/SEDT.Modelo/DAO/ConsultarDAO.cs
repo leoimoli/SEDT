@@ -54,6 +54,88 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return lista;
         }
+        private static string querytpersonafisicajugador
+        {
+            get
+            {
+                return
+                @"SELECT 
+                jugador.idUsuario,
+                jugador.idPersonaFisicaJugador as IdJugador,
+                jugador.txNombre as Nombre ,
+                jugador.txApellido as Apellido,
+                jugador.txApodo as Apodo,
+                ficha.txPosicionDeCampo as Posicion,
+                ficha.txAltura as Altura,
+                ficha.txPeso as Peso
+                FROM tpersonafisicajugador as jugador
+                left join tfichatecnica as ficha on ficha.idJugador = jugador.idPersonaFisicaJugador "
+            ;
+            }
+        }
+        public static List<PersonaFisicaJugadorConsultar> BuscarJugadorPorFiltros(PersonaFisicaJugador Listajugador)
+        {
+
+            List<PersonaFisicaJugadorConsultar> lista = new List<PersonaFisicaJugadorConsultar>();
+            string filtros = string.Empty;
+            if (!string.IsNullOrEmpty(Listajugador.Dni.Trim()))
+            {
+                filtros += string.IsNullOrEmpty(filtros)
+                    ? " where txDni = " + Listajugador.Dni
+                    : " and  txDni = " + Listajugador.Dni;
+            }
+            if (!string.IsNullOrEmpty(Listajugador.Apellido.Trim()))
+            {
+                filtros += string.IsNullOrEmpty(filtros)
+                    ? " where txApellido like '%" + Listajugador.Apellido + "%' "
+                    : " and  txApellido like '%" + Listajugador.Apellido + "%' ";
+            }
+            if (!string.IsNullOrEmpty(Listajugador.Nombre.Trim()))
+            {
+                filtros += string.IsNullOrEmpty(filtros)
+                    ? " where txNombre like '%" + Listajugador.Nombre + "%' "
+                    : " and  txNombre like '%" + Listajugador.Nombre + "%' ";
+            }
+            if (!string.IsNullOrEmpty(Listajugador.Apodo.Trim()))
+            {
+                filtros += string.IsNullOrEmpty(filtros)
+                    ? " where txApodo like '%" + Listajugador.Apodo + "%' "
+                    : " and  txApodo like '%" + Listajugador.Apodo + "%' ";
+            }
+            if (Listajugador.IdUsuario > 0)
+            {
+                filtros += Listajugador.IdUsuario < 0
+                    ? " where idUsuario = " + Listajugador.IdUsuario
+                    : " and  idUsuario = " + Listajugador.IdUsuario;
+            }
+            string sqlQuery = querytpersonafisicajugador + filtros;
+
+            using (var connect = connection)
+            {
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connect);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read()) lista.Add(SqlToEntityPersonaFisicaJugadorConsultar(r));
+
+                connection.Close();
+            }
+
+
+
+            return lista;
+        }
+        private static PersonaFisicaJugadorConsultar SqlToEntityPersonaFisicaJugadorConsultar(MySqlDataReader item)
+        {
+            PersonaFisicaJugadorConsultar jugador = new PersonaFisicaJugadorConsultar();
+            jugador.Nombre = (item["Nombre"] != DBNull.Value) ? (string)item["Nombre"].ToString() : string.Empty;
+            jugador.Apellido = (item["Apellido"] != DBNull.Value) ? (string)item["Apellido"].ToString() : string.Empty;
+            jugador.Apodo = (item["Apodo"] != DBNull.Value) ? (string)item["Apodo"].ToString() : string.Empty;
+            jugador.Posicion = (item["Posicion"] != DBNull.Value) ? (string)item["Posicion"].ToString() : string.Empty;
+            jugador.Altura = (item["Altura"] != DBNull.Value) ? (string)item["Altura"].ToString() : string.Empty;
+            jugador.Peso = (item["Peso"] != DBNull.Value) ? (string)item["Peso"].ToString() : string.Empty;
+            return jugador;
+        }
 
         public static JugadorCartera ConsultarJugadorCarteraPorID(int idJugador)
         {
