@@ -54,8 +54,8 @@ function Consultar_Objeto(invocarUrl, objetoVista, mensaje, funcion) {
         dataType: "json",
         error: function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Request: " + xmlHttpRequest.toString()
-             + "\n\nStatus: " + textStatus
-              + "\n\nError: " + errorThrown);
+                + "\n\nStatus: " + textStatus
+                + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
@@ -81,8 +81,8 @@ function Guardar_Objeto(invocarUrl, objetoVista, mensaje, funcion) {
         dataType: "json",
         error: function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Request: " + xmlHttpRequest.toString()
-             + "\n\nStatus: " + textStatus
-              + "\n\nError: " + errorThrown);
+                + "\n\nStatus: " + textStatus
+                + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
@@ -106,8 +106,8 @@ function Loguear(invocarUrl, objetoVista) {
         dataType: "json",
         error: function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Request: " + xmlHttpRequest.toString()
-             + "\n\nStatus: " + textStatus
-              + "\n\nError: " + errorThrown);
+                + "\n\nStatus: " + textStatus
+                + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
@@ -131,8 +131,8 @@ function Desloguear(invocarUrl) {
         //dataType: "json",
         error: function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Request: " + xmlHttpRequest.toString()
-             + "\n\nStatus: " + textStatus
-              + "\n\nError: " + errorThrown);
+                + "\n\nStatus: " + textStatus
+                + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function () {
@@ -231,13 +231,15 @@ function ConsultaJugador_Exito(respuesta, mensaje) {
                 var elemento = respuesta.ResultadoConsultar[i];
                 if (isEven(i)) { tabla += '<tr class="even pointer">'; } else { tabla += '<tr class="odd pointer">'; }
                 tabla += '<td class="a-center "><input type="checkbox" class="flat" name="table_records"></td>';
-                tabla += '<td class=" ">' + elemento.IdPersonaFisicaJugador + '</td>';
+                tabla += '<td class=" ">' + elemento.Nombre + '</td>';
                 tabla += '<td class=" ">' + elemento.Apellido + '</td>';
                 tabla += '<td class=" ">' + elemento.Apodo + '</td>';
                 tabla += '<td class=" ">' + elemento.Posicion + '</td>';
                 tabla += '<td class=" ">' + elemento.Altura + '</td>';
                 tabla += '<td class="a-right a-right ">' + elemento.Peso + '</td>';
-                tabla += '<td class=" last"><a href="#">Ver</a></td></tr>';
+                tabla += '<td class=" "><a href="#">Ver</a></td>';
+                tabla += '<td class=" "><a href="#">Editar</a></td>';
+                tabla += '<td class=" last"><a href="#">Eliminar</a></td></tr>';
             }
         }
         $('#ConsultaJugador_TablaResultado').html(tabla);
@@ -349,20 +351,20 @@ function AltaJugador_Guardar() {
     var imagenData = GetImagen();
 
     var objetoVista =
-    {
-        IdPersonaFisicaJugador: 0,
-        idUsuario: 0,
-        idEquipo: 0,
-        Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
-        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
-        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
-        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
-        FechaNacimiento: document.getElementById("single_cal2").value,
-        Altura: '',
-        Peso: '',
-        Imagen: imagenData,
-        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value
-    };
+        {
+            IdPersonaFisicaJugador: 0,
+            idUsuario: 0,
+            idEquipo: 0,
+            Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
+            Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
+            Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
+            Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+            FechaNacimiento: document.getElementById("single_cal2").value,
+            Altura: '',
+            Peso: '',
+            Imagen: imagenData,
+            Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value
+        };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaJugador");
 }
@@ -371,17 +373,17 @@ function AltaJugador_Cartera_Guardar() {
     var InvocarUrl = "/AltaJugadorCarteraWF.aspx/GuardarDatos";
     debugger;
     var ObjetoVista =
-    {
-        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
-        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
-        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
-        FechaPartido: document.getElementById("single_cal2").value,
-        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
-        Email: document.getElementById("txt_AltaJugadorWF_Email").value,
-        RedSocial: document.getElementById("txt_AltaJugadorWF_RedSocial").value,
-        EquipoObservado: document.getElementById("txt_AltaJugadorWF_EquipoObservado").value,
-        EquipoRival: document.getElementById("txt_AltaJugadorWF_EquipoRival").value
-    };
+        {
+            Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
+            Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
+            Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+            FechaPartido: document.getElementById("single_cal2").value,
+            Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
+            Email: document.getElementById("txt_AltaJugadorWF_Email").value,
+            RedSocial: document.getElementById("txt_AltaJugadorWF_RedSocial").value,
+            EquipoObservado: document.getElementById("txt_AltaJugadorWF_EquipoObservado").value,
+            EquipoRival: document.getElementById("txt_AltaJugadorWF_EquipoRival").value
+        };
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
 }
