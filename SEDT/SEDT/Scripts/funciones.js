@@ -188,7 +188,10 @@ function ConsultaJugador_Consultar() {
         Apellido: document.getElementById("txt_ConsultaJugadorWF_Apellido").value,
         Nombre: document.getElementById("txt_ConsultaJugadorWF_Nombre").value,
         Apodo: document.getElementById("txt_ConsultaJugadorWF_Apodo").value,
-        idEquipo: equipoSelecto
+        idEquipo: equipoSelecto,
+        IdPersonaFisicaJugador: 0,
+        idUsuario: 0,
+        idEquipo: 0,
     };
 
     Consultar_Objeto(invocarUrl, objetoVista, mensaje, "ConsultaJugador");
@@ -218,12 +221,14 @@ function isEven(value) {
 }
 
 function ConsultaJugador_Exito(respuesta, mensaje) {
+    //alert(mensaje);
     //Mensaje_Exito(Mensaje);
+    //ResultadoConsultar
     var tabla = "";
     if (respuesta != null && respuesta != false && respuesta.Exito != false) {
-        if (respuesta.Resultado != null && respuesta.Resultado.length > 0) {
-            for (var i = 0; i < respuesta.Resultado.length; i++) {
-                var elemento = respuesta.Resultado[i];
+        if (respuesta.ResultadoConsultar != null && respuesta.ResultadoConsultar.length > 0) {
+            for (var i = 0; i < respuesta.ResultadoConsultar.length; i++) {
+                var elemento = respuesta.ResultadoConsultar[i];
                 if (isEven(i)) { tabla += '<tr class="even pointer">'; } else { tabla += '<tr class="odd pointer">'; }
                 tabla += '<td class="a-center "><input type="checkbox" class="flat" name="table_records"></td>';
                 tabla += '<td class=" ">' + elemento.IdPersonaFisicaJugador + '</td>';

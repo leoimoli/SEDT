@@ -40,11 +40,12 @@ namespace SEDT.Controlador
 
 
         //TODO!!
-        public static List<Modelo.Entidades.PersonaFisicaJugador> ConsultarJugadores(Modelo.Entidades.PersonaFisicaJugador jugador)
+        public static List<PersonaFisicaJugadorConsultar> ConsultarJugadores(PersonaFisicaJugador jugador)
         {
-            List<Modelo.Entidades.PersonaFisicaJugador> lista = new List<Modelo.Entidades.PersonaFisicaJugador>();
-            int ID = ConsultarDAO.BuscarJugador();
-            lista.Add(new Modelo.Entidades.PersonaFisicaJugador { IdPersonaFisicaJugador = ID });
+            List<PersonaFisicaJugadorConsultar> lista = new List<PersonaFisicaJugadorConsultar>();
+            lista = ConsultarDAO.BuscarJugadorPorFiltros(jugador);
+           // int ID = ConsultarDAO.BuscarJugador();
+            //lista.Add(new Modelo.Entidades.PersonaFisicaJugador { IdPersonaFisicaJugador = ID });
             return lista;
         }
     }
