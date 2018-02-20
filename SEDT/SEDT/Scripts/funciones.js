@@ -321,12 +321,37 @@ function AltaJugador_Guardar() {
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaJugador");
 }
+function AltaJugador_Cartera_Guardar() {
+    var Mensaje = "Ha registrado el Jugador correctamente!";
+    var InvocarUrl = "/AltaJugadorCarteraWF.aspx/GuardarDatos";
+    debugger;
+    var ObjetoVista =
+    {
+        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
+        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
+        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+        FechaPartido: document.getElementById("single_cal2").value,
+        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
+        Email: document.getElementById("txt_AltaJugadorWF_Email").value,
+        RedSocial: document.getElementById("txt_AltaJugadorWF_RedSocial").value,
+        EquipoObservado: document.getElementById("txt_AltaJugadorWF_EquipoObservado").value,
+        EquipoRival: document.getElementById("txt_AltaJugadorWF_EquipoRival").value
+    };
+
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
+}
+
+
 
 function AltaJugador_Nuevo() {
     AltaJugador_Limpiar();
 }
 function AltaJugador_Siguiente() {
     window.location.href = "AltaFichaTecnicaWF.aspx";
+    return false;
+}
+function AltaJugadorCartera_Siguiente() {
+    window.location.href = "AltaAtributosJugadorCarteraWF";
     return false;
 }
 

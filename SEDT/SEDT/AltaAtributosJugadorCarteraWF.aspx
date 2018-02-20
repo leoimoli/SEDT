@@ -31,7 +31,7 @@
                                 <div class="well profile_view" style="margin-bottom: 0px !important;">
                                     <div class="col-xs-12 bottom text-center">
                                         <div class="col-xs-12 col-sm-6 emphasis">
-                                            <h2>Nicole Pearson</h2>
+                                            <asp:Label ForeColor="#009933" runat="server" ID="ApeNom_label"></asp:Label>
                                         </div>
 
                                     </div>
@@ -42,7 +42,11 @@
                                                     <i class="fa fa-bolt"></i>
                                                 </div>
                                                 <div class="col-xs-10 col-sm-10">
-                                                    <p><strong>Apodo: </strong></p>
+                                                    <p>
+                                                        <strong>Apodo:
+                                                        <asp:Label ForeColor="#009933" runat="server" ID="Apodo_label"></asp:Label>
+                                                        </strong>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <%--<div class="row">

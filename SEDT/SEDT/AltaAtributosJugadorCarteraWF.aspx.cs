@@ -12,6 +12,13 @@ namespace SEDT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var idJugadorCartera = ((int)HttpContext.Current.Session["personaJugador"]);
+            if (idJugadorCartera > 0)
+            {
+                JugadorCartera jugador = Consultar.JugadorCarteraPorID(idJugadorCartera);
+                ApeNom_label.Text = jugador.Apellido + " " + jugador.Nombre;
+                Apodo_label.Text = jugador.Apodo;
+            }
         }
 
         //=============================================================
