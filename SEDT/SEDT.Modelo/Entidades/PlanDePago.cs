@@ -10,6 +10,8 @@ namespace SEDT.Modelo.Entidades
     {
         public int IdPlanDePago { get; set; }
         public string NombreDePlan { get; set; }
-        public string Descripcion { get; set; }
+        public int Dias { get; set; }
+        public int CantidadEquipos { get; set; }
+        public int CantidadJugadores { get; set; }
     }
 }

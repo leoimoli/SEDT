@@ -54,6 +54,67 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return lista;
         }
+        public static int CantidadEquiposRegistrados(EquipoUsuario equipo)
+        {
+            int CantidadEquiposRegistrados = 0;
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "select count(*) as total from sedt_desarrollo.tequipousuario where idUsuario = '" + equipo.IdUsuario + "'";
+            Int32 Cantidad = int.Parse(cmd.ExecuteScalar().ToString());
+            CantidadEquiposRegistrados = Cantidad;
+            connection.Close();
+            return CantidadEquiposRegistrados;
+        }
+
+        public static int CantidadJugadoresRegistrados(int idUsuario)
+        {
+            int CantidadJugadoresRegistrados = 0;
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "select count(*) as total from sedt_desarrollo.tpersonafisicajugador where idUsuario = '" + idUsuario + "'";
+            Int32 Cantidad = int.Parse(cmd.ExecuteScalar().ToString());
+            CantidadJugadoresRegistrados = Cantidad;
+            connection.Close();
+            return CantidadJugadoresRegistrados;
+        }
+
+        public static PlanDePago PlanDePagoUsuario(int idUsuario)
+        {
+            connection.Close();
+            connection.Open();
+            PlanDePago lista = new PlanDePago();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                new MySqlParameter("idUsuario_in", idUsuario) };
+            string proceso = "ConsultarPlanDePagoUsuario";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tUsuarios");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    PlanDePago plan = new PlanDePago();
+                    plan.IdPlanDePago = Convert.ToInt32(item["IdPlanDePago"].ToString());
+                    plan.NombreDePlan = item["txNombreDePlan"].ToString();
+                    plan.Dias = Convert.ToInt32(item["txDias"].ToString());
+                    plan.CantidadEquipos = Convert.ToInt32(item["txCantidadEquipos"].ToString());
+                    plan.CantidadJugadores = Convert.ToInt32(item["txCantidadJugadores"].ToString());
+                    lista = plan;
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         private static string querytpersonafisicajugador
         {
             get
@@ -136,7 +197,6 @@ namespace SEDT.Modelo.DAO
             jugador.Peso = (item["Peso"] != DBNull.Value) ? (string)item["Peso"].ToString() : string.Empty;
             return jugador;
         }
-
         public static JugadorCartera ConsultarJugadorCarteraPorID(int idJugador)
         {
             connection.Open();
@@ -167,7 +227,6 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return lista;
         }
-
         public static PersonaFisicaJugador ConsultarJugadorPorID(int idJugador)
         {
             connection.Open();
@@ -395,7 +454,6 @@ namespace SEDT.Modelo.DAO
             int idPartido = partido;
             return idPartido;
         }
-
         // TODO:
         public static int BuscarJugador()
         {

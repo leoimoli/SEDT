@@ -40,6 +40,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaEquipoUsuario(EquipoUsuario equipo)
         {
             int id = 1;
+            connection.Close();
             connection.Open();
             string proceso = "AltaEquipoUsuario";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -57,6 +58,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaPersonaFisicaJugador(PersonaFisicaJugador jugador)
         {
             int id = 0;
+            connection.Close();
             connection.Open();
             string proceso = "AltaPersonaFisicaJugador";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -88,6 +90,7 @@ namespace SEDT.Modelo.DAO
             string[] a = ficha.Altura.Split(':');
             string altura = a[1];
             int id = 1;
+            connection.Close();
             connection.Open();
             string proceso = "AltaFichaTecnica";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -159,6 +162,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaTorneo(Torneo torneo)
         {
             int id = 1;
+            connection.Close();
             connection.Open();
             string proceso = "AltaTorneo";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -176,6 +180,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaEquipoRival(EquipoRival equipoRival)
         {
             int id = 1;
+            connection.Close();
             connection.Open();
             string proceso = "AltaEquipoRival";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -190,6 +195,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaJugadorCartera(JugadorCartera jugador)
         {
             int id = 0;
+            connection.Close();
             connection.Open();
             string proceso = "AltaJugadorCartera";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -215,6 +221,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaPartido(Partido partido)
         {
             int id = 0;
+            connection.Close();
             connection.Open();
             string proceso = "AltaPartido";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -232,6 +239,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaEstadisticaPartido(EstadisticaPartido estadisticaPartido)
         {
             int id = 0;
+            connection.Close();
             connection.Open();
             string proceso = "AltaEstadisticaPartido";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -260,6 +268,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaEntrenamiento(Entrenamiento entrenamiento)
         {
             int id = 1;
+            connection.Close();
             connection.Open();
             string proceso = "AltaEntrenamiento";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -274,6 +283,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaTurnoEntrenamiento(TurnoEntrenamiento turnoentrenamiento)
         {
             int id = 1;
+            connection.Close();
             connection.Open();
             string proceso = "AltaTurnoEntrenamiento";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
@@ -289,6 +299,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaEtapasEntrenamiento(EtapasEntrenamiento etapasentrenamiento)
         {
             int id = 1;
+            connection.Close();
             connection.Open();
             string proceso = "AltaEtapasEntrenamiento";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
