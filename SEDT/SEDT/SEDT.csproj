@@ -446,7 +446,11 @@
     <Content Include="Template\production\xx.html" />
     <Content Include="Template\src\img\field.png" />
     <Content Include="Template\src\img\field2.png" />
+    <Content Include="Template\src\img\Fondo-categorias.jpg" />
     <Content Include="Template\src\img\Fondo_login.jpg" />
+    <Content Include="Template\src\img\Header-categorias-1.jpg" />
+    <Content Include="Template\src\img\Header-categorias-2.jpg" />
+    <Content Include="Template\src\img\Header-categorias-3.jpg" />
     <Content Include="Template\src\img\Header.jpg" />
     <Content Include="Template\src\js\custom.js" />
     <Content Include="Template\src\js\helpers\smartresize.js" />
