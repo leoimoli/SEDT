@@ -7,22 +7,22 @@
         <!-- top tiles -->
         <div class="row tile_count">
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-                <span class="count_top"><i class="fa fa-shield"></i>Total Equipos</span>
+                <span class="count_top"><i class="fa fa-shield"></i> Total Equipos</span>
                 <div class="count green">3</div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">6</span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-                <span class="count_top"><i class="fa fa-users"></i>Total Jugadores</span>
+                <span class="count_top"><i class="fa fa-users"></i> Total Jugadores</span>
                 <div class="count green">90</div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">180</span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-                <span class="count_top"><i class="fa fa-trophy"></i>Total Competiciones</span>
+                <span class="count_top"><i class="fa fa-trophy"></i> Total Competiciones</span>
                 <div class="count green">2</div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">Ilimitado</span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-                <span class="count_top"><i class="fa fa-futbol-o"></i>Total Partidos</span>
+                <span class="count_top"><i class="fa fa-futbol-o"></i> Total Partidos</span>
                 <div class="count green">42</div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">Ilimitado</span>
             </div>
@@ -40,18 +40,7 @@
                     <div class="x_title">
                         <h2>Equipos <small>destacados</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            <li style="float: right;"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                         </ul>
                         <div class="clearfix"></div>
@@ -114,18 +103,7 @@
                     <div class="x_title">
                         <h2>Jugadores <small>destacados</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            <li style="float: right;"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                         </ul>
                         <div class="clearfix"></div>
@@ -188,18 +166,7 @@
                     <div class="x_title">
                         <h2>Partidos <small>próximos</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            <li style="float: right;"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
                         </ul>
                         <div class="clearfix"></div>
@@ -283,7 +250,7 @@
                                         </ul>
                                     </article>
                                     <h1 class="PrecioCategoria">Gratis</h1>
-                                  <button id="btn_Prueba" class="btn btn-login submit" disabled="disabled" type="button">Comprar Plan</button>
+                                    <button id="btn_Prueba" class="btn btn-login submit" disabled="disabled" type="button">Comprar Plan</button>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12 DivCategoria">
