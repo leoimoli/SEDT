@@ -270,71 +270,79 @@
                     <div class="x_content">
 
                         <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
-                            <div class="col-md-3 col-sm-6 col-xs-12 DivCategoria">
-                                <div style="width: 100%;">
-                                    <h1 class="Categoria">Prueba</h1>
-                                </div>
-                                <div style="text-align: center; width: 100%;">
-                                    <article>
-                                        <ul class="quick-list">
-                                            <li><a href="#">Duración de 30 días.</a></li>
-                                            <li><a href="#">1 Equipos.</a></li>
-                                            <li><a href="#">Máximo de 30 jugadores.</a></li>
-                                        </ul>
-                                    </article>
-                                    <h1 class="PrecioCategoria">Gratis</h1>
-                                  <button id="btn_Prueba" class="btn btn-login submit" disabled="disabled" type="button">Comprar Plan</button>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 DivCategoria">
-                                <div style="width: 100%;">
-                                    <h1 class="Categoria">Amateur</h1>
-                                </div>
-                                <div style="text-align: center; width: 100%;">
-                                    <article>
-                                        <ul class="quick-list">
-                                            <li><a href="#">Duración de 1 año.</a></li>
-                                            <li><a href="#">2 Equipos.</a></li>
-                                            <li><a href="#">Máximo de 60 jugadores.</a></li>
-                                        </ul>
-                                    </article>
-                                    <h1 class="PrecioCategoria">$30</h1>
-                                    <button id="btn_Actualizar1" class="btn btn-login submit" type="button">Comprar Plan</button>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="DivCategoria">
+                                    <div style="width: 100%;">
+                                        <h1 class="Categoria">Prueba</h1>
+                                    </div>
+                                    <div style="text-align: center; width: 100%;">
+                                        <article>
+                                            <ul class="quick-list">
+                                                <li><a href="#">Duración de 30 días.</a></li>
+                                                <li><a href="#">1 Equipos.</a></li>
+                                                <li><a href="#">Máximo de 30 jugadores.</a></li>
+                                            </ul>
+                                        </article>
+                                        <h1 class="PrecioCategoria">Gratis</h1>
+                                        <button id="btn_Prueba" class="btn btn-login submit" disabled="disabled" type="button">Comprar Plan</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 DivCategoria">
-                                <div style="width: 100%;">
-                                    <h1 class="Categoria">Profesional</h1>
-                                </div>
-                                <div style="text-align: center; width: 100%;">
-                                    <article>
-                                        <ul class="quick-list">
-                                            <li><a href="#">Duración de 1 año.</a></li>
-                                            <li><a href="#">6 Equipos.</a></li>
-                                            <li><a href="#">Máximo de 180 jugadores.</a></li>
-                                        </ul>
-                                    </article>
-                                    <h1 class="PrecioCategoria">$50</h1>
-                                    <button id="btn_Actualizar2" class="btn btn-login submit" type="button">Comprar Plan</button>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12 DivCategoria">
-                                <div style="width: 100%;">
-                                    <h1 class="Categoria">Legendario</h1>
-                                </div>
-                                <div style="text-align: center; width: 100%;">
-                                    <article>
-                                        <ul class="quick-list">
-                                            <li><a href="#">Duración de 1 año.</a></li>
-                                            <li><a href="#">Equipos Ilimitados</a></li>
-                                            <li><a href="#">jugadores ilimitados</a></li>
-                                        </ul>
-                                    </article>
-                                    <h1 class="PrecioCategoria">$100</h1>
-                                    <button id="btn_Actualizar3" class="btn btn-login submit" type="button">Comprar Plan</button>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="DivCategoria">
+                                    <div style="width: 100%;">
+                                        <h1 class="Categoria">Amateur</h1>
+                                    </div>
+                                    <div style="text-align: center; width: 100%;">
+                                        <article>
+                                            <ul class="quick-list">
+                                                <li><a href="#">Duración de 1 año.</a></li>
+                                                <li><a href="#">2 Equipos.</a></li>
+                                                <li><a href="#">Máximo de 60 jugadores.</a></li>
+                                            </ul>
+                                        </article>
+                                        <h1 class="PrecioCategoria">$30</h1>
+                                        <button id="btn_Actualizar1" class="btn btn-login submit" type="button">Comprar Plan</button>
+                                    </div>
                                 </div>
                             </div>
-                            <%--<div class="col-md-7" style="overflow:hidden;">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="DivCategoria">
+                                    <div style="width: 100%;">
+                                        <h1 class="Categoria">Profesional</h1>
+                                    </div>
+                                    <div style="text-align: center; width: 100%;">
+                                        <article>
+                                            <ul class="quick-list">
+                                                <li><a href="#">Duración de 1 año.</a></li>
+                                                <li><a href="#">6 Equipos.</a></li>
+                                                <li><a href="#">Máximo de 180 jugadores.</a></li>
+                                            </ul>
+                                        </article>
+                                        <h1 class="PrecioCategoria">$50</h1>
+                                        <button id="btn_Actualizar2" class="btn btn-login submit" type="button">Comprar Plan</button>
+                                    </div>
+                                </div>
+                            </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="DivCategoria">
+                        <div style="width: 100%;">
+                            <h1 class="Categoria">Legendario</h1>
+                        </div>
+                        <div style="text-align: center; width: 100%;">
+                            <article>
+                                <ul class="quick-list">
+                                    <li><a href="#">Duración de 1 año.</a></li>
+                                    <li><a href="#">Equipos Ilimitados</a></li>
+                                    <li><a href="#">jugadores ilimitados</a></li>
+                                </ul>
+                            </article>
+                            <h1 class="PrecioCategoria">$100</h1>
+                            <button id="btn_Actualizar3" class="btn btn-login submit" type="button">Comprar Plan</button>
+                        </div>
+                    </div>
+                </div>
+                <%--<div class="col-md-7" style="overflow:hidden;">
                         <span class="sparkline_one" style="height: 160px; padding: 10px 25px;">
                                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                                   </span>
@@ -357,10 +365,10 @@
                           </div>
                         </div>
                       </div>--%>
-                        </div>
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
+    </div>
         </div>
 
     </div>
