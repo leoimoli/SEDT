@@ -263,7 +263,7 @@ function AltaEquipo_Guardar() {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
         Siglas: document.getElementById("txt_AltaEquipoWF_Siglas").value,
         SitioWeb: document.getElementById("txt_AltaEquipoWF_SitioWeb").value,
-        Imagen: imagenData,
+        Imagen: imagenData != '' ? imagenData : null,
         TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value,
         IdEquipoUsuario: 0,
         IdUsuario: 0
@@ -304,7 +304,7 @@ function AltaEquipoRival_Guardar() {
 
     var objetoVista = {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
-        ImagenEscudo: imagenData,
+        ImagenEscudo: imagenData != '' ? imagenData : null,
         IdEquipoRival: 0
     };
 
@@ -333,15 +333,19 @@ function AltaEquipoRival_Guardar_Error(respuesta) {
 
 function GetImagen() {
     debugger;
-    var canvas = document.createElement("canvas");
-    var img1 = document.createElement("img");
-    var p = document.getElementsByClassName("file-preview-image")[0].src;
-    img1.setAttribute('src', p);
-    canvas.width = img1.width;
-    canvas.height = img1.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img1, 0, 0);
-    var dataUrl = canvas.toDataURL();
+    var dataUrl = '';
+    var datosImagen = document.getElementsByClassName("file-preview-image")[0];
+    if (datosImagen != undefined) {
+        var canvas = document.createElement("canvas");
+        var img1 = document.createElement("img");
+        var p = datosImagen.src;
+        img1.setAttribute('src', p);
+        canvas.width = img1.width;
+        canvas.height = img1.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img1, 0, 0);
+        dataUrl = canvas.toDataURL();
+    }
     return dataUrl;
 }
 
@@ -362,7 +366,7 @@ function AltaJugador_Guardar() {
             FechaNacimiento: document.getElementById("single_cal2").value,
             Altura: '',
             Peso: '',
-            Imagen: imagenData,
+            Imagen: imagenData != '' ? imagenData : null,
             Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value
         };
 
@@ -775,7 +779,7 @@ function AltaTorneo_Guardar() {
         FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
         DuracionPartidos: parseInt(document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value) || 0,
         Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value,
-        ImagenTorneo: imagenData
+        ImagenTorneo: imagenData != '' ? imagenData : null
     };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaTorneo");
@@ -801,7 +805,6 @@ function AltaTorneo_Limpiar() {
 function AltaTorneo_Guardar_Exito(respuesta, mensaje) {
     Mensaje_Exito(mensaje);
     if (respuesta != null && respuesta != false && respuesta.Exito != false) {
-        document.getElementById("btn_AltaTorneo_Nuevo").style.display = 'inline-block';
         document.getElementById("btn_AltaTorneo_Guardar").style.display = 'none';
         document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'none';
     }
