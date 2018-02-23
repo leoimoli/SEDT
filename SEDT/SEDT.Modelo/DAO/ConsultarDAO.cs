@@ -627,7 +627,7 @@ namespace SEDT.Modelo.DAO
             DataTable dt = new DataTable();
             MySqlParameter[] oParam = {
                                       new MySqlParameter("NombreTorneo_in", torneo.NombreTorneo),
-                                      new MySqlParameter("IdEquipoUsuario_in", torneo.IdEquipoUsuario)};
+                                      new MySqlParameter("IdUsuario_in", torneo.IdEquipoUsuario)};
             string proceso = "BuscarTorneoExistente";
             MySqlDataAdapter da = new MySqlDataAdapter(proceso, connection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
