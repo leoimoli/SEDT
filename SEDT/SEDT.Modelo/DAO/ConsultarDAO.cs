@@ -82,14 +82,13 @@ namespace SEDT.Modelo.DAO
                 {
                     if (filtro == string.Empty)
                     {
-                        filtro += "(" + id;
+                        filtro += id;
                     }
                     else
                     {
                         filtro += "," + id;
                     }
                 }
-                filtro += ")";
             }
             int cantidadEquipos = cantidadEquipo.Count();
             ////// Busco los partidos con los idEquipo del usuario Logueado.... 
@@ -101,7 +100,7 @@ namespace SEDT.Modelo.DAO
             connection.Open();
             MySqlCommand cmd2 = new MySqlCommand();
             cmd2.Connection = connection;
-            cmd2.CommandText = "select count(*) as total from tpartidos where idEquipoPropio in " + filtro + "";
+            cmd2.CommandText = "select count(*) as total from tpartidos where idEquipoPropio in (" + filtro + ")";
             partidos = int.Parse(cmd2.ExecuteScalar().ToString());
             ////// Busco la Cantidad de jugadores del usuario Logueado....
             int jugadores = 0;
@@ -217,11 +216,11 @@ namespace SEDT.Modelo.DAO
                 foreach (DataRow item in ds.Tables[0].Rows)
                 {
                     PartidoConsultaDefault listaPartido = new PartidoConsultaDefault();
-                    listaPartido.EquipoPropio = item["txEquipoPropio"].ToString();
-                    listaPartido.EquipoRival = item["txEquipoRival"].ToString();
-                    listaPartido.Resultado = item["txResultado"].ToString();
-                    listaPartido.FechaPartido = Convert.ToDateTime(item["txFechaPartido"].ToString());
-                    listaPartido.NombreTorneo = item["txNombreTorneo"].ToString();
+                    listaPartido.EquipoPropio = item["equipoUsuario"].ToString();
+                    listaPartido.EquipoRival = item["equipoRival"].ToString();
+                    listaPartido.Resultado = item["resultado"].ToString();
+                    listaPartido.FechaPartido = Convert.ToDateTime(item["fecha"].ToString());
+                    listaPartido.NombreTorneo = item["torneo"].ToString();
                     lista.Add(listaPartido);
                 }
             }

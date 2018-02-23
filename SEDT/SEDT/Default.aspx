@@ -111,6 +111,7 @@
                                     <div class="media-body">
                                         <p class="title"><%# Eval("EquipoPropio") %> vs. <%# Eval("EquipoRival") %></p>
                                         <p><strong>Torneo: </strong><%# Eval("NombreTorneo") %> </p>
+                                        <p><strong>Resultado: </strong><%# Eval("Resultado") %> </p>
                                         <p>
                                             <small><%# ((DateTime)Eval("FechaPartido")).ToShortDateString() %></small>
                                         </p>
