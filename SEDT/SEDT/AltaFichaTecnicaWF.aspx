@@ -32,7 +32,7 @@
 
                                     <div class="col-xs-12 bottom text-center">
                                         <div class="col-xs-12 col-sm-6 emphasis">
-                                            <asp:Label ForeColor="#009933" runat="server" ID="ApeNom_label"></asp:Label>
+                                            <asp:Label ForeColor="#009933" runat="server" ID="ApeNom_label" Font-Size="X-Large"></asp:Label>
                                         </div>
 
                                     </div>
@@ -68,13 +68,13 @@
                                                 </div>
                                                 <div class="col-xs-10 col-sm-10">
                                                     <p>
-                                                        <strong>Altura:
+                                                        <strong>Teléfono:
                                                         <asp:Label ForeColor="#009933" runat="server" ID="Telefono_label"></asp:Label>
                                                         </strong>
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <%-- <div class="row">
                                                 <div class="col-xs-2 col-sm-2">
                                                     <i class="fa fa-arrows-v"></i>
                                                 </div>
@@ -85,10 +85,10 @@
                                                         </strong>
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </div>--%>
                                         </div>
                                         <div class="right col-xs-5 text-center">
-                                            <img src="Template/production/images/user.png" alt="" id="imagenJugador" runat="server" class="img-circle img-responsive"/>
+                                            <img src="Template/production/images/user.png" alt="" id="imagenJugador" runat="server" class="img-circle img-responsive" />
                                         </div>
                                     </div>
                                 </div>

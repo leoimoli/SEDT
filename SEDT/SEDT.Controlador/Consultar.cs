@@ -25,6 +25,13 @@ namespace SEDT.Controlador
             return jugador;
         }
 
+        public static List<DefaultConsulta> ConsultaDefault(int idUsuario)
+        {
+            List<Modelo.Entidades.DefaultConsulta> consulta = new List<Modelo.Entidades.DefaultConsulta>();
+            consulta = ConsultarDAO.ConsultaDefault(idUsuario);
+            return consulta;
+        }
+
         public static PersonaFisicaJugador JugadorPorID(int idJugador)
         {
             PersonaFisicaJugador jugador = ConsultarDAO.ConsultarJugadorPorID(idJugador);
@@ -44,7 +51,7 @@ namespace SEDT.Controlador
         {
             List<PersonaFisicaJugadorConsultar> lista = new List<PersonaFisicaJugadorConsultar>();
             lista = ConsultarDAO.BuscarJugadorPorFiltros(jugador);
-           // int ID = ConsultarDAO.BuscarJugador();
+            // int ID = ConsultarDAO.BuscarJugador();
             //lista.Add(new Modelo.Entidades.PersonaFisicaJugador { IdPersonaFisicaJugador = ID });
             return lista;
         }

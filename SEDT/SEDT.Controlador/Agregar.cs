@@ -30,7 +30,6 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
-
         public static Respuesta AltaEquipoUsuario(Modelo.Entidades.EquipoUsuario equipo)
         {
             Respuesta respuesta = new Respuesta();

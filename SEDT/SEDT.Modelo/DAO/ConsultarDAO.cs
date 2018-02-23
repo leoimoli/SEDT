@@ -54,6 +54,210 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return lista;
         }
+        public static List<DefaultConsulta> ConsultaDefault(int idUsuario)
+        {
+            List<DefaultConsulta> lista = new List<DefaultConsulta>();
+            ////// Busco el Plan del usuario Logueado....
+            PlanDePago _plan = new PlanDePago();
+            _plan = PlanDePagoUsuario(idUsuario);
+            ////// Busco las competencias del usuario Logueado....
+            int competencias = 0;
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "select count(*) as total from ttorneo where idUsuario = '" + idUsuario + "'";
+            competencias = int.Parse(cmd.ExecuteScalar().ToString());
+            ////// Busco los equipos del usuario Logueado....
+            List<EquipoUsuario> _equiposUsuario = new List<EquipoUsuario>();
+            _equiposUsuario = ConsultarEquipoPorUsuarioLogueado(idUsuario);
+
+            ////// Busco los idEquipoUsuario del usuario Logueado....
+            List<int> cantidadEquipo = new List<int>();
+            cantidadEquipo = ConsultarEquipoPorUsuarioLogueadoID(idUsuario);
+
+            string filtro = string.Empty;
+            if (cantidadEquipo.Count > 0)
+            {
+                foreach (var id in cantidadEquipo)
+                {
+                    if (filtro == string.Empty)
+                    {
+                        filtro += "(" + id;
+                    }
+                    else
+                    {
+                        filtro += "," + id;
+                    }
+                }
+                filtro += ")";
+            }
+            int cantidadEquipos = cantidadEquipo.Count();
+            ////// Busco los partidos con los idEquipo del usuario Logueado.... 
+            List<PartidoConsultaDefault> _partido = new List<PartidoConsultaDefault>();
+            _partido = BuscarUltimosPartidosDelUsuario(filtro);
+            ////// Busco la Cantidad de partidos del usuario Logueado....
+            int partidos = 0;
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd2 = new MySqlCommand();
+            cmd2.Connection = connection;
+            cmd2.CommandText = "select count(*) as total from tpartidos where idEquipoPropio in('" + filtro + "')";
+            partidos = int.Parse(cmd2.ExecuteScalar().ToString());
+            ////// Busco la Cantidad de jugadores del usuario Logueado....
+            int jugadores = 0;
+            connection.Close();
+            connection.Open();
+            MySqlCommand cmd3 = new MySqlCommand();
+            cmd3.Connection = connection;
+            cmd3.CommandText = "select count(*) as total from tpersonafisicajugador where idUsuario = '" + idUsuario + "'";
+            jugadores = int.Parse(cmd3.ExecuteScalar().ToString());
+            ///// Busco los ultimos jugadores ingresados del usuario Logueado.... 
+            List<JugadoresConsultaDefault> _jugador = new List<JugadoresConsultaDefault>();
+            _jugador = BuscarUltimosJugadoresDelUsuario(idUsuario, filtro);
+
+            ///// Asigno lo obtenido al default......
+            DefaultConsulta listaDefault = new DefaultConsulta();
+            listaDefault.plan = _plan;
+            listaDefault.CantidadEquipos = cantidadEquipo.Count;
+            listaDefault.EquiposUsuario = _equiposUsuario;
+            listaDefault.CantidadCompetencias = competencias;
+            listaDefault.CantidadEquipos = cantidadEquipos;
+            listaDefault.CantidadPartidos = partidos;
+            listaDefault.PartidosUsuario = _partido;
+            listaDefault.CantidadJugadores = jugadores;
+            listaDefault.JugadoresUsuario = _jugador;
+            lista.Add(listaDefault);
+            return lista;
+
+        }
+
+        private static List<EquipoUsuario> ConsultarEquipoPorUsuarioLogueado(int idUsuario)
+        {
+            connection.Close();
+            connection.Open();
+            List<EquipoUsuario> lista = new List<EquipoUsuario>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                          new MySqlParameter("idUsuario_in", idUsuario)};
+            string proceso = "ConsultarEquipoPorUsuarioLogueado";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tequipoUsuario");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    EquipoUsuario listaEquipo = new EquipoUsuario();
+                    listaEquipo.IdEquipoUsuario = Convert.ToInt32(item["IdEquipoUsuario"].ToString());
+                    listaEquipo.NombreEquipo = item["txNombreEquipo"].ToString();
+                    listaEquipo.Imagen = item["ImagenEscudo"].ToString();
+                    lista.Add(listaEquipo);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
+        private static List<JugadoresConsultaDefault> BuscarUltimosJugadoresDelUsuario(int idUsuario, string filtro)
+        {
+            connection.Close();
+            connection.Open();
+            List<JugadoresConsultaDefault> lista = new List<JugadoresConsultaDefault>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                     new MySqlParameter("idUsuario_in", idUsuario)};
+            string proceso = "ConsultarUltimosJugadoresDelUsuario";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tpersonafisicajugador");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    JugadoresConsultaDefault listajugador = new JugadoresConsultaDefault();
+                    listajugador.Apellido = item["apellido"].ToString();
+                    listajugador.Nombre = item["nombre"].ToString();
+                    listajugador.Imagen = item["imagen"].ToString();
+                    listajugador.NombreEquipo = item["nombreequipo"].ToString();
+                    listajugador.Posicion = item["posicion"].ToString();
+                    lista.Add(listajugador);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
+        private static List<PartidoConsultaDefault> BuscarUltimosPartidosDelUsuario(string filtro)
+        {
+            connection.Open();
+            List<PartidoConsultaDefault> lista = new List<PartidoConsultaDefault>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                       new MySqlParameter("filtroID_in", filtro)};
+            string proceso = "ConsultarUltimosPartidosDelUsuario";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tpartido");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    PartidoConsultaDefault listaPartido = new PartidoConsultaDefault();
+                    listaPartido.EquipoPropio = item["txEquipoPropio"].ToString();
+                    listaPartido.EquipoRival = item["txEquipoRival"].ToString();
+                    listaPartido.Resultado = item["txResultado"].ToString();
+                    listaPartido.FechaPartido = Convert.ToDateTime(item["txFechaPartido"].ToString());
+                    listaPartido.NombreTorneo = item["txNombreTorneo"].ToString();
+                    lista.Add(listaPartido);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
+        private static List<int> ConsultarEquipoPorUsuarioLogueadoID(int idUsuario)
+        {
+            connection.Close();
+            connection.Open();
+            List<int> lista = new List<int>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idUsuario_in", idUsuario)};
+            string proceso = "ConsultarEquipoPorUsuarioLogueadoID";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tequipoUsuario");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    List<int> listaID = new List<int>();
+                    int valor = Convert.ToInt32(item["idEquipoUsuario"].ToString());
+                    listaID.Add(valor);
+                    lista = listaID;
+                }
+            }
+            connection.Close();
+            return lista;
+        }
         public static int CantidadEquiposRegistrados(EquipoUsuario equipo)
         {
             int CantidadEquiposRegistrados = 0;
@@ -61,13 +265,12 @@ namespace SEDT.Modelo.DAO
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connection;
-            cmd.CommandText = "select count(*) as total from sedt_desarrollo.tequipousuario where idUsuario = '" + equipo.IdUsuario + "'";
+            cmd.CommandText = "select count(*) as total from tequipousuario where idUsuario = '" + equipo.IdUsuario + "'";
             Int32 Cantidad = int.Parse(cmd.ExecuteScalar().ToString());
             CantidadEquiposRegistrados = Cantidad;
             connection.Close();
             return CantidadEquiposRegistrados;
         }
-
         public static int CantidadJugadoresRegistrados(int idUsuario)
         {
             int CantidadJugadoresRegistrados = 0;
@@ -81,7 +284,6 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return CantidadJugadoresRegistrados;
         }
-
         public static PlanDePago PlanDePagoUsuario(int idUsuario)
         {
             connection.Close();
@@ -254,7 +456,7 @@ namespace SEDT.Modelo.DAO
                     jugador.Apodo = item["txApodo"].ToString();
                     jugador.FechaNacimiento = Convert.ToDateTime(item["dtFechaNacimiento"].ToString());
                     jugador.Altura = item["txTelefono"].ToString();
-                    jugador.Peso = item["txPeso"].ToString();
+                    //jugador.Peso = item["txPeso"].ToString();
                     jugador.Imagen = item["ImagenJugador"].ToString();
                     lista = jugador;
                 }
@@ -467,3 +669,5 @@ namespace SEDT.Modelo.DAO
         }
     }
 }
+
+

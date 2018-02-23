@@ -17,6 +17,8 @@ namespace SEDT.Modelo.DAO
         public static int AltaUsuario(Usuario usuario)
         {
             int id = 1;
+            usuario.IdPlanDePago = 4;
+            connection.Close();
             connection.Open();
             string proceso = "AltaUsuario";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
