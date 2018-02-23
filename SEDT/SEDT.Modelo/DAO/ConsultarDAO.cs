@@ -155,6 +155,8 @@ namespace SEDT.Modelo.DAO
                     listaEquipo.IdEquipoUsuario = Convert.ToInt32(item["IdEquipoUsuario"].ToString());
                     listaEquipo.NombreEquipo = item["txNombreEquipo"].ToString();
                     listaEquipo.Imagen = item["ImagenEscudo"].ToString();
+                    listaEquipo.Siglas = item["txSiglas"].ToString();
+                    listaEquipo.SitioWeb = item["txSitioWeb"].ToString();
                     lista.Add(listaEquipo);
                 }
             }
