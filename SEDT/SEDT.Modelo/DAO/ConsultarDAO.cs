@@ -54,9 +54,8 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return lista;
         }
-        public static List<DefaultConsulta> ConsultaDefault(int idUsuario)
+        public static DefaultConsulta ConsultaDefault(int idUsuario)
         {
-            List<DefaultConsulta> lista = new List<DefaultConsulta>();
             ////// Busco el Plan del usuario Logueado....
             PlanDePago _plan = new PlanDePago();
             _plan = PlanDePagoUsuario(idUsuario);
@@ -127,8 +126,7 @@ namespace SEDT.Modelo.DAO
             listaDefault.PartidosUsuario = _partido;
             listaDefault.CantidadJugadores = jugadores;
             listaDefault.JugadoresUsuario = _jugador;
-            lista.Add(listaDefault);
-            return lista;
+            return listaDefault;
 
         }
 
@@ -624,6 +622,7 @@ namespace SEDT.Modelo.DAO
         public static bool BuscarTorneoExistente(Torneo torneo)
         {
             bool ValidarExistencia;
+            connection.Close();
             connection.Open();
             DataTable dt = new DataTable();
             MySqlParameter[] oParam = {

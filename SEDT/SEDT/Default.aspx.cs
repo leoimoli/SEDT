@@ -13,6 +13,8 @@ namespace SEDT
 {
     public partial class _Default : Page
     {
+        public DefaultConsulta DatosDefault { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -20,7 +22,8 @@ namespace SEDT
                 Respuesta respuesta = new Respuesta();
 
                 int idUsuario = Convert.ToInt32(((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario);
-                respuesta.ConsultaDefault = Consultar.ConsultaDefault(idUsuario);
+                DatosDefault = Consultar.ConsultaDefault(idUsuario);
+                AsignarDatosUsuario();
                 respuesta.Exito = true;
             }
             catch (Exception ex)
@@ -32,5 +35,9 @@ namespace SEDT
 
         }
 
+        private void AsignarDatosUsuario()
+        {
+            //throw new NotImplementedException();
+        }
     }
 }

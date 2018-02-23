@@ -8,29 +8,24 @@
         <div class="row tile_count">
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
                 <span class="count_top"><i class="fa fa-shield"></i> Total Equipos</span>
-                <div class="count green">3</div>
-                <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">6</span>
+                <div class="count green"><%= DatosDefault.CantidadEquipos %></div>
+                <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;"><%= DatosDefault.plan.CantidadEquipos %></span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
                 <span class="count_top"><i class="fa fa-users"></i> Total Jugadores</span>
-                <div class="count green">90</div>
-                <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">180</span>
+                <div class="count green"><%= DatosDefault.CantidadJugadores %></div>
+                <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;"><%= DatosDefault.plan.CantidadJugadores %></span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
                 <span class="count_top"><i class="fa fa-trophy"></i> Total Competiciones</span>
-                <div class="count green">2</div>
+                <div class="count green"><%= DatosDefault.CantidadCompetencias %></div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">Ilimitado</span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
                 <span class="count_top"><i class="fa fa-futbol-o"></i> Total Partidos</span>
-                <div class="count green">42</div>
+                <div class="count green"><%= DatosDefault.CantidadPartidos %></div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">Ilimitado</span>
             </div>
-            <%--<div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-              <span class="count_top"><i class="fa fa-futbol-o"></i> Total Partidos</span>
-              <div class="count">4,567</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>--%>
         </div>
         <!-- /top tiles -->
 
@@ -46,6 +41,11 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        <asp:Repeater runat="server">
+                            <ItemTemplate>
+                                
+                            </ItemTemplate>
+                        </asp:Repeater>
                         <article class="media event">
                             <a class="pull-left border-aero profile_thumb" style="padding: 10px 14px !important;">
                                 <i class="fa fa-shield aero"></i>

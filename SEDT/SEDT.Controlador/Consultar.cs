@@ -25,9 +25,9 @@ namespace SEDT.Controlador
             return jugador;
         }
 
-        public static List<DefaultConsulta> ConsultaDefault(int idUsuario)
+        public static DefaultConsulta ConsultaDefault(int idUsuario)
         {
-            List<Modelo.Entidades.DefaultConsulta> consulta = new List<Modelo.Entidades.DefaultConsulta>();
+            DefaultConsulta consulta = new DefaultConsulta();
             consulta = ConsultarDAO.ConsultaDefault(idUsuario);
             return consulta;
         }
