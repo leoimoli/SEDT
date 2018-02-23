@@ -37,7 +37,14 @@ namespace SEDT
 
         private void AsignarDatosUsuario()
         {
-            //throw new NotImplementedException();
+            repeaterEquipos.DataSource = DatosDefault.EquiposUsuario;
+            repeaterEquipos.DataBind();
+
+            repeaterJugadores.DataSource = DatosDefault.JugadoresUsuario;
+            repeaterJugadores.DataBind();
+
+            repeaterPartidos.DataSource = DatosDefault.PartidosUsuario;
+            repeaterPartidos.DataBind();
         }
     }
 }

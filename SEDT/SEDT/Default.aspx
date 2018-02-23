@@ -7,22 +7,22 @@
         <!-- top tiles -->
         <div class="row tile_count">
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-                <span class="count_top"><i class="fa fa-shield"></i> Total Equipos</span>
+                <span class="count_top"><i class="fa fa-shield"></i>Total Equipos</span>
                 <div class="count green"><%= DatosDefault.CantidadEquipos %></div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;"><%= DatosDefault.plan.CantidadEquipos %></span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-                <span class="count_top"><i class="fa fa-users"></i> Total Jugadores</span>
+                <span class="count_top"><i class="fa fa-users"></i>Total Jugadores</span>
                 <div class="count green"><%= DatosDefault.CantidadJugadores %></div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;"><%= DatosDefault.plan.CantidadJugadores %></span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-                <span class="count_top"><i class="fa fa-trophy"></i> Total Competiciones</span>
+                <span class="count_top"><i class="fa fa-trophy"></i>Total Competiciones</span>
                 <div class="count green"><%= DatosDefault.CantidadCompetencias %></div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">Ilimitado</span>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count" style="text-align: center">
-                <span class="count_top"><i class="fa fa-futbol-o"></i> Total Partidos</span>
+                <span class="count_top"><i class="fa fa-futbol-o"></i>Total Partidos</span>
                 <div class="count green"><%= DatosDefault.CantidadPartidos %></div>
                 <span class="count_bottom" style="border-top: 1px solid #ADB2B5; padding-left: 30px; padding-right: 30px;">Ilimitado</span>
             </div>
@@ -41,59 +41,21 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <asp:Repeater runat="server">
+                        <asp:Repeater runat="server" ID="repeaterEquipos">
                             <ItemTemplate>
-                                
+                                <article class="media event">
+                                    <a class="pull-left border-aero profile_thumb" style="padding: 10px 14px !important;">
+                                        <img src="<%# (string)Eval("Imagen") != string.Empty ? Eval("Imagen") : "" %>" alt="Escudo de <%# Eval("NombreEquipo") %>" class="img-circle img-responsive" />
+                                    </a>
+                                    <div class="media-body">
+                                        <p class="title"><%# Eval("NombreEquipo") %></p>
+                                        <p><strong>Siglas: </strong><%# Eval("Siglas") %> </p>
+                                        <p><a href="<%# Eval("SitioWeb") %>" style="text-decoration: underline">Sitio Web</a></p>
+                                    </div>
+                                </article>
+
                             </ItemTemplate>
                         </asp:Repeater>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb" style="padding: 10px 14px !important;">
-                                <i class="fa fa-shield aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Equipo 1</a>
-                                <p><strong>Torneo: </strong>lalalalalal </p>
-                                <p>
-                                    <small>3° Puesto</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb" style="padding: 10px 14px !important;">
-                                <i class="fa fa-shield aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Equipo 1</a>
-                                <p><strong>Torneo: </strong>lalalalalal </p>
-                                <p>
-                                    <small>3° Puesto</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb" style="padding: 10px 14px !important;">
-                                <i class="fa fa-shield aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Equipo 1</a>
-                                <p><strong>Torneo: </strong>lalalalalal </p>
-                                <p>
-                                    <small>3° Puesto</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb" style="padding: 10px 14px !important;">
-                                <i class="fa fa-shield aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Equipo 1</a>
-                                <p><strong>Torneo: </strong>lalalalalal </p>
-                                <p>
-                                    <small>3° Puesto</small>
-                                </p>
-                            </div>
-                        </article>
                     </div>
                 </div>
             </div>
@@ -109,54 +71,22 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                                <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Juan Pepe</a>
-                                <p><strong>Equipo: </strong>Equipo 1 </p>
-                                <p>
-                                    <small>Algun dato</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                                <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Juan Pepe</a>
-                                <p><strong>Equipo: </strong>Equipo 1 </p>
-                                <p>
-                                    <small>Algun dato</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                                <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Juan Pepe</a>
-                                <p><strong>Equipo: </strong>Equipo 1 </p>
-                                <p>
-                                    <small>Algun dato</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                                <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Juan Pepe</a>
-                                <p><strong>Equipo: </strong>Equipo 1 </p>
-                                <p>
-                                    <small>Algun dato</small>
-                                </p>
-                            </div>
-                        </article>
+                        <asp:Repeater runat="server" ID="repeaterJugadores">
+                            <ItemTemplate>
+                                <article class="media event">
+                                    <a class="pull-left border-aero profile_thumb">
+                                        <img src="<%# (string)Eval("Imagen") != string.Empty ? Eval("Imagen") : "" %>" alt="Imagen de <%# Eval("Nombre") + " " + Eval("Apellido") %>" class="img-circle img-responsive" />
+                                    </a>
+                                    <div class="media-body">
+                                        <p class="title"><%# Eval("Nombre") + " " + Eval("Apellido") %></p>
+                                        <p><strong>Equipo: </strong><%# (string)Eval("NombreEquipo") != string.Empty ? Eval("NombreEquipo") : "No asignado" %></p>
+                                        <p>
+                                            <small>Posicion: <%# Eval("Posicion") %></small>
+                                        </p>
+                                    </div>
+                                </article>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
             </div>
@@ -172,60 +102,28 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb" style="padding: 9px 10px !important;">
-                                <i class="fa fa-futbol-o aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Equipo 1 vs. Equipo 2</a>
-                                <p><strong>Torneo: </strong>lalalalalal </p>
-                                <p>
-                                    <small>10/10/2018</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb" style="padding: 9px 10px !important;">
-                                <i class="fa fa-futbol-o aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Equipo 1 vs. Equipo 2</a>
-                                <p><strong>Torneo: </strong>lalalalalal </p>
-                                <p>
-                                    <small>10/10/2018</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb" style="padding: 9px 10px !important;">
-                                <i class="fa fa-futbol-o aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Equipo 1 vs. Equipo 2</a>
-                                <p><strong>Torneo: </strong>lalalalalal </p>
-                                <p>
-                                    <small>10/10/2018</small>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left border-aero profile_thumb" style="padding: 9px 10px !important;">
-                                <i class="fa fa-futbol-o aero"></i>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Equipo 1 vs. Equipo 2</a>
-                                <p><strong>Torneo: </strong>lalalalalal </p>
-                                <p>
-                                    <small>10/10/2018</small>
-                                </p>
-                            </div>
-                        </article>
+                        <asp:Repeater runat="server" ID="repeaterPartidos">
+                            <ItemTemplate>
+                                <article class="media event">
+                                    <a class="pull-left border-aero profile_thumb" style="padding: 9px 10px !important;">
+                                        <i class="fa fa-futbol-o aero"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <p class="title"><%# Eval("EquipoPropio") %> vs. <%# Eval("EquipoRival") %></p>
+                                        <p><strong>Torneo: </strong><%# Eval("NombreTorneo") %> </p>
+                                        <p>
+                                            <small><%# ((DateTime)Eval("FechaPartido")).ToShortDateString() %></small>
+                                        </p>
+                                    </div>
+                                </article>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
             </div>
         </div>
         <%--------------------------------------------------------------------%>
-        <br />
+<br />
 
         <div class="row">
             <div class="col-md-12">
@@ -291,25 +189,25 @@
                                     </div>
                                 </div>
                             </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="DivCategoria">
-                        <div style="width: 100%;">
-                            <h1 class="Categoria">Legendario</h1>
-                        </div>
-                        <div style="text-align: center; width: 100%;">
-                            <article>
-                                <ul class="quick-list">
-                                    <li><a href="#">Duración de 1 año.</a></li>
-                                    <li><a href="#">Equipos Ilimitados</a></li>
-                                    <li><a href="#">jugadores ilimitados</a></li>
-                                </ul>
-                            </article>
-                            <h1 class="PrecioCategoria">$100</h1>
-                            <button id="btn_Actualizar3" class="btn btn-login submit" type="button">Comprar Plan</button>
-                        </div>
-                    </div>
-                </div>
-                <%--<div class="col-md-7" style="overflow:hidden;">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="DivCategoria">
+                                    <div style="width: 100%;">
+                                        <h1 class="Categoria">Legendario</h1>
+                                    </div>
+                                    <div style="text-align: center; width: 100%;">
+                                        <article>
+                                            <ul class="quick-list">
+                                                <li><a href="#">Duración de 1 año.</a></li>
+                                                <li><a href="#">Equipos Ilimitados</a></li>
+                                                <li><a href="#">jugadores ilimitados</a></li>
+                                            </ul>
+                                        </article>
+                                        <h1 class="PrecioCategoria">$100</h1>
+                                        <button id="btn_Actualizar3" class="btn btn-login submit" type="button">Comprar Plan</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <%--<div class="col-md-7" style="overflow:hidden;">
                         <span class="sparkline_one" style="height: 160px; padding: 10px 25px;">
                                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                                   </span>
@@ -332,10 +230,10 @@
                           </div>
                         </div>
                       </div>--%>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    </div>
         </div>
 
     </div>
