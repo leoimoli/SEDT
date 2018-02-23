@@ -101,7 +101,7 @@ namespace SEDT.Modelo.DAO
             connection.Open();
             MySqlCommand cmd2 = new MySqlCommand();
             cmd2.Connection = connection;
-            cmd2.CommandText = "select count(*) as total from tpartidos where idEquipoPropio in('" + filtro + "')";
+            cmd2.CommandText = "select count(*) as total from tpartidos where idEquipoPropio in " + filtro + "";
             partidos = int.Parse(cmd2.ExecuteScalar().ToString());
             ////// Busco la Cantidad de jugadores del usuario Logueado....
             int jugadores = 0;
