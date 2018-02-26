@@ -54,8 +54,8 @@ function Consultar_Objeto(invocarUrl, objetoVista, mensaje, funcion) {
         dataType: "json",
         error: function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Request: " + xmlHttpRequest.toString()
-                + "\n\nStatus: " + textStatus
-                + "\n\nError: " + errorThrown);
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
@@ -81,8 +81,8 @@ function Guardar_Objeto(invocarUrl, objetoVista, mensaje, funcion) {
         dataType: "json",
         error: function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Request: " + xmlHttpRequest.toString()
-                + "\n\nStatus: " + textStatus
-                + "\n\nError: " + errorThrown);
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
@@ -106,8 +106,8 @@ function Loguear(invocarUrl, objetoVista) {
         dataType: "json",
         error: function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Request: " + xmlHttpRequest.toString()
-                + "\n\nStatus: " + textStatus
-                + "\n\nError: " + errorThrown);
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function (result) {
@@ -131,8 +131,8 @@ function Desloguear(invocarUrl) {
         //dataType: "json",
         error: function (xmlHttpRequest, textStatus, errorThrown) {
             alert("Request: " + xmlHttpRequest.toString()
-                + "\n\nStatus: " + textStatus
-                + "\n\nError: " + errorThrown);
+             + "\n\nStatus: " + textStatus
+              + "\n\nError: " + errorThrown);
             Resultado = null;
         },
         success: function () {
@@ -267,7 +267,6 @@ function AltaEquipo_Guardar() {
         TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value,
         IdEquipoUsuario: 0,
         IdUsuario: 0
-
     };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEquipo");
@@ -297,7 +296,6 @@ function AltaEquipo_Limpiar() {
 //=======================================================================================================
 
 function AltaEquipoRival_Guardar() {
-    debugger;
     var mensaje = "Ha registrado el Equipo rival correctamente!";
     var invocarUrl = "/AltaEquipoRivalWF.aspx/GuardarDatos";
     var imagenData = GetImagen();
@@ -332,18 +330,17 @@ function AltaEquipoRival_Guardar_Error(respuesta) {
 //=======================================================================================================
 
 function GetImagen() {
-    debugger;
     var dataUrl = '';
     var datosImagen = document.getElementsByClassName("file-preview-image")[0];
     if (datosImagen != undefined) {
-        var canvas = document.createElement("canvas");
-        var img1 = document.createElement("img");
+    var canvas = document.createElement("canvas");
+    var img1 = document.createElement("img");
         var p = datosImagen.src;
-        img1.setAttribute('src', p);
-        canvas.width = img1.width;
-        canvas.height = img1.height;
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(img1, 0, 0);
+    img1.setAttribute('src', p);
+    canvas.width = img1.width;
+    canvas.height = img1.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img1, 0, 0);
         dataUrl = canvas.toDataURL();
     }
     return dataUrl;
@@ -355,20 +352,20 @@ function AltaJugador_Guardar() {
     var imagenData = GetImagen();
 
     var objetoVista =
-        {
-            IdPersonaFisicaJugador: 0,
-            idUsuario: 0,
-            idEquipo: 0,
-            Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
-            Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
-            Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
-            Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
-            FechaNacimiento: document.getElementById("single_cal2").value,
-            Altura: '',
-            Peso: '',
+    {
+        IdPersonaFisicaJugador: 0,
+        idUsuario: 0,
+        idEquipo: 0,
+        Dni: document.getElementById("txt_AltaJugadorWF_DNI").value,
+        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
+        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
+        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+        FechaNacimiento: document.getElementById("single_cal2").value,
+        Altura: '',
+        Peso: '',
             Imagen: imagenData != '' ? imagenData : null,
-            Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value
-        };
+        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value
+    };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaJugador");
 }
@@ -377,17 +374,17 @@ function AltaJugador_Cartera_Guardar() {
     var InvocarUrl = "/AltaJugadorCarteraWF.aspx/GuardarDatos";
     debugger;
     var ObjetoVista =
-        {
-            Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
-            Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
-            Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
-            FechaPartido: document.getElementById("single_cal2").value,
-            Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
-            Email: document.getElementById("txt_AltaJugadorWF_Email").value,
-            RedSocial: document.getElementById("txt_AltaJugadorWF_RedSocial").value,
-            EquipoObservado: document.getElementById("txt_AltaJugadorWF_EquipoObservado").value,
-            EquipoRival: document.getElementById("txt_AltaJugadorWF_EquipoRival").value
-        };
+    {
+        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
+        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
+        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+        FechaPartido: document.getElementById("single_cal2").value,
+        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
+        Email: document.getElementById("txt_AltaJugadorWF_Email").value,
+        RedSocial: document.getElementById("txt_AltaJugadorWF_RedSocial").value,
+        EquipoObservado: document.getElementById("txt_AltaJugadorWF_EquipoObservado").value,
+        EquipoRival: document.getElementById("txt_AltaJugadorWF_EquipoRival").value
+    };
 
     Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
 }
@@ -396,6 +393,11 @@ function AltaJugador_Cartera_Guardar() {
 
 function AltaJugador_Nuevo() {
     AltaJugador_Limpiar();
+    AltaJugador_Habilitar(true);
+    //Aplicamos visibilidad a los botones del formulario.-
+    document.getElementById("btn_AltaJugador_Nuevo").style.display = 'none';
+    document.getElementById("btn_AltaJugador_Guardar").style.display = 'inline-block';
+    document.getElementById("btn_AltaJugador_Limpiar").style.display = 'inline-block';
 }
 function AltaJugador_Siguiente() {
     window.location.href = "AltaFichaTecnicaWF.aspx";
@@ -407,19 +409,23 @@ function AltaJugadorCartera_Siguiente() {
 }
 
 function AltaJugador_Limpiar() {
-    //Limpiamos los campos del formulario.-
     document.getElementById("txt_AltaJugadorWF_Nombre").value = "";
     document.getElementById("txt_AltaJugadorWF_Apellido").value = "";
     document.getElementById("txt_AltaJugadorWF_Apodo").value = "";
     document.getElementById("txt_AltaJugadorWF_DNI").value = "";
-    document.getElementById("txt_AltaJugadorWF_FechaNacimiento").value = "";
+    document.getElementById("single_cal2").value = "";
     document.getElementById("txt_AltaJugadorWF_Telefono").value = "";
+    document.getElementById("avatar-2").value = null;
+}
 
-
-    //Aplicamos visibilidad a los botones del formulario.-
-    document.getElementById("btn_AltaJugador_Nuevo").style.display = 'none';
-    document.getElementById("btn_AltaJugador_Guardar").style.display = 'inline-block';
-    document.getElementById("btn_AltaJugador_Limpiar").style.display = 'inline-block';
+function AltaJugador_Habilitar(habilitado) {
+    document.getElementById("txt_AltaJugadorWF_Nombre").disabled = !habilitado;
+    document.getElementById("txt_AltaJugadorWF_Apellido").disabled = !habilitado;
+    document.getElementById("txt_AltaJugadorWF_Apodo").disabled = !habilitado;
+    document.getElementById("txt_AltaJugadorWF_DNI").disabled = !habilitado;
+    document.getElementById("single_cal2").disabled = !habilitado;
+    document.getElementById("txt_AltaJugadorWF_Telefono").disabled = !habilitado;
+    document.getElementById("avatar-2").disabled = !habilitado;
 }
 //=======================================================================================================
 
@@ -713,6 +719,13 @@ function AltaEquipo_Guardar_Exito(respuesta, mensaje) {
         document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
         document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
     }
+
+    document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").disabled = true;
+    document.getElementById("txt_AltaEquipoWF_SitioWeb").disabled = true;
+    document.getElementById("txt_AltaEquipoWF_Siglas").disabled = true;
+    document.getElementById("txt_AltaEquipoWF_NombreEquipo").disabled = true;
+    document.getElementById("avatar-2").disabled = true;
+
     return false;
 }
 
@@ -721,6 +734,13 @@ function AltaEquipo_Guardar_Error(respuesta) {
     for (var i = 0; i < errores.length; i++) {
         Mensaje_Error(errores[i]);
     }
+
+    document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").disabled = false;
+    document.getElementById("txt_AltaEquipoWF_SitioWeb").disabled = false;
+    document.getElementById("txt_AltaEquipoWF_Siglas").disabled = false;
+    document.getElementById("txt_AltaEquipoWF_NombreEquipo").disabled = false;
+    document.getElementById("avatar-2").disabled = false;
+
     return false;
 }
 
@@ -732,6 +752,16 @@ function AltaJugador_Guardar_Exito(respuesta, mensaje) {
         document.getElementById("btn_AltaJugador_Guardar").style.display = 'none';
         document.getElementById("btn_AltaJugador_Limpiar").style.display = 'none';
     }
+
+    document.getElementById("txt_AltaJugadorWF_Nombre").disabled = true;
+    document.getElementById("avatar-2").disabled = true;
+    document.getElementById("txt_AltaJugadorWF_Apellido").disabled = true;
+    document.getElementById("txt_AltaJugadorWF_Apodo").disabled = true;
+    document.getElementById("txt_AltaJugadorWF_DNI").disabled = true;
+    document.getElementById("single_cal2").disabled = true;
+    document.getElementById("txt_AltaJugadorWF_Telefono").disabled = true;
+    
+
     return false;
 }
 
@@ -740,6 +770,14 @@ function AltaJugador_Guardar_Error(respuesta) {
     for (var i = 0; i < errores.length; i++) {
         Mensaje_Error(errores[i]);
     }
+
+    document.getElementById("txt_AltaJugadorWF_Nombre").disabled = false;
+    document.getElementById("avatar-2").disabled = false;
+    document.getElementById("txt_AltaJugadorWF_Apellido").disabled = false;
+    document.getElementById("txt_AltaJugadorWF_Apodo").disabled = false;
+    document.getElementById("txt_AltaJugadorWF_DNI").disabled = false;
+    document.getElementById("single_cal2").disabled = false;
+    document.getElementById("txt_AltaJugadorWF_Telefono").disabled = false;
     return false;
 }
 
