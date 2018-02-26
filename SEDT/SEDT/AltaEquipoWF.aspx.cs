@@ -24,6 +24,7 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
+                obj.IdUsuario = ((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario;
                 resultado = Agregar.AltaEquipoUsuario(obj);
             }
             catch (Exception e)

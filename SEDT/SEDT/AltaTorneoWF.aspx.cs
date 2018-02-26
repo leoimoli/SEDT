@@ -2,6 +2,7 @@
 using SEDT.Modelo.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Services;
 
 namespace SEDT
@@ -18,6 +19,7 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
+                obj.IdEquipoUsuario = ((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario;
                 resultado = Agregar.AltaTorneo(obj);
             }
             catch (Exception e)

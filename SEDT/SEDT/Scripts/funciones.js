@@ -231,13 +231,15 @@ function ConsultaJugador_Exito(respuesta, mensaje) {
                 var elemento = respuesta.ResultadoConsultar[i];
                 if (isEven(i)) { tabla += '<tr class="even pointer">'; } else { tabla += '<tr class="odd pointer">'; }
                 tabla += '<td class="a-center "><input type="checkbox" class="flat" name="table_records"></td>';
-                tabla += '<td class=" ">' + elemento.IdPersonaFisicaJugador + '</td>';
+                tabla += '<td class=" ">' + elemento.Nombre + '</td>';
                 tabla += '<td class=" ">' + elemento.Apellido + '</td>';
                 tabla += '<td class=" ">' + elemento.Apodo + '</td>';
                 tabla += '<td class=" ">' + elemento.Posicion + '</td>';
                 tabla += '<td class=" ">' + elemento.Altura + '</td>';
                 tabla += '<td class="a-right a-right ">' + elemento.Peso + '</td>';
-                tabla += '<td class=" last"><a href="#">Ver</a></td></tr>';
+                tabla += '<td class=" "><a href="#">Ver</a></td>';
+                tabla += '<td class=" "><a href="#">Editar</a></td>';
+                tabla += '<td class=" last"><a href="#">Eliminar</a></td></tr>';
             }
         }
         $('#ConsultaJugador_TablaResultado').html(tabla);
@@ -261,7 +263,7 @@ function AltaEquipo_Guardar() {
         NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
         Siglas: document.getElementById("txt_AltaEquipoWF_Siglas").value,
         SitioWeb: document.getElementById("txt_AltaEquipoWF_SitioWeb").value,
-        Imagen: imagenData,
+        Imagen: imagenData != '' ? imagenData : null,
         TelefonoDeContacto: document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").value,
         IdEquipoUsuario: 0,
         IdUsuario: 0
@@ -286,18 +288,61 @@ function AltaEquipo_Limpiar() {
     document.getElementById("btn_AltaEquipo_Guardar").style.display = 'inline-block';
     document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'inline-block';
 }
+
+
+
+//=======================================================================================================
+// Equipo Rival.-
+//=======================================================================================================
+
+function AltaEquipoRival_Guardar() {
+    var mensaje = "Ha registrado el Equipo rival correctamente!";
+    var invocarUrl = "/AltaEquipoRivalWF.aspx/GuardarDatos";
+    var imagenData = GetImagen();
+
+    var objetoVista = {
+        NombreEquipo: document.getElementById("txt_AltaEquipoWF_NombreEquipo").value,
+        ImagenEscudo: imagenData != '' ? imagenData : null,
+        IdEquipoRival: 0
+    };
+
+    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEquipoRival");
+}
+
+function AltaEquipoRival_Guardar_Exito(respuesta, mensaje) {
+    Mensaje_Exito(mensaje);
+
+    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+        document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
+    }
+    return false;
+}
+
+function AltaEquipoRival_Guardar_Error(respuesta) {
+    var errores = respuesta.Errores;
+    for (var i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
+    }
+    return false;
+}
 //=======================================================================================================
 
 function GetImagen() {
+    var dataUrl = '';
+    var datosImagen = document.getElementsByClassName("file-preview-image")[0];
+    if (datosImagen != undefined) {
     var canvas = document.createElement("canvas");
     var img1 = document.createElement("img");
-    var p = document.getElementsByClassName("file-preview-image")[0].src;
+        var p = datosImagen.src;
     img1.setAttribute('src', p);
     canvas.width = img1.width;
     canvas.height = img1.height;
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img1, 0, 0);
-    var dataUrl = canvas.toDataURL();
+        dataUrl = canvas.toDataURL();
+    }
     return dataUrl;
 }
 
@@ -318,7 +363,7 @@ function AltaJugador_Guardar() {
         FechaNacimiento: document.getElementById("single_cal2").value,
         Altura: '',
         Peso: '',
-        Imagen: imagenData,
+            Imagen: imagenData != '' ? imagenData : null,
         Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value
     };
 
@@ -762,14 +807,17 @@ $("#avatar-2").fileinput({
 //=======================================================================================================
 //=======================================================================================================
 function AltaTorneo_Guardar() {
+    debugger;
     var mensaje = "Ha registrado el Torneo correctamente!";
     var invocarUrl = "/AltaTorneoWF.aspx/GuardarDatos";
+    var imagenData = GetImagen();
 
     var objetoVista = {
         NombreTorneo: document.getElementById("txt_AltaTorneoWF_NombreTorneo").value,
         FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
-        DuracionPartidos: document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value,
-        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value
+        DuracionPartidos: parseInt(document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value) || 0,
+        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value,
+        ImagenTorneo: imagenData != '' ? imagenData : null
     };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaTorneo");
@@ -795,7 +843,6 @@ function AltaTorneo_Limpiar() {
 function AltaTorneo_Guardar_Exito(respuesta, mensaje) {
     Mensaje_Exito(mensaje);
     if (respuesta != null && respuesta != false && respuesta.Exito != false) {
-        document.getElementById("btn_AltaTorneo_Nuevo").style.display = 'inline-block';
         document.getElementById("btn_AltaTorneo_Guardar").style.display = 'none';
         document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'none';
     }

@@ -38,83 +38,102 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
-        public static Respuesta AltaEquipoUsuario(EquipoUsuario equipo)
+
+        public static Respuesta AltaEquipoUsuario(EquipoUsuario equipo, PlanDePago _plan)
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Exito = true;
             respuesta.Errores = new List<string>();
-            if (String.IsNullOrEmpty(equipo.NombreEquipo))
+            int CantidadEquiposRegistrados = ConsultarDAO.CantidadEquiposRegistrados(equipo);
+            if (CantidadEquiposRegistrados >= _plan.CantidadEquipos)
             {
-                respuesta.Errores.Add("El nombre del equipo es dato obligatorio.");
+                respuesta.Errores.Add("El usuario logueado ya alcanzo el maximo de equipos que su plan permite.");
                 respuesta.Exito = false;
             }
-
-            bool ValidarAltaEquipoUsuarioExistente = ConsultarDAO.ValidarAltaEquipoUsuarioExistente(equipo);
-            if (ValidarAltaEquipoUsuarioExistente == true)
+            else
             {
-                respuesta.Errores.Add("Ya existe para el usuario logueado un equipo con el mismo nombre ingresado.");
-                respuesta.Exito = false;
+                if (String.IsNullOrEmpty(equipo.NombreEquipo))
+                {
+                    respuesta.Errores.Add("El nombre del equipo es dato obligatorio.");
+                    respuesta.Exito = false;
+                }
+
+                bool ValidarAltaEquipoUsuarioExistente = ConsultarDAO.ValidarAltaEquipoUsuarioExistente(equipo);
+                if (ValidarAltaEquipoUsuarioExistente == true)
+                {
+                    respuesta.Errores.Add("Ya existe para el usuario logueado un equipo con el mismo nombre ingresado.");
+                    respuesta.Exito = false;
+                }
             }
             return respuesta;
         }
-        public static Respuesta AltaPersonaFisicaJugador(PersonaFisicaJugador jugador)
+        public static Respuesta AltaPersonaFisicaJugador(PersonaFisicaJugador jugador, PlanDePago plan)
         {
             Respuesta respuesta = new Respuesta();
             respuesta.Errores = new List<string>();
             respuesta.Exito = true;
-            if (jugador.IdUsuario <= 0)
+            int CantidadJugadoresRegistrados = ConsultarDAO.CantidadJugadoresRegistrados(jugador.IdUsuario);
+            if (CantidadJugadoresRegistrados >= plan.CantidadJugadores)
             {
-                respuesta.Errores.Add("Error al agregar un jugador. IdUsuario = 0");
+                respuesta.Errores.Add("El usuario logueado ya alcanzo el maximo de jugadores que su plan permite.");
                 respuesta.Exito = false;
             }
-            if (string.IsNullOrEmpty(jugador.Dni))
-            {
-                if (String.IsNullOrEmpty(jugador.Apellido))
-                {
-                    respuesta.Errores.Add("El campo Apellido es un dato obligatorio.");
-                    respuesta.Exito = false;
-                }
-                if (String.IsNullOrEmpty(jugador.Nombre))
-                {
-                    respuesta.Errores.Add("El campo Nombre es un dato obligatorio.");
-                    respuesta.Exito = false;
-                }
-                if (String.IsNullOrEmpty(jugador.Apodo))
-                {
-                    respuesta.Errores.Add("El campo Apodo es un dato obligatorio.");
-                    respuesta.Exito = false;
-                }
-            }
-            ///// Si se ingreso un dni se valida por dni.
-            if (!String.IsNullOrEmpty(jugador.Dni))
-            {
-                bool AltaPersonaFisicaJugadorExistente = true;
-                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistentePorDni(jugador.Dni, jugador.IdUsuario);
-                //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
-                if (AltaPersonaFisicaJugadorExistente == true)
-                {
-                    respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado y equipo seleccionado.");
-                    respuesta.Exito = false;
-                }
-                ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
-                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.IdUsuario);
-                //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
-                if (AltaPersonaFisicaJugadorExistente == true)
-                {
-                    respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado y equipo seleccionado.");
-                    respuesta.Exito = false;
-                }
-            }
-            ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
             else
             {
-                bool AltaPersonaFisicaJugadorExistente = true;
-                AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.IdUsuario);
-                //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
-                if (AltaPersonaFisicaJugadorExistente == true)
+                if (jugador.IdUsuario <= 0)
                 {
-                    respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado y equipo seleccionado.");
+                    respuesta.Errores.Add("Error al agregar un jugador. IdUsuario = 0");
                     respuesta.Exito = false;
+                }
+                if (string.IsNullOrEmpty(jugador.Dni))
+                {
+                    if (String.IsNullOrEmpty(jugador.Apellido))
+                    {
+                        respuesta.Errores.Add("El campo Apellido es un dato obligatorio.");
+                        respuesta.Exito = false;
+                    }
+                    if (String.IsNullOrEmpty(jugador.Nombre))
+                    {
+                        respuesta.Errores.Add("El campo Nombre es un dato obligatorio.");
+                        respuesta.Exito = false;
+                    }
+                    if (String.IsNullOrEmpty(jugador.Apodo))
+                    {
+                        respuesta.Errores.Add("El campo Apodo es un dato obligatorio.");
+                        respuesta.Exito = false;
+                    }
+                }
+                ///// Si se ingreso un dni se valida por dni.
+                if (!String.IsNullOrEmpty(jugador.Dni))
+                {
+                    bool AltaPersonaFisicaJugadorExistente = true;
+                    AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistentePorDni(jugador.Dni, jugador.IdUsuario);
+                    //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
+                    if (AltaPersonaFisicaJugadorExistente == true)
+                    {
+                        respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado y equipo seleccionado.");
+                        respuesta.Exito = false;
+                    }
+                    ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
+                    AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.IdUsuario);
+                    //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
+                    if (AltaPersonaFisicaJugadorExistente == true)
+                    {
+                        respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado y equipo seleccionado.");
+                        respuesta.Exito = false;
+                    }
+                }
+                ///// Si no se cargo un dni se Valida por Apellido,Nombre,Apodo.
+                else
+                {
+                    bool AltaPersonaFisicaJugadorExistente = true;
+                    AltaPersonaFisicaJugadorExistente = ConsultarDAO.AltaPersonaFisicaJugadorExistente(jugador.Apellido, jugador.Nombre, jugador.Apodo, jugador.IdUsuario);
+                    //respuesta.Exito = AltaPersonaFisicaJugadorExistente;
+                    if (AltaPersonaFisicaJugadorExistente == true)
+                    {
+                        respuesta.Errores.Add("Ya existe una persona física con los mismos datos para el usuario logueado y equipo seleccionado.");
+                        respuesta.Exito = false;
+                    }
                 }
             }
             return respuesta;
@@ -122,6 +141,7 @@ namespace SEDT.Controlador
         public static Respuesta AltaEquipoRival(EquipoRival equipoRival)
         {
             Respuesta respuesta = new Respuesta();
+            respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             if (String.IsNullOrEmpty(equipoRival.NombreEquipo))
             {

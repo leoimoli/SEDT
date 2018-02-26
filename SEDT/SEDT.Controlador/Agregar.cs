@@ -30,7 +30,6 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
-
         public static Respuesta AltaEquipoUsuario(Modelo.Entidades.EquipoUsuario equipo)
         {
             Respuesta respuesta = new Respuesta();
@@ -38,7 +37,9 @@ namespace SEDT.Controlador
             respuesta.Errores = new List<string>();
             try
             {
-                respuesta = Validar.AltaEquipoUsuario(equipo);
+                PlanDePago _plan = new PlanDePago();
+                _plan = ConsultarDAO.PlanDePagoUsuario(equipo.IdUsuario);
+                respuesta = Validar.AltaEquipoUsuario(equipo, _plan);
                 if (respuesta.Exito == true)
                 {
                     respuesta.Id = GuardarDAO.AltaEquipoUsuario(equipo);
@@ -53,12 +54,14 @@ namespace SEDT.Controlador
         }
         public static Respuesta AltaPersonaFisicaJugador(Modelo.Entidades.PersonaFisicaJugador jugador)
         {
+            PlanDePago _plan = new PlanDePago();
             Respuesta respuesta = new Respuesta();
             respuesta.Exito = true;
             respuesta.Errores = new List<string>();
             try
             {
-                respuesta = Validar.AltaPersonaFisicaJugador(jugador);
+                _plan = ConsultarDAO.PlanDePagoUsuario(jugador.IdUsuario);
+                respuesta = Validar.AltaPersonaFisicaJugador(jugador, _plan);
                 if (respuesta.Exito == true)
                 {
                     //Byte[] bitmapData = new Byte[jugador.Imagen.Length];
@@ -94,7 +97,7 @@ namespace SEDT.Controlador
                 respuesta.Errores.Add(ex.Message);
             }
             return respuesta;
-        }       
+        }
         public static Respuesta AltaEquipoRival(Modelo.Entidades.EquipoRival equipoRival)
         {
             Respuesta respuesta = new Respuesta();
@@ -123,7 +126,7 @@ namespace SEDT.Controlador
             try
             {
                 respuesta = Validar.AltaTorneo(torneo);
-                if (respuesta.Exito == true)
+                if (respuesta.Exito)
                 {
                     respuesta.Id = GuardarDAO.AltaTorneo(torneo);
                 }

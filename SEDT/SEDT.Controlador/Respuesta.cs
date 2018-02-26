@@ -13,7 +13,7 @@ namespace SEDT.Controlador
         public List<string> Errores { get; set; }
         public int Id { get; set; }
         public List<PersonaFisicaJugador> Resultado { get; set; }
-
         public List<PersonaFisicaJugadorConsultar> ResultadoConsultar { get; set; }
+        public List<DefaultConsulta> ConsultaDefault { get; set; }
     }
 }
