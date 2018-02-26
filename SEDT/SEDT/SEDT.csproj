@@ -213,6 +213,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\Pantallas\AltaAtributosJugadorCarteraWF - Copy.js" />
+    <Content Include="Scripts\Pantallas\AltaEntrenamientoWF.js" />
     <Content Include="Scripts\particles.js" />
     <Content Include="Scripts\particulas.js" />
     <Content Include="Scripts\respond.js" />

@@ -66,7 +66,7 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("Nombre_in", jugador.Nombre);
             cmd.Parameters.AddWithValue("Apodo_in", jugador.Apodo);
             cmd.Parameters.AddWithValue("FechaNacimiento_in", jugador.FechaNacimiento);
-            cmd.Parameters.AddWithValue("Peso_in", jugador.Peso);
+            //cmd.Parameters.AddWithValue("Peso_in", jugador.Peso);
             //cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
             cmd.Parameters.AddWithValue("Telefono_in", jugador.Telefono);
             cmd.Parameters.AddWithValue("imagen_in", jugador.Imagen);
