@@ -68,6 +68,11 @@
     <link href="Template/vendors/animate.css/animate.min.css" rel="stylesheet"/>
 
     <link href="Content/Estilos.css" rel="stylesheet" />
+    
+    <!-- Slick -->
+    <link href="Content/slick/slick-theme.css" rel="stylesheet" />
+    <link href="Content/slick/slick.css" rel="stylesheet" />
+
     <style>
         .kv-avatar .krajee-default.file-preview-frame, .kv-avatar .krajee-default.file-preview-frame:hover {
             margin: 0;
@@ -146,65 +151,67 @@
                                     </li>
                                     <li><a><i class="fa fa-users"></i>Jugadores <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="AltaJugadorWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugador</div>
+                                            <li><a href="AltaJugadorWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugador</div>
                                             </a></li>
-                                            <li><a href="ConsultaJugadorWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugadores</div>
+                                            <li><a href="ConsultaJugadorWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugadores</div>
+                                            </a></li>
+                                            <li><a href="AsignarJugadorWF.aspx"><span class="label label-warning pull-left">Asignar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugadores</div>
                                             </a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-shield"></i>Equipos <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="AltaEquipoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Equipo</div>
+                                            <li><a href="AltaEquipoWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Equipo</div>
                                             </a></li>
-                                            <li><a href="AltaEquipoRivalWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Equipo rival</div>
+                                            <li><a href="AltaEquipoRivalWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Equipo rival</div>
                                             </a></li>
-                                            <li><a href="ConsultaEquipoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Equipos</div>
+                                            <li><a href="ConsultaEquipoWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Equipos</div>
                                             </a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-futbol-o"></i>Partidos <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="AltaPartidoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Partido</div>
+                                            <li><a href="AltaPartidoWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Partido</div>
                                             </a></li>
-                                            <li><a href="ConsultaPartidoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Partidos</div>
+                                            <li><a href="ConsultaPartidoWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Partidos</div>
                                             </a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-trophy"></i>Competiciones <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="AltaTorneoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Torneo</div>
+                                            <li><a href="AltaTorneoWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Torneo</div>
                                             </a></li>
-                                            <li><a href="ConsultaTorneoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Torneos</div>
+                                            <li><a href="ConsultaTorneoWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Torneos</div>
                                             </a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-clock-o"></i>Entrenamientos <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="AltaEntrenamientoWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Entrenamiento</div>
+                                            <li><a href="AltaEntrenamientoWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Entrenamiento</div>
                                             </a></li>
-                                            <li><a href="ConsultaEntrenamientoWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Entrenamientos</div>
+                                            <li><a href="ConsultaEntrenamientoWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Entrenamientos</div>
                                             </a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-folder-open"></i>Cartera <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="AltaJugadorCarteraWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugador</div>
+                                            <li><a href="AltaJugadorCarteraWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugador</div>
                                             </a></li>
-                                            <li><a href="AltaAtributosJugadorCarteraWF.aspx"><span class="label label-success pull-left">agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Atributos</div>
+                                            <li><a href="AltaAtributosJugadorCarteraWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Atributos</div>
                                             </a></li>
-                                            <li><a href="ConsultaJugadorWF.aspx"><span class="label label-primary pull-left">consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugadores</div>
+                                            <li><a href="ConsultaJugadorWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugadores</div>
                                             </a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-line-chart"></i>Reportes <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="ConsultaEstadisticaPartidoWF.aspx"><span class="label label-danger pull-left">estadísticas</span><div style="margin-top: 4px !important;">&nbsp;&nbsp; Partidos</div>
+                                            <li><a href="ConsultaEstadisticaPartidoWF.aspx"><span class="label label-danger pull-left">Estadísticas</span><div style="margin-top: 4px !important;">&nbsp;&nbsp; Partidos</div>
                                             </a></li>
-                                            <li><a href="ConsultaEstadisticaEntrenamientoWF.aspx"><span class="label label-danger pull-left">estadísticas</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Entrenamientos</div>
+                                            <li><a href="ConsultaEstadisticaEntrenamientoWF.aspx"><span class="label label-danger pull-left">Estadísticas</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Entrenamientos</div>
                                             </a></li>
-                                            <li><a href="ConsultaComparacionJugadorWF.aspx"><span class="label label-warning pull-left">comparar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugadores</div>
+                                            <li><a href="ConsultaComparacionJugadorWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Jugadores</div>
                                             </a></li>
-                                            <li><a href="ConsultaComparaciionEquipoWF.aspx"><span class="label label-warning pull-left">comparar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Equipos</div>
+                                            <li><a href="ConsultaComparaciionEquipoWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Equipos</div>
                                             </a></li>
                                         </ul>
                                     </li>
@@ -431,6 +438,10 @@
     <!-- morris.js -->
     <script src="Template/vendors/raphael/raphael.min.js"></script>
     <script src="Template/vendors/morris.js/morris.min.js"></script>
+    
+   <!-- Slick -->
+    <script src="Content/slick/slick.js"></script>
+    <script src="Content/slick/slick.min.js"></script>
 
     <script type="text/javascript">
         $('.clockpicker').clockpicker({

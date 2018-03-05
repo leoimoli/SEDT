@@ -176,6 +176,7 @@
     <Content Include="AltaTurnoWF.aspx" />
     <Content Include="AltaEquipoRivalWF.aspx" />
     <Content Include="AltaEntrenamientoWF.aspx" />
+    <Content Include="AsignarJugadorWF.aspx" />
     <Content Include="ConsultaEstadisticaEntrenamientoWF.aspx" />
     <Content Include="ConsultaEstadisticaPartidoWF.aspx" />
     <Content Include="ConsultaComparacionEquipoWF.aspx" />
@@ -198,17 +199,34 @@
     <Content Include="Content\Estilos.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\slick\fonts\slick.svg" />
+    <Content Include="Content\slick\slick-theme.css" />
+    <Content Include="Content\slick\slick.css" />
+    <Content Include="Content\slick\slick.js" />
+    <Content Include="Content\slick\slick.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Content\scss\style.scss" />
+    <Content Include="Content\slick\slick-theme.less" />
+    <Content Include="Content\slick\slick-theme.scss" />
+    <Content Include="Content\slick\slick.less" />
+    <Content Include="Content\slick\slick.scss" />
+    <Content Include="Content\slick\fonts\slick.eot" />
+    <Content Include="Content\slick\fonts\slick.ttf" />
+    <Content Include="Content\slick\fonts\slick.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Drag&amp;Drop.js" />
+    <Content Include="Scripts\dragula.js" />
+    <Content Include="Scripts\dragula.min.js" />
     <Content Include="Scripts\FormWizard.js" />
     <Content Include="Scripts\funciones.js" />
+    <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -4851,6 +4869,13 @@
     </Compile>
     <Compile Include="AltaEntrenamientoWF.aspx.designer.cs">
       <DependentUpon>AltaEntrenamientoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarJugadorWF.aspx.cs">
+      <DependentUpon>AsignarJugadorWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsignarJugadorWF.aspx.designer.cs">
+      <DependentUpon>AsignarJugadorWF.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
