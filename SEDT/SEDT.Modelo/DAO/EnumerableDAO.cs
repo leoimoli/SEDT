@@ -39,5 +39,13 @@ namespace SEDT.Modelo.DAO
 
             return actividades;
         }
+
+        public static Hashtable ObtenerCondicion()
+        {
+            Hashtable actividades = new Hashtable();
+            actividades.Add("1", "Local");
+            actividades.Add("2", "Visitante");
+            return actividades;
+        }
     }
 }

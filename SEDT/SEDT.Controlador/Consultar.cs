@@ -45,6 +45,12 @@ namespace SEDT.Controlador
             return lista;
         }
 
+        public static List<Torneo> ConsultarTorneo(Torneo torneo)
+        {
+            List<Modelo.Entidades.Torneo> lista = new List<Modelo.Entidades.Torneo>();
+            lista = ConsultarDAO.ConsultarTorneoPorUsuario(torneo);
+            return lista;
+        }
 
         //TODO!!
         public static List<PersonaFisicaJugadorConsultar> ConsultarJugadores(PersonaFisicaJugador jugador)
@@ -53,6 +59,13 @@ namespace SEDT.Controlador
             lista = ConsultarDAO.BuscarJugadorPorFiltros(jugador);
             // int ID = ConsultarDAO.BuscarJugador();
             //lista.Add(new Modelo.Entidades.PersonaFisicaJugador { IdPersonaFisicaJugador = ID });
+            return lista;
+        }
+
+        public static List<EquipoRival> ConsultarEquipoRivalPorEquipoSeleccionado(EquipoRival equipoRival)
+        {
+            List<Modelo.Entidades.EquipoRival> lista = new List<Modelo.Entidades.EquipoRival>();
+            lista = ConsultarDAO.ConsultarEquipoRivalPorEquipoSeleccionado(equipoRival);
             return lista;
         }
     }

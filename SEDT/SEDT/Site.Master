@@ -171,7 +171,7 @@
                                     </li>
                                     <li><a><i class="fa fa-futbol-o"></i>Partidos <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="AltaPartidoWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Partido</div>
+                                            <li><a href="AltaEstadisticaPartidoWF.aspx"><span class="label label-success pull-left">Agregar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Partido</div>
                                             </a></li>
                                             <li><a href="ConsultaPartidoWF.aspx"><span class="label label-primary pull-left">Consultar</span><div style="margin-top: 4px !important;">&nbsp;&nbsp;Partidos</div>
                                             </a></li>

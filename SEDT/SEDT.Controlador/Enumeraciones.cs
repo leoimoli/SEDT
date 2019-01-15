@@ -18,5 +18,10 @@ namespace SEDT.Controlador
         {
             return EnumerableDAO.ObtenerLugaresEntrenamiento();
         }
+
+        public static Hashtable Condicion()
+        {
+            return EnumerableDAO.ObtenerCondicion();
+        }
     }
 }

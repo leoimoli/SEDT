@@ -54,6 +54,68 @@ namespace SEDT.Modelo.DAO
             connection.Close();
             return lista;
         }
+        public static List<Torneo> ConsultarTorneoPorUsuario(Torneo torneo)
+        {
+            connection.Close();
+            connection.Open();
+            List<Torneo> lista = new List<Torneo>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                          new MySqlParameter("idUsuario_in", torneo.IdEquipoUsuario)};
+            string proceso = "ConsultarTorneoPorEquipoSeleccionado";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "ttorneo");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    Torneo listatorneo = new Torneo();
+                    listatorneo.IdTorneo = Convert.ToInt32(item["idTorneo"].ToString());
+                    listatorneo.NombreTorneo = item["txNombreTorneo"].ToString();
+                    lista.Add(listatorneo);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
+        public static List<EquipoRival> ConsultarEquipoRivalPorEquipoSeleccionado(EquipoRival equipoRival)
+        {
+            connection.Close();
+            connection.Open();
+            List<EquipoRival> lista = new List<EquipoRival>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                          new MySqlParameter("IdEquipoUsuario_in", equipoRival.IdEquipoUsuario)};
+            string proceso = "ConsultarEquipoRivalPorEquipoSeleccionado";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            dt.Fill(ds, "tequiporival");
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    EquipoRival listaEquipo = new EquipoRival();
+                    listaEquipo.IdEquipoRival = Convert.ToInt32(item["idEquipoRival"].ToString());
+                    listaEquipo.NombreEquipo = item["txNombreEquipo"].ToString();
+                    listaEquipo.ImagenEscudo = item["txEscudo"].ToString();
+                    lista.Add(listaEquipo);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
+
         public static DefaultConsulta ConsultaDefault(int idUsuario)
         {
             ////// Busco el Plan del usuario Logueado....
@@ -128,7 +190,6 @@ namespace SEDT.Modelo.DAO
             return listaDefault;
 
         }
-
         private static List<EquipoUsuario> ConsultarEquipoPorUsuarioLogueado(int idUsuario)
         {
             connection.Close();

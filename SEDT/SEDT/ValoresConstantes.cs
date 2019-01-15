@@ -21,5 +21,13 @@ namespace SEDT
                 return new string[] { "CANCHA PRINCIPAL", "CANCHA AUXILIAR", "GIMNASIO" };
             }
         }
+
+        public static string[] Condicion
+        {
+            get
+            {
+                return new string[] { "LOCAL", "VISITANTE" };
+            }
+        }
     }
 }
