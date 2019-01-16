@@ -21,7 +21,7 @@ namespace SEDT
             Respuesta resultado = new Respuesta();
             try
             {
-                obj.IdEquipoUsuario = ((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario;
+                obj.IdUsuario = ((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario;
                 resultado = Agregar.AltaEquipoRival(obj);
             }
             catch (Exception e)

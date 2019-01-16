@@ -5,8 +5,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 namespace SEDT
 {
@@ -23,7 +25,7 @@ namespace SEDT
             ///// Listo mis equipos
             usuarioActual = (Usuario)HttpContext.Current.Session["loginUsuario"];
             List<EquipoUsuario> Misequipos = Consultar.ConsultarEquiposUsuario(new EquipoUsuario { IdUsuario = Master.usuarioActual.IdUsuario });
-            string elemento_Misequipos = "<label for=\"fname\"> Mi Equipo(*):</label><select id=\"cmb_ConsultaJugadorWF_Equipo\" class=\"form-control\">";
+            string elemento_Misequipos = "<label for=\"fname\"> Mi Equipo(*):</label><select id=\"cmb_ComboEquipo\" class=\"form-control\">";
             elemento_Misequipos += "<option value=\"" + 0 + "\">Seleccione</option>";
             foreach (EquipoUsuario equipo in Misequipos)
                 elemento_Misequipos += "<option value=\"" + equipo.IdEquipoUsuario + "\">" + equipo.NombreEquipo + "</option>";
@@ -33,7 +35,7 @@ namespace SEDT
             ///// Listo los Torneos
             usuarioActual = (Usuario)HttpContext.Current.Session["loginUsuario"];
             List<Torneo> torneos = Consultar.ConsultarTorneo(new Torneo { IdEquipoUsuario = Master.usuarioActual.IdUsuario });
-            string elemento_torneo = "<label for=\"fname\"> Torneo(*):</label><select id=\"cmb_ConsultaJugadorWF_Equipo\" class=\"form-control\">";
+            string elemento_torneo = "<label for=\"fname\"> Torneo(*):</label><select id=\"cmb_Torneo\" class=\"form-control\">";
             elemento_torneo += "<option value=\"" + 0 + "\">Seleccione</option>";
             foreach (Torneo torneo in torneos)
                 elemento_torneo += "<option value=\"" + torneo.IdTorneo + "\">" + torneo.NombreTorneo + "</option>";
@@ -42,22 +44,45 @@ namespace SEDT
 
             ///// Listo los equipos Rivales
             usuarioActual = (Usuario)HttpContext.Current.Session["loginUsuario"];
-            List<EquipoRival> equipos = Consultar.ConsultarEquipoRivalPorEquipoSeleccionado(new EquipoRival { IdEquipoUsuario = Master.usuarioActual.IdUsuario });
-            string elemento_equipo = "<label for=\"fname\"> Equipo Rival(*):</label><select id=\"cmb_ConsultaJugadorWF_Equipo\" class=\"form-control\">";
+            List<EquipoRival> equipos = Consultar.ConsultarEquipoRivalPorEquipoSeleccionado(new EquipoRival { IdUsuario = Master.usuarioActual.IdUsuario });
+            string elemento_equipo = "<label for=\"fname\"> Equipo Rival(*):</label><select id=\"cmb_ComboEquipoRival\" class=\"form-control\">";
             elemento_equipo += "<option value=\"" + 0 + "\">Seleccione</option>";
             foreach (EquipoRival equipo in equipos)
-                elemento_equipo += "<option value=\"" + equipo.IdEquipoUsuario + "\">" + equipo.NombreEquipo + "</option>";
+                elemento_equipo += "<option value=\"" + equipo.IdEquipoRival + "\">" + equipo.NombreEquipo + "</option>";
             elemento_equipo += "</select>";
             cmb_ComboEquipoRival.Controls.Add(new LiteralControl(elemento_equipo));
 
             ///// Listo Condiciones
             Hashtable tabla_condicion = Enumeraciones.Condicion();
-            string elemento_condicion = "<label for=\"fname\">Condición:</label><select id=\"txt_AltaEtapaWF_Actividad_1_1\" class=\"form-control\">";
+            string elemento_condicion = "<label for=\"fname\">Condición:</label><select id=\"cmb_ComboCondicion\" class=\"form-control\">";
             foreach (DictionaryEntry elemento in tabla_condicion)
                 elemento_condicion += "<option value=\"" + elemento.Key + "\">" + elemento.Value + "</option>";
             elemento_condicion += "</select>";
             cmb_ComboCondicion.Controls.Add(new LiteralControl(elemento_condicion));
         }
+
+        //=============================================================
+        //=============================================================
+        [WebMethod]
+        public static Respuesta GuardarDatos(Partido obj)
+        {
+            Respuesta resultado = new Respuesta();
+            try
+            {
+                obj.IdUsuario = ((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario;
+                resultado = Agregar.AltaPartido(obj);
+                HttpContext.Current.Session["personaJugador"] = resultado.Id;
+            }
+            catch (Exception e)
+            {
+                resultado.Exito = false;
+                resultado.Errores = new List<string>();
+                resultado.Errores.Add(e.Message);
+            }
+            return resultado;
+        }
+        //=============================================================
+        //=============================================================
 
 
     }

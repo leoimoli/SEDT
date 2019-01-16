@@ -93,7 +93,7 @@ namespace SEDT.Modelo.DAO
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
             MySqlParameter[] oParam = {
-                                          new MySqlParameter("IdEquipoUsuario_in", equipoRival.IdEquipoUsuario)};
+                                          new MySqlParameter("IdEquipoUsuario_in", equipoRival.IdUsuario)};
             string proceso = "ConsultarEquipoRivalPorEquipoSeleccionado";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -664,7 +664,7 @@ namespace SEDT.Modelo.DAO
             DataTable dt = new DataTable();
             MySqlParameter[] oParam = {
                                       new MySqlParameter("NombreEquipo_in", equipoRival.NombreEquipo),
-                                      new MySqlParameter("IdEquipoUsuario_in", equipoRival.IdEquipoUsuario)};
+                                      new MySqlParameter("IdEquipoUsuario_in", equipoRival.IdUsuario)};
             string proceso = "BuscarNombreEquipoRivalExistente";
             MySqlDataAdapter da = new MySqlDataAdapter(proceso, connection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;

@@ -11,6 +11,6 @@ namespace SEDT.Modelo.Entidades
         public int IdEquipoRival { get; set; }
         public string NombreEquipo { get; set; }
         public string ImagenEscudo { get; set; }
-        public int IdEquipoUsuario { get; set; }
+        public int IdUsuario { get; set; }
     }
 }

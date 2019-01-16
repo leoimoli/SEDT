@@ -189,7 +189,7 @@ namespace SEDT.Modelo.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("NombreEquipo_in", equipoRival.NombreEquipo);
             cmd.Parameters.AddWithValue("ImagenEscudo_in", equipoRival.ImagenEscudo);
-            cmd.Parameters.AddWithValue("IdEquipoUsuario_in", equipoRival.IdEquipoUsuario);
+            cmd.Parameters.AddWithValue("IdEquipoUsuario_in", equipoRival.IdUsuario);
             cmd.ExecuteNonQuery();
             connection.Close();
             return id;
@@ -223,6 +223,7 @@ namespace SEDT.Modelo.DAO
         public static int AltaPartido(Partido partido)
         {
             int id = 0;
+            int idUltimoPartido = 0;
             connection.Close();
             connection.Open();
             string proceso = "AltaPartido";
@@ -233,10 +234,17 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("txMarcador_in", partido.Marcador);
             cmd.Parameters.AddWithValue("txResultado_in", partido.Resultado);
             cmd.Parameters.AddWithValue("IdTorneo_in", partido.IdTorneo);
-            cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("IdEquipoUsuario_in", partido.IdEquipoUsuario);
+            cmd.Parameters.AddWithValue("Condicion_in", partido.Condicion);
+            MySqlDataReader r = cmd.ExecuteReader();
             connection.Close();
-            int idRegistroUltimoPartido = ConsultarDAO.BuscarUltimoPartidoRegistrado();
-            return id = idRegistroUltimoPartido;
+            while (r.Read())
+            {
+                idUltimoPartido = Convert.ToInt32(r["ID"].ToString());
+            }
+
+            //int idRegistroUltimoPartido = ConsultarDAO.BuscarUltimoPartidoRegistrado();
+            return id;
         }
         public static int AltaEstadisticaPartido(EstadisticaPartido estadisticaPartido)
         {

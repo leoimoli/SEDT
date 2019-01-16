@@ -177,6 +177,7 @@ function Login_Usuario() {
 // CONSULTAS.-
 //=======================================================================================================
 function ConsultaJugador_Consultar() {
+    debugger;
     var mensaje = "Ha registrado el Equipo correctamente!";
     var invocarUrl = "/ConsultaJugadorWF.aspx/ConsultarDatos";
 
@@ -333,14 +334,14 @@ function GetImagen() {
     var dataUrl = '';
     var datosImagen = document.getElementsByClassName("file-preview-image")[0];
     if (datosImagen != undefined) {
-    var canvas = document.createElement("canvas");
-    var img1 = document.createElement("img");
+        var canvas = document.createElement("canvas");
+        var img1 = document.createElement("img");
         var p = datosImagen.src;
-    img1.setAttribute('src', p);
-    canvas.width = img1.width;
-    canvas.height = img1.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img1, 0, 0);
+        img1.setAttribute('src', p);
+        canvas.width = img1.width;
+        canvas.height = img1.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img1, 0, 0);
         dataUrl = canvas.toDataURL();
     }
     return dataUrl;
@@ -363,7 +364,7 @@ function AltaJugador_Guardar() {
         FechaNacimiento: document.getElementById("single_cal2").value,
         Altura: '',
         Peso: '',
-            Imagen: imagenData != '' ? imagenData : null,
+        Imagen: imagenData != '' ? imagenData : null,
         Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value
     };
 
@@ -427,6 +428,110 @@ function AltaJugador_Habilitar(habilitado) {
     document.getElementById("txt_AltaJugadorWF_Telefono").disabled = !habilitado;
     document.getElementById("avatar-2").disabled = !habilitado;
 }
+function AltaJugadorCartera_Siguiente() {
+    window.location.href = "AltaAtributosJugadorCarteraWF";
+    return false;
+}
+
+//=======================================================================================================
+// ALta Partido.-
+//=======================================================================================================
+
+function AltaEstadisticaPartido_Guardar() {
+    debugger;
+    var mensaje = "Ha registrado el partido correctamente!";
+    var invocarUrl = "/AltaEstadisticaPartidoWF.aspx/GuardarDatos";
+    var imagenData = GetImagen();
+
+    var id = document.getElementById("cmb_ComboEquipo");
+    var idequipousuario = id.options[id.selectedIndex].value;
+
+    var idtor = document.getElementById("cmb_Torneo");
+    var idtorneo = idtor.options[idtor.selectedIndex].value;
+
+    var idequiriv = document.getElementById("cmb_ComboEquipoRival");
+    var idequiporival = idequiriv.options[idequiriv.selectedIndex].value;
+
+    var objetoVista =
+    {
+        idPartido : 0,
+        idUsuario: 0,
+        FechaPartido: document.getElementById("single_cal2").value,
+        IdEquipoRival: idequiporival,
+        Marcador: '',
+        //parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_MarcadorVisitante").value) || 0,
+        MarcadorLocal: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_MarcadorLocal").value) || 0,
+        MarcadorVisitante: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_MarcadorVisitante").value) || 0,
+        Resultado: '',
+        IdTorneo: idtorneo,
+        Condicion: document.getElementById("cmb_ComboCondicion").value,
+        IdEquipoUsuario: idequipousuario,
+
+        ////// Estadisticas del partido
+        CornersPropio: document.getElementById("txt_AltaEstadisticaPartidoWF_CornerPropio").value,
+        CornersRival: document.getElementById("txt_AltaEstadisticaPartidoWF_CornerRival").value,
+        FaltasRecibidas: document.getElementById("txt_AltaEstadisticaPartidoWF_FaltasRecibidas").value,
+        FaltasCometidas: document.getElementById("txt_AltaEstadisticaPartidoWF_FaltasCometidas").value,
+        PenalesRecibidos: document.getElementById("txt_AltaEstadisticaPartidoWF_PenalesRecibidos").value,
+        PenalesCometidos: document.getElementById("txt_AltaEstadisticaPartidoWF_PenalesCometidos").value,
+        OffsidePropio: document.getElementById("txt_AltaEstadisticaPartidoWF_OffsidePropio").value,
+        OffsideRival: document.getElementById("txt_AltaEstadisticaPartidoWF_OffsideRival").value,
+        PosesionPropia: document.getElementById("txt_AltaEstadisticaPartidoWF_PosesionPropia").value,
+        PosesioRival: document.getElementById("txt_AltaEstadisticaPartidoWF_PosesionRival").value,
+        TirosPropios: document.getElementById("txt_AltaEstadisticaPartidoWF_TirosPropios").value,
+        TirosRivales: document.getElementById("txt_AltaEstadisticaPartidoWF_TirosRecibidos").value,
+        TirosAlArcoPropios: document.getElementById("txt_AltaEstadisticaPartidoWF_RematesPropios").value,
+        TirosAlArcoRivales: document.getElementById("txt_AltaEstadisticaPartidoWF_RematesRecibidos").value,
+        CantidadPasesPropios: document.getElementById("txt_AltaEstadisticaPartidoWF_PasesPropios").value,
+        CantidadPasesRivales: document.getElementById("txt_AltaEstadisticaPartidoWF_PasesRivales").value,
+    };
+
+    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEstadisticaPartido");
+}
+function AltaEstadisticaPartido_Nuevo() {
+    AltaJugador_Limpiar();
+    AltaJugador_Habilitar(true);
+    //Aplicamos visibilidad a los botones del formulario.-
+    document.getElementById("btn_AltaJugador_Nuevo").style.display = 'none';
+    document.getElementById("btn_AltaJugador_Guardar").style.display = 'inline-block';
+    document.getElementById("btn_AltaJugador_Limpiar").style.display = 'inline-block';
+}
+function AltaEstadisticaPartido_Siguiente() {
+    window.location.href = "AltaFichaTecnicaWF.aspx";
+    return false;
+}
+
+
+function AltaEstadisticaPartido_Limpiar() {
+    document.getElementById("cmb_ComboEquipo").value = "";
+    document.getElementById("cmb_Torneo").value = "";
+    document.getElementById("cmb_ComboEquipoRival").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_FechaPartido").value = "";
+    document.getElementById("cmb_ComboCondicion").value = "";
+
+    document.getElementById("txt_AltaEstadisticaPartidoWF_CornerPropio").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_CornerRival").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_FaltasRecibidas").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_FaltasCometidas").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_PenalesRecibidos").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_PenalesCometidos").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_OffsidePropio").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_OffsideRival").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_PosesionPropia").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_PosesionRival").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_TirosPropios").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_TirosRecibidos").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_RematesPropios").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_RematesRecibidos").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_PasesPropios").value = "";
+    document.getElementById("txt_AltaEstadisticaPartidoWF_PasesRivales").value = "";
+}
+//=======================================================================================================
+// Fin ALta Partido.-
+//=======================================================================================================
+
+
+
 //=======================================================================================================
 
 //=======================================================================================================
@@ -760,7 +865,7 @@ function AltaJugador_Guardar_Exito(respuesta, mensaje) {
     document.getElementById("txt_AltaJugadorWF_DNI").disabled = true;
     document.getElementById("single_cal2").disabled = true;
     document.getElementById("txt_AltaJugadorWF_Telefono").disabled = true;
-    
+
 
     return false;
 }

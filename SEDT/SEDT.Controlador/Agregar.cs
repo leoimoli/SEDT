@@ -118,6 +118,33 @@ namespace SEDT.Controlador
             }
             return respuesta;
         }
+
+        //public static Respuesta DatosPartido(Partido partido)
+        //{
+        //    Respuesta respuesta = new Respuesta();
+        //    respuesta.Exito = true;
+        //    respuesta.Errores = new List<string>();
+        //    try
+        //    {
+        //        string condicion = partido.Condicion;
+
+        //        respuesta = Validar.AltaPartido(partido);
+        //        if (respuesta.Exito == true)
+        //        {
+        //            //Byte[] bitmapData = new Byte[jugador.Imagen.Length];
+        //            //bitmapData = Convert.FromBase64String(FixBase64ForImage(jugador.Imagen));
+        //            //jugador.Imagen = bitmapData;
+        //            respuesta.Id = GuardarDAO.AltaPartido(partido);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        respuesta.Exito = false;
+        //        respuesta.Errores.Add(ex.Message);
+        //    }
+        //    return respuesta;
+        //}
+
         public static Respuesta AltaTorneo(Modelo.Entidades.Torneo torneo)
         {
             Respuesta respuesta = new Respuesta();
@@ -148,21 +175,41 @@ namespace SEDT.Controlador
                 respuesta = Validar.AltaPartido(partido);
                 if (respuesta.Exito == true)
                 {
-                    int resultadoA = Convert.ToInt32(partido.MarcadorA);
-                    int resultadoB = Convert.ToInt32(partido.MarcadorB);
-                    if (resultadoA > resultadoB)
+                    int resultadoA = Convert.ToInt32(partido.MarcadorLocal);
+                    int resultadoB = Convert.ToInt32(partido.MarcadorVisitante);
+                    string condicion = partido.Condicion;
+                    if (condicion == "LOCAL")
                     {
-                        partido.Resultado = "GANO";
-                    }
-                    else if (resultadoA < resultadoB)
-                    {
-                        partido.Resultado = "PERDIO";
+                        if (resultadoA > resultadoB)
+                        {
+                            partido.Resultado = "GANO";
+                        }
+                        else if (resultadoA < resultadoB)
+                        {
+                            partido.Resultado = "PERDIO";
+                        }
+                        else
+                        {
+                            partido.Resultado = "EMPATO";
+                        }
+                        respuesta.Id = GuardarDAO.AltaPartido(partido);
                     }
                     else
                     {
-                        partido.Resultado = "EMPATO";
+                        if (resultadoA > resultadoB)
+                        {
+                            partido.Resultado = "PERDIO";
+                        }
+                        else if (resultadoA < resultadoB)
+                        {
+                            partido.Resultado = "GANO";
+                        }
+                        else
+                        {
+                            partido.Resultado = "EMPATO";
+                        }
+                        respuesta.Id = GuardarDAO.AltaPartido(partido);
                     }
-                    respuesta.Id = GuardarDAO.AltaPartido(partido);
                 }
             }
             catch (Exception ex)

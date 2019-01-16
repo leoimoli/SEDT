@@ -116,7 +116,7 @@ namespace SEDT.Modelo.DAO
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("NombreEquipo_in", equipoRival.NombreEquipo);
             cmd.Parameters.AddWithValue("ImagenEscudo_in", equipoRival.ImagenEscudo);
-            cmd.Parameters.AddWithValue("IdEquipoUsuario_in", equipoRival.IdEquipoUsuario);
+            cmd.Parameters.AddWithValue("IdEquipoUsuario_in", equipoRival.IdUsuario);
             cmd.Parameters.AddWithValue("Id", equipoRival.IdEquipoRival);
             cmd.ExecuteNonQuery();
             connection.Close();
