@@ -237,16 +237,17 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("IdEquipoUsuario_in", partido.IdEquipoUsuario);
             cmd.Parameters.AddWithValue("Condicion_in", partido.Condicion);
             MySqlDataReader r = cmd.ExecuteReader();
-            connection.Close();
+
             while (r.Read())
             {
                 idUltimoPartido = Convert.ToInt32(r["ID"].ToString());
             }
-
-            //int idRegistroUltimoPartido = ConsultarDAO.BuscarUltimoPartidoRegistrado();
+            id = 1;
+            connection.Close();
+            int Exito = AltaEstadisticaPartido(partido, idUltimoPartido);
             return id;
         }
-        public static int AltaEstadisticaPartido(EstadisticaPartido estadisticaPartido)
+        public static int AltaEstadisticaPartido(Partido partido, int idUltimoPartido)
         {
             int id = 0;
             connection.Close();
@@ -254,25 +255,26 @@ namespace SEDT.Modelo.DAO
             string proceso = "AltaEstadisticaPartido";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("CornersPropio_in", estadisticaPartido.CornersPropio);
-            cmd.Parameters.AddWithValue("CornersRival_in", estadisticaPartido.CornersRival);
-            cmd.Parameters.AddWithValue("FaltasRecibidas_in", estadisticaPartido.FaltasRecibidas);
-            cmd.Parameters.AddWithValue("FaltasCometidas_in", estadisticaPartido.FaltasCometidas);
-            cmd.Parameters.AddWithValue("PenalesRecibidos_in", estadisticaPartido.PenalesRecibidos);
-            cmd.Parameters.AddWithValue("PenalesCometidos_in", estadisticaPartido.PenalesCometidos);
-            cmd.Parameters.AddWithValue("OffsidePropio_in", estadisticaPartido.OffsidePropio);
-            cmd.Parameters.AddWithValue("OffsideRival_in", estadisticaPartido.OffsideRival);
-            cmd.Parameters.AddWithValue("PosesionPropia_in", estadisticaPartido.PosesionPropia);
-            cmd.Parameters.AddWithValue("PosesioRival_in", estadisticaPartido.PosesioRival);
-            cmd.Parameters.AddWithValue("TirosPropios_in", estadisticaPartido.TirosPropios);
-            cmd.Parameters.AddWithValue("TirosRivales_in", estadisticaPartido.TirosRivales);
-            cmd.Parameters.AddWithValue("TirosAlArcoPropios_in", estadisticaPartido.TirosAlArcoPropios);
-            cmd.Parameters.AddWithValue("TirosAlArcoRivales_in", estadisticaPartido.TirosAlArcoRivales);
-            cmd.Parameters.AddWithValue("CantidadPasesPropios_in", estadisticaPartido.CantidadPasesPropios);
-            cmd.Parameters.AddWithValue("CantidadPasesRivales_in", estadisticaPartido.CantidadPasesRivales);
-            cmd.Parameters.AddWithValue("idPartido_in", estadisticaPartido.idPartido);
+            cmd.Parameters.AddWithValue("CornersPropio_in", partido.CornersPropio);
+            cmd.Parameters.AddWithValue("CornersRival_in", partido.CornersRival);
+            cmd.Parameters.AddWithValue("FaltasRecibidas_in", partido.FaltasRecibidas);
+            cmd.Parameters.AddWithValue("FaltasCometidas_in", partido.FaltasCometidas);
+            cmd.Parameters.AddWithValue("PenalesRecibidos_in", partido.PenalesRecibidos);
+            cmd.Parameters.AddWithValue("PenalesCometidos_in", partido.PenalesCometidos);
+            cmd.Parameters.AddWithValue("OffsidePropio_in", partido.OffsidePropio);
+            cmd.Parameters.AddWithValue("OffsideRival_in", partido.OffsideRival);
+            cmd.Parameters.AddWithValue("PosesionPropia_in", partido.PosesionPropia);
+            cmd.Parameters.AddWithValue("PosesioRival_in", partido.PosesioRival);
+            cmd.Parameters.AddWithValue("TirosPropios_in", partido.TirosPropios);
+            cmd.Parameters.AddWithValue("TirosRivales_in", partido.TirosRivales);
+            cmd.Parameters.AddWithValue("TirosAlArcoPropios_in", partido.TirosAlArcoPropios);
+            cmd.Parameters.AddWithValue("TirosAlArcoRivales_in", partido.TirosAlArcoRivales);
+            cmd.Parameters.AddWithValue("CantidadPasesPropios_in", partido.CantidadPasesPropios);
+            cmd.Parameters.AddWithValue("CantidadPasesRivales_in", partido.CantidadPasesRivales);
+            cmd.Parameters.AddWithValue("idPartido_in", idUltimoPartido);
             cmd.ExecuteNonQuery();
             connection.Close();
+            id = 1;
             return id;
         }
         public static int AltaEntrenamiento(Entrenamiento entrenamiento)

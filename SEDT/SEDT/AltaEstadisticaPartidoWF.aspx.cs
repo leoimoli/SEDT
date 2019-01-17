@@ -9,7 +9,6 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace SEDT
 {
     public partial class AltaEstadisticaPartidoWF : Page
@@ -71,7 +70,7 @@ namespace SEDT
             {
                 obj.IdUsuario = ((Usuario)HttpContext.Current.Session["loginUsuario"]).IdUsuario;
                 resultado = Agregar.AltaPartido(obj);
-                HttpContext.Current.Session["personaJugador"] = resultado.Id;
+                HttpContext.Current.Session["AltaEstadisticaPartido"] = resultado.Id;
             }
             catch (Exception e)
             {

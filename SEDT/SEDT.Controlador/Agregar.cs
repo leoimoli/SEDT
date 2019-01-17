@@ -177,7 +177,10 @@ namespace SEDT.Controlador
                 {
                     int resultadoA = Convert.ToInt32(partido.MarcadorLocal);
                     int resultadoB = Convert.ToInt32(partido.MarcadorVisitante);
+                    partido.Marcador = partido.MarcadorLocal + "a" + partido.MarcadorVisitante;
                     string condicion = partido.Condicion;
+                    if (condicion == "1") { condicion = "LOCAL"; } else { condicion = "VISITANTE"; }
+                   
                     if (condicion == "LOCAL")
                     {
                         if (resultadoA > resultadoB)
@@ -192,6 +195,7 @@ namespace SEDT.Controlador
                         {
                             partido.Resultado = "EMPATO";
                         }
+                        partido.Condicion = condicion;
                         respuesta.Id = GuardarDAO.AltaPartido(partido);
                     }
                     else
@@ -208,6 +212,7 @@ namespace SEDT.Controlador
                         {
                             partido.Resultado = "EMPATO";
                         }
+                        partido.Condicion = condicion;
                         respuesta.Id = GuardarDAO.AltaPartido(partido);
                     }
                 }
@@ -229,7 +234,7 @@ namespace SEDT.Controlador
                 respuesta = Validar.AltaEstadisticaPartido(estadisticaPartido);
                 if (respuesta.Exito == true)
                 {
-                    respuesta.Id = GuardarDAO.AltaEstadisticaPartido(estadisticaPartido);
+                    //respuesta.Id = GuardarDAO.AltaEstadisticaPartido(estadisticaPartido);
                 }
             }
             catch (Exception ex)

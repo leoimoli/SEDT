@@ -348,6 +348,7 @@ function GetImagen() {
 }
 
 function AltaJugador_Guardar() {
+    debugger;
     var mensaje = "Ha registrado el Jugador correctamente!";
     var invocarUrl = "/AltaJugadorWF.aspx/GuardarDatos";
     var imagenData = GetImagen();
@@ -454,12 +455,11 @@ function AltaEstadisticaPartido_Guardar() {
 
     var objetoVista =
     {
-        idPartido : 0,
-        idUsuario: 0,
+        idPartido: 0,
+        IdUsuario: 0,
         FechaPartido: document.getElementById("single_cal2").value,
         IdEquipoRival: idequiporival,
         Marcador: '',
-        //parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_MarcadorVisitante").value) || 0,
         MarcadorLocal: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_MarcadorLocal").value) || 0,
         MarcadorVisitante: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_MarcadorVisitante").value) || 0,
         Resultado: '',
@@ -468,22 +468,23 @@ function AltaEstadisticaPartido_Guardar() {
         IdEquipoUsuario: idequipousuario,
 
         ////// Estadisticas del partido
-        CornersPropio: document.getElementById("txt_AltaEstadisticaPartidoWF_CornerPropio").value,
-        CornersRival: document.getElementById("txt_AltaEstadisticaPartidoWF_CornerRival").value,
-        FaltasRecibidas: document.getElementById("txt_AltaEstadisticaPartidoWF_FaltasRecibidas").value,
-        FaltasCometidas: document.getElementById("txt_AltaEstadisticaPartidoWF_FaltasCometidas").value,
-        PenalesRecibidos: document.getElementById("txt_AltaEstadisticaPartidoWF_PenalesRecibidos").value,
-        PenalesCometidos: document.getElementById("txt_AltaEstadisticaPartidoWF_PenalesCometidos").value,
-        OffsidePropio: document.getElementById("txt_AltaEstadisticaPartidoWF_OffsidePropio").value,
-        OffsideRival: document.getElementById("txt_AltaEstadisticaPartidoWF_OffsideRival").value,
-        PosesionPropia: document.getElementById("txt_AltaEstadisticaPartidoWF_PosesionPropia").value,
-        PosesioRival: document.getElementById("txt_AltaEstadisticaPartidoWF_PosesionRival").value,
-        TirosPropios: document.getElementById("txt_AltaEstadisticaPartidoWF_TirosPropios").value,
-        TirosRivales: document.getElementById("txt_AltaEstadisticaPartidoWF_TirosRecibidos").value,
-        TirosAlArcoPropios: document.getElementById("txt_AltaEstadisticaPartidoWF_RematesPropios").value,
-        TirosAlArcoRivales: document.getElementById("txt_AltaEstadisticaPartidoWF_RematesRecibidos").value,
-        CantidadPasesPropios: document.getElementById("txt_AltaEstadisticaPartidoWF_PasesPropios").value,
-        CantidadPasesRivales: document.getElementById("txt_AltaEstadisticaPartidoWF_PasesRivales").value,
+        IdEstadisticaPartido: 0,
+        CornersPropio: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_CornerPropio").value) || 0,
+        CornersRival: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_CornerRival").value) || 0,
+        FaltasRecibidas: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_FaltasRecibidas").value) || 0,
+        FaltasCometidas: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_FaltasCometidas").value) || 0,
+        PenalesRecibidos: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_PenalesRecibidos").value) || 0,
+        PenalesCometidos: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_PenalesCometidos").value) || 0,
+        OffsidePropio: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_OffsidePropio").value) || 0,
+        OffsideRival: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_OffsideRival").value) || 0,
+        PosesionPropia: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_PosesionPropia").value) || 0,
+        PosesioRival: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_PosesionRival").value) || 0,
+        TirosPropios: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_TirosPropios").value) || 0,
+        TirosRivales: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_TirosRecibidos").value) || 0,
+        TirosAlArcoPropios: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_RematesPropios").value) || 0,
+        TirosAlArcoRivales: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_RematesRecibidos").value) || 0,
+        CantidadPasesPropios: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_PasesPropios").value) || 0,
+        CantidadPasesRivales: parseInt(document.getElementById("txt_AltaEstadisticaPartidoWF_PasesRivales").value) || 0
     };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEstadisticaPartido");
@@ -500,8 +501,6 @@ function AltaEstadisticaPartido_Siguiente() {
     window.location.href = "AltaFichaTecnicaWF.aspx";
     return false;
 }
-
-
 function AltaEstadisticaPartido_Limpiar() {
     document.getElementById("cmb_ComboEquipo").value = "";
     document.getElementById("cmb_Torneo").value = "";
