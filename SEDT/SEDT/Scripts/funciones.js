@@ -95,7 +95,9 @@ function Guardar_Objeto(invocarUrl, objetoVista, mensaje, funcion) {
         }
     });
 }
-
+//=======================================================================================================
+// Login y deslogin.-
+//=======================================================================================================
 function Loguear(invocarUrl, objetoVista) {
     var datos = JSON.stringify(objetoVista);
     $.ajax({
@@ -143,9 +145,7 @@ function Desloguear(invocarUrl) {
     });
 }
 //=======================================================================================================
-
-//=======================================================================================================
-// Métodos referentes a la pantalla: AltaEquipoWF.-
+// Alta Usuario.-
 //=======================================================================================================
 function Guardar_Usuario() {
     var mensaje = "Ha registrado el Usuario correctamente!";
@@ -161,7 +161,6 @@ function Guardar_Usuario() {
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "");
 }
-
 function Login_Usuario() {
     var invocarUrl = "/Login.aspx/LoginUsuario";
 
@@ -172,9 +171,8 @@ function Login_Usuario() {
 
     Loguear(invocarUrl, objetoVista);
 }
-
 //=======================================================================================================
-// CONSULTAS.-
+// Consultar Jugador.-
 //=======================================================================================================
 function ConsultaJugador_Consultar() {
     debugger;
@@ -200,7 +198,6 @@ function ConsultaJugador_Consultar() {
 function ConsultaJugador_Nuevo() {
     ConsultaJugador_Limpiar();
 }
-
 function ConsultaJugador_Limpiar() {
     //Limpiamos los campos del formulario.-
     document.getElementById("txt_AltaEquipoWF_NombreEquipo").value = "";
@@ -213,14 +210,12 @@ function ConsultaJugador_Limpiar() {
     document.getElementById("btn_ConsultaJugador_Consultar").style.display = 'inline-block';
     document.getElementById("btn_ConsultaJugador_Limpiar").style.display = 'inline-block';
 }
-
 function isEven(value) {
     if (value % 2 == 0)
         return true;
     else
         return false;
 }
-
 function ConsultaJugador_Exito(respuesta, mensaje) {
     //alert(mensaje);
     //Mensaje_Exito(Mensaje);
@@ -247,12 +242,11 @@ function ConsultaJugador_Exito(respuesta, mensaje) {
     }
     return false;
 }
-
 function ConsultaJugador_Error(respuesta, mensaje) {
 
 }
 //=======================================================================================================
-// ALTAS.-
+// Alta Equipo
 //=======================================================================================================
 function AltaEquipo_Guardar() {
     debugger;
@@ -272,11 +266,9 @@ function AltaEquipo_Guardar() {
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEquipo");
 }
-
 function AltaEquipo_Nuevo() {
     AltaEquipo_Limpiar();
 }
-
 function AltaEquipo_Limpiar() {
     //Limpiamos los campos del formulario.-
     document.getElementById("txt_AltaEquipoWF_NombreEquipo").value = "";
@@ -289,13 +281,39 @@ function AltaEquipo_Limpiar() {
     document.getElementById("btn_AltaEquipo_Guardar").style.display = 'inline-block';
     document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'inline-block';
 }
+function AltaEquipo_Guardar_Exito(respuesta, mensaje) {
+    Mensaje_Exito(mensaje);
+    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+        document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
+    }
 
+    document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").disabled = true;
+    document.getElementById("txt_AltaEquipoWF_SitioWeb").disabled = true;
+    document.getElementById("txt_AltaEquipoWF_Siglas").disabled = true;
+    document.getElementById("txt_AltaEquipoWF_NombreEquipo").disabled = true;
+    document.getElementById("avatar-2").disabled = true;
 
+    return false;
+}
+function AltaEquipo_Guardar_Error(respuesta) {
+    var errores = respuesta.Errores;
+    for (var i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
+    }
 
+    document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").disabled = false;
+    document.getElementById("txt_AltaEquipoWF_SitioWeb").disabled = false;
+    document.getElementById("txt_AltaEquipoWF_Siglas").disabled = false;
+    document.getElementById("txt_AltaEquipoWF_NombreEquipo").disabled = false;
+    document.getElementById("avatar-2").disabled = false;
+
+    return false;
+}
 //=======================================================================================================
 // Equipo Rival.-
 //=======================================================================================================
-
 function AltaEquipoRival_Guardar() {
     var mensaje = "Ha registrado el Equipo rival correctamente!";
     var invocarUrl = "/AltaEquipoRivalWF.aspx/GuardarDatos";
@@ -309,7 +327,6 @@ function AltaEquipoRival_Guardar() {
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEquipoRival");
 }
-
 function AltaEquipoRival_Guardar_Exito(respuesta, mensaje) {
     Mensaje_Exito(mensaje);
 
@@ -320,7 +337,6 @@ function AltaEquipoRival_Guardar_Exito(respuesta, mensaje) {
     }
     return false;
 }
-
 function AltaEquipoRival_Guardar_Error(respuesta) {
     var errores = respuesta.Errores;
     for (var i = 0; i < errores.length; i++) {
@@ -346,7 +362,32 @@ function GetImagen() {
     }
     return dataUrl;
 }
+function AltaJugador_Cartera_Guardar() {
+    var Mensaje = "Ha registrado el Jugador correctamente!";
+    var InvocarUrl = "/AltaJugadorCarteraWF.aspx/GuardarDatos";
+    debugger;
+    var ObjetoVista =
+    {
+        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
+        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
+        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
+        FechaPartido: document.getElementById("single_cal2").value,
+        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
+        Email: document.getElementById("txt_AltaJugadorWF_Email").value,
+        RedSocial: document.getElementById("txt_AltaJugadorWF_RedSocial").value,
+        EquipoObservado: document.getElementById("txt_AltaJugadorWF_EquipoObservado").value,
+        EquipoRival: document.getElementById("txt_AltaJugadorWF_EquipoRival").value
+    };
 
+    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
+}
+function AltaJugadorCartera_Siguiente() {
+    window.location.href = "AltaAtributosJugadorCarteraWF";
+    return false;
+}
+//=======================================================================================================
+// ALta Jugador.-
+//=======================================================================================================
 function AltaJugador_Guardar() {
     debugger;
     var mensaje = "Ha registrado el Jugador correctamente!";
@@ -371,28 +412,6 @@ function AltaJugador_Guardar() {
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaJugador");
 }
-function AltaJugador_Cartera_Guardar() {
-    var Mensaje = "Ha registrado el Jugador correctamente!";
-    var InvocarUrl = "/AltaJugadorCarteraWF.aspx/GuardarDatos";
-    debugger;
-    var ObjetoVista =
-    {
-        Apellido: document.getElementById("txt_AltaJugadorWF_Apellido").value,
-        Nombre: document.getElementById("txt_AltaJugadorWF_Nombre").value,
-        Apodo: document.getElementById("txt_AltaJugadorWF_Apodo").value,
-        FechaPartido: document.getElementById("single_cal2").value,
-        Telefono: document.getElementById("txt_AltaJugadorWF_Telefono").value,
-        Email: document.getElementById("txt_AltaJugadorWF_Email").value,
-        RedSocial: document.getElementById("txt_AltaJugadorWF_RedSocial").value,
-        EquipoObservado: document.getElementById("txt_AltaJugadorWF_EquipoObservado").value,
-        EquipoRival: document.getElementById("txt_AltaJugadorWF_EquipoRival").value
-    };
-
-    Guardar_Objeto(InvocarUrl, ObjetoVista, Mensaje, "AltaJugador");
-}
-
-
-
 function AltaJugador_Nuevo() {
     AltaJugador_Limpiar();
     AltaJugador_Habilitar(true);
@@ -409,7 +428,6 @@ function AltaJugadorCartera_Siguiente() {
     window.location.href = "AltaAtributosJugadorCarteraWF";
     return false;
 }
-
 function AltaJugador_Limpiar() {
     document.getElementById("txt_AltaJugadorWF_Nombre").value = "";
     document.getElementById("txt_AltaJugadorWF_Apellido").value = "";
@@ -419,7 +437,6 @@ function AltaJugador_Limpiar() {
     document.getElementById("txt_AltaJugadorWF_Telefono").value = "";
     document.getElementById("avatar-2").value = null;
 }
-
 function AltaJugador_Habilitar(habilitado) {
     document.getElementById("txt_AltaJugadorWF_Nombre").disabled = !habilitado;
     document.getElementById("txt_AltaJugadorWF_Apellido").disabled = !habilitado;
@@ -429,15 +446,44 @@ function AltaJugador_Habilitar(habilitado) {
     document.getElementById("txt_AltaJugadorWF_Telefono").disabled = !habilitado;
     document.getElementById("avatar-2").disabled = !habilitado;
 }
-function AltaJugadorCartera_Siguiente() {
-    window.location.href = "AltaAtributosJugadorCarteraWF";
+function AltaJugador_Guardar_Exito(respuesta, mensaje) {
+    Mensaje_Exito(mensaje);
+    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+        document.getElementById("btn_AltaJugador_Nuevo").style.display = 'inline-block';
+        document.getElementById("btn_AltaJugador_Siguiente").style.display = 'inline-block';
+        document.getElementById("btn_AltaJugador_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaJugador_Limpiar").style.display = 'none';
+    }
+
+    document.getElementById("txt_AltaJugadorWF_Nombre").disabled = true;
+    document.getElementById("avatar-2").disabled = true;
+    document.getElementById("txt_AltaJugadorWF_Apellido").disabled = true;
+    document.getElementById("txt_AltaJugadorWF_Apodo").disabled = true;
+    document.getElementById("txt_AltaJugadorWF_DNI").disabled = true;
+    document.getElementById("single_cal2").disabled = true;
+    document.getElementById("txt_AltaJugadorWF_Telefono").disabled = true;
+
+
     return false;
 }
+function AltaJugador_Guardar_Error(respuesta) {
+    var errores = respuesta.Errores;
+    for (var i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
+    }
 
+    document.getElementById("txt_AltaJugadorWF_Nombre").disabled = false;
+    document.getElementById("avatar-2").disabled = false;
+    document.getElementById("txt_AltaJugadorWF_Apellido").disabled = false;
+    document.getElementById("txt_AltaJugadorWF_Apodo").disabled = false;
+    document.getElementById("txt_AltaJugadorWF_DNI").disabled = false;
+    document.getElementById("single_cal2").disabled = false;
+    document.getElementById("txt_AltaJugadorWF_Telefono").disabled = false;
+    return false;
+}
 //=======================================================================================================
 // ALta Partido.-
 //=======================================================================================================
-
 function AltaEstadisticaPartido_Guardar() {
     debugger;
     var mensaje = "Ha registrado el partido correctamente!";
@@ -525,6 +571,16 @@ function AltaEstadisticaPartido_Limpiar() {
     document.getElementById("txt_AltaEstadisticaPartidoWF_PasesPropios").value = "";
     document.getElementById("txt_AltaEstadisticaPartidoWF_PasesRivales").value = "";
 }
+function AltaEstadisticaPartido_Guardar_Exito(respuesta, mensaje) {
+    Mensaje_Exito(mensaje);
+
+    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
+        document.getElementById("btn_AltaEstadisticaPartido_Siguiente").style.display = 'inline-block';
+        document.getElementById("btn_AltaEstadisticaPartido_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaEstadisticaPartido_Limpiar").style.display = 'none';
+    }
+    return false;
+}
 //=======================================================================================================
 // Fin ALta Partido.-
 //=======================================================================================================
@@ -534,7 +590,7 @@ function AltaEstadisticaPartido_Limpiar() {
 //=======================================================================================================
 
 //=======================================================================================================
-// Métodos referentes a la pantalla: AltaFichaTecnicaWF.-
+// Alta AltaFichaTecnica.-
 //=======================================================================================================
 function AltaFichaTecnica_Guardar() {
     var mensaje = "Ha registrado la ficha técnica del jugador correctamente!";
@@ -608,7 +664,6 @@ function AltaFichaTecnica_Guardar() {
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaFichaTecnica");
 }
-
 function AltaFichaTecnicaCartera_Guardar() {
     debugger;
     var mensaje = "Ha registrado la ficha técnica del jugador cartera correctamente!";
@@ -682,11 +737,9 @@ function AltaFichaTecnicaCartera_Guardar() {
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaFichaTecnicaCartera");
 }
-
 function AltaFichaTecnica_Nuevo() {
     AltaFichaTecnica_Limpiar();
 }
-
 function AltaFichaTecnica_Limpiar() {
     //Limpiamos los campos del formulario.-
     document.getElementById("po").checked = false;
@@ -703,7 +756,6 @@ function AltaFichaTecnica_Limpiar() {
     document.getElementById("ei").checked = false;
     document.getElementById("cd").checked = false;
 }
-
 function AltaFichaTecnicaCartera_Limpiar() {
     //Limpiamos los campos del formulario.-
     document.getElementById("po").checked = false;
@@ -736,11 +788,9 @@ function AltaEntrenamiento_Guardar() {
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEntrenamiento");
 
 }
-
 function AltaEntrenamiento_Nuevo() {
     AltaEntrenamiento_Limpiar();
 }
-
 function AltaEntrenamiento_Limpiar() {
     document.getElementById('entrenamiento_pasos').style.display = 'block';
     document.getElementById('entrenamiento_resultado').style.display = 'none';
@@ -787,11 +837,6 @@ function AltaEntrenamiento_Limpiar() {
         }
     }
 }
-//=======================================================================================================
-
-//=======================================================================================================
-// Resultadaos de las operaciones de las diferentes pantallas.-
-//=======================================================================================================
 function AltaEntrenamiento_Guardar_Exito(respuesta, mensaje) {
     Mensaje_Exito(mensaje);
 
@@ -807,7 +852,6 @@ function AltaEntrenamiento_Guardar_Exito(respuesta, mensaje) {
     }
     return false;
 }
-
 function AltaEntrenamiento_Guardar_Error(respuesta) {
     var errores = respuesta.Errores;
     for (var i = 0; i < errores.length; i++) {
@@ -815,80 +859,54 @@ function AltaEntrenamiento_Guardar_Error(respuesta) {
     }
     return false;
 }
+//=======================================================================================================
+//=======================================================================================================
+// Alta Torneo.-
+//=======================================================================================================
+function AltaTorneo_Guardar() {
+    debugger;
+    var mensaje = "Ha registrado el Torneo correctamente!";
+    var invocarUrl = "/AltaTorneoWF.aspx/GuardarDatos";
+    var imagenData = GetImagen();
 
-function AltaEquipo_Guardar_Exito(respuesta, mensaje) {
+    var objetoVista = {
+        NombreTorneo: document.getElementById("txt_AltaTorneoWF_NombreTorneo").value,
+        FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
+        DuracionPartidos: parseInt(document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value) || 0,
+        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value,
+        ImagenTorneo: imagenData != '' ? imagenData : null
+    };
+
+    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaTorneo");
+}
+function AltaTorneo_Nuevo() {
+    AltaTorneo_Limpiar();
+}
+function AltaTorneo_Limpiar() {
+    //Limpiamos los campos del formulario.-
+    document.getElementById("txt_AltaTorneoWF_NombreTorneo").value = "";
+    document.getElementById("txt_AltaTorneoWF_Formato").value = "";
+    document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value = "";
+    document.getElementById("txt_AltaTorneoWF_Descripción").value = "";
+
+    //Aplicamos visibilidad a los botones del formulario.-
+    document.getElementById("btn_AltaTorneo_Nuevo").style.display = 'none';
+    document.getElementById("btn_AltaTorneo_Guardar").style.display = 'inline-block';
+    document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'inline-block';
+}
+function AltaTorneo_Guardar_Exito(respuesta, mensaje) {
     Mensaje_Exito(mensaje);
     if (respuesta != null && respuesta != false && respuesta.Exito != false) {
-        document.getElementById("btn_AltaEquipo_Nuevo").style.display = 'inline-block';
-        document.getElementById("btn_AltaEquipo_Guardar").style.display = 'none';
-        document.getElementById("btn_AltaEquipo_Limpiar").style.display = 'none';
+        document.getElementById("btn_AltaTorneo_Guardar").style.display = 'none';
+        document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'none';
     }
-
-    document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").disabled = true;
-    document.getElementById("txt_AltaEquipoWF_SitioWeb").disabled = true;
-    document.getElementById("txt_AltaEquipoWF_Siglas").disabled = true;
-    document.getElementById("txt_AltaEquipoWF_NombreEquipo").disabled = true;
-    document.getElementById("avatar-2").disabled = true;
-
-    return false;
 }
-
-function AltaEquipo_Guardar_Error(respuesta) {
+function AltaTorneo_Guardar_Error(respuesta) {
     var errores = respuesta.Errores;
     for (var i = 0; i < errores.length; i++) {
         Mensaje_Error(errores[i]);
     }
-
-    document.getElementById("txt_AltaEquipoWF_TelefonoDeContacto").disabled = false;
-    document.getElementById("txt_AltaEquipoWF_SitioWeb").disabled = false;
-    document.getElementById("txt_AltaEquipoWF_Siglas").disabled = false;
-    document.getElementById("txt_AltaEquipoWF_NombreEquipo").disabled = false;
-    document.getElementById("avatar-2").disabled = false;
-
-    return false;
 }
-
-function AltaJugador_Guardar_Exito(respuesta, mensaje) {
-    Mensaje_Exito(mensaje);
-    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
-        document.getElementById("btn_AltaJugador_Nuevo").style.display = 'inline-block';
-        document.getElementById("btn_AltaJugador_Siguiente").style.display = 'inline-block';
-        document.getElementById("btn_AltaJugador_Guardar").style.display = 'none';
-        document.getElementById("btn_AltaJugador_Limpiar").style.display = 'none';
-    }
-
-    document.getElementById("txt_AltaJugadorWF_Nombre").disabled = true;
-    document.getElementById("avatar-2").disabled = true;
-    document.getElementById("txt_AltaJugadorWF_Apellido").disabled = true;
-    document.getElementById("txt_AltaJugadorWF_Apodo").disabled = true;
-    document.getElementById("txt_AltaJugadorWF_DNI").disabled = true;
-    document.getElementById("single_cal2").disabled = true;
-    document.getElementById("txt_AltaJugadorWF_Telefono").disabled = true;
-
-
-    return false;
-}
-
-function AltaJugador_Guardar_Error(respuesta) {
-    var errores = respuesta.Errores;
-    for (var i = 0; i < errores.length; i++) {
-        Mensaje_Error(errores[i]);
-    }
-
-    document.getElementById("txt_AltaJugadorWF_Nombre").disabled = false;
-    document.getElementById("avatar-2").disabled = false;
-    document.getElementById("txt_AltaJugadorWF_Apellido").disabled = false;
-    document.getElementById("txt_AltaJugadorWF_Apodo").disabled = false;
-    document.getElementById("txt_AltaJugadorWF_DNI").disabled = false;
-    document.getElementById("single_cal2").disabled = false;
-    document.getElementById("txt_AltaJugadorWF_Telefono").disabled = false;
-    return false;
-}
-
-//=======================================================================================================
-//=======================================================================================================
-
-
 //=======================================================================================================
 //=======================================================================================================
 $("#avatar-2").fileinput({
@@ -910,61 +928,9 @@ $("#avatar-2").fileinput({
 });
 //=======================================================================================================
 //=======================================================================================================
-function AltaTorneo_Guardar() {
-    debugger;
-    var mensaje = "Ha registrado el Torneo correctamente!";
-    var invocarUrl = "/AltaTorneoWF.aspx/GuardarDatos";
-    var imagenData = GetImagen();
-
-    var objetoVista = {
-        NombreTorneo: document.getElementById("txt_AltaTorneoWF_NombreTorneo").value,
-        FormatoTorneo: document.getElementById("txt_AltaTorneoWF_Formato").value,
-        DuracionPartidos: parseInt(document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value) || 0,
-        Descripcion: document.getElementById("txt_AltaTorneoWF_Descripción").value,
-        ImagenTorneo: imagenData != '' ? imagenData : null
-    };
-
-    Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaTorneo");
-}
-
-function AltaTorneo_Nuevo() {
-    AltaTorneo_Limpiar();
-}
-
-function AltaTorneo_Limpiar() {
-    //Limpiamos los campos del formulario.-
-    document.getElementById("txt_AltaTorneoWF_NombreTorneo").value = "";
-    document.getElementById("txt_AltaTorneoWF_Formato").value = "";
-    document.getElementById("txt_AltaTorneoWF_DuracionPartidos").value = "";
-    document.getElementById("txt_AltaTorneoWF_Descripción").value = "";
-
-    //Aplicamos visibilidad a los botones del formulario.-
-    document.getElementById("btn_AltaTorneo_Nuevo").style.display = 'none';
-    document.getElementById("btn_AltaTorneo_Guardar").style.display = 'inline-block';
-    document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'inline-block';
-}
-
-function AltaTorneo_Guardar_Exito(respuesta, mensaje) {
-    Mensaje_Exito(mensaje);
-    if (respuesta != null && respuesta != false && respuesta.Exito != false) {
-        document.getElementById("btn_AltaTorneo_Guardar").style.display = 'none';
-        document.getElementById("btn_AltaTorneo_Limpiar").style.display = 'none';
-    }
-}
-
-function AltaTorneo_Guardar_Error(respuesta) {
-    var errores = respuesta.Errores;
-    for (var i = 0; i < errores.length; i++) {
-        Mensaje_Error(errores[i]);
-    }
-}
-
-//=======================================================================================================
-//=======================================================================================================
 // LOGICA PARA AGREGAR Y ELIMINAR ELEMENTOS DUPLICADOS DEL FORMULARIO.-
 //=======================================================================================================
 //=======================================================================================================
-
 function Aplicar_Cambio_Solapa_Etapas_por_Turno() {
     // Cantidad de turnos actual.-
     var turnos = document.getElementById("txt_AltaEntrenamientoWF_CantidadTurnos").value;
@@ -1007,7 +973,6 @@ function Aplicar_Cambio_Solapa_Etapas_por_Turno() {
         $("#container_Clonar_EtapaSingular_" + i + "_1").find('#txt_AltaEtapaWF_MaterialesDeTrabajo_1_1').attr('id', 'txt_AltaEtapaWF_MaterialesDeTrabajo_' + i + '_1');
     }
 }
-
 function Aplicar_Cambio_Solapa_Etapa() {
     // Checks to see how many "duplicatable" input fields we currently have
     var num = $('.clonedInput_Etapas').length;
@@ -1056,7 +1021,6 @@ function Aplicar_Cambio_Solapa_Etapa() {
     $('#btnDel').attr('disabled', false);
     return false;
 }
-
 function Aplicar_Cambio_Solapa_Turno() {
     // Checks to see how many "duplicatable" input fields we currently have
     var num = $('.clonedInput').length;
@@ -1101,7 +1065,6 @@ function Aplicar_Cambio_Solapa_Turno() {
     $('#btnDel').attr('disabled', false);
     return false;
 }
-
 $(function () {
     $('#btnAdd').click(function () {
         Aplicar_Cambio_Solapa_Turno();
@@ -1218,7 +1181,6 @@ function ClockPicker_HoraSeleccionada() {
     }
     // .trigger('change')
 }
-
 //============================================================================================================
 //============================================================================================================
 function consultaJugador_Resultado() {

@@ -253,7 +253,6 @@
                                     <button id="btn_AltaEstadisticaPartido_Nuevo" class="btn btn-primary" style="display: none;" onclick="AltaEstadisticaPartido_Nuevo()" type="button">Nuevo</button>
                                     <button id="btn_AltaEstadisticaPartido_Siguiente" class="btn btn-success" style="display: none;" onclick="AltaEstadisticaPartido_Siguiente()" type="button">Estadistica Jugador</button>
                                     <button id="btn_AltaEstadisticaPartido_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEstadisticaPartido_Guardar()" type="button">Guardar</button>
-                                   <button id="btn_ConsultaJugador_Guardar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEstadisticaPartido_Guardar()" type="button">Prueba</button>
                                     <button id="btn_AltaEstadisticaPartido_Limpiar" class="btn btn-primary" style="display: inline-block;" onclick="AltaEstadisticaPartido_Limpiar()" type="button">Limpiar</button>
                                 </div>
                             </div>
