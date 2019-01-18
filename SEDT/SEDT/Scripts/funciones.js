@@ -534,6 +534,7 @@ function AltaEstadisticaPartido_Guardar() {
     };
 
     Guardar_Objeto(invocarUrl, objetoVista, mensaje, "AltaEstadisticaPartido");
+    AltaEstadisticaPartido_Limpiar();
 }
 function AltaEstadisticaPartido_Nuevo() {
     AltaJugador_Limpiar();
@@ -544,7 +545,7 @@ function AltaEstadisticaPartido_Nuevo() {
     document.getElementById("btn_AltaJugador_Limpiar").style.display = 'inline-block';
 }
 function AltaEstadisticaPartido_Siguiente() {
-    window.location.href = "AltaFichaTecnicaWF.aspx";
+    window.location.href = "AltaEstadisticaPartidoJugadorWF.aspx";
     return false;
 }
 function AltaEstadisticaPartido_Limpiar() {
@@ -578,6 +579,13 @@ function AltaEstadisticaPartido_Guardar_Exito(respuesta, mensaje) {
         document.getElementById("btn_AltaEstadisticaPartido_Siguiente").style.display = 'inline-block';
         document.getElementById("btn_AltaEstadisticaPartido_Guardar").style.display = 'none';
         document.getElementById("btn_AltaEstadisticaPartido_Limpiar").style.display = 'none';
+    }
+    return false;
+}
+function AltaEstadisticaPartido_Guardar_Error(respuesta) {
+    var errores = respuesta.Errores;
+    for (var i = 0; i < errores.length; i++) {
+        Mensaje_Error(errores[i]);
     }
     return false;
 }

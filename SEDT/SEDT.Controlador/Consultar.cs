@@ -19,6 +19,11 @@ namespace SEDT.Controlador
             return lista;
         }
 
+        public static Partido BuscarDatosPartidoPorId(int idPartido)
+        {
+            throw new NotImplementedException();
+        }
+
         public static JugadorCartera JugadorCarteraPorID(int idJugador)
         {
             JugadorCartera jugador = ConsultarDAO.ConsultarJugadorCarteraPorID(idJugador);

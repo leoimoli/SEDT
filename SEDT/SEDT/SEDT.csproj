@@ -171,6 +171,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AltaAtributosJugadorCarteraWF.aspx" />
+    <Content Include="AltaEstadisticaPartidoJugadorWF.aspx" />
     <Content Include="AltaEstadisticaPartidoWF.aspx" />
     <Content Include="AltaEtapaWF.aspx" />
     <Content Include="AltaJugadorCarteraWF.aspx" />
@@ -4835,6 +4836,13 @@
     </Compile>
     <Compile Include="AltaAtributosJugadorCarteraWF.aspx.designer.cs">
       <DependentUpon>AltaAtributosJugadorCarteraWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AltaEstadisticaPartidoJugadorWF.aspx.cs">
+      <DependentUpon>AltaEstadisticaPartidoJugadorWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaEstadisticaPartidoJugadorWF.aspx.designer.cs">
+      <DependentUpon>AltaEstadisticaPartidoJugadorWF.aspx</DependentUpon>
     </Compile>
     <Compile Include="AltaEstadisticaPartidoWF.aspx.cs">
       <DependentUpon>AltaEstadisticaPartidoWF.aspx</DependentUpon>

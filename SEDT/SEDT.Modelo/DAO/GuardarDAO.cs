@@ -242,10 +242,11 @@ namespace SEDT.Modelo.DAO
             {
                 idUltimoPartido = Convert.ToInt32(r["ID"].ToString());
             }
-            id = 1;
             connection.Close();
             int Exito = AltaEstadisticaPartido(partido, idUltimoPartido);
+            id = idUltimoPartido;
             return id;
+
         }
         public static int AltaEstadisticaPartido(Partido partido, int idUltimoPartido)
         {
@@ -264,7 +265,7 @@ namespace SEDT.Modelo.DAO
             cmd.Parameters.AddWithValue("OffsidePropio_in", partido.OffsidePropio);
             cmd.Parameters.AddWithValue("OffsideRival_in", partido.OffsideRival);
             cmd.Parameters.AddWithValue("PosesionPropia_in", partido.PosesionPropia);
-            cmd.Parameters.AddWithValue("PosesioRival_in", partido.PosesioRival);
+            cmd.Parameters.AddWithValue("PosesionRival_in", partido.PosesioRival);
             cmd.Parameters.AddWithValue("TirosPropios_in", partido.TirosPropios);
             cmd.Parameters.AddWithValue("TirosRivales_in", partido.TirosRivales);
             cmd.Parameters.AddWithValue("TirosAlArcoPropios_in", partido.TirosAlArcoPropios);
